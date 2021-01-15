@@ -11,7 +11,7 @@ const Header = () =>{
             <Logo/>
         </div>
         <div className="PlainText__conainer">
-        How it works
+        How it works,<p>hola</p>
         </div>
         <div className="LoginButton__container">
         <Button name = "Login" alt="Button to acces at Login" onClick={()=> history.push("/login")}/>

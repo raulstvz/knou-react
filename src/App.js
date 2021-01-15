@@ -6,7 +6,7 @@ import LandingPage from './pages/LandingPage';
 import Footer from "./components/footer/Footer";
 import Header from './components/header/Header';
 
-
+// o
 function App() {
   return (
     <div className="App__container">
