@@ -1,18 +1,11 @@
 .Footer__container {
   width: 100%;
   height: 72px;
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 96.76%;
-  bottom: 0%;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   /* Default / Black */
-
   background: #0b0d17;
 }
 

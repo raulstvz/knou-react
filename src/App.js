@@ -6,13 +6,13 @@ import LandingPage from './pages/LandingPage';
 import Footer from "./components/footer/Footer";
 import Header from './components/header/Header';
 
-
 function App() {
   return (
     <div className="App__container">
+      <div className="body_container">
       <Router>
         <Header />
-        <Footer />
+        
         <Switch>
           <Route exact path="/">
             <LandingPage />
@@ -22,7 +22,10 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
+      </div>
+      <div className="footer_container">
+      <Footer />
+      </div>
     </div>
   )
 };
