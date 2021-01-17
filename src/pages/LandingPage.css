@@ -177,14 +177,15 @@
   top: 408px;
   z-index: 1;
 }
-
+/*
 .textSecondSection_container{
-/*display: flex;
+cisplay: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-*/
+
 }
+*/
 .thirdText{
     width: 444px;
 height: 54px;
