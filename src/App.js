@@ -12,7 +12,6 @@ function App() {
       <div className="body_container">
       <Router>
         <Header />
-        
         <Switch>
           <Route exact path="/">
             <LandingPage />
