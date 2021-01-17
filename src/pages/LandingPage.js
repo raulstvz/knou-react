@@ -11,22 +11,26 @@ import purpleSquare from "../assets/landing page/purpleSquare.png";
 import Ellipse1 from "../assets/landing page/Ellipse 1.png";
 import Ellipse2 from "../assets/landing page/Ellipse 2.png";
 import Ellipse3 from "../assets/landing page/Ellipse 3.png";
+import ArrowLabel from "../components/arrowLabel/ArrowLabel";
 import Text from "../components/text/text";
-
-
-
 
 const LandingPage = () => {
   return (
     <div className="LandingPage__container">
       <div className="firstSection_container">
         <div className="Text_container">
-          <Text text="The place where you know people" />
-          <Text
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
+          <div className="firstText">
+            <Text text="The place where you know people" />
+          </div>
+          <div className="secondText">
+            <Text
+              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
             in et, lectus sit lorem id integer."
-          />
-          <Button name="Get Started" alt="Get Started" />
+            />
+          </div>
+          <div className="button_landingPage">
+            <Button name="Get Started" alt="Get Started" />
+          </div>
         </div>
         <div className="circleSection_container">
           <div className="womanSection_container">
@@ -69,13 +73,17 @@ const LandingPage = () => {
             src={Ellipse2}
             alt="brown circle"
             className="brownElipse_container"
-          /> 
-            <img
-              src={Ellipse3}
-              alt="orange ellipse"
-              className="orangeElipse_container"
-            />
-            <img src={profileSample} alt="profile picture" className="profileSample"/>
+          />
+          <img
+            src={Ellipse3}
+            alt="orange ellipse"
+            className="orangeElipse_container"
+          />
+          <img
+            src={profileSample}
+            alt="profile picture"
+            className="profileSample"
+          />
           <img
             src={Ellipse1}
             alt="purple circle"
@@ -84,9 +92,16 @@ const LandingPage = () => {
         </div>
 
         <div className="textSecondSection_container">
-          <Text text="Create your profile" />
-          <Text text="Just by creating your profile at knou you will be able to know people from arround the world and find the perfect match for you!" />
-          <Button name="Get Started" alt="Get Started" />
+          <div className="thirdText">
+            <Text text="Create your profile" />
+          </div>
+          <div className="forthText">
+            <Text text="Just by creating your profile at knou you will be able to know people from arround the world and find the perfect match for you!" />
+            <ArrowLabel />
+          </div>
+          <div className="labelArrow_container">
+          
+          </div>
         </div>
       </div>
     </div>

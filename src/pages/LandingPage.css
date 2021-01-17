@@ -10,7 +10,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 1155px;
+  align-items: center;
+  width: 1110px;
   height: 687px;
 }
 .Text_container {
@@ -50,6 +51,12 @@
   order: 1;
   flex-grow: 0;
   margin: 0px 16px;
+}
+.button_landingPage{
+
+    position: relative;
+    left: 0px;
+    top: 276px;
 }
 /*----WOMAN SECTION----*/
 
@@ -169,4 +176,43 @@
   left: 405px;
   top: 408px;
   z-index: 1;
+}
+
+.textSecondSection_container{
+/*display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+*/
+}
+.thirdText{
+    width: 444px;
+height: 54px;
+font-family: Manrope;
+font-style: normal;
+font-weight: 800;
+font-size: 40px;
+line-height: 54px;
+font-feature-settings: 'liga' off;
+color: #18191F;
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 32px;
+}
+
+.forthText{
+    width: 444px;
+height: 96px;
+font-family: Manrope;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 32px;
+font-feature-settings: 'liga' off;
+color: #18191F;
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 32px;
 }
