@@ -7,19 +7,24 @@ const Header = () => {
   const history = useHistory();
   return (
     <div className="header_container">
-      <Logo />
+      <div className="logo_container">
+        <Logo/>
+      </div>
       <div className="buttons_container">
-      <div className="text_container">How it works</div>
-        <Button
-          name="Login"
-          onClick={() => history.push("/login")}
-          color="dark"
-        />
-        <Button
-          name="Sign Up"
-          onClick={() => history.push("/signup")}
-          color="light"
-        />
+        <div className="text_container">
+          <p>How it works</p> 
+          </div>   
+          <Button
+            name="Login"
+            onClick={() => history.push("/login")}
+            color="dark"
+          />
+          <Button
+            name="Sign Up"
+            onClick={() => history.push("/signup")}
+            color="light"
+          />
+       
       </div>
     </div>
   );

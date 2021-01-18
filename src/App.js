@@ -1,4 +1,4 @@
-import './App.css';
+import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from './pages/LandingPage';
@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import ProfileFormPage from './pages/ProfileFormPage';
 import Footer from "./components/footer/Footer";
-import Header from './components/header/Header';
+import Header from "./components/header/Header";
 
 
 function App() {
@@ -16,23 +16,29 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <LandingPage />
+          <LandingPage />
           </Route>
+
           <Route exact path="/login">
-            <LoginPage />
+            <LoginPage/>
           </Route>
+           
           <Route exact path="/signup">
             <SignupPage />
           </Route>
+           
+          
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
+          
         </Switch>
-        <Footer />
       </Router>
-
+      <div className="footer_container">
+        <Footer />
+      </div>
     </div>
-  )
-};
+  );
+}
 
 export default App;

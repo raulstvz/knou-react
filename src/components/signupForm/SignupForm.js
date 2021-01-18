@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router";
 import "./SignupForm.css";
-import Logo from "../../assets/image 2.png";
+import Logo from "../../assets/logo/image 2.png";
 import Button from "../button/Button";
 
 const SignUpForm = () => {
