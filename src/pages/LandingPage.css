@@ -9,19 +9,20 @@
 .firstSection_container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 1110px;
   height: 687px;
 }
 .Text_container {
+  width: 537px;
+  height: 368px;
   display: flex;
   flex-direction: column;
 }
 
-/* First text */
 .firstText {
-  width: 540px;
+  width: 480px;
   height: 164px;
   font-family: Manrope;
   font-style: normal;
@@ -38,7 +39,7 @@
 
 /* Second text */
 .secondText {
-  width: 540px;
+  width: 480px;
   height: 64px;
   font-family: Manrope;
   font-style: normal;
@@ -55,11 +56,20 @@
 .button_landingPage{
 
     position: relative;
-    left: 0px;
-    top: 276px;
+    left: 6px;
+    top: 160px;
+}
+
+
+.circleSection_container{
+  width: 549px;
+  height: 687px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 /*----WOMAN SECTION----*/
-
 .womanSection_container {
   display: flex;
   flex-direction: row;
@@ -155,8 +165,8 @@
 }
 .orangeElipse_container {
   position: absolute;
-  left: 230px;
-  top: 68px;
+  left: 240px;
+  top: 82px;
   width: 80px;
   height: 80px;
   /*box-shadow: 0px 0px 1px rgba(12, 26, 75, 0.24),
@@ -177,14 +187,12 @@
   top: 408px;
   z-index: 1;
 }
-/*
-.textSecondSection_container{
-cisplay: flex;
+/*--------*/
+.textSecondSection_contaier{
+  display: flex;
 flex-direction: column;
-justify-content: center;
-align-items: center;
+
 }
-*/
 .thirdText{
     width: 444px;
 height: 54px;
@@ -215,4 +223,13 @@ flex: none;
 order: 1;
 flex-grow: 0;
 margin: 0px 32px;
+}
+
+.thirdSection_container{
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:134px ;
+  margin-bottom: 224px;
 }

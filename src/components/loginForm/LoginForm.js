@@ -1,57 +1,74 @@
 import "./LoginForm.css";
-import { useState,useEffect } from "react";
-import Logo from "../logo/Logo";
-import { useHistory } from "react-router-dom"
+import { useState } from "react";
+import Logo from "../../assets/logo/image 2.png";
+import { useHistory } from "react-router-dom";
 import Button from "../button/Button";
 
 const LoginForm = () => {
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-   {/* const history = useHistory();
-    const body = {
-        email : email,
-        password : password
-        
-    }
-    const handleLogin = () => {
-        const options = {
-            'method': 'POST',
-            'headers': {
-                'Content-Type': 'application/json'
-            },
-            'body': JSON.stringify(body)
-        };
-      
-    useEffect(()=>{
-        fetch("http://localhost:5050/api", options) 
-            .then(response => response.json())
-            .then(json => {
-                localStorage.setItem("token", json.token)
-                localStorage.setItem("user", JSON.stringify(json.user, console.log("Im found")))
-                //history.push("I think we can redigiged in the LandingPAge")
-    },[] )*/}
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
-    return (
-        <div className="LoginForm__contanier">
-            <div className="Logo__form">
-                <Logo />
-            </div>
-            <form>
-                <div className="Email__container">
-                    <label> Email : </label>
-                    <input type="text" onChange={(e) => setEmail((e.target.value))} placeholder="Put your email adress"></input>
-                </div>
-                <div className="Password__container">
-                    <label> Password : </label>
-                    <input type="password" onChange={(e) => setPassword((e.target.value))} placeholder="Put your email adress"></input>
-                </div>
-                <div className="Button__container" >
-                    <Button name="Login" alt="Button to acces App"/> {/* onClick{() => handleLogin() }*/}
-                </div>
-            </form>
+  const history = useHistory();
 
+  const body = {
+    email: email,
+    password: password,
+  };
+
+  console.log(body);
+
+  const handleLogin = () => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    };
+
+    fetch("http://localhost:3001/login", options)
+      .then((response) => response.json())
+      .then((json) => {
+        /* .then(json => console.log('token', json)); */
+        localStorage.setItem("token", json.token);
+        localStorage.setItem("user", JSON.stringify(json.user));
+        history.replace("/user");
+        window.location.reload(false);
+      });
+  };
+
+  return (
+    <div className="LoginForm__contanier">
+      <img className="Logo__form" src={Logo} alt="logo"/>
+      <form className="FormLogin_container">
+       
+          <label className="label_form"> Email </label>
+          <input
+            className="input_form"
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Put your email adress"
+          />
+
+    
+          <label className="label_form"> Password </label>
+          <input
+            className="input_form"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Put your email adress"
+          />
+    
+        <div className="Button__container">
+          <Button
+            name="Login"
+            alt="Button to acces App"
+            onClick={handleLogin}
+          />
         </div>
-    )
+      </form>
+    </div>
+  );
 };
 
 export default LoginForm;

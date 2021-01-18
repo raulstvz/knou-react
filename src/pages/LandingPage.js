@@ -13,8 +13,11 @@ import Ellipse2 from "../assets/landing page/Ellipse 2.png";
 import Ellipse3 from "../assets/landing page/Ellipse 3.png";
 import ArrowLabel from "../components/arrowLabel/ArrowLabel";
 import Text from "../components/text/text";
+import { useHistory } from "react-router-dom";
+import Frame from "../assets/landing page/Frame 1.png";
 
 const LandingPage = () => {
+  const history = useHistory();
   return (
     <div className="LandingPage__container">
       <div className="firstSection_container">
@@ -29,7 +32,12 @@ const LandingPage = () => {
             />
           </div>
           <div className="button_landingPage">
-            <Button name="Get Started" alt="Get Started" />
+            <Button
+              name="Get Started"
+              alt="Get Started"
+              color="dark"
+              onClick={() => history.push("/login")}
+            />
           </div>
         </div>
         <div className="circleSection_container">
@@ -41,7 +49,6 @@ const LandingPage = () => {
               <img src={womanImage} alt="woman with phone" />
             </div>
           </div>
-
           <div className="manSection_container">
             <div className="orangeCircle_container">
               <img src={orangeCircle} alt="orange circle" />
@@ -60,8 +67,8 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </div>
-
+      </div> {/*end - firstSection*/}
+      
       <div className="secondSection_container">
         <div className="photoSection_container">
           <img
@@ -99,9 +106,12 @@ const LandingPage = () => {
             <Text text="Just by creating your profile at knou you will be able to know people from arround the world and find the perfect match for you!" />
             <ArrowLabel />
           </div>
-          <div className="labelArrow_container">
-          
-          </div>
+        </div>
+      </div> {/*end - secondSection*/}
+      
+      <div className="thirdSection_container">
+        <div>
+          <img  src={Frame} alt="frame"/>
         </div>
       </div>
     </div>
