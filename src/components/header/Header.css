@@ -1,0 +1,27 @@
+.header_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons_container {
+  min-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  margin-right: 20px;
+}
+
+.text_container {
+  min-width: 150px;
+  height: 20px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  color: #18191f;
+  margin: 10px 0px;
+}

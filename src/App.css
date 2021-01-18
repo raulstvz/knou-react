@@ -1,0 +1,7 @@
+.form_container{
+    position: absolute;
+    display: flex;
+    max-width: 200px;
+    align-content: center;
+    align-items: center;
+}
