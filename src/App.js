@@ -7,7 +7,7 @@ import SignupPage from './pages/SignupPage';
 import ProfileFormPage from './pages/ProfileFormPage';
 import Footer from "./components/footer/Footer";
 import Header from './components/header/Header';
-
+import PreferencesFormPage from "./components/preferencesForm/PreferencesForm"
 
 function App() {
   return (
@@ -26,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/profileform">
             <ProfileFormPage />
+          </Route>
+          <Route exact path="/preferencesform">
+            <PreferencesFormPage />
           </Route>
         </Switch>
         <Footer />
