@@ -1,15 +1,12 @@
-.Footer__container{
+.Footer__container {
     position: absolute;
-left: 0%;
-right: 0%;
-top: 96.76%;
-bottom: 0%;
-
-/* Default / Black */
-
-background: #0B0D17;
+    width: 100vw;
+    height: 50px;
+    bottom: 0%;
+    background: #0B0D17;
 }
-.Footer__text{
+
+.Footer__text {
     color: blanchedalmond;
     justify-content: center;
 }

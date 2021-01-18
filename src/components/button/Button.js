@@ -1,13 +1,22 @@
-import "./Button.css"
+import React from 'react';
+import './Button.css';
 
-const Button = ({name,onClick, alt}) => {
+const Button = ({ name, onClick, color }) => {
 
-    return(
-        <div onClick={onClick} alt = {alt} className="btn_container">
-         <div className="container">{name}</div>  
-         </div>
+    if (color == 'dark') {
+        return (
+            <div onClick={onClick} className="button_dark">
+                <p> {name}</p>
+            </div>
+        )
+    } else {
+        return (
+            <div onClick={onClick} className="button_light">
+                <p> {name}</p>
+            </div>
+        )
+    }
 
-    )
 };
 
-export default Button;
+export default Button
