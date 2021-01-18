@@ -7,8 +7,7 @@ import SignupPage from './pages/SignupPage';
 import ProfileFormPage from './pages/ProfileFormPage';
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import SignUpPage from "./pages/SignUpPage";
-import ProfileFormPage from "./pages/ProfileFormPage";
+
 
 function App() {
   return (
@@ -17,17 +16,22 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
+          <LandingPage />
+          </Route>
+
           <Route exact path="/login">
-            <LandingPage />
+            <LoginPage/>
           </Route>
-            <LoginPage />
+           
           <Route exact path="/signup">
-          </Route>
             <SignupPage />
           </Route>
+           
+          
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
+          
         </Switch>
       </Router>
       <div className="footer_container">
