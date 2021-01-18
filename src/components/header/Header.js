@@ -6,20 +6,20 @@ import { useHistory } from "react-router-dom";
 const Header = () => {
   const history = useHistory();
   return (
-    <div className="header__container">
-      <div className="logo_container">
+    <div className="header_container">
       <Logo />
       </div>
       <div className="buttons_container">
-        <div className="PlainText__container">How it works</div>
+      <div className="text_container">How it works</div>
         <Button
           name="Login"
-          alt="Button to acces at Login"
           onClick={() => history.push("/login")}
-          color="light"
+          color="dark"
         />
-        <Button name="Sign up" alt="Button to acces at Sign up" color="dark" 
-        onClick={() => history.push("/signup")}
+        <Button
+          name="Sign Up"
+          onClick={() => history.push("/signup")}
+          color="light"
         />
       </div>
     </div>
