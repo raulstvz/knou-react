@@ -1,11 +1,10 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router";
 import "./PreferencesForm.css";
-import Logo from "../../assets/image 2.png";
+
+import Logo from "../../assets/logo/image 2.png";
 import Button from "../button/Button";
-
 const PreferencesForm = () => {
-
     const history = useHistory();
 
     //formData : combo for the inputs
@@ -15,7 +14,6 @@ const PreferencesForm = () => {
         gender: undefined,
         location: undefined,
         // hobbies: [],
-
 
     })
 
@@ -89,3 +87,4 @@ const PreferencesForm = () => {
 };
 
 export default PreferencesForm;
+

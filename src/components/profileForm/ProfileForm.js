@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router";
 import "./ProfileForm.css";
-import Logo from "../../assets/image 2.png";
+import Logo from "../../assets/logo/image 2.png";
 import Button from "../button/Button";
 
 const ProfileForm = () => {
@@ -45,7 +45,7 @@ const ProfileForm = () => {
         };
 
         fetch("http://localhost:3001/api/users", options)
-        history.push("/")
+        history.push("/preferencesform")
     };
 
     return (
