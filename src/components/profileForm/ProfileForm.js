@@ -45,7 +45,7 @@ const ProfileForm = () => {
         };
 
         fetch("http://localhost:3001/api/users", options)
-        history.push("/")
+        history.push("/preferencesform")
     };
 
     return (
