@@ -10,6 +10,7 @@ import Header from "./components/header/Header";
 import PreferencesFormPage from "./components/preferencesForm/PreferencesForm"
 
 
+
 function App() {
   return (
     <div className="App__container">
@@ -37,8 +38,6 @@ function App() {
           <Route exact path="/preferencesform">
             <PreferencesFormPage />
           </Route>
-
-
 
         </Switch>
       </Router>
