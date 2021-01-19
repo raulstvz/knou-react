@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 
 
+
 function App() {
   return (
     <div className="App__container">
@@ -31,7 +32,7 @@ function App() {
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
-          
+      
         </Switch>
       </Router>
       <div className="footer_container">
