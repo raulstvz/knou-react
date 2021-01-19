@@ -1,5 +1,6 @@
 import "./ProfileFormPage.css";
 import PreferencesForm from "../components/preferencesForm/PreferencesForm";
+
 const PreferencesFormPage = () => {
     return (
         <div>
@@ -7,4 +8,5 @@ const PreferencesFormPage = () => {
         </div>
     )
 };
+
 export default PreferencesFormPage;

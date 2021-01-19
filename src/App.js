@@ -32,10 +32,12 @@ function App() {
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
+
           
           <Route exact path="/preferencesform">
             <PreferencesFormPage />
           </Route>
+
 
 
         </Switch>
