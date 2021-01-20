@@ -4,6 +4,7 @@
     flex-direction: row;
     justify-content: flex-start;
     margin-top: 32px;
+    cursor: pointer;
 }
 .label{
     margin-right: 9px;
