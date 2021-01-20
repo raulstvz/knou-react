@@ -8,4 +8,5 @@ const PreferencesFormPage = () => {
         </div>
     )
 };
+
 export default PreferencesFormPage;

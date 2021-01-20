@@ -5,6 +5,7 @@ import Logo from "../../components/logo/Logo";
 import Button from "../button/Button";
 const PreferencesForm = () => {
     const history = useHistory();
+
     //formData : combo for the inputs
     const [formData, setFormData] = useState({
         ageStart: undefined,
@@ -12,7 +13,9 @@ const PreferencesForm = () => {
         gender: undefined,
         location: undefined,
         // hobbies: [],
+
     })
+
     //Body
     const body = {
         preferences: {
@@ -22,7 +25,9 @@ const PreferencesForm = () => {
             //hobbies: formData.hobbies
         }
     };
+
     console.log(body)
+
     //Fetch function
     const handleCreate = () => {
         const options = {
@@ -32,9 +37,11 @@ const PreferencesForm = () => {
             },
             body: JSON.stringify(body),
         };
+
         fetch("http://localhost:3001/api/users", options)
         history.push("/")
     };
+
     return (
         <div className="preferencesForm__container">
            <div className="Logo__form">
@@ -88,4 +95,6 @@ const PreferencesForm = () => {
         </div>
     );
 };
+
 export default PreferencesForm;
+
