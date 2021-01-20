@@ -8,6 +8,7 @@ import ProfileFormPage from './pages/ProfileFormPage';
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import PreferencesFormPage from "./components/preferencesForm/PreferencesForm"
+import Form from "./components/generalForm/generalForm";
 
 
 
@@ -38,6 +39,8 @@ function App() {
           <Route exact path="/preferencesform">
             <PreferencesFormPage />
           </Route>
+
+        
 
         </Switch>
       </Router>

@@ -45,7 +45,7 @@ const SignUpForm = () => {
     return (
         <div className="signupform__container">
             <div className="Logo__form" src={Logo} alt="logo"/>
-            <h4>Create new account</h4>
+            <h4>Sign Up for your new Account</h4>
             <form>
                 <label>
                     Username

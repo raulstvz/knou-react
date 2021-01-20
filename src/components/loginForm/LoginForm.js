@@ -1,6 +1,6 @@
 import "./LoginForm.css";
 import { useState } from "react";
-import Logo from "../logo/Logo";
+import Logo from "../../assets/logo/image 2.png"
 import { useHistory } from "react-router-dom"
 import Button from "../button/Button";
 
@@ -39,7 +39,7 @@ const LoginForm = () => {
 
   return (
     <div className="LoginForm__contanier">
-      <img className="Logo__form" src={Logo} alt="logo"/>
+      <img className="Logo__form" src={Logo} alt="logo" />
       <form className="FormLogin_container">
        
           <label className="label_form"> Email </label>
