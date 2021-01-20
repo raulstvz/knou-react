@@ -36,7 +36,6 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
-
     fetch("http://localhost:3001/api/users", options);
     history.push("/profileform");
   };
