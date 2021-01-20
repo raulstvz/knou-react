@@ -1,8 +1,7 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router";
 import "./PreferencesForm.css";
-
-import Logo from "../../assets/logo/image 2.png";
+import Logo from "../../components/logo/Logo";
 import Button from "../button/Button";
 const PreferencesForm = () => {
     const history = useHistory();
@@ -44,36 +43,47 @@ const PreferencesForm = () => {
     };
 
     return (
-        <div className="signupform__container">
-            <div className="Logo__form" src={Logo} alt="logo" />
-            <h4>Create new account</h4>
-            <form>
-                <label>
+        <div className="preferencesForm__container">
+           <div className="Logo__form">
+      <Logo/>
+      </div>
+            <h4 className="title_form">Select your preferences</h4>
+            <form className="formPreferences_container">
+                <label className="ageRange_container">
                     Age range
-                    <input
-                        name="ageStart"
-                        onChange={(e) =>
-                            setFormData({ ...formData, ageStart: e.target.value })}>
-                    </input>
-                    <input
-                        name="ageEnd"
-                        onChange={(e) =>
-                            setFormData({ ...formData, ageEnd: e.target.value })}>
-                    </input>
+                  
+                    <select  name="ageStart" onChange={(e) =>
+                        setFormData({ ...formData, ageStart: e.target.value })}
+                        className="input_form">
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+
+                    <select  name="ageEnd" onChange={(e) =>
+                        setFormData({ ...formData,  ageEnd: e.target.value })}
+                        className="input_form">
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                    </select>
+                  
                 </label>
-                <label>
+                <label className="gender_container">
                     Gender
                     <select onChange={(e) =>
-                        setFormData({ ...formData, gender: e.target.value })}>
+                        setFormData({ ...formData, gender: e.target.value })}
+                        className="input_form">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="others">Others</option>
                     </select>
                 </label>
-                <label>
+                <label className="location_container">
                     Location
               <input
                         name="source"
+                        className="input_form"
                         onChange={(e) =>
                             setFormData({ ...formData, location: e.target.value })}>
                     </input>
