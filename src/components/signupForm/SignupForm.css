@@ -1,4 +1,4 @@
-.LoginForm__contanier{
+.signUpForm__contanier{
     width: 50%;
     height: 500px;
     display: flex;
@@ -12,17 +12,24 @@
     margin-top: 30px;
     margin-bottom: 20px;
 }
-.FormLogin_container{
+.title_form{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.formSignUp_container{
     width: 100%;
     height: 100%;
-    padding-top:20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.Email__container , .Password__container ,.Button__container {
+.username_container, .email_container, .password_container, .avatar_container {
     margin-bottom:30px;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
     
 }
 .input_form{
@@ -36,11 +43,6 @@
 ::-webkit-input-placeholder {
     text-align: center;
   }
-.label_form{
-    font-size: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 10px;
-}
-.Button__container{
+.createbutton__container{
     margin: 20px;
 }

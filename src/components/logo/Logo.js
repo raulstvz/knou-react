@@ -1,5 +1,5 @@
 import "./Logo.css"
-import logo from "../../assets/image 2.png";
+import logo from "../../assets/logo/image 2.png";
 import { useHistory } from "react-router-dom"
 
 const Logo = () => {
