@@ -26,7 +26,7 @@ const LoginForm = () => {
       body: JSON.stringify(body),
     };
 
-    fetch("http://localhost:3001/login", options)
+    fetch("http://localhost:3001/api/auth/login", options)
       .then((response) => response.json())
       .then((json) => {
         /* .then(json => console.log('token', json)); */
