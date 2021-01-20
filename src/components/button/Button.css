@@ -12,7 +12,9 @@
   align-items: center;
   background-color: #8c30f5;
   color: #f1e4ff;
+
   cursor: pointer
+
 }
 
 .button_dark:hover {
@@ -33,7 +35,9 @@
   align-items: center;
   background-color: #f1e4ff;
   color: #8c30f5;
+
   cursor: pointer;
+
 }
 
 .button_light:hover{

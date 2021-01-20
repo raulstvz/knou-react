@@ -1,9 +1,9 @@
-import "./ProfileFormPage.css";
+import "./PreferencesFormPage.css"
 import PreferencesForm from "../components/preferencesForm/PreferencesForm";
 
 const PreferencesFormPage = () => {
     return (
-        <div>
+        <div className="preferences_container">
             <PreferencesForm />
         </div>
     )
