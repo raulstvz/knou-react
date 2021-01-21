@@ -1,5 +1,4 @@
-.profileForm__container{
-
+.preferencesForm__container{
     width: 50%;
     height: 500px;
     display: flex;
@@ -18,7 +17,7 @@
     margin-bottom: 20px;
 }
 
-.formProfile_container{
+.formPreferences_container{
     width: 100%;
     height: 100%;
     display: flex;
@@ -26,7 +25,7 @@
     align-items: center;
     justify-content: center;
 }
-.name_container, .lastName_container, .location_container, .description_container , .gender_container {
+.ageRange_container, .gender_container, .location_container {
     margin-bottom:30px;
     font-size: 15px;
     font-family: 'Courier New', Courier, monospace;

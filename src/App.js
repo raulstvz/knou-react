@@ -7,6 +7,9 @@ import SignupPage from './pages/SignupPage';
 import ProfileFormPage from './pages/ProfileFormPage';
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import PreferencesFormPage from "./pages/PreferencesFormPage"
+
+
 
 // o
 function App() {
@@ -31,7 +34,14 @@ function App() {
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
+
           
+          <Route exact path="/preferencesform">
+            <PreferencesFormPage />
+          </Route>
+
+        
+
         </Switch>
       </Router>
       <div className="footer_container">

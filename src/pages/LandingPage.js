@@ -1,3 +1,4 @@
+
 import "./LandingPage.css";
 import Button from "../components/button/Button";
 import paleturquoiseCircle from "../assets/landing page/paleturquoise Circle.png";
@@ -118,3 +119,4 @@ const LandingPage = () => {
   );
 };
 export default LandingPage;
+

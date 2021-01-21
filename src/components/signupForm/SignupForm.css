@@ -1,0 +1,48 @@
+.signUpForm__contanier{
+    width: 50%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #8c30f5 3px solid;
+    border-radius: 30px;
+}
+.Logo__form{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.title_form{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.formSignUp_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.username_container, .email_container, .password_container, .avatar_container {
+    margin-bottom:30px;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
+    
+}
+.input_form{
+    width: 50%;
+    height: 30px;
+    border-radius: 30px;
+    border: #8c30f5 1px solid;
+    margin-top: 1px;
+    
+}
+::-webkit-input-placeholder {
+    text-align: center;
+  }
+.createbutton__container{
+    margin: 20px;
+}
