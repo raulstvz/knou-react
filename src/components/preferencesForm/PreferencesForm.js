@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router";
 import "./PreferencesForm.css";
-
 import Logo from "../../assets/logo/image 2.png";
 import Button from "../button/Button";
 const PreferencesForm = () => {
@@ -40,7 +39,7 @@ const PreferencesForm = () => {
         };
 
         fetch("http://localhost:3001/api/users", options)
-        history.push("/")
+        history.push("/userprofile")
     };
 
     return (
