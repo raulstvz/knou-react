@@ -1,5 +1,5 @@
 import "./SignupPage.css";
-import SignUpForm from "../components/signupForm/SignupForm";
+import SignupForm from "../components/signupForm/SignupForm";
 
 const SignupPage = () => {
     return (
