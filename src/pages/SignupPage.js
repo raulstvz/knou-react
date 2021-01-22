@@ -3,8 +3,10 @@ import SignUpForm from "../components/signupForm/SignupForm";
 
 const SignupPage = () => {
     return (
-        <div>
-            <SignUpForm/>
+
+        <div className="signUpPage_container">
+            <SignupForm />
+
         </div>
     )
 };
