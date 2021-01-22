@@ -6,12 +6,16 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import ProfileFormPage from './pages/ProfileFormPage';
 import UserProfilePage from './pages/UserProfilePage';
+import SwipPage from "./pages/SwipPage";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import PreferencesFormPage from "./components/preferencesForm/PreferencesForm"
+import PreferencesFormPage from "./components/preferencesForm/PreferencesForm";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
+
   return (
+
     <div className="App__container">
       <Router>
         <Header />
@@ -31,14 +35,20 @@ function App() {
           <Route exact path="/preferencesform">
             <PreferencesFormPage />
           </Route>
+          <Route exact path="/swippage">
+            <SwipPage />
+          </Route>
           <Route exact path="/userprofile">
             <UserProfilePage />
           </Route>
+          <Route exat path="/chatpage">
+            <ChatPage />
+          </Route>
         </Switch>
+        <div className="footer_container">
+          <Footer />
+        </div>
       </Router>
-      <div className="footer_container">
-        <Footer />
-      </div>
     </div>
   );
 }

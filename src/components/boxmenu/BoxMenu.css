@@ -1,0 +1,15 @@
+.BoxMenu_container{
+    width: 1440px;
+    height: 340;
+    border: 2px solid blueviolet;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-left: 
+    12%;
+    margin-right: 5%;
+    justify-content: space-between;
+    
+    
+    
+}
