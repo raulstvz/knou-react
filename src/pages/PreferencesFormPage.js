@@ -1,5 +1,5 @@
 import "./PreferencesFormPage.css"
-import PreferencesForm from "../components/preferencesForm/PreferencesForm";
+import PreferencesForm from "../components/forms/PreferencesForm";
 
 const PreferencesFormPage = () => {
     return (

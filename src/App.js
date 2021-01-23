@@ -9,9 +9,6 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import PreferencesFormPage from "./pages/PreferencesFormPage"
 
-
-
-
 function App() {
   return (
     <div className="App__container">
@@ -19,29 +16,20 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-          <LandingPage />
+            <LandingPage />
           </Route>
-
           <Route exact path="/login">
-            <LoginPage/>
+            <LoginPage />
           </Route>
-           
           <Route exact path="/signup">
             <SignupPage />
           </Route>
-           
-          
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
-
-          
           <Route exact path="/preferencesform">
             <PreferencesFormPage />
           </Route>
-
-        
-
         </Switch>
       </Router>
       <div className="footer_container">
