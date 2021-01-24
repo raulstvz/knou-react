@@ -1,7 +1,9 @@
-import "./SwipPage.css"
+import "./SwipePage.css"
 import BoxMenu from "../components/boxmenu/BoxMenu"
 
-const SwipPage = () => {
+const SwipePage = () => {
+
+    
     return (
         <div>
         <BoxMenu />
@@ -10,4 +12,4 @@ const SwipPage = () => {
     )
 }
 
-export default SwipPage;
+export default SwipePage;
