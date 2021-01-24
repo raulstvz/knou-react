@@ -3,9 +3,11 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
-import 'leaflet/dist/leaflet.css';
+import Tag from "../tag/Tag";
+import TagOptions from "../tag/TagOptions"
 
 const ProfileForm = () => {
+
   const history = useHistory();
 
   //formData : combo for the inputs
@@ -16,9 +18,21 @@ const ProfileForm = () => {
     location: undefined,
     description: undefined,
     gender: undefined,
+    hobbies: undefined
     //photos
-    //hobbies
   });
+
+  //Assign hobbies from selected tags in the form
+  const [selectedHobbies, setSelectedHobbies] = useState([])
+  
+  const handleSelectedHobbies = (option) => {
+    if (!selectedHobbies.includes(option)) {
+      setSelectedHobbies([...selectedHobbies, option]);
+    } else if (selectedHobbies.includes(option)) {
+      setSelectedHobbies(selectedHobbies.filter(item => item !== option))
+    }    
+    setFormData({ ...formData, hobbies: selectedHobbies });
+  }
 
   //Body
   const body = {
@@ -29,12 +43,10 @@ const ProfileForm = () => {
       location: formData.location,
       description: formData.description,
       gender: formData.gender,
+      hobbies: formData.hobbies
       //photos
-      //hobbies
     },
   };
-
-  console.log(body);
 
   //Fetch function
   const handleCreate = () => {
@@ -99,6 +111,16 @@ const ProfileForm = () => {
             setFormData({ ...formData, description: e.target.value })
           }
         />
+        <label className="form__label">Your hobbies and interests</label>
+        <div className="form__tags">
+          {TagOptions.map((option) => {
+            return (
+              <div onClick={() => handleSelectedHobbies(option)}>
+                <Tag name={option} />
+              </div>
+            )
+          })}
+        </div>
         <div className="button__container">
           <Button name="Create" onClick={handleCreate} />
         </div>

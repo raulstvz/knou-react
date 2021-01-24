@@ -3,12 +3,12 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
-const PreferencesForm = () => {
-    const history = useHistory();
+import Tag from "../tag/Tag";
+import TagOptions from "../tag/TagOptions"
 
-    const [minAge, setMinAge] = useState(30)
-    const [maxAge, setMaxAge] = useState(30)
-    const [distance, setDistance] = useState(10)
+const PreferencesForm = () => {
+
+    const history = useHistory();
 
     //formData : combo for the inputs
     const [formData, setFormData] = useState({
@@ -16,20 +16,31 @@ const PreferencesForm = () => {
         ageEnd: "50",
         orientation: undefined,
         distance: "50",
-        // hobbies: [],
-
+        hobbies: undefined
     })
+
+    //Assign hobbies from selected tags in the form
+    const [selectedHobbies, setSelectedHobbies] = useState([])
+
+    const handleSelectedHobbies = (option) => {
+        if (!selectedHobbies.includes(option)) {
+            setSelectedHobbies([...selectedHobbies, option]);
+        } else if (selectedHobbies.includes(option)) {
+            setSelectedHobbies(selectedHobbies.filter(item => item !== option))
+        }
+        setFormData({ ...formData, hobbies: selectedHobbies });
+    }
 
     //Body
     const body = {
         preferences: {
             orientation: formData.orientation,
             agerange: [
-                parseInt(formData.ageStart), 
+                parseInt(formData.ageStart),
                 parseInt(formData.ageEnd)
             ],
             distance: parseInt(formData.distance),
-            //hobbies: formData.hobbies
+            hobbies: formData.hobbies
         }
     };
 
@@ -96,9 +107,19 @@ const PreferencesForm = () => {
                         }
                     />
                 </div>
+                <label className="form__label">It's hobbies and interests</label>
+                <div className="form__tags">
+                    {TagOptions.map((option) => {
+                        return (
+                            <div onClick={() => handleSelectedHobbies(option)}>
+                                <Tag name={option} />
+                            </div>
+                        )
+                    })}
+                </div>
 
                 <div className="createbutton__container">
-                    <Button name="Create" onClick={handleCreate} />
+                    <Button name="Save options" onClick={handleCreate} />
                 </div>
             </form>
         </div>

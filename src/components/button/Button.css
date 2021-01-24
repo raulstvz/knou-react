@@ -6,15 +6,14 @@
   order: 0;
   flex-grow: 0;
   margin: 14px 5px;
+  padding: 0px 10px;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   background-color: #8c30f5;
   color: #f1e4ff;
-
   cursor: pointer
-
 }
 
 .button_dark:hover {
@@ -29,17 +28,16 @@
   order: 0;
   flex-grow: 0;
   margin: 14px 5px;
+  padding: 0px 10px;
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
   background-color: #f1e4ff;
   color: #8c30f5;
-
   cursor: pointer;
-
 }
 
-.button_light:hover{
+.button_light:hover {
   background-color: #ead7fd;
 }
