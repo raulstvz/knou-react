@@ -18,6 +18,7 @@ import { useHistory } from "react-router-dom";
 import Frame from "../assets/landing page/Frame 1.png";
 
 const LandingPage = () => {
+
   const history = useHistory();
   return (
     <div className="LandingPage__container">
@@ -60,7 +61,7 @@ const LandingPage = () => {
             </div>
 
             <div className="turquoiseCircle_container">
-              <img src={turquoiseCircle} />
+              <img src={turquoiseCircle} alt="turquoise Circle"/>
             </div>
 
             <div className="purpleCircle_container">

@@ -81,7 +81,7 @@ const PreferencesForm = () => {
               <input
                         name="source"
                         className="input_form"
-                        onChange={(e) =>
+                         onChange={(e) =>
                             setFormData({ ...formData, location: e.target.value })}>
                     </input>
                 </label>
