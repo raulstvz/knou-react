@@ -1,7 +1,8 @@
 import "./Header.css";
 import Button from "../button/Button";
-import Logo from "../logo/Logo";
-import { useHistory } from "react-router-dom";
+import Logo from "../logo/Logo"
+import { useHistory } from "react-router-dom"
+
 
 const Header = () => {
   const history = useHistory();
@@ -27,6 +28,7 @@ const Header = () => {
       </div>
     </div>
   );
+
 };
 
 export default Header;
