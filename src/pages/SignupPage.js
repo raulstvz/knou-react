@@ -5,7 +5,7 @@ const SignUpPage = () => {
     return (
 
         <div className="signUpPage_container">
-            <SignUpForm />
+            <SignupForm />
 
         </div>
     )
