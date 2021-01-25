@@ -9,9 +9,7 @@ import UserProfilePage from './pages/UserProfilePage';
 import SwipPage from "./pages/SwipePage";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-
 import PreferencesFormPage from "./pages/PreferencesFormPage"
-import LeftBar from "./components/leftBar/letfBar";
 
 
 function App() {
@@ -34,13 +32,9 @@ function App() {
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
-
-
-        <Route exact path="/swipepage">
-          <LeftBar/>
-        </Route>
-          
-
+          <Route exact path="/swipepage">
+            <LeftBar />
+          </Route>
           <Route exact path="/preferencesform">
             <PreferencesFormPage />
           </Route>
@@ -49,9 +43,6 @@ function App() {
           </Route>
           <Route exact path="/userprofile">
             <UserProfilePage />
-          </Route>
-          <Route exat path="/chatpage">
-            <ChatPage />
           </Route>
         </Switch>
         <div className="footer_container">
