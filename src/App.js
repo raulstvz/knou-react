@@ -10,8 +10,6 @@ import Header from "./components/header/Header";
 import PreferencesFormPage from "./pages/PreferencesFormPage"
 import LeftBar from "./components/leftBar/letfBar";
 
-
-
 function App() {
   return (
     <div className="App__container">
