@@ -18,6 +18,7 @@ import { useHistory } from "react-router-dom";
 import Frame from "../assets/landing page/Frame 1.png";
 
 const LandingPage = () => {
+
   const history = useHistory();
   return (
     <div className="LandingPage__container">
