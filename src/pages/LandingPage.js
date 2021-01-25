@@ -61,7 +61,7 @@ const LandingPage = () => {
             </div>
 
             <div className="turquoiseCircle_container">
-              <img src={turquoiseCircle} />
+              <img src={turquoiseCircle} alt="turquoise Circle"/>
             </div>
 
             <div className="purpleCircle_container">
