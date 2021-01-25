@@ -31,8 +31,8 @@ const LoginForm = () => {
       .then((json) => {
         /* .then(json => console.log('token', json)); */
         localStorage.setItem("token", json.token);
-        localStorage.setItem("user", JSON.stringify(json.user));
-        history.replace("/user");
+        localStorage.setItem("user", JSON.stringify(json.user)); // history.push(swippage)
+        history.replace("/user"); // I don't understand this synatxis
         window.location.reload(false);
       });
   };

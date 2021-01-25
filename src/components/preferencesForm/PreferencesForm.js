@@ -13,9 +13,7 @@ const PreferencesForm = () => {
         gender: undefined,
         location: undefined,
         // hobbies: [],
-
     })
-
     //Body
     const body = {
         preferences: {
@@ -27,7 +25,6 @@ const PreferencesForm = () => {
     };
 
     console.log(body)
-
     //Fetch function
     const handleCreate = () => {
         const options = {
@@ -39,7 +36,7 @@ const PreferencesForm = () => {
         };
 
         fetch("http://localhost:3001/api/users", options)
-        history.push("/")
+        history.push("/swippage")
     };
 
     return (
