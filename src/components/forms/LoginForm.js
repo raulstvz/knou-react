@@ -46,34 +46,34 @@ const LoginForm = () => {
   return (
     <div className="form">
       <form className="form__container">
-        <div className="form__logo">
+        <div className="form_logo">
           <Logo />
         </div>
-        <h4 className="form__title">Log in to your account</h4>
-        <label className="form__label"> Email </label>
+        <h4 className="form_title">Log in to your account</h4>
+        <label className="form_label"> Email </label>
         <input
-          className="form__input"
+          className="form_input"
           type="text"
           onChange={(e) => setEmail(e.target.value)}
           placeholder=" Email adress"
         />
         <label className="form__label"> Password </label>
         <input
-          className="form__input"
+          className="form_input"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder=" Password"
         />
-        <div className="button__container">
+        <div className="button_container">
           <Button
             name="Login"
             alt="Button to acces App"
             onClick={handleLogin}
           />
         </div>
-        <div className="form__action">
-        <h4 className="form__title">Not a user yet?</h4>
-        <div className="button__container">
+        <div className="form_action">
+        <h4 className="form_title">Not a user yet?</h4>
+        <div className="button_container">
           <Button
             name="Sign Up"
             alt="Button to Sign Up"

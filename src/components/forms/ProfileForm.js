@@ -65,26 +65,26 @@ const ProfileForm = () => {
   return (
     <div className="form">
       <form className="form__container">
-        <div className="form__logo">
+        <div className="form_logo">
           <Logo />
         </div>
-        <h4 className="form__title">Let's define your profile</h4>
-        <label className="form__label">First Name</label>
+        <h4 className="form_title">Let's define your profile</h4>
+        <label className="form_label">First Name</label>
         <input
-          className="form__input"
+          className="form_input"
           onChange={(e) =>
             setFormData({ ...formData, firstname: e.target.value })
           }
         />
-        <label className="form__label">Last Name</label>
+        <label className="form_label">Last Name</label>
         <input
-          className="form__input"
+          className="form_input"
           onChange={(e) =>
             setFormData({ ...formData, lastname: e.target.value })
           }
         />
-        <label className="form__label">Gender</label>
-        <div className="form__radio">
+        <label className="form_label">Gender</label>
+        <div className="form_radio">
           <input type="radio" id="male" name="gender" value="male"
             onChange={(e) =>
               setFormData({ ...formData, gender: e.target.value })
@@ -94,25 +94,25 @@ const ProfileForm = () => {
               setFormData({ ...formData, gender: e.target.value })
             } />Female
         </div>
-        <label className="form__label">Birth Date</label>
+        <label className="form_label">Birth Date</label>
         <input
-          className="form__input"
+          className="form_input"
           type="date"
           value={formData.birthdate}
           onChange={(e) =>
             setFormData({ ...formData, birthdate: e.target.value })
           }
         />
-        <label className="form__label">Description</label>
+        <label className="form_label">Description</label>
         <textarea
-          className="form__text"
+          className="form_text"
           rows="10"
           onChange={(e) =>
             setFormData({ ...formData, description: e.target.value })
           }
         />
-        <label className="form__label">Your hobbies and interests</label>
-        <div className="form__tags">
+        <label className="form_label">Your hobbies and interests</label>
+        <div className="form_tags">
           {TagOptions.map((option) => {
             return (
               <div onClick={() => handleSelectedHobbies(option)}>
@@ -121,7 +121,7 @@ const ProfileForm = () => {
             )
           })}
         </div>
-        <div className="button__container">
+        <div className="button_container">
           <Button name="Create" onClick={handleCreate} />
         </div>
       </form>
