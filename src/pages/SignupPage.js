@@ -1,12 +1,14 @@
 import "./SignupPage.css";
-import SignupForm from "../components/signupForm/SignupForm";
+import SignupForm from "../components/forms/SignupForm";
 
-const SignupPage = () => {
+const SignUpPage = () => {
     return (
-        <div>
+
+        <div className="signUpPage_container">
             <SignupForm />
+
         </div>
     )
 };
 
-export default SignupPage;
+export default SignUpPage;

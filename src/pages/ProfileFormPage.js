@@ -1,9 +1,9 @@
 import "./ProfileFormPage.css";
-import ProfileForm from "../components/profileForm/ProfileForm";
+import ProfileForm from "../components/forms/ProfileForm";
 
 const ProfileFormPage = () => {
     return (
-        <div>
+        <div className="profilePage_container">
             <ProfileForm />
         </div>
     )

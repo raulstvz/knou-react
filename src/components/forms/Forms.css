@@ -1,0 +1,87 @@
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Manrope;
+}
+
+.form__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #8c30f5 3px solid;
+    border-radius: 30px;
+}
+
+.form_logo {
+    margin: 25px
+}
+
+.form_title {
+    margin: 25px
+}
+
+.form_label {
+    width: 50%;
+    margin-bottom: 10px;
+    font-size: 15px;
+    margin: 10px;
+}
+
+.form_input {
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    border: #8c30f5 1px solid;
+    margin-bottom: 20px;
+}
+
+.form_text {
+    width: 50%;
+    border-radius: 10px;
+    border: #8c30f5 1px solid;
+    margin-bottom: 20px;
+}
+
+.form_tags {
+    max-width: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px 0px 50px 0px;
+}
+
+.form_radio {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.button_container {
+    margin: 20px;
+}
+
+.form_action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form_slider {
+    width: 40%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
