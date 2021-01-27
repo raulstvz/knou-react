@@ -57,7 +57,7 @@ const LoginForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder=" Email adress"
         />
-        <label className="form__label"> Password </label>
+        <label className="form_label"> Password </label>
         <input
           className="form_input"
           type="password"
