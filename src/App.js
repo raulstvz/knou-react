@@ -6,11 +6,11 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import ProfileFormPage from './pages/ProfileFormPage';
 import UserProfilePage from './pages/UserProfilePage';
-import SwipPage from "./pages/SwipePage";
+import SwipePage from "./pages/SwipePage";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import PreferencesFormPage from "./pages/PreferencesFormPage"
-import LeftBar from "./components/leftBar/letfBar";
+
 
 
 function App() {
@@ -33,23 +33,16 @@ function App() {
           <Route exact path="/profileform">
             <ProfileFormPage />
           </Route>
-
-
-        <Route exact path="/swipeage">
-          <LeftBar/>
-        </Route>
-          
-
           <Route exact path="/preferencesform">
             <PreferencesFormPage />
           </Route>
           <Route exact path="/swipepage">
-            <SwipPage />
+            <SwipePage />
           </Route>
           <Route exact path="/userprofile">
             <UserProfilePage />
           </Route>
-
+         
         </Switch>
         <div className="footer_container">
           <Footer />
