@@ -44,40 +44,40 @@ const SignUpForm = () => {
   return (
     <div className="form">
       <form className="form__container">
-        <div className="form__logo">
+        <div className="form_logo">
           <Logo />
         </div>
-        <h4 className="form__title">Create a new account</h4>
-        <label className="form__label">Username</label>
+        <h4 className="form_title">Create a new account</h4>
+        <label className="form_label">Username</label>
         <input
           name="source"
-          className="form__input"
+          className="form_input"
           placeholder=" Username"
           onChange={(e) =>
             setFormData({ ...formData, username: e.target.value })
           }
         />
-        <label className="form__label">Email</label>
+        <label className="form_label">Email</label>
         <input
           name="source"
-          className="form__input"
+          className="form_input"
           type="email"
           placeholder=" Email adress"
           onChange={(e) =>
             setFormData({ ...formData, email: e.target.value })
           }
         />
-        <label className="form__label">Password</label>
+        <label className="form_label">Password</label>
           <input
             name="source"
-            className="form__input"
+            className="form_input"
             type="password"
             placeholder=" Password"
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
           />
-        <div className="button__container">
+        <div className="button_container">
           <Button name="Create" onClick={handleCreate} />
         </div>
       </form>

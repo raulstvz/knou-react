@@ -1,3 +1,14 @@
+Syntax criteria
+
+The folders will be typinig at beginning with lowercase and the rest in camelCase.
+
+The components will be typinig at beginning with uppercase and the rest in camelCase.
+
+The pages will be typinig at beginning with uppercase and the rest in camelCase.
+
+The CSS className will be typinig at beginning with lowercase and the rest in camelCase ,
+the father class will be typing with two underscores and the child class will be typing with only one underscore.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

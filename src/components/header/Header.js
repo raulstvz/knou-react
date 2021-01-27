@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom"
 const Header = () => {
   const history = useHistory();
   return (
-    <div className="header_container">
+    <div className="header__container">
       <div className="logo_container">
         <Logo />
       </div>

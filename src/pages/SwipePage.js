@@ -1,5 +1,5 @@
 import "./SwipePage.css"
-import BoxMenu from "../components/boxmenu/BoxMenu"
+import BoxMenu from "../components/boxMenu/BoxMenu"
 import LeftBar from "../components/leftBar/LetfBar"
 
 const SwipePage = () => {
@@ -9,7 +9,7 @@ const SwipePage = () => {
         <div>
         <BoxMenu />
         <LeftBar/>
-         
+            
         </div>
     )
 }
