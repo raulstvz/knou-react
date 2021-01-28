@@ -19,22 +19,22 @@
     border-radius: 30px;
 }
 
-.form__logo {
+.form_logo {
     margin: 25px
 }
 
-.form__title {
+.form_title {
     margin: 25px
 }
 
-.form__label {
+.form_label {
     width: 50%;
     margin-bottom: 10px;
     font-size: 15px;
     margin: 10px;
 }
 
-.form__input {
+.form_input {
     width: 50%;
     height: 30px;
     border-radius: 10px;
@@ -42,14 +42,14 @@
     margin-bottom: 20px;
 }
 
-.form__text {
+.form_text {
     width: 50%;
     border-radius: 10px;
     border: #8c30f5 1px solid;
     margin-bottom: 20px;
 }
 
-.form__tags {
+.form_tags {
     max-width: 50%;
     margin-bottom: 20px;
     display: flex;
@@ -58,7 +58,7 @@
     margin: 5px 0px 50px 0px;
 }
 
-.form__radio {
+.form_radio {
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -68,17 +68,17 @@
     margin-bottom: 20px;
 }
 
-.button__container {
+.button_container {
     margin: 20px;
 }
 
-.form__action {
+.form_action {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.form__slider {
+.form_slider {
     width: 40%;
     margin-top: 10px;
     margin-bottom: 20px;

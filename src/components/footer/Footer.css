@@ -1,12 +1,12 @@
-.Footer__container {
+.footer__container {
   width: 100%;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0b0d17;
+  background:  #FFFFFF;
   bottom: 0px;
   font-family: Manrope;
   font-size: 14px;
-  color: #d9dbe1;
+  color:#4F4F4F;
 }

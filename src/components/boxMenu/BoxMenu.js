@@ -8,8 +8,8 @@ import { useHistory} from "react-router-dom"
 
 const BoxMenu = () => {
     const history = useHistory();
-    const defaultClass = "Icon_container";
-    const clickClass = "Click";
+    const defaultClass = "icon_container";
+    const clickClass = "click";
     const [swipeClass, setSwipeClass] = useState(defaultClass);
     const [premiumClass, setPremiumClass] = useState(defaultClass);
     const [messageClass, setMessageClass] = useState(defaultClass);
@@ -45,27 +45,27 @@ const BoxMenu = () => {
     };
 
     return (
-        <div className="BoxMenu_container">
+        <div className="boxMenu__container">
             <div className={swipeClass} onClick={() => {
                 history.push("/swipepage");
                 handleSwipe();
             }}>
-                <img src={swipe} className="Icon_image" />
+                <img src={swipe} className="icon_image" />
             </div>
             <div className={premiumClass} onClick={() => handlePremium()}  > {/* onClick={() => history.push("/userprofile")} */}
-                <img src={premium} className="Icon_image" />
+                <img src={premium} className="icon_image" />
             </div>
             <div className={messageClass} onClick={() => {
                 //history.push("/chatpage");
                 handleMessage();
             }}>
-                <img src={message} className="Icon_image" />
+                <img src={message} className="icon_image" />
             </div>
             <div className={profileClass} onClick={() => {
                 //history.push("/userprofile")
                 handleProfile();
             }}>
-                <img src={user} className="Icon_image" />
+                <img src={user} className="icon_image" />
             </div>
         </div >
     )

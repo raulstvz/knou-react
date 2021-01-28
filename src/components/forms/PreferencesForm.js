@@ -63,12 +63,12 @@ const PreferencesForm = () => {
     return (
         <div className="form">
             <form className="form__container">
-                <div className="form__logo">
+                <div className="form_logo">
                     <Logo />
                 </div>
-                <h4 className="form__title">Select your preferences</h4>
-                <label className="form__label">Age range</label>
-                <div className="form__slider">
+                <h4 className="form_title">Select your preferences</h4>
+                <label className="form_label">Age range</label>
+                <div className="form_slider">
                     Minimum: {formData.ageStart}
                     <input type="range" min="18" max="75" step="1"
                         onChange={(e) =>
@@ -82,8 +82,8 @@ const PreferencesForm = () => {
                         }
                     />
                 </div>
-                <label className="form__label">Your sexual orientation</label>
-                <div className="form__radio">
+                <label className="form_label">Your sexual orientation</label>
+                <div className="form_radio">
                     <input
                         type="radio" id="heterosexual" name="gender" value="heterosexual"
                         onChange={(e) =>
@@ -98,8 +98,8 @@ const PreferencesForm = () => {
                             setFormData({ ...formData, orientation: e.target.value })
                         } />Bisexual
                 </div>
-                <label className="form__label">Distance from your location</label>
-                <div className="form__slider">
+                <label className="form_label">Distance from your location</label>
+                <div className="form_slider">
                     Kms: {formData.distance}
                     <input type="range" min="0" max="100" step="1"
                         onChange={(e) =>
@@ -107,8 +107,8 @@ const PreferencesForm = () => {
                         }
                     />
                 </div>
-                <label className="form__label">It's hobbies and interests</label>
-                <div className="form__tags">
+                <label className="form_label">It's hobbies and interests</label>
+                <div className="form_tags">
                     {TagOptions.map((option) => {
                         return (
                             <div onClick={() => handleSelectedHobbies(option)}>
@@ -118,7 +118,7 @@ const PreferencesForm = () => {
                     })}
                 </div>
 
-                <div className="createbutton__container">
+                <div className="createButton_container">
                     <Button name="Save options" onClick={handleCreate} />
                 </div>
             </form>
