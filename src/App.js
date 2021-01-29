@@ -31,28 +31,6 @@ function App() {
           <Route exact path="/signup">
             <SignupPage />
           </Route>
-          <Route exact path="/profileform">
-            <ProfileFormPage />
-          </Route>
-
-
-        <Route exact path="/swipepage">
-          <LeftBar/>
-        </Route>
-          
-
-          <Route exact path="/preferencesform">
-            <PreferencesFormPage />
-          </Route>
-          <Route exact path="/swipepage">
-            <SwipPage />
-          </Route>
-          <Route exact path="/userprofile">
-            <UserProfilePage />
-          </Route>
-          <Route exat path="/chatpage">
-            <ChatPage />
-          </Route>
         </Switch>
         <div className="footer_container">
           <Footer />

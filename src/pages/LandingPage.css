@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
-
 .LandingPage__container {
   width: 100%;
   display: flex;
@@ -41,6 +40,7 @@
 }
 
 /* Second text */
+
 .secondText {
   width: 480px;
   height: 64px;
@@ -56,15 +56,15 @@
   flex-grow: 0;
   margin: 0px 16px;
 }
-.button_landingPage{
 
-    position: relative;
-    left: 6px;
-    top: 160px;
+.button_landingPage {
+  position: relative;
+  width: 160px;
+  left: 6px;
+  top: 160px;
 }
 
-
-.circleSection_container{
+.circleSection_container {
   width: 549px;
   height: 687px;
   display: flex;
@@ -72,17 +72,21 @@
   justify-content: center;
   align-items: center;
 }
+
 /*----WOMAN SECTION----*/
+
 .womanSection_container {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
+
 .paleturquoiseCircle_container {
   width: 72px;
   height: 72px;
   opacity: 0.5;
 }
+
 .woman_container {
   width: 396px;
   height: 396px;
@@ -94,10 +98,12 @@
   display: flex;
   flex-direction: row;
 }
+
 .man_container {
   width: 304px;
   height: 304px;
 }
+
 .turquoiseCircle_container {
   display: flex;
   flex-direction: column;
@@ -105,6 +111,7 @@
 }
 
 /*----PROFILE SAMPLE SECTION----*/
+
 .secondSection_container {
   display: flex;
   flex-direction: row;
@@ -166,6 +173,7 @@
   top: 317px;
   z-index: 3;
 }
+
 .orangeElipse_container {
   position: absolute;
   left: 240px;
@@ -178,6 +186,7 @@
   */
   z-index: 2;
 }
+
 .purpleElipse_container {
   width: 68px;
   height: 68px;
@@ -190,49 +199,51 @@
   top: 408px;
   z-index: 1;
 }
+
 /*--------*/
-.textSecondSection_contaier{
+
+.textSecondSection_contaier {
   display: flex;
-flex-direction: column;
-
-}
-.thirdText{
-    width: 444px;
-height: 54px;
-font-family: Manrope;
-font-style: normal;
-font-weight: 800;
-font-size: 40px;
-line-height: 54px;
-font-feature-settings: 'liga' off;
-color: #18191F;
-flex: none;
-order: 0;
-flex-grow: 0;
-margin: 0px 32px;
+  flex-direction: column;
 }
 
-.forthText{
-    width: 444px;
-height: 96px;
-font-family: Manrope;
-font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 32px;
-font-feature-settings: 'liga' off;
-color: #18191F;
-flex: none;
-order: 1;
-flex-grow: 0;
-margin: 0px 32px;
+.thirdText {
+  width: 444px;
+  height: 54px;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 54px;
+  font-feature-settings: 'liga' off;
+  color: #18191F;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 32px;
 }
 
-.thirdSection_container{
+.forthText {
+  width: 444px;
+  height: 96px;
+  font-family: Manrope;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 32px;
+  font-feature-settings: 'liga' off;
+  color: #18191F;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 32px;
+}
+
+.thirdSection_container {
   width: 100%;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin-top:134px ;
+  margin-top: 134px;
   margin-bottom: 224px;
 }

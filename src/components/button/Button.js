@@ -6,11 +6,11 @@ const Button = ({ name, onClick, color }) => {
         <>
             {color === 'dark' ?
                 <div onClick={onClick} className="button_dark">
-                    <p> {name}</p>
+                    <p>{name}</p>
                 </div>
                 :
                 <div onClick={onClick} className="button_light">
-                    <p> {name}</p>
+                    <p>{name}</p>
                 </div>
             }
         </>

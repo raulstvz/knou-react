@@ -1,12 +1,11 @@
 import "./SignupPage.css";
-import SignupForm from "../components/forms/SignupForm";
+import LocationDetailForm from "../components/forms/LocationDetailForm";
 
 const SignUpPage = () => {
     return (
 
         <div className="signUpPage_container">
-            <SignUpForm />
-
+            <LocationDetailForm/>
         </div>
     )
 };

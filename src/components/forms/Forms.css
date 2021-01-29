@@ -8,15 +8,12 @@
 }
 
 .form__container {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    width: 50%;
+    padding: 25px;
+    width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    border: #8c30f5 3px solid;
-    border-radius: 30px;
+    align-items: flex-start;
 }
 
 .form__logo {
@@ -79,9 +76,22 @@
 }
 
 .form__slider {
-    width: 40%;
+    width: 100%;
     margin-top: 10px;
     margin-bottom: 20px;
+    color: #8c30f5 ;
     display: flex;
     flex-direction: column;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 18px;
 }

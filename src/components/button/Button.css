@@ -1,19 +1,17 @@
 .button_dark {
-  width: 100px;
+  width: auto;
   height: 40px;
   border-radius: 8px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 14px 5px;
-  padding: 0px 10px;
+  margin: 0px 10px;
   display: flex;
-  text-align: center;
-  justify-content: center;
   align-items: center;
   background-color: #8c30f5;
   color: #f1e4ff;
   cursor: pointer
+}
+
+.button_dark > p{
+  margin: 0px 25px;
 }
 
 .button_dark:hover {
@@ -21,21 +19,19 @@
 }
 
 .button_light {
-  width: 100px;
+  width: auto;
   height: 40px;
   border-radius: 8px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 14px 5px;
-  padding: 0px 10px;
+  margin: 0px 10px;
   display: flex;
-  text-align: center;
-  justify-content: center;
   align-items: center;
   background-color: #f1e4ff;
   color: #8c30f5;
   cursor: pointer;
+}
+
+.button_light > p{
+  margin: 0px 25px;
 }
 
 .button_light:hover {
