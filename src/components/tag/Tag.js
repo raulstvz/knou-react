@@ -1,24 +1,27 @@
 import { React, useState } from 'react';
+import tagIcon from '../../assets/icons/tag.svg'
 import './Tag.css';
 
-const Tag = ({ name }) => {
-
-    const [selected, setSelected] = useState(false)
-    const switchSelection = () => {
-      setSelected(!selected)
-    }
-    
-    /* console.log(selected) */
+const Tag = ({ tagArray, onKeyPress, placeholder }) => {
 
     return (
         <>
-            {selected === false ?
-                <div className="tag__container__unselected" onClick={switchSelection}>
-                    <p>{name}</p>
-                </div>
-                :
-                <div className="tag__container__selected" onClick={switchSelection}>
-                    <p>{name}</p>
+            {tagArray.map((tag) => {
+                return (
+                    <div className="tag__container__created">
+                        <img src={tagIcon} />
+                        <p>{tag}</p>
+                    </div>
+                )
+            })}
+            {tagArray.length < 5 &&
+                <div className="tag__container__default">
+                    <img src={tagIcon} />
+                    <input
+                        className="tag__input"
+                        placeholder={placeholder}
+                        onKeyPress={onKeyPress}
+                    />
                 </div>
             }
         </>

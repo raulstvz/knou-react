@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useHistory } from "react-router";
-import "./Forms.css";
-import Leaflet from 'leaflet/dist/leaflet.css'
+import "./Forms.css"
 import Button from "../button/Button";
 import Map from "../map/Map"
 import Modal from "../modal/Modal"
@@ -18,7 +17,7 @@ const LocationDetailForm = () => {
     }
 
     useEffect(() => {
-        if (!"geolocation"in window) {
+        if (!"geolocation" in window) {
             console.log("Geolocation Not Available");
             setModalVisibility(true)
         } else {
@@ -43,11 +42,16 @@ const LocationDetailForm = () => {
 
     return (
         <div className="form">
-            <form className="form__container">
+            <form
+                className="form__container"
+                onSubmit={(e) => {
+                    e.preventDefault()
+                }}
+            >
                 <h1>We can't wait to meet you.</h1>
                 <p>Please fill the detail below so that we get to knou you</p>
                 <br /><br />
-                <p>It seems that you are located in:</p>
+                <p>It seems that you are located at:</p>
                 <div className="map__container">
                     <Map
                         position={formData.location}
@@ -55,7 +59,7 @@ const LocationDetailForm = () => {
                         zoom={10}
                     />
                 </div>
-                <p>What is the location range you are interested in?</p>
+                <p>What is the location range you are interested to meet people in?</p>
                 <br /><br />
                 <div className="form__slider">
                     <input type="range" min="1" max="50" value={formData.distance} step="1"
@@ -64,7 +68,7 @@ const LocationDetailForm = () => {
                         }
                     />
                 </div>
-                <p>You are located at {formData.location} and are interested in meeting people up to {formData.distance} kilometers away</p>
+                <p>You are located at <b>{formData.location}</b> and are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
             </form>
             <div className="button__container">
                 <Button name="Next step" color="dark" />
@@ -76,7 +80,7 @@ const LocationDetailForm = () => {
                     <div className="modal__content">
                         <h1>Location Disabled</h1>
                         <h4>In order to find you the best people we need to know your location</h4>
-                        <p>Enable the location service and reload the page</p>
+                        <p>Please, enable the location service to proceed</p>
                     </div>
                 }
             />

@@ -25,13 +25,11 @@ const LandingPage = () => {
       <div className="firstSection_container">
         <div className="Text_container">
           <div className="firstText">
-            <Text text="The place where you know people" />
+            <h1>The place where you know people</h1>
           </div>
           <div className="secondText">
-            <Text
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
-            in et, lectus sit lorem id integer."
-            />
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
+            in et, lectus sit lorem id integer.</p>
           </div>
           <div className="button_landingPage">
             <Button
@@ -61,7 +59,7 @@ const LandingPage = () => {
             </div>
 
             <div className="turquoiseCircle_container">
-              <img src={turquoiseCircle} alt="turquoise Circle"/>
+              <img src={turquoiseCircle} alt="turquoise Circle" />
             </div>
 
             <div className="purpleCircle_container">
@@ -70,7 +68,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div> {/*end - firstSection*/}
-      
+
       <div className="secondSection_container">
         <div className="photoSection_container">
           <img
@@ -102,18 +100,18 @@ const LandingPage = () => {
 
         <div className="textSecondSection_container">
           <div className="thirdText">
-            <Text text="Create your profile" />
+            <h2>Create your profile</h2>
           </div>
           <div className="forthText">
-            <Text text="Just by creating your profile at knou you will be able to know people from arround the world and find the perfect match for you!" />
+            <p>Just by creating your profile at knou you will be able to know people from arround the world and find the perfect match for you!</p>
             <ArrowLabel />
           </div>
         </div>
       </div> {/*end - secondSection*/}
-      
+
       <div className="thirdSection_container">
         <div>
-          <img  src={Frame} alt="frame"/>
+          <img src={Frame} alt="frame" />
         </div>
       </div>
     </div>

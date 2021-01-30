@@ -12,6 +12,7 @@
 
 .button_dark > p{
   margin: 0px 25px;
+  color: white;
 }
 
 .button_dark:hover {
@@ -32,6 +33,7 @@
 
 .button_light > p{
   margin: 0px 25px;
+  color: #8C30F5;
 }
 
 .button_light:hover {
