@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import tagIcon from '../../assets/icons/tag.svg'
 import './Tag.css';
 
