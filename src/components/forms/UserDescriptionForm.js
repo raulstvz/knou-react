@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Button from "../button/Button";
 import Tag from "../tag/Tag";
+import Stepper from "../stepper/Stepper"
 
 const UserDescriptionForm = () => {
 
@@ -22,6 +23,7 @@ const UserDescriptionForm = () => {
 
     return (
         <div className="form">
+            <Stepper steps="4" currentStep="2" />
             <form
                 className="form__container"
                 onSubmit={(e) => {

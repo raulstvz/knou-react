@@ -42,7 +42,6 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="form">
       <form className="form__container">
         <div className="form__logo">
           <Logo />
@@ -68,20 +67,19 @@ const SignUpForm = () => {
           }
         />
         <label className="form__label">Password</label>
-          <input
-            name="source"
-            className="form__input"
-            type="password"
-            placeholder=" Password"
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-          />
+        <input
+          name="source"
+          className="form__input"
+          type="password"
+          placeholder=" Password"
+          onChange={(e) =>
+            setFormData({ ...formData, password: e.target.value })
+          }
+        />
         <div className="button__container">
           <Button name="Create" onClick={handleCreate} />
         </div>
       </form>
-    </div>
   );
 };
 

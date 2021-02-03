@@ -4,6 +4,7 @@ import "./Forms.css"
 import Button from "../button/Button";
 import Map from "../map/Map"
 import Modal from "../modal/Modal"
+import Stepper from "../stepper/Stepper"
 
 const LocationDetailForm = () => {
 
@@ -42,6 +43,7 @@ const LocationDetailForm = () => {
 
     return (
         <div className="form">
+            <Stepper steps="4" currentStep="1" />
             <form
                 className="form__container"
                 onSubmit={(e) => {

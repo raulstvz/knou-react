@@ -3,13 +3,15 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Button from "../button/Button";
 import PhotoLoader from "../photoLoader/PhotoLoader";
+import Stepper from "../stepper/Stepper"
 
 const PhotosLoadForm = () => {
 
     const history = useHistory();
 
-    return(
+    return (
         <div className="form">
+            <Stepper steps="4" currentStep="3" />
             <form
                 className="form__container"
                 onSubmit={(e) => {

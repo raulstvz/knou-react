@@ -44,7 +44,6 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="form">
       <form className="form__container">
         <div className="form__logo">
           <Logo />
@@ -83,7 +82,6 @@ const LoginForm = () => {
         </div>
         </div>
       </form>
-    </div>
   );
 };
 

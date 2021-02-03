@@ -9,6 +9,7 @@ const photosUploaded = [
     'https://images.unsplash.com/photo-1611943574537-77f07c3a2aaa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80',
     'https://images.unsplash.com/photo-1611900219970-8b3bbf197e6b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',
 ]
+
 const photosAllowed = 8 - photosUploaded.length
 
 const content = []
@@ -21,7 +22,7 @@ for (var i = 0; i < photosAllowed; i++) {
     )
 }
 
-const PhotoLoader = ({ }) => {
+const PhotoLoader = ({}) => {
     return (
         <>{photosUploaded.map((photo) => {
             return (

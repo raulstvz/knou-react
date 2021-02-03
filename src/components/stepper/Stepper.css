@@ -1,0 +1,29 @@
+.stepper__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 50px;
+    margin: 100px 0px 25px 0px;
+}
+
+.currentStep {
+    width: 34px;
+    height: 8px;
+    background-color: #8c30f5;
+    border-radius: 8px;
+    margin: 10px;
+    border: 8px solid #DED3FF;
+    cursor: pointer;
+}
+
+.notCurrentStep {
+    width: 34px;
+    height: 8px;
+    background: grey;
+    border-radius: 4px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+}
