@@ -17,24 +17,30 @@ function App() {
 
     <div className="App__container">
       <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Route exact path="/signup">
-            <SignupPage />
-          </Route>
-        </Switch>
-        <div className="footer_container">
-          <Footer />
-        </div>
+
+        <Route exact path="/">
+          <Header />
+          <LandingPage />
+          <div className="footer_container">
+            <Footer />
+          </div>
+        </Route>
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+        <Route exact path="/signup">
+          <SignupPage />
+        </Route>
+
       </Router>
     </div>
   );
 }
 
 export default App;
+
+{/* <Switch> */ }
+{/*  </Switch> */ }
+{/*   <div className="footer_container">
+          <Footer />
+        </div> */}

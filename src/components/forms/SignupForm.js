@@ -9,16 +9,17 @@ const SignUpForm = () => {
 
   //formData : combo for the inputs
   const [formData, setFormData] = useState({
-    username: undefined,
+    firstname: undefined,
+    lastname: undefined,
     email: undefined,
-    password: undefined,
     avatar: undefined,
   });
 
   //Body
   const body = {
     account: {
-      username: formData.username,
+      firstname: formData.firstname,
+      lastname: formData.lastname,
       email: formData.email,
       password: formData.password,
       usercreation: new Date(),
@@ -44,41 +45,52 @@ const SignUpForm = () => {
   return (
     <div className="form">
       <form className="form__container">
-        <div className="form__logo">
+        <div className="form_logo">
           <Logo />
+          <Button name="Login" style="button_white_small"/>
         </div>
-        <h4 className="form__title">Create a new account</h4>
-        <label className="form__label">Username</label>
+        <span className="high_span">START FOR FREE</span>
+        <h1 className="form_title">Create an account</h1>
         <input
           name="source"
-          className="form__input"
-          placeholder=" Username"
+          type="text"
+          className="form_input"
+          placeholder=" Firstname"
           onChange={(e) =>
-            setFormData({ ...formData, username: e.target.value })
+            setFormData({ ...formData, firstname: e.target.value })
           }
         />
-        <label className="form__label">Email</label>
+
         <input
           name="source"
-          className="form__input"
+          className="form_input"
+          type="text"
+          placeholder="Last Name"
+          onChange={(e) =>
+            setFormData({ ...formData, lastname: e.target.value })
+          }
+        />
+        <input
+          name="source"
+          className="form_input"
           type="email"
-          placeholder=" Email adress"
+          placeholder="Email"
           onChange={(e) =>
             setFormData({ ...formData, email: e.target.value })
           }
         />
-        <label className="form__label">Password</label>
-          <input
-            name="source"
-            className="form__input"
-            type="password"
-            placeholder=" Password"
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-          />
-        <div className="button__container">
-          <Button name="Create" onClick={handleCreate} />
+        <input
+          name="source"
+          className="form_input"
+          type="password"
+          placeholder="Password"
+          onChange={(e) =>
+            setFormData({ ...formData, email: e.target.value })
+          }
+        />
+        <div className="button_container">
+          <Button name="Create" onClick={handleCreate} style="button_dark_great" />
+          <span className= "low_span">Already have an account? <span className="color_span">Sign in</span></span>
         </div>
       </form>
     </div>

@@ -45,41 +45,37 @@ const LoginForm = () => {
 
   return (
     <div className="form">
-      <form className="form__container">
-        <div className="form__logo">
+      <form className="form__container__login">
+        <div className="form_logo">
           <Logo />
+          <Button name="Sign up" style="button_white_small"/>
         </div>
-        <h4 className="form__title">Log in to your account</h4>
-        <label className="form__label"> Email </label>
+        <span className="high_span">WELCOME BACK</span>
+        <h1 className="form_title">Login into your account</h1>
+        
         <input
-          className="form__input"
+          className="form_input"
           type="text"
           onChange={(e) => setEmail(e.target.value)}
-          placeholder=" Email adress"
+          placeholder=" Email "
         />
-        <label className="form__label"> Password </label>
+        
         <input
-          className="form__input"
+          className="form_input"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder=" Password"
         />
-        <div className="button__container">
+       
+        <div className="form_action">
+        <div className="button_container">
           <Button
-            name="Login"
-            alt="Button to acces App"
-            onClick={handleLogin}
-          />
-        </div>
-        <div className="form__action">
-        <h4 className="form__title">Not a user yet?</h4>
-        <div className="button__container">
-          <Button
-            name="Sign Up"
+            name="Sign in"
             alt="Button to Sign Up"
-            color="dark"
+            style="button_dark_great"
             onClick={goToSignUp}
           />
+          <span className="low_span">Don´t have an account?<span className="color_span"> Sign up</span></span>
         </div>
         </div>
       </form>
