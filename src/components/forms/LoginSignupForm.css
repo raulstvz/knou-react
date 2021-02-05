@@ -1,0 +1,76 @@
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Manrope;
+}
+.form__container__loginSignup{
+    width: 331px;
+    height: 650px;
+    padding: 197px 237px 166px 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.form_title_loginSignup{
+    width: 331px;
+    height: 96px;
+    margin:0px;
+    margin-bottom:32px;
+}
+.high_span{
+    width: 100%;
+    color: #A0A3BD;
+    font-size: 14px;
+    margin-top:83px;
+
+}
+.form_input_loginSignUp{
+    width: 325px;
+    height: 56px;
+    background: #EFF0F7;
+border-radius: 16px;
+border: #EFF0F7;
+margin-bottom: 32px;
+}
+.low_span{
+    color: #A0A3BD;
+    font-size: 14px;  
+  
+}
+
+/*SignUp form*/
+.form__signUp__container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: Manrope;
+}
+.image_container{
+    width: 60%;
+    height: 1037px;
+    background-color:#FAF5FF;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_girl{
+    width: 559px;
+    height: 559px;
+    
+}
+.form_block_container{
+    width: 40%;
+    height: 1037px;
+    background-color:white; 
+}
+
+/*SignUp form*/

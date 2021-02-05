@@ -16,18 +16,17 @@
   cursor: pointer
 }
 
-.button_dark:hover {  
+.button_dark_small:hover {  
   background-color: #9741fa;
 }
 .button_dark_great{
   width: 325px;
   height: 56px;
-  border-radius: 8px;
+  border-radius: 16px;
+  margin-bottom:32px;
   flex: none;
   order: 0;
   flex-grow: 0;
-  margin: 14px 5px;
-  padding: 0px 10px;
   display: flex;
   text-align: center;
   justify-content: center;

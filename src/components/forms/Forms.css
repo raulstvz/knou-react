@@ -10,18 +10,18 @@
 .form__container {
     padding-top: 50px;
     padding-bottom: 50px;
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
 } 
-/* this class only uses in the loginform */
+
 .form__container__login{
     width: 331px;
-    height: 563px;
-    padding: 237px 237px 166px 125px;
+    height: 650px;
+    padding: 197px 237px 166px 125px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,6 +29,36 @@
 
 
 }
+.form_title_login{
+    width: 331px;
+    height: 96px;
+    margin:0px;
+    margin-bottom:32px;
+}
+.high_span{
+    width: 100%;
+    color: #A0A3BD;
+    font-size: 14px;
+    margin-top:83px;
+
+}
+.form_input_loginSignUp{
+    width: 325px;
+    height: 56px;
+    background: #EFF0F7;
+border-radius: 16px;
+border: #EFF0F7;
+margin-bottom: 32px;
+}
+.low_span{
+    color: #A0A3BD;
+    font-size: 14px;  
+  
+}
+
+
+/* fin del login form*/
+
 
 .form_logo {
    width:100%;
@@ -39,14 +69,8 @@
     align-items: center;
  
 }
-.high_span{
-    width: 100%;
-    margin-top: 83px;
-    margin-bottom: 5px;
-    color: #A0A3BD;
-    font-size: 14px;
 
-}
+
 .form_title {
 top: 30px;
 margin-top: 30px;
@@ -62,9 +86,9 @@ margin-top: 30px;
 .form_input {
     width: 325px;
     height: 56px; 
-    top: 264px;
     border-radius: 16px;
-    margin: 32px 0px; 
+    margin: 14px 5px;
+    padding: 0px 10px; 
     background: #EFF0F7;
    
 }
@@ -121,10 +145,7 @@ margin-top: 30px;
     display: flex;
     flex-direction: column;
 }
-.low_span{
-    color: #A0A3BD;
-    font-size: 14px;  ;
-}
+
 .color_span{
   color: #8c30f5;
   cursor: pointer;

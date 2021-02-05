@@ -1,4 +1,4 @@
-import "./Forms.css";
+import "./LoginSignupForm.css";
 import { useState } from "react";
 import Logo from "../logo/Logo";
 import { useHistory } from "react-router-dom"
@@ -45,29 +45,29 @@ const LoginForm = () => {
 
   return (
     <div className="form">
-      <form className="form__container__login">
+      <form className="form__container__loginSignup">
         <div className="form_logo">
           <Logo />
-          <Button name="Sign up" style="button_white_small"/>
-        </div>
+          <Button name="Sign up" style="button_white_small" onClick={() => history.push("/signup")} />
+        </div>  
         <span className="high_span">WELCOME BACK</span>
-        <h1 className="form_title">Login into your account</h1>
-        
+        <h1 className="form_title_loginSignup">Login into your account</h1>
+
         <input
-          className="form_input"
+          className="form_input_loginSignUp"
           type="text"
           onChange={(e) => setEmail(e.target.value)}
           placeholder=" Email "
         />
-        
+
         <input
-          className="form_input"
+          className="form_input_loginSignUp"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder=" Password"
         />
-       
-        <div className="form_action">
+
+
         <div className="button_container">
           <Button
             name="Sign in"
@@ -77,7 +77,7 @@ const LoginForm = () => {
           />
           <span className="low_span">Don´t have an account?<span className="color_span"> Sign up</span></span>
         </div>
-        </div>
+
       </form>
     </div>
   );

@@ -18,12 +18,12 @@ const Header = () => {
         <Button
           name="Login"
           onClick={() => history.push("/login")}
-          color="light"
+          style="button_light_small"
         />
         <Button
           name="Sign Up"
           onClick={() => history.push("/signup")}
-          color="dark"
+          style="button_dark_small"
         />
       </div>
     </div>

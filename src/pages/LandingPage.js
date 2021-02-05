@@ -35,7 +35,7 @@ const LandingPage = () => {
             <Button
               name="Get Started"
               alt="Get Started"
-              color="dark"
+              style="button_dark_small"
               onClick={() => history.push("/login")}
             />
           </div>

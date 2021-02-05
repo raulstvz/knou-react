@@ -1,8 +1,9 @@
 import { React, useState } from "react";
 import { useHistory } from "react-router";
-import "./Forms.css";
+import "./LoginSignupForm.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
+import girl from "../../assets/forms/girl.png"
 
 const SignUpForm = () => {
   const history = useHistory();
@@ -43,18 +44,26 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="form">
-      <form className="form__container">
+
+    /*imagen */
+    
+    <div className="form__signUp__container">
+      <div className="image_container">
+        <img src={girl} className="image_girl" />
+      </div>
+
+    <div className="form_block_container">
+      <form className="form__container__loginSignup">
         <div className="form_logo">
           <Logo />
-          <Button name="Login" style="button_white_small"/>
+          <Button name="Login" style="button_white_small" onClick={() => history.push("/login")} />
         </div>
         <span className="high_span">START FOR FREE</span>
-        <h1 className="form_title">Create an account</h1>
+        <h1 className="form_title_loginSignup">Create an account</h1>
         <input
           name="source"
           type="text"
-          className="form_input"
+          className="form_input_loginSignUp"
           placeholder=" Firstname"
           onChange={(e) =>
             setFormData({ ...formData, firstname: e.target.value })
@@ -63,7 +72,7 @@ const SignUpForm = () => {
 
         <input
           name="source"
-          className="form_input"
+          className="form_input_loginSignUp"
           type="text"
           placeholder="Last Name"
           onChange={(e) =>
@@ -72,7 +81,7 @@ const SignUpForm = () => {
         />
         <input
           name="source"
-          className="form_input"
+          className="form_input_loginSignUp"
           type="email"
           placeholder="Email"
           onChange={(e) =>
@@ -81,7 +90,7 @@ const SignUpForm = () => {
         />
         <input
           name="source"
-          className="form_input"
+          className="form_input_loginSignUp"
           type="password"
           placeholder="Password"
           onChange={(e) =>
@@ -90,9 +99,10 @@ const SignUpForm = () => {
         />
         <div className="button_container">
           <Button name="Create" onClick={handleCreate} style="button_dark_great" />
-          <span className= "low_span">Already have an account? <span className="color_span">Sign in</span></span>
+          <span className="low_span">Already have an account? <span className="color_span">Sign in</span></span>
         </div>
       </form>
+    </div>
     </div>
   );
 };
