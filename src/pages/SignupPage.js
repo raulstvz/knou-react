@@ -19,8 +19,6 @@ const SignUpPage = () => {
                     <SignupForm />
                 </div>
             </div>
-
-
             <AgeDetailForm />
             <LocationDetailForm />
             <UserDescriptionForm />

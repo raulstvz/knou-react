@@ -10,7 +10,8 @@ const photosUploaded = [
     'https://images.unsplash.com/photo-1611900219970-8b3bbf197e6b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80',
 ]
 
-const photosAllowed = 8 - photosUploaded.length
+const MAX_ALLOWED = 8;
+const photosAllowed = MAX_ALLOWED - photosUploaded.length
 
 const content = []
 

@@ -16,8 +16,38 @@
     align-items: flex-start;
 }
 
+.sideform__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideform__subcontainer{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form__logo__button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top: -100px;
+}
+
 .form__logo {
     margin: 25px
+}
+
+.form__span{
+    color: rgb(114, 114, 114);
 }
 
 .form__title {
@@ -32,13 +62,13 @@
 }
 
 .form__input {
-    width: 50%;
+    width: 100%;
     height: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: #EFF0F6 1px solid;
     background-color: #EFF0F6;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-bottom: 30px;
+    padding: 20px 0px;
     color: #6b6b6b;
     font-family: Manrope;
     font-size: 18px;
@@ -79,7 +109,9 @@
 }
 
 .button__container {
-    margin: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .form__action {

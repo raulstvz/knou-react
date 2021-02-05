@@ -51,7 +51,7 @@ const UserDescriptionForm = () => {
                 <p>Great! We have almost everything we need! Now, get pretty! It's picture time!</p>
             </form>
             <div className="button__container">
-                <Button name="Next step" color="dark" />
+                <Button name="Next step" style="button_dark_small" />
             </div>
         </div>
     )

@@ -42,44 +42,53 @@ const SignUpForm = () => {
   };
 
   return (
-      <form className="form__container">
-        <div className="form__logo">
+    <form className="sideform__container">
+      <div className="sideform__subcontainer">
+        <div className="form__logo__button">
           <Logo />
+          <Button name="Login" style="button_white_small" onClick={() => history.push("/login")} />
         </div>
-        <h4 className="form__title">Create a new account</h4>
-        <label className="form__label">Username</label>
+        <span className="form__span">START FOR FREE</span>
+        <h2 className="form__title">Create an account</h2>
         <input
           name="source"
           className="form__input"
-          placeholder=" Username"
-          onChange={(e) =>
-            setFormData({ ...formData, username: e.target.value })
-          }
+          placeholder="First Name"
+        /*onChange={(e) =>
+           setFormData({ ...formData, username: e.target.value })
+         } */
         />
-        <label className="form__label">Email</label>
+        <input
+          name="source"
+          className="form__input"
+          placeholder="Last Name"
+        /* onChange={(e) =>
+          setFormData({ ...formData, username: e.target.value })
+        } */
+        />
         <input
           name="source"
           className="form__input"
           type="email"
-          placeholder=" Email adress"
-          onChange={(e) =>
+          placeholder="Email"
+          /* onChange={(e) =>
             setFormData({ ...formData, email: e.target.value })
-          }
+          } */
         />
-        <label className="form__label">Password</label>
         <input
           name="source"
           className="form__input"
           type="password"
-          placeholder=" Password"
+          placeholder="Password"
           onChange={(e) =>
             setFormData({ ...formData, password: e.target.value })
           }
         />
         <div className="button__container">
-          <Button name="Create" onClick={handleCreate} />
+          <Button name="Get Started" style="button_dark_great" onClick={handleCreate} />
         </div>
-      </form>
+      </div>
+    </form >
   );
 };
 

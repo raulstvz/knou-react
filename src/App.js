@@ -4,11 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from './pages/LandingPage';
 import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
-import UserProfilePage from './pages/UserProfilePage';
-import SwipPage from "./pages/SwipePage";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import LeftBar from "./components/leftBar/letfBar";
 
 
 function App() {

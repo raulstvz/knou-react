@@ -73,7 +73,7 @@ const LocationDetailForm = () => {
                 <p>You are located at <b>{formData.location}</b> and are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
             </form>
             <div className="button__container">
-                <Button name="Next step" color="dark" />
+                <Button name="Next step" style="button_dark_small" />
             </div>
             <Modal
                 visible={modalVisibility}

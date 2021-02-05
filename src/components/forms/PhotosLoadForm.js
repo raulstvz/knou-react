@@ -27,7 +27,7 @@ const PhotosLoadForm = () => {
                 </div>
             </form>
             <div className="button__container">
-                <Button name="Finish!" color="dark" />
+                <Button name="Finish" style="button_dark_small" />
             </div>
         </div>
     )
