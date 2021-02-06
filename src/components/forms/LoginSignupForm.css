@@ -34,9 +34,9 @@ form {
     width: 325px;
     height: 56px;
     background: #EFF0F7;
-border-radius: 16px;
-border: #EFF0F7;
-margin-bottom: 32px;
+    border-radius: 16px;
+    border: #EFF0F7;
+    margin-bottom: 32px;
 }
 .low_span{
     color: #A0A3BD;
