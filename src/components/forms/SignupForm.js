@@ -41,12 +41,16 @@ const SignUpForm = () => {
     history.push("/create-account");
   };
 
+  const goToLogIn = () => {
+    history.push("/login")
+  }
+
   return (
     <form className="sideform__container">
       <div className="sideform__subcontainer">
         <div className="form__logo__button">
           <Logo />
-          <Button name="Login" style="button_white_small" onClick={() => history.push("/login")} />
+          <Button name="Login" style="button_white_small" onClick={goToLogIn} />
         </div>
         <span className="form__span">START FOR FREE</span>
         <h2 className="form__title">Create an account</h2>

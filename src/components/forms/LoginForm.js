@@ -48,7 +48,7 @@ const LoginForm = () => {
       <div className="sideform__subcontainer">
         <div className="form__logo__button">
           <Logo />
-          <Button name="Sign up" style="button_white_small" onClick={() => history.push("/signup")} />
+          <Button name="Sign up" style="button_white_small" onClick={goToSignUp} />
         </div>
         <span className="form__span">WELCOME BACK</span>
         <h2>Login into your account</h2>
@@ -69,7 +69,7 @@ const LoginForm = () => {
             name="Sign In"
             alt="Button to Sign Up"
             style="button_dark_great"
-            onClick={goToSignUp}
+            onClick={handleLogin}
           />
         </div>
       </div>
