@@ -1,14 +1,11 @@
 import { React, useState, useEffect } from "react";
-import { useHistory } from "react-router";
 import "./Forms.css"
 import Button from "../button/Button";
 import Map from "../map/Map"
 import Modal from "../modal/Modal"
 import Stepper from "../stepper/Stepper"
 
-const LocationDetailForm = () => {
-
-    const history = useHistory();
+const LocationDetailForm = ({ totalSteps, currentStep, formData, setFormData, action }) => {
 
     /* const [geolocationEnabled, setGeolocationEnabled] = useState(false) */
 
@@ -34,16 +31,10 @@ const LocationDetailForm = () => {
         }
     }, [])
 
-    const [formData, setFormData] = useState({
-        location: [51.5, -0.1],
-        distance: 4,
-    })
-
-    console.log(navigator.geolocation)
 
     return (
         <div className="form">
-            <Stepper steps="4" currentStep="1" />
+            <Stepper steps={totalSteps} currentStep={currentStep} />
             <form
                 className="form__container"
                 onSubmit={(e) => {
@@ -70,10 +61,14 @@ const LocationDetailForm = () => {
                         }
                     />
                 </div>
-                <p>You are located at <b>{formData.location}</b> and are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
+                <p>You are located at <b>{formData.location[0]} latitude, {formData.location[1]} longitude </b> and are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
             </form>
             <div className="button__container">
-                <Button name="Next step" style="button_dark_small" />
+                <Button
+                    name="Next step"
+                    style="button_dark_small"
+                    onClick={action}
+                />
             </div>
             <Modal
                 visible={modalVisibility}

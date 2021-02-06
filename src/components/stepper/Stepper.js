@@ -1,25 +1,23 @@
 import React from "react";
 import "./Stepper.css";
 
-const Stepper = ({ steps, currentStep}) => {
-    
-    const content = []
-    const stepsToRender = steps
+const Stepper = ({ steps, currentStep }) => {
 
-    for (var i = 0; i < stepsToRender; i++) {
-        content.push(            
-                <div className="notCurrentStep" />
-        )
-    }
+  const content = []
+  const stepsToRender = steps
 
-    content.splice(currentStep, 1, <div className="currentStep" />);
+  for (var i = 0; i < stepsToRender; i++) {
+    content.push(
+      <div className="notCurrentStep" />
+    )
+  }
 
+  content.splice(currentStep, 1, <div className="currentStep" />);
 
-    
   return (
     <>
       <div className="stepper__container">
-          {content}
+        {content}
       </div>
     </>
   );

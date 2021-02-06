@@ -1,6 +1,6 @@
 .photoloader__container {
-    height: 180px;
-    width: 285px;
+    height: 200px;
+    width: 325px;
     background-color: #EFF0F6;
     border-radius: 20px;
     margin: 10px 20px;
@@ -17,8 +17,8 @@
 }
 
 .photoloader__photouploaded {
-    height: 180px;
-    width: 285px;
+    height: 200px;
+    width: 325px;
     border-radius: 20px;
     margin: 10px 20px;
     background-size: cover;

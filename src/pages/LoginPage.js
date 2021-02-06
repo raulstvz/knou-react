@@ -6,7 +6,7 @@ const LoginPage = () => {
     return (
         <div className="main__container">
             <div className="image_container">
-                <img src={boyImage} className="image_boy" />
+                <img src={boyImage} alt="boy" className="image_boy" />
             </div>
             <div className="form_block_container">
                 <LoginForm />
