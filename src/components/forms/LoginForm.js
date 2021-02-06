@@ -11,10 +11,8 @@ const LoginForm = () => {
   const history = useHistory();
 
   const body = {
-    account: {
       email: email,
       password: password,
-    }
   };
 
   console.log(body);
@@ -31,10 +29,18 @@ const LoginForm = () => {
     fetch("http://localhost:3001/api/auth/login", options)
       .then((response) => response.json())
       .then((json) => {
-        /* .then(json => console.log('token', json)); */
         localStorage.setItem("token", json.token);
-        localStorage.setItem("user", JSON.stringify(json.user)); // history.push(swippage)
-        history.replace("/user"); // I don't understand this synatxis
+        localStorage.setItem("user", JSON.stringify(json.user)); 
+        /* In case the user has its profile completed redirect to swipe page.
+        Else, redirect the user to the create-account forms in order to complete it */
+        const profileCompleted = json.user.signup_completed
+        if(profileCompleted){
+          history.replace("/profile"); 
+        }else{
+          history.replace("/create-account"); 
+        }
+        /* TODO set history.replace => "/userpage" ...
+        in case the user is not on signup_step=4, then redirect to signup step */
         window.location.reload(false);
       });
   };

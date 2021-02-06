@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import CreateAccountPage from './pages/CreateAccountPage';
+import SwipePage from './pages/SwipePage';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/create-account">
             <CreateAccountPage />
+          </Route>
+          <Route exact path="/profile">
+            <SwipePage />
           </Route>
         </Switch>
       </Router>
