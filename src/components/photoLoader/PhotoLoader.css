@@ -1,0 +1,29 @@
+.photoloader__container {
+    height: 200px;
+    width: 325px;
+    background-color: #EFF0F6;
+    border-radius: 20px;
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.photoloader__container:hover{
+    background-color: #e4d6f5;
+    cursor: pointer;
+}
+
+.photoloader__photouploaded {
+    height: 200px;
+    width: 325px;
+    border-radius: 20px;
+    margin: 10px 20px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    object-fit: cover;
+}

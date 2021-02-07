@@ -1,0 +1,55 @@
+.tag__container__default {
+    max-width: max-content;
+    height: 25px;
+    background-color: #EFF0F6;
+    border-radius: 20px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: space-between;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.tag__container__default>img {
+    padding-left: 5px;
+    padding-right: 15px;
+}
+
+.tag__input {
+    color: #A0A3BD;
+    background-color: #EFF0F6;
+    border: #EFF0F6 1px solid;
+    font-family: Manrope;
+    font-size: 18px;
+}
+
+.tag__container__created {
+    min-width: 0;
+    height: 25px;
+    max-width: max-content;
+    background-color: #DED3FF;
+    border-radius: 20px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.tag__container__created>img {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tag__container__created>p {
+    color: #2A00A2;
+    font-family: Manrope;
+    font-size: 18px;
+    padding-right: 15px;
+}
