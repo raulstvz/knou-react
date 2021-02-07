@@ -12,7 +12,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     /* Controls the photo insertion through the PhotoLoader component */
     const [photoArray, setPhotoArray] = useState([]);
     const [formData, setFormData] = useState({
-        photos: []
+        photos: ["photo1", "photo2", "photo3", "photo4"]
     })
     /* useEffect(() => {
         setFormData({ ...formData, photos: photoArray })
