@@ -40,70 +40,57 @@ const SignUpForm = () => {
       body: JSON.stringify(body),
     };
     fetch("http://localhost:3001/api/users", options);
-    history.push("/profileform");
+    history.push("/create-account");
   };
 
   return (
-
-    /*imagen */
-    
-    <div className="form__signUp__container">
-      <div className="image_container">
-        <img src={girl} className="image_girl" />
-      </div>
-
-    <div className="form_block_container">
-      <form className="form__container__loginSignup">
-        <div className="form_logo">
+    <form className="sideform__container">
+      <div className="sideform__subcontainer">
+        <div className="form__logo__button">
           <Logo />
           <Button name="Login" style="button_white_small" onClick={() => history.push("/login")} />
         </div>
-        <span className="high_span">START FOR FREE</span>
-        <h1 className="form_title_loginSignup">Create an account</h1>
+        <span className="form__span">START FOR FREE</span>
+        <h2 className="form__title">Create an account</h2>
         <input
           name="source"
-          type="text"
-          className="form_input_loginSignUp"
-          placeholder=" Firstname"
-          onChange={(e) =>
-            setFormData({ ...formData, firstname: e.target.value })
-          }
+          className="form__input"
+          placeholder="First Name"
+        /*onChange={(e) =>
+           setFormData({ ...formData, username: e.target.value })
+         } */
         />
-
         <input
           name="source"
-          className="form_input_loginSignUp"
-          type="text"
+          className="form__input"
           placeholder="Last Name"
-          onChange={(e) =>
-            setFormData({ ...formData, lastname: e.target.value })
-          }
+        /* onChange={(e) =>
+          setFormData({ ...formData, username: e.target.value })
+        } */
         />
         <input
           name="source"
           className="form_input_loginSignUp"
           type="email"
           placeholder="Email"
-          onChange={(e) =>
+          /* onChange={(e) =>
             setFormData({ ...formData, email: e.target.value })
-          }
+          } */
         />
         <input
           name="source"
-          className="form_input_loginSignUp"
+          className="form__input"
           type="password"
           placeholder="Password"
           onChange={(e) =>
-            setFormData({ ...formData, email: e.target.value })
+            setFormData({ ...formData, password: e.target.value })
           }
         />
-        <div className="button_container">
-          <Button name="Create" onClick={handleCreate} style="button_dark_great" />
-          <span className="low_span">Already have an account? <span className="color_span">Sign in</span></span>
+        <div className="button__container">
+          <Button name="Get Started" style="button_dark_great" onClick={handleCreate} />
         </div>
-      </form>
-    </div>
-    </div>
+      </div>
+    </form >
   );
 };
 

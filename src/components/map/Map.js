@@ -19,6 +19,7 @@ const Map = ({ position, distance, zoom }) => {
             minZoom={8}
             scrollWheelZoom={false}
             zoomControl={false}
+            dragging={false}
         >
             <TileLayer
                 url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"

@@ -44,42 +44,37 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="form">
-      <form className="form__container__loginSignup">
-        <div className="form_logo">
+    <form className="sideform__container">
+      <div className="sideform__subcontainer">
+        <div className="form__logo__button">
           <Logo />
           <Button name="Sign up" style="button_white_small" onClick={() => history.push("/signup")} />
-        </div>  
-        <span className="high_span">WELCOME BACK</span>
-        <h1 className="form_title_loginSignup">Login into your account</h1>
-
+        </div>
+        <span className="form__span">WELCOME BACK</span>
+        <h2>Login into your account</h2>
         <input
           className="form_input_loginSignUp"
           type="text"
           onChange={(e) => setEmail(e.target.value)}
-          placeholder=" Email "
+          placeholder="Email adress"
         />
-
         <input
           className="form_input_loginSignUp"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
-          placeholder=" Password"
+          placeholder="Password"
         />
-
-
-        <div className="button_container">
+        <div className="button__container">
           <Button
-            name="Sign in"
+            name="Sign In"
             alt="Button to Sign Up"
             style="button_dark_great"
             onClick={goToSignUp}
           />
           <span className="low_span">Don´t have an account?<span className="color_span"> Sign up</span></span>
         </div>
-
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

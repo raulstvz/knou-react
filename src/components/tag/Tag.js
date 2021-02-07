@@ -9,14 +9,14 @@ const Tag = ({ tagArray, onKeyPress, placeholder }) => {
             {tagArray.map((tag) => {
                 return (
                     <div className="tag__container__created">
-                        <img src={tagIcon} />
+                        <img src={tagIcon} alt="tag_icon"/>
                         <p>{tag}</p>
                     </div>
                 )
             })}
             {tagArray.length < 5 &&
                 <div className="tag__container__default">
-                    <img src={tagIcon} />
+                    <img src={tagIcon} alt="tag_icon"/>
                     <input
                         className="tag__input"
                         placeholder={placeholder}

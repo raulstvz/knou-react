@@ -1,15 +1,20 @@
-import { React, useState } from "react";
-import { useHistory } from "react-router";
+import { React, useState, useEffect } from "react";
 import "./Forms.css";
 import Button from "../button/Button";
 import PhotoLoader from "../photoLoader/PhotoLoader";
+import Stepper from "../stepper/Stepper"
 
-const PhotosLoadForm = () => {
+const PhotosLoadForm = ({ totalSteps, currentStep, formData, setFormData, action }) => {
 
-    const history = useHistory();
+    const [photoArray, setPhotoArray] = useState([]);
 
-    return(
+    useEffect(() => {
+        setFormData({ ...formData, photos: photoArray })
+    }, [photoArray])
+
+    return (
         <div className="form">
+            <Stepper steps={totalSteps} currentStep={currentStep} />
             <form
                 className="form__container"
                 onSubmit={(e) => {
@@ -21,11 +26,15 @@ const PhotosLoadForm = () => {
                 <br /><br />
                 <p>It's show time! Pick up to 8 pictures of you:</p>
                 <div className="form__photos">
-                    <PhotoLoader />
+                    <PhotoLoader setPhotoArray={setPhotoArray}/>
                 </div>
             </form>
             <div className="button__container">
-                <Button name="Finish!" color="dark" />
+                <Button
+                    name="Finish"
+                    style="button_dark_small"
+                    onClick={action}
+                />
             </div>
         </div>
     )
