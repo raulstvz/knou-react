@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 
@@ -21,13 +22,30 @@ import Ellipse2 from "../assets/landing page/Ellipse 2.png";
 import Ellipse3 from "../assets/landing page/Ellipse 3.png";
 import Frame from "../assets/landing page/Frame 1.png";
 
+/* Third section people images */
+import Photo1 from "../assets/landing page/photo1.svg";
+import Photo2 from "../assets/landing page/photo2.svg";
+import Photo3 from "../assets/landing page/photo3.svg";
+import Photo4 from "../assets/landing page/photo4.svg";
+import Photo5 from "../assets/landing page/photo5.svg";
+import signal from "../assets/landing page/signal.svg";
 
 const LandingPage = () => {
 
   const history = useHistory();
+
+  const Maria = Photo1;
+  const Lucia = Photo2;
+  const Jane = Photo3;
+  const David = Photo4;
+  const Mark = Photo5;
+
+  const [user, setUser] = useState(Jane);
+
   return (
     <>
       <Header />
+      {/*start - first section*/}
       <div className="LandingPage__container">
         <div className="firstSection_container">
           <div className="Text_container">
@@ -74,8 +92,10 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
-        </div> {/*end - firstSection*/}
+        </div>
+        {/*end - first section*/}
 
+        {/*start - second section*/}
         <div className="secondSection_container">
           <div className="photoSection_container">
             <img
@@ -104,7 +124,6 @@ const LandingPage = () => {
               className="purpleElipse_container"
             />
           </div>
-
           <div className="textSecondSection_container">
             <div className="thirdText">
               <h2>Create your profile</h2>
@@ -114,13 +133,137 @@ const LandingPage = () => {
               <ArrowLabel />
             </div>
           </div>
-        </div> {/*end - secondSection*/}
+        </div>
+        {/*end - second section*/}
 
-        <div className="thirdSection_container">
-          <div>
-            <img src={Frame} alt="frame" />
+        {/*start - third section*/}
+        <div className="thirdSection__container">
+          <div className="message_container">
+            {user === Maria && (
+              <div className="message">
+                <img src={signal} className="signal" />
+                <p className="comment">
+                  Fue genial....etc....account of the system, and expound the actual
+                  teachings of the great explorer of the truth, the master-builder
+                  of human happiness. No one rejects, dislikes, or avoids pleasure
+                  itself, because it is pleasure, but because those who do not know.
+            </p>
+              </div>
+            )}
+          </div>
+
+          <div className="message_container">
+            {user === Lucia && (
+              <div className="message">
+                <img src={signal} className="signal" />
+                <p className="comment">
+                  Conocí a una persona...etc..account of the system, and expound the
+                  actual teachings of the great explorer of the truth, the
+                  master-builder of human happiness. No one rejects, dislikes, or
+                  avoids pleasure itself, because it is pleasure, but because those
+                  who do not know.
+            </p>
+              </div>
+            )}
+          </div>
+
+          <div className="message_container">
+            {user === Jane && (
+              <div className="message">
+                <img src={signal} className="signal" />
+                <p className="comment">
+                  But I must explain to you how all this mistaken idea of denouncing
+                  pleasure and praising pain was born and I will give you a complete
+                  account of the system, and expound the actual teachings of the
+                  great explorer of the truth, the master-builder of human
+                  happiness. No one rejects, dislikes, or avoids pleasure itself,
+                  because it is pleasure, but because those who do not know.
+            </p>
+              </div>
+            )}
+          </div>
+
+          <div className="message_container">
+            {user === David && (
+              <div className="message">
+                <img src={signal} className="signal" />
+                <p className="comment">
+                  Perhaps I wouldn't have met anyone without this webApp, thanks...expound the actual teachings of the
+                  great explorer of the truth, the master-builder of human
+                  happiness. No one rejects, dislikes, or avoids pleasure itself,
+                  because it is pleasure, but because those who do not know.
+            </p>
+              </div>
+            )}
+          </div>
+          <div className="message_container">
+            {user === Mark && (
+              <div className="message">
+                <img src={signal} className="signal" />
+                <p className="comment">Hola, realmente me convenció esta webApp....expound the actual teachings of the
+                great explorer of the truth, the master-builder of human
+                happiness. No one rejects, dislikes, or avoids pleasure itself,
+              because it is pleasure, but because those who do not know.</p>
+              </div>
+            )}
+          </div>
+
+          {/* first section */}
+
+          <div className="userPicture_container">
+            <img src={Photo1} onClick={() => setUser(Maria)} />
+            <div className="infoUser_container">
+              {user === Maria && (
+                <div>
+                  <p className="fullName">Maria Gonzalez</p>
+                  <p className="age_city">19, Madrid</p>
+                </div>
+              )}
+            </div>
+
+            <img src={Photo2} onClick={() => setUser(Lucia)} />
+            <div className="infoUser_container">
+              {user === Lucia && (
+                <div>
+                  <p className="fullName">Lucia Alvarez</p>
+                  <p className="age_city">29, Lisboa</p>
+                </div>
+              )}
+            </div>
+
+            <img src={Photo3} onClick={() => setUser(Jane)} />
+            <div className="infoUser_container">
+              {user === Jane && (
+                <div>
+                  <p className="fullName">Jane Cooper</p>
+                  <p className="age_city">21, Seattle</p>
+                </div>
+              )}
+            </div>
+
+            <img src={Photo4} onClick={() => setUser(David)} />
+            <div className="infoUser_container">
+              {user === David && (
+                <div>
+                  <p className="fullName">David Foo</p>
+                  <p className="age_city">18, New Yok</p>
+                </div>
+              )}
+            </div>
+
+            <img src={Photo5} onClick={() => setUser(Mark)} />
+            <div className="infoUser_container">
+              {user === Mark && (
+                <div className="infoUser_container">
+                  <p className="fullName">Mark Power</p>
+                  <p className="age_city">48, Brussels</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
+        {/*end - third section*/}
+
       </div>
       <Footer />
     </>

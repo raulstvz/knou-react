@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import "./CreateAccountPage.css";
-
+import { useHistory } from "react-router";
 import LocationDetailForm from "../components/forms/LocationDetailForm";
 import UserDescriptionForm from "../components/forms/UserDescriptionForm";
 import PhotosLoadForm from "../components/forms/PhotosLoadForm";
@@ -12,11 +12,31 @@ import Header from "../components/header/Header";
 
 const CreateAccountPage = () => {
 
+    const history = useHistory();
+
     const localStorageUser = JSON.parse(localStorage.getItem('user'));
     const userId = localStorageUser._id
     const signup_step = localStorageUser.signup_step
+    const signup_completed = localStorageUser.signup_completed
 
-    console.log(localStorageUser)
+    /* TODO: 
+        Redirect non-registered users to landing.
+     */
+
+    /* const userItem = localStorage.getItem("user");
+
+    const userId = '';
+    const signup_step = 0;
+
+    if (userItem) {
+        const localStorageUser = JSON.parse(userItem);
+        if (localStorageUser.signup_completed === true) {
+            userId = localStorageUser._id
+            signup_step = localStorageUser.signup_step
+        }
+    } else {
+        history.push("/")
+    }; */
 
     /* Variables controlling the stepper */
     const TOTAL_STEPS = 4
@@ -58,6 +78,12 @@ const CreateAccountPage = () => {
                         userId={userId}
                     />
                 }
+{/*                 {localStorageUser === false &&
+                    history.push("/")
+                }
+                {signup_completed === true &&
+                    history.push("/profile")
+                } */}
             </div>
             <Footer />
         </>
