@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import { useHistory } from "react-router";
 import "./CreateAccountPage.css";
 
 import LocationDetailForm from "../components/forms/LocationDetailForm";
@@ -13,43 +12,15 @@ import Header from "../components/header/Header";
 
 const CreateAccountPage = () => {
 
-    const history = useHistory()
+    const localStorageUser = JSON.parse(localStorage.getItem('user'));
+    const userId = localStorageUser._id
+    const signup_step = localStorageUser.signup_step
 
-    /* Variables for controlling the stepper */
+    console.log(localStorageUser)
+
+    /* Variables controlling the stepper */
     const TOTAL_STEPS = 4
-    const [currentStep, setCurrentStep] = useState(0)
-
-    //formData : combo for the inputs
-    const [formData, setFormData] = useState({
-        /* AgeDetailForm */
-        userAge: 30,
-        ageStart: 25,
-        ageEnd: 35,
-        /* LocationDetailForm */
-        location: [51.5, -0.1],
-        distance: 4,
-        /* LocationDetailForm */
-        description: undefined,
-        hobbies: [],
-        /* PhotosLoadForm */
-        photos: []
-    });
-
-    /* Actions for the buttons in the forms */
-    const handleNext = () => {
-        setCurrentStep(currentStep + 1)
-    }
-
-    const handlePrevious = () => {
-        setCurrentStep(currentStep - 1)
-    }
-
-    const handleFinish = () => {
-        /* TODO: DEFINE POST ACTION AGAINST MONGODB */
-        history.push("/")
-    }
-
-    console.log(formData)
+    const [currentStep, setCurrentStep] = useState(signup_step)
 
     return (
         <>
@@ -59,36 +30,32 @@ const CreateAccountPage = () => {
                     <AgeDetailForm
                         totalSteps={TOTAL_STEPS}
                         currentStep={currentStep}
-                        formData={formData}
-                        setFormData={setFormData}
-                        action={handleNext}
+                        setCurrentStep={setCurrentStep}
+                        userId={userId}
                     />
                 }
                 {currentStep === 1 &&
                     <LocationDetailForm
                         totalSteps={TOTAL_STEPS}
                         currentStep={currentStep}
-                        formData={formData}
-                        setFormData={setFormData}
-                        action={handleNext}
+                        setCurrentStep={setCurrentStep}
+                        userId={userId}
                     />
                 }
                 {currentStep === 2 &&
                     <UserDescriptionForm
                         totalSteps={TOTAL_STEPS}
                         currentStep={currentStep}
-                        formData={formData}
-                        setFormData={setFormData}
-                        action={handleNext}
+                        setCurrentStep={setCurrentStep}
+                        userId={userId}
                     />
                 }
                 {currentStep === 3 &&
                     <PhotosLoadForm
                         totalSteps={TOTAL_STEPS}
                         currentStep={currentStep}
-                        formData={formData}
-                        setFormData={setFormData}
-                        action={handleFinish}
+                        setCurrentStep={setCurrentStep}
+                        userId={userId}
                     />
                 }
             </div>

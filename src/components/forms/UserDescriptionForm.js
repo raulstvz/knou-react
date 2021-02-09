@@ -4,8 +4,9 @@ import Button from "../button/Button";
 import Tag from "../tag/Tag";
 import Stepper from "../stepper/Stepper"
 
-const UserDescriptionForm = ({ totalSteps, currentStep, formData, setFormData, action }) => {
+const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
 
+    /* Controls the tag array insertion */
     const [tagArray, setTagArray] = useState([])
     const [placeholder, setPlaceHolder] = useState("Type here and press enter")
 
@@ -17,13 +18,44 @@ const UserDescriptionForm = ({ totalSteps, currentStep, formData, setFormData, a
         }
     }
 
+    /* formData : combo for the inputs */
+    const [formData, setFormData] = useState({
+        description: undefined,
+        hobbies: undefined,
+    })
+
     useEffect(() => {
         setFormData({ ...formData, hobbies: tagArray })
-    }, [tagArray])
+    }, [tagArray]);
 
+    /* Data to be passed as body in the fetch */
+    const body = {
+        description: formData.description,
+        hobbies: formData.hobbies,
+        signup_step: currentStep + 1,
+        signup_completed: false,
+        updated: new Date(),
+    };
+
+    /* Actions for the buttons in the forms */
+    const handleNext = () => {
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        };
+        fetch("http://localhost:3001/api/users/" + userId, options)
+        setCurrentStep(currentStep + 1)
+    }
+
+    const handlePrevious = () => {
+        setCurrentStep(currentStep - 1)
+    }
 
     return (
-        <div className="form">
+        <div className="form" >
             <Stepper steps={totalSteps} currentStep={currentStep} />
             <form
                 className="form__container"
@@ -55,10 +87,10 @@ const UserDescriptionForm = ({ totalSteps, currentStep, formData, setFormData, a
                 <Button
                     name="Next step"
                     style="button_dark_small"
-                    onClick={action}
+                    onClick={handleNext}
                 />
             </div>
-        </div>
+        </div >
     )
 }
 

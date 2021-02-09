@@ -5,7 +5,7 @@ import Map from "../map/Map"
 import Modal from "../modal/Modal"
 import Stepper from "../stepper/Stepper"
 
-const LocationDetailForm = ({ totalSteps, currentStep, formData, setFormData, action }) => {
+const LocationDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
 
     /* const [geolocationEnabled, setGeolocationEnabled] = useState(false) */
 
@@ -30,6 +30,40 @@ const LocationDetailForm = ({ totalSteps, currentStep, formData, setFormData, ac
             });
         }
     }, [])
+
+
+    /* formData : combo for the inputs */
+    const [formData, setFormData] = useState({
+        location: [51.5, -0.1],
+        distance: 4
+    })
+
+    /* Data to be passed as body in the fetch */
+    const body = {
+        location: formData.location,
+        distance_range: formData.distance,
+        signup_step: currentStep + 1,
+        signup_completed: false,
+        updated: new Date(),
+    };
+
+    /* Actions for the buttons in the forms */
+    const handleNext = () => {
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        };
+        fetch("http://localhost:3001/api/users/" + userId, options)
+        setCurrentStep(currentStep + 1)
+    }
+
+    const handlePrevious = () => {
+        setCurrentStep(currentStep - 1)
+    }
+
 
 
     return (
@@ -61,13 +95,14 @@ const LocationDetailForm = ({ totalSteps, currentStep, formData, setFormData, ac
                         }
                     />
                 </div>
-                <p>You are located at <b>{formData.location[0]} latitude, {formData.location[1]} longitude </b> and are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
+                <p>You are located at <b>{formData.location[0]} latitude, {formData.location[1]} longitude </b> and
+                are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
             </form>
             <div className="button__container">
                 <Button
                     name="Next step"
                     style="button_dark_small"
-                    onClick={action}
+                    onClick={handleNext}
                 />
             </div>
             <Modal

@@ -11,10 +11,8 @@ const LoginForm = () => {
   const history = useHistory();
 
   const body = {
-    account: {
       email: email,
       password: password,
-    }
   };
 
   console.log(body);
@@ -31,10 +29,18 @@ const LoginForm = () => {
     fetch("http://localhost:3001/api/auth/login", options)
       .then((response) => response.json())
       .then((json) => {
-        /* .then(json => console.log('token', json)); */
         localStorage.setItem("token", json.token);
-        localStorage.setItem("user", JSON.stringify(json.user)); // history.push(swippage)
-        history.replace("/user"); // I don't understand this synatxis
+        localStorage.setItem("user", JSON.stringify(json.user)); 
+        /* In case the user has its profile completed redirect to swipe page.
+        Else, redirect the user to the create-account forms in order to complete it */
+        const profileCompleted = json.user.signup_completed
+        if(profileCompleted){
+          history.replace("/profile"); 
+        }else{
+          history.replace("/create-account"); 
+        }
+        /* TODO set history.replace => "/userpage" ...
+        in case the user is not on signup_step=4, then redirect to signup step */
         window.location.reload(false);
       });
   };
@@ -48,7 +54,7 @@ const LoginForm = () => {
       <div className="sideform__subcontainer">
         <div className="form__logo__button">
           <Logo />
-          <Button name="Sign up" style="button_white_small" onClick={() => history.push("/signup")} />
+          <Button name="Sign up" style="button_white_small" onClick={goToSignUp} />
         </div>
         <span className="form__span">WELCOME BACK</span>
         <h2>Login into your account</h2>
@@ -69,7 +75,7 @@ const LoginForm = () => {
             name="Sign In"
             alt="Button to Sign Up"
             style="button_dark_great"
-            onClick={goToSignUp}
+            onClick={handleLogin}
           />
           <span className="low_span">Don´t have an account?<span className="color_span"> Sign up</span></span>
         </div>

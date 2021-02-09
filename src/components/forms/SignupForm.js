@@ -13,19 +13,18 @@ const SignUpForm = () => {
     firstname: undefined,
     lastname: undefined,
     email: undefined,
-    avatar: undefined,
+    password: undefined,
   });
 
   //Body
   const body = {
-    account: {
-      firstname: formData.firstname,
-      lastname: formData.lastname,
-      email: formData.email,
-      password: formData.password,
-      usercreation: new Date(),
-      premium: false,
-    }
+    firstname: formData.firstname,
+    lastname: formData.lastname,
+    email: formData.email,
+    password: formData.password,
+    created: new Date(),
+    premium: false,
+    signup_step: 0
   };
 
   console.log(body);
@@ -39,16 +38,35 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/users", options);
-    history.push("/create-account");
+    fetch("http://localhost:3001/api/users", options)
+      .then(async () => {
+        /* history.push("/create-account"); */
+        return await fetch("http://localhost:3001/api/auth/login", options)
+          .then((response) => response.json())
+          /* .then(json => console.log('token', json)) */
+          .then((json) => {
+            localStorage.setItem("token", json.token);
+            localStorage.setItem("user", JSON.stringify(json.user));
+            history.replace("/create-account");
+            /* TODO set history.replace => "/userpage" ...
+            in case the user is not on signup_step=4, then redirect to signup step */
+            window.location.reload(false);
+          });
+      })
+
+
   };
+
+  const goToLogIn = () => {
+    history.push("/login")
+  }
 
   return (
     <form className="sideform__container">
       <div className="sideform__subcontainer">
         <div className="form__logo__button">
           <Logo />
-          <Button name="Login" style="button_white_small" onClick={() => history.push("/login")} />
+          <Button name="Login" style="button_white_small" onClick={goToLogIn} />
         </div>
         <span className="form__span">START FOR FREE</span>
         <h2 className="form__title">Create an account</h2>
@@ -56,26 +74,26 @@ const SignUpForm = () => {
           name="source"
           className="form__input"
           placeholder="First Name"
-        /*onChange={(e) =>
-           setFormData({ ...formData, username: e.target.value })
-         } */
+          onChange={(e) =>
+            setFormData({ ...formData, firstname: e.target.value })
+          }
         />
         <input
           name="source"
           className="form__input"
           placeholder="Last Name"
-        /* onChange={(e) =>
-          setFormData({ ...formData, username: e.target.value })
-        } */
+          onChange={(e) =>
+            setFormData({ ...formData, lastname: e.target.value })
+          }
         />
         <input
           name="source"
           className="form_input_loginSignUp"
           type="email"
           placeholder="Email"
-          /* onChange={(e) =>
+          onChange={(e) =>
             setFormData({ ...formData, email: e.target.value })
-          } */
+          }
         />
         <input
           name="source"
