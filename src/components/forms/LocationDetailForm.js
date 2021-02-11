@@ -99,11 +99,15 @@ const LocationDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId })
                 are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
             </form>
             <div className="button__container">
+                <Button 
+                        name="Back"
+                        style="button_white_small"
+                        onClick={handlePrevious}  />
                 <Button
                     name="Next step"
                     style="button_dark_small"
-                    onClick={handleNext}
-                />
+                    onClick={handleNext}/>        
+                
             </div>
             <Modal
                 visible={modalVisibility}

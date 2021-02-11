@@ -88,6 +88,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                         onClick={handleNext}
                     />
                 </div>
+
             </form>
         </div>
     );

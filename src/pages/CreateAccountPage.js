@@ -9,12 +9,12 @@ import AgeDetailForm from "../components/forms/AgeDetailForm";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 
-
+const TOTAL_STEPS = 4
 const CreateAccountPage = () => {
 
     const history = useHistory();
 
-    const localStorageUser = JSON.parse(localStorage.getItem('user'));
+    const localStorageUser = JSON.parse(localStorage.getItem('user')); // State
     const userId = localStorageUser._id
     const signup_step = localStorageUser.signup_step
     const signup_completed = localStorageUser.signup_completed
@@ -39,7 +39,7 @@ const CreateAccountPage = () => {
     }; */
 
     /* Variables controlling the stepper */
-    const TOTAL_STEPS = 4
+    
     const [currentStep, setCurrentStep] = useState(signup_step)
 
     return (

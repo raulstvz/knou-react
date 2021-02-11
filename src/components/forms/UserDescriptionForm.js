@@ -85,10 +85,14 @@ const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }
             </form>
             <div className="button__container">
                 <Button
+                    name="Back"
+                    style="button_white_small"
+                    onClick={handlePrevious}
+                />
+                         <Button
                     name="Next step"
                     style="button_dark_small"
-                    onClick={handleNext}
-                />
+                    onClick={handleNext}/>        
             </div>
         </div >
     )
