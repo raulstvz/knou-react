@@ -15,10 +15,11 @@
 
 .tag__container__default>img {
     padding-left: 5px;
-    padding-right: 15px;
+    padding-right: 10px;
 }
 
 .tag__input {
+    width: 240px;
     color: #A0A3BD;
     background-color: #EFF0F6;
     border: #EFF0F6 1px solid;
@@ -40,6 +41,15 @@
     padding: 5px 10px;
     margin: 5px;
     cursor: pointer;
+}
+#deleteIcon{
+    display: none;
+}
+.tag__container__created:hover #deleteIcon {
+    display: block;
+}
+.tag__container__created:hover #tagIcon {
+    display: none;
 }
 
 .tag__container__created>img {

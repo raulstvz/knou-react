@@ -8,12 +8,12 @@ const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }
 
     /* Controls the tag array insertion */
     const [tagArray, setTagArray] = useState([])
-    const [placeholder, setPlaceHolder] = useState("Type here and press enter")
+    const [placeholder, setPlaceHolder] = useState("")
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             setTagArray([...tagArray, e.target.value]);
-            setPlaceHolder("Type here and press enter")
+            setPlaceHolder("")
             e.target.value = placeholder
         }
     }
@@ -93,5 +93,4 @@ const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }
         </div >
     )
 }
-
 export default UserDescriptionForm
