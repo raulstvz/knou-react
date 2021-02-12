@@ -55,7 +55,7 @@
     margin: 25px
 }
 
-.form__label {
+.form_label {
     width: 50%;
     margin-bottom: 10px;
     font-size: 15px;
@@ -102,7 +102,7 @@
 .form__radio {
     width: 50%;
     display: flex;
-    flex-direction: row;
+    flex-direction: colum;
     align-content: flex-start;
     justify-content: flex-start;
     margin-top: 10px;
@@ -113,6 +113,7 @@
     width: 100%;
     display: flex;
     text-align: right;
+    margin-top: 10%;
     
     
 }
