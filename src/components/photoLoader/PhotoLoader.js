@@ -13,8 +13,8 @@ const PhotoLoader = ({ setPhotoArray }) => {
     ]
 
     useEffect(() => {
-        setPhotoArray(photosUploaded)
-    })
+        //setPhotoArray(photosUploaded)
+    }, [])
 
     const MAX_ALLOWED = 8;
     const photosAllowed = MAX_ALLOWED - photosUploaded.length

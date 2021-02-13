@@ -11,8 +11,8 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
 
     /* Controls the photo insertion through the PhotoLoader component */
     const [photoArray, setPhotoArray] = useState([]);
- 
-    
+
+
     /* useEffect(() => {
         setFormData({ ...formData, photos: photoArray })
     }, [photoArray]) */
@@ -25,9 +25,13 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     /* Actions for the buttons in the forms */
     const handleFinish = () => {
         /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
+        console.log(photoArray)
         let form_data = new FormData(); // https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
-        form_data.append('photos', photoArray);
-        form_data.append('sigup_step',currentStep + 1)
+        photoArray.forEach(photo => {
+            form_data.append('photos', photo);
+        })
+        //form_data.append('photos', photoArray);
+        form_data.append('sigup_step', currentStep + 1)
         form_data.append('updated', new Date())
         form_data.append('signup_completed', true)
         const options = {
@@ -35,10 +39,19 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             headers: {
                 "Content-Type": "multipart/form-data",
             },
-            body:form_data
+            body: form_data
         };
-        fetch("http://localhost:3001/api/users/" + userId, options)
-        history.push("/profile")
+        console.log(photoArray)
+        fetch("http://localhost:3001/api/users/" + userId + "/photos", options)
+            .then((res) => {
+                if (res.ok) 
+                { 
+                    /* history.push("/profile") */ 
+                } 
+                else {
+                    console.log("error")
+                }
+            })
     };
 
     const handlePrevious = () => {
@@ -48,21 +61,21 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     return (
         <div className="form">
             <Stepper steps={totalSteps} currentStep={currentStep} />
-            
-                <h1>We can't wait to meet you.</h1>
-                <p>Please fill the detail below so that we get to knou you</p>
-                <br /><br />
-                <p>It's show time! Pick up to 8 pictures of you:</p>
-                <div className="form__photos">
-                    <PhotoLoader setPhotoArray={setPhotoArray} />
-                </div>
-                <form
+
+            <h1>We can't wait to meet you.</h1>
+            <p>Please fill the detail below so that we get to knou you</p>
+            <br /><br />
+            <p>It's show time! Pick up to 8 pictures of you:</p>
+            <div className="form__photos">
+                <PhotoLoader setPhotoArray={setPhotoArray} />
+            </div>
+            <form
                 encType="multipart/form-data"
                 className="form__container"
                 onSubmit={(e) => {
                     e.preventDefault()
                 }}
-            ><input type="file" name="photos" id="photos" onChange={handleImageChange} />
+            ><input type="file" name="photos" id="photos" onChange={handleImageChange} multiple />
             </form>
             <div className="button__container">
 
