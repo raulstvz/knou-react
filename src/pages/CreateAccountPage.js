@@ -44,7 +44,8 @@ const CreateAccountPage = () => {
 
     return (
         <>
-            <Header />
+            <Header 
+            />
             <div className="CreateAccountPage__container">
                 {currentStep === 0 &&
                     <AgeDetailForm

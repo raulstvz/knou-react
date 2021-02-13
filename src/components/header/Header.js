@@ -4,7 +4,7 @@ import Logo from "../logo/Logo"
 import { useHistory } from "react-router-dom"
 
 
-const Header = ({button,button2, text}) => {
+const Header = ({button,button2, text, icon, icon2, icon3}) => {
   const history = useHistory();
   return (
     <div className="header_container">
@@ -17,6 +17,9 @@ const Header = ({button,button2, text}) => {
         </div>
         <div>{button}</div>
         <div>{button2}</div>
+        <div>{icon}</div>
+        <div>{icon2}</div>
+        <div>{icon3}</div>
       </div>
     </div>
   );
