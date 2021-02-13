@@ -4,19 +4,27 @@ import Logo from "../logo/Logo"
 import { useHistory } from "react-router-dom"
 
 
-const Header = ({button,button2, text}) => {
+const Header = (Logo, Button) => {
   const history = useHistory();
   return (
     <div className="header_container">
       <div className="logo_container">
-        <Logo/>
+        <Logo />
       </div>
       <div className="buttons_container">
         <div className="text_container">
-          <p>{text}</p>
+          <p>How it works</p>
         </div>
-        <div>{button}</div>
-        <div>{button2}</div>
+        <Button
+          name="Login"
+          onClick={() => history.push("/login")}
+          style="button_light_small"
+        />
+        <Button
+          name="Sign Up"
+          onClick={() => history.push("/signup")}
+          style="button_dark_small"
+        />
       </div>
     </div>
   );
