@@ -44,7 +44,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
 
     return (
         <div className="form">
-            <Stepper steps={totalSteps} currentStep={currentStep} />
+            <Stepper steps={totalSteps} currentStep={currentStep}/>
             <form
                 className="form__container"
                 onSubmit={(e) => {

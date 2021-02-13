@@ -5,7 +5,6 @@ import LocationDetailForm from "../components/forms/LocationDetailForm";
 import UserDescriptionForm from "../components/forms/UserDescriptionForm";
 import PhotosLoadForm from "../components/forms/PhotosLoadForm";
 import AgeDetailForm from "../components/forms/AgeDetailForm";
-
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 
