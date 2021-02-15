@@ -27,7 +27,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
         /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
         console.log(photoArray)
         let form_data = new FormData(); // https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
-        photoArray.forEach(photo => {
+        Array.from(photoArray).forEach(photo => {
             form_data.append('photos', photo);
         })
         //form_data.append('photos', photoArray);
@@ -35,7 +35,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
         form_data.append('updated', new Date())
         form_data.append('signup_completed', true)
         const options = {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "multipart/form-data",
             },
