@@ -6,7 +6,7 @@ import './Tag.css';
 const Tag = ({ tagArray, onKeyPress, setTagArray }) => {
     const eraseTag = (i) => {
         let arrayCopy = tagArray;
-        arrayCopy.splice(i,1);
+        setTagArray.splice(i,1);
         setTagArray(arrayCopy);
     }
     return (
