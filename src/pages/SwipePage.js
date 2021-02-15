@@ -4,7 +4,7 @@ import Footer from "../components/footer/Footer"
 import { useHistory } from "react-router";
 import profileSample from "../assets/swipePage/Frame 231.png";
 import "./SwipePage.css"
-import BoxMenu from "../components/boxmenu/BoxMenu2";
+import BoxMenu from "../components/boxmenu/BoxMenu";
 
 
 const SwipePage = () => {
