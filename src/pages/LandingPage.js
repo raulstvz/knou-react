@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./LandingPage.css";
 
@@ -7,6 +7,7 @@ import ArrowLabel from "../components/arrowLabel/ArrowLabel";
 import Button from "../components/button/Button";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
+import Logo from "../components/logo/Logo";
 
 /* Images and icons */
 import paleturquoiseCircle from "../assets/landing page/paleturquoise Circle.png";
@@ -31,7 +32,6 @@ import Photo5 from "../assets/landing page/photo5.svg";
 import signal from "../assets/landing page/signal.svg";
 
 const LandingPage = () => {
-
   const history = useHistory();
 
   const Maria = Photo1;
@@ -44,7 +44,21 @@ const LandingPage = () => {
 
   return (
     <>
-      <Header />
+      <Header
+        text="How it works"
+        button={
+          <Button
+            name="Login"
+            onClick={() => history.push("/login")}
+            style="button_light_small" />}
+        button2={
+          <Button
+            name="Sign Up"
+            onClick={() => history.push("/signup")}
+            style="button_dark_small" />}
+      />
+
+      
       {/*start - first section*/}
       <div className="LandingPage__container">
         <div className="firstSection_container">
@@ -53,8 +67,10 @@ const LandingPage = () => {
               <h1>The place where you know people</h1>
             </div>
             <div className="secondText">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc odio
-            in et, lectus sit lorem id integer.</p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                odio in et, lectus sit lorem id integer.
+              </p>
             </div>
             <div className="button_landingPage">
               <Button
@@ -113,11 +129,7 @@ const LandingPage = () => {
               alt="orange ellipse"
               className="orangeElipse_container"
             />
-            <img
-              src={profileSample}
-              alt="profile"
-              className="profileSample"
-            />
+            <img src={profileSample} alt="profile" className="profileSample" />
             <img
               src={Ellipse1}
               alt="purple circle"
@@ -129,7 +141,11 @@ const LandingPage = () => {
               <h2>Create your profile</h2>
             </div>
             <div className="forthText">
-              <p>Just by creating your profile at knou you will be able to know people from arround the world and find the perfect match for you!</p>
+              <p>
+                Just by creating your profile at knou you will be able to know
+                people from arround the world and find the perfect match for
+                you!
+              </p>
               <ArrowLabel />
             </div>
           </div>
@@ -143,11 +159,12 @@ const LandingPage = () => {
               <div className="message">
                 <img src={signal} className="signal" />
                 <p className="comment">
-                  Fue genial....etc....account of the system, and expound the actual
-                  teachings of the great explorer of the truth, the master-builder
-                  of human happiness. No one rejects, dislikes, or avoids pleasure
-                  itself, because it is pleasure, but because those who do not know.
-            </p>
+                  Fue genial....etc....account of the system, and expound the
+                  actual teachings of the great explorer of the truth, the
+                  master-builder of human happiness. No one rejects, dislikes,
+                  or avoids pleasure itself, because it is pleasure, but because
+                  those who do not know.
+                </p>
               </div>
             )}
           </div>
@@ -157,12 +174,12 @@ const LandingPage = () => {
               <div className="message">
                 <img src={signal} className="signal" />
                 <p className="comment">
-                  Conocí a una persona...etc..account of the system, and expound the
-                  actual teachings of the great explorer of the truth, the
-                  master-builder of human happiness. No one rejects, dislikes, or
-                  avoids pleasure itself, because it is pleasure, but because those
-                  who do not know.
-            </p>
+                  Conocí a una persona...etc..account of the system, and expound
+                  the actual teachings of the great explorer of the truth, the
+                  master-builder of human happiness. No one rejects, dislikes,
+                  or avoids pleasure itself, because it is pleasure, but because
+                  those who do not know.
+                </p>
               </div>
             )}
           </div>
@@ -172,13 +189,14 @@ const LandingPage = () => {
               <div className="message">
                 <img src={signal} className="signal" />
                 <p className="comment">
-                  But I must explain to you how all this mistaken idea of denouncing
-                  pleasure and praising pain was born and I will give you a complete
-                  account of the system, and expound the actual teachings of the
-                  great explorer of the truth, the master-builder of human
-                  happiness. No one rejects, dislikes, or avoids pleasure itself,
-                  because it is pleasure, but because those who do not know.
-            </p>
+                  But I must explain to you how all this mistaken idea of
+                  denouncing pleasure and praising pain was born and I will give
+                  you a complete account of the system, and expound the actual
+                  teachings of the great explorer of the truth, the
+                  master-builder of human happiness. No one rejects, dislikes,
+                  or avoids pleasure itself, because it is pleasure, but because
+                  those who do not know.
+                </p>
               </div>
             )}
           </div>
@@ -188,11 +206,12 @@ const LandingPage = () => {
               <div className="message">
                 <img src={signal} className="signal" />
                 <p className="comment">
-                  Perhaps I wouldn't have met anyone without this webApp, thanks...expound the actual teachings of the
-                  great explorer of the truth, the master-builder of human
-                  happiness. No one rejects, dislikes, or avoids pleasure itself,
-                  because it is pleasure, but because those who do not know.
-            </p>
+                  Perhaps I wouldn't have met anyone without this webApp,
+                  thanks...expound the actual teachings of the great explorer of
+                  the truth, the master-builder of human happiness. No one
+                  rejects, dislikes, or avoids pleasure itself, because it is
+                  pleasure, but because those who do not know.
+                </p>
               </div>
             )}
           </div>
@@ -200,10 +219,13 @@ const LandingPage = () => {
             {user === Mark && (
               <div className="message">
                 <img src={signal} className="signal" />
-                <p className="comment">Hola, realmente me convenció esta webApp....expound the actual teachings of the
-                great explorer of the truth, the master-builder of human
-                happiness. No one rejects, dislikes, or avoids pleasure itself,
-              because it is pleasure, but because those who do not know.</p>
+                <p className="comment">
+                  Hola, realmente me convenció esta webApp....expound the actual
+                  teachings of the great explorer of the truth, the
+                  master-builder of human happiness. No one rejects, dislikes,
+                  or avoids pleasure itself, because it is pleasure, but because
+                  those who do not know.
+                </p>
               </div>
             )}
           </div>
@@ -263,14 +285,10 @@ const LandingPage = () => {
           </div>
         </div>
         {/*end - third section*/}
-
       </div>
       <Footer />
     </>
-
   );
 };
 
-
 export default LandingPage;
-

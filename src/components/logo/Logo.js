@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom"
 const Logo = () => {
     const history = useHistory();
     return (
-        <img className="logo" src={logo} alt="Logo of Knou" onClick={() => history.push("/")} />
+        <img src={logo} alt="Logo of Knou" onClick={() => history.push("/")} style={{height: "40px" , cursor:"pointer"}}/>
     )
 };
 export default Logo;

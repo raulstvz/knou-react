@@ -2,7 +2,7 @@ import React from "react";
 import "./Stepper.css";
 
 const Stepper = ({ steps, currentStep }) => {
-
+  
   const content = []
   const stepsToRender = steps
 
@@ -17,7 +17,7 @@ const Stepper = ({ steps, currentStep }) => {
   return (
     <>
       <div className="stepper__container">
-        {content}
+        {content} 
       </div>
     </>
   );
