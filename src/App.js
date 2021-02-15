@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import CreateAccountPage from './pages/CreateAccountPage';
 import SwipePage from './pages/SwipePage';
+import BoxMenu from './components/boxmenu/BoxMenu2'
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
           <Route exact path="/profile">
             <SwipePage />
           </Route>
+          <Router exact path ="/icons">
+            <BoxMenu />
+          </Router>
         </Switch>
       </Router>
     </div>
