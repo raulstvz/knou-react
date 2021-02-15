@@ -31,9 +31,7 @@ function App() {
           <Route exact path="/swipePage">
             <SwipePage />
           </Route>
-          <Router exact path ="/icons">
-            <BoxMenu />
-          </Router>
+          
         </Switch>
       </Router>
     </div>
