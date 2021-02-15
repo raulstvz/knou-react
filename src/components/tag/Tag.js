@@ -3,13 +3,18 @@ import tagIcon from '../../assets/icons/tag.svg'
 import deleteIcon from "../../assets/icons/delete.svg"
 import './Tag.css';
 
-const Tag = ({ tagArray, onKeyPress }) => {
+const Tag = ({ tagArray, onKeyPress, setTagArray }) => {
+    const eraseTag = (i) => {
+        let arrayCopy = tagArray;
+        arrayCopy.splice(i,1);
+        setTagArray(arrayCopy);
+    }
     return (
         <>
             {tagArray.map((tag, i) => {
                 return (
-                    <div className="tag__container__created" >
-                        <img id="deleteIcon" src={deleteIcon} alt="delete_icon"/>
+                    <div className="tag__container__created" onClick={ ()=> eraseTag(i)}>
+                        <img id="deleteIcon" src={deleteIcon} alt="delete_icon" />
                         <img id="tagIcon" src={tagIcon} alt="tag_icon" />
                         <p>{tag}</p>
                     </div>
