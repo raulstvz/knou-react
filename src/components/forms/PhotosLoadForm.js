@@ -25,29 +25,30 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     /* Actions for the buttons in the forms */
     const handleFinish = () => {
         /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
-        console.log(photoArray)
-        let form_data = new FormData(); // https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
+
+        let form_data =document.getElementById("photo") /* new FormData(); // https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
         Array.from(photoArray).forEach(photo => {
             form_data.append('photos', photo);
-        })
+        }) */
         //form_data.append('photos', photoArray);
-        form_data.append('sigup_step', currentStep + 1)
-        form_data.append('updated', new Date())
-        form_data.append('signup_completed', true)
+        form_data.append('sigup_step', currentStep + 1);
+        form_data.append('updated', new Date());
+        form_data.append('signup_completed', true);
+        console.log(form_data);
+
         const options = {
-            method: "POST",
+            method: "PUT",
             headers: {
-                "Content-Type": "multipart/form-data",
+                "Content-Type": "multipart/form-data;boundary='boundary'",
             },
             body: form_data
         };
         console.log(photoArray)
         fetch("http://localhost:3001/api/users/" + userId + "/photos", options)
             .then((res) => {
-                if (res.ok) 
-                { 
-                    /* history.push("/profile") */ 
-                } 
+                if (res.ok) {
+                    /* history.push("/profile") */
+                }
                 else {
                     console.log("error")
                 }
@@ -69,7 +70,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             <div className="form__photos">
                 <PhotoLoader setPhotoArray={setPhotoArray} />
             </div>
-            <form
+            <form id="photo"
                 encType="multipart/form-data"
                 className="form__container"
                 onSubmit={(e) => {
