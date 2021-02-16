@@ -28,7 +28,6 @@ function App() {
           <Route exact path="/create-account">
             <CreateAccountPage />
           </Route>
-
           <Route exact path="/swipePage">
             <SwipePage />
           </Route>

@@ -81,6 +81,47 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                 </div>
                 <p style={{ "margin-bottom": "50px" }}>You are <b>{formData.userAge} years old</b> and have interest
                 in meeting people <b>between {formData.ageStart} and {formData.ageEnd}</b> years.</p>
+
+                <div className="form_radio">
+                    {/* <label className="form_label">Chose your gender </label> */}
+                    <p>Choose your gender</p>
+                    <input
+                        type="radio" id="male" name="gender" value="male"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Male
+                    <input type="radio" id="female" name="gender" value="others"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Female
+
+                    <input type="radio" id="others" name="gender" value="others"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Others
+                </div>
+
+                <div className="form_radio">
+                    {/* <label className="form_label">Your sexual orientation</label> */}
+                    <p>Choose your sexual orientation</p>
+                    <input
+                        type="radio" id="heterosexual" name="orientation" value="heterosexual"
+                        onChange={(e) =>
+                            setFormData({ ...formData, orientation: e.target.value })
+                        } />Heterosexual
+                    <input type="radio" id="homosexual" name="orientation" value="homosexual"
+                        onChange={(e) =>
+                            setFormData({ ...formData, orientation: e.target.value })
+                        } />Homosexual
+                    <input type="radio" id="bisexual" name="orientation" value="bisexual"
+                        onChange={(e) =>
+                            setFormData({ ...formData, orientation: e.target.value })
+                        } />Bisexual
+                     <input type="radio" id="transexual" name="orientation" value="transexual"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Transexual
+                </div>
                 <div className="button__container">
                     <Button
                         name="Next step"
