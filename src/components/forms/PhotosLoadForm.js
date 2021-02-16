@@ -10,7 +10,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     const history = useHistory()
 
     /* Controls the photo insertion through the PhotoLoader component */
-    const [photoArray, setPhotoArray] = useState([]);
+    const [photoArray, setPhotoArray] = useState(null);
 
 
     /* useEffect(() => {
@@ -26,14 +26,18 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     const handleFinish = () => {
         /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
 
-        let form_data =document.getElementById("photo") /* new FormData(); // https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
+        let form_data = new FormData(); // https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
+
+        console.log(photoArray);
         Array.from(photoArray).forEach(photo => {
-            form_data.append('photos', photo);
-        }) */
+            form_data.append('photos', photo, photo.name);
+        });
         //form_data.append('photos', photoArray);
-        form_data.append('sigup_step', currentStep + 1);
-        form_data.append('updated', new Date());
-        form_data.append('signup_completed', true);
+        //form_data.append('sigup_step', currentStep + 1);
+        // document.getElementById("signup_step").value = currentStep + 1;
+        //form_data.append('updated', new Date());
+        //document.getElementById("updated").value = new Date();
+        //form_data.append('signup_completed', true);
         console.log(form_data);
 
         const options = {
@@ -43,7 +47,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             },
             body: form_data
         };
-        console.log(photoArray)
+
         fetch("http://localhost:3001/api/users/" + userId + "/photos", options)
             .then((res) => {
                 if (res.ok) {
@@ -76,7 +80,11 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 onSubmit={(e) => {
                     e.preventDefault()
                 }}
-            ><input type="file" name="photos" id="photos" onChange={handleImageChange} multiple />
+            >
+                <input type="file" name="photos" id="photos" onChange={handleImageChange} multiple />
+                <input type="text" hidden name="signup_step" id="signup_step"/>
+                <input type="text" hidden name="updated" id="updated"/>
+                <input type="text" hidden name="signup_completed" value="true"/>
             </form>
             <div className="button__container">
 
