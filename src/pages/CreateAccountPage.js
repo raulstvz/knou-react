@@ -78,7 +78,7 @@ const CreateAccountPage = () => {
                         userId={userId}
                     />
                 }
-{/*                 {localStorageUser === false &&
+                {/*                 {localStorageUser === false &&
                     history.push("/")
                 }
                 {signup_completed === true &&
