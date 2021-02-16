@@ -11,13 +11,16 @@ const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }
     const [placeholder, setPlaceHolder] = useState("")
 
     const handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && e.target.value !== "") {
             setTagArray([...tagArray, e.target.value]);
             setPlaceHolder("")
             e.target.value = placeholder
         }
     }
-
+    const handleOnClick = (e) => {
+        let tagName = e.target.nextSibling.textContent;
+        setTagArray(tagArray.filter((tag) => tag !== tagName));
+    };
     /* formData : combo for the inputs */
     const [formData, setFormData] = useState({
         description: undefined,
@@ -79,7 +82,11 @@ const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }
                 />
                 <p>You can add up to 5 interests that we will use to find the best person for you</p>
                 <div className="form__tags">
-                    <Tag tagArray={tagArray} setTagArray={setTagArray} onKeyPress={handleKeyPress} placeholder={placeholder} />
+                    <Tag
+                        tagArray={tagArray}
+                        onKeyPress={handleKeyPress}
+                        placeholder={placeholder}
+                        onClick={handleOnClick} />
                 </div>
                 <p>Great! We have almost everything we need! Now, get pretty! It's picture time!</p>
             </form>
