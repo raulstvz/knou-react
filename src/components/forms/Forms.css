@@ -112,7 +112,11 @@
 .button__container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    align-items: flex-end;
+    margin-left: auto;
+    justify-content: flex-end;
+    
+    
 }
 
 .form__action {

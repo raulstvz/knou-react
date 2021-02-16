@@ -62,6 +62,12 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 </div>
             </form>
             <div className="button__container">
+
+                <Button
+                    name="Back"
+                    style="button_white_small"
+                    onClick={handlePrevious}
+                />
                 <Button
                     name="Finish"
                     style="button_dark_small"

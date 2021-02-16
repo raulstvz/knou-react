@@ -1,74 +1,44 @@
 import "./BoxMenu.css";
-import message from "../../assets/icons/message.png"
-import swipe from "../../assets/icons/fire.svg"
-import premium from "../../assets/icons/high-quality.png"
-import user from "../../assets/icons/user.svg"
-import { useState } from "react"
-import { useHistory} from "react-router-dom"
-
+import messages from "../../assets/icons/message.svg";
+import swipe1 from "../../assets/icons/swipeA.svg";
+import swipe2 from "../../assets/icons/swipeB.svg";
+import profile from "../../assets/icons/profile.svg";
+import { useState } from "react"; // it'll be used when the icon "8" works
+import { useHistory } from "react-router-dom";
 const BoxMenu = () => {
-    const history = useHistory();
-    const defaultClass = "Icon_container";
-    const clickClass = "Click";
-    const [swipeClass, setSwipeClass] = useState(defaultClass);
-    const [premiumClass, setPremiumClass] = useState(defaultClass);
-    const [messageClass, setMessageClass] = useState(defaultClass);
-    const [profileClass, setProfileClass] = useState(defaultClass);
+  const history = useHistory();
+  return (
+    <div className="boxMenu__container">
+      <div
+        className="swipe_container"
+        onClick={() => history.push("/swipepage")}
+      >
+        <div className="cards_container">
+          <img className="imagenA" src={swipe1} />
+          <img className="imagenB" src={swipe2} />
+        </div>
+        <span className="text">Swipe</span>
+      </div>
+      <div
+        className="messages_container"
+        onClick={() => history.push("/chatpage")}
+      >
+        {/* I want to pass a prop here relashionate with the number of messages, changing by user */}
+        <img className="message_icon" src={messages} />
+        <div className="number_icon">
+          <span className="number">8</span>
+        </div>
+        <span className="text">Messages</span>
+      </div>
+      <div
+        className="profile_container"
+        onClick={() => history.push("/profile")}
+      >
+        <img className="icon_container" src={profile} />
+        <span className="text">Profile</span>
+      </div>
+    </div>
+  );
+};
 
-    const handleSwipe = () => {
-        setSwipeClass(clickClass);
-        setPremiumClass(defaultClass);
-        setMessageClass(defaultClass);
-        setProfileClass(defaultClass);
-
-    };
-    const handlePremium = () => {
-        setSwipeClass(defaultClass);
-        setPremiumClass(clickClass);
-        setMessageClass(defaultClass);
-        setProfileClass(defaultClass);
-
-    };
-    const handleMessage = () => {
-        setSwipeClass(defaultClass);
-        setPremiumClass(defaultClass);
-        setMessageClass(clickClass);
-        setProfileClass(defaultClass);
-
-    };
-    const handleProfile = () => {
-        setSwipeClass(defaultClass);
-        setPremiumClass(defaultClass);
-        setMessageClass(defaultClass);
-        setProfileClass(clickClass);
-
-    };
-
-    return (
-        <div className="BoxMenu_container">
-            <div className={swipeClass} onClick={() => {
-                history.push("/swipepage");
-                handleSwipe();
-            }}>
-                <img src={swipe} className="Icon_image" />
-            </div>
-            <div className={premiumClass} onClick={() => handlePremium()}  > {/* onClick={() => history.push("/userprofile")} */}
-                <img src={premium} className="Icon_image" />
-            </div>
-            <div className={messageClass} onClick={() => {
-                //history.push("/chatpage");
-                handleMessage();
-            }}>
-                <img src={message} className="Icon_image" />
-            </div>
-            <div className={profileClass} onClick={() => {
-                //history.push("/userprofile")
-                handleProfile();
-            }}>
-                <img src={user} className="Icon_image" />
-            </div>
-        </div >
-    )
-}
-
-export default BoxMenu; 
+export default BoxMenu;
