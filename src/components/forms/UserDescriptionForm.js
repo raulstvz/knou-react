@@ -66,11 +66,12 @@ const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }
                     e.preventDefault()
                 }}
             >
-                <h1>We can't wait to meet you.</h1>
-                <p>Please fill the detail below so that we get to knou you</p>
+                <div className="h1_container">
+                    <h2>We can't wait to meet you.</h2>
+                </div>
+                <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
                 <br /><br />
-                <p>Share a few words about you (psst! be creative, that's the key :) )</p>
-                <p>What is the location range you are interested to meet people in?</p>
+                <p>Share a few words about you (psst! be creative, that's the key 😉 ):</p>
                 <br /><br />
                 <textarea
                     className="form__text"
@@ -96,10 +97,10 @@ const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }
                     style="button_white_small"
                     onClick={handlePrevious}
                 />
-                         <Button
+                <Button
                     name="Next step"
                     style="button_dark_small"
-                    onClick={handleNext}/>        
+                    onClick={handleNext} />
             </div>
         </div >
     )

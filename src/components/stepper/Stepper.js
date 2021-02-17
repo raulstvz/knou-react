@@ -11,9 +11,7 @@ const Stepper = ({ steps, currentStep }) => {
       <div className="notCurrentStep" />
     )
   }
-
   content.splice(currentStep, 1, <div className="currentStep" />);
-
   return (
     <>
       <div className="stepper__container">

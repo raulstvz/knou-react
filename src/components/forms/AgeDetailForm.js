@@ -44,17 +44,36 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
 
     return (
         <div className="form">
-            <Stepper steps={totalSteps} currentStep={currentStep}/>
+            <Stepper steps={totalSteps} currentStep={currentStep} />
             <form
                 className="form__container"
                 onSubmit={(e) => {
                     e.preventDefault()
                 }}
             >
-                <h1>We can't wait to meet you.</h1>
-                <p>Please fill the detail below so that we get to knou you</p>
-                <p>How old are you?</p>
+                <div className="h1_container">
+                <h2>We can't wait to meet you.</h2>
+                </div>
+                <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
+                <div className="form_radio">
+                    {/* <label className="form_label">Chose your gender </label> */}
+                    <p>Choose your gender</p>
+                    <input
+                        type="radio" id="male" name="gender" value="male"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Male
+                    <input type="radio" id="female" name="gender" value="others"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Female
+                    <input type="radio" id="others" name="gender" value="others"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Others
+                </div>
                 <br />
+                <p>How old are you?</p>
                 <input
                     name="source"
                     className="form__input"
@@ -64,7 +83,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                     }
                     style={{ "max-width": "25%" }}
                 />
-                <p>What is the age range you are insterested in</p>
+                <p>What is the age range you are insterested in?</p>
                 <div className="form__slider">
                     <input type="range" min="18" max="75" value={formData.ageStart} step="1"
                         onChange={(e) =>
@@ -81,26 +100,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                 </div>
                 <p style={{ "margin-bottom": "50px" }}>You are <b>{formData.userAge} years old</b> and have interest
                 in meeting people <b>between {formData.ageStart} and {formData.ageEnd}</b> years.</p>
-
-                <div className="form_radio">
-                    {/* <label className="form_label">Chose your gender </label> */}
-                    <p>Choose your gender</p>
-                    <input
-                        type="radio" id="male" name="gender" value="male"
-                        onChange={(e) =>
-                            setFormData({ ...formData, gender: e.target.value })
-                        } />Male
-                    <input type="radio" id="female" name="gender" value="others"
-                        onChange={(e) =>
-                            setFormData({ ...formData, gender: e.target.value })
-                        } />Female
-
-                    <input type="radio" id="others" name="gender" value="others"
-                        onChange={(e) =>
-                            setFormData({ ...formData, gender: e.target.value })
-                        } />Others
-                </div>
-
                 <div className="form_radio">
                     {/* <label className="form_label">Your sexual orientation</label> */}
                     <p>Choose your sexual orientation</p>
@@ -122,6 +121,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                             setFormData({ ...formData, gender: e.target.value })
                         } />Transexual
                 </div>
+                <br />
                 <div className="button__container">
                     <Button
                         name="Next step"
@@ -129,7 +129,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                         onClick={handleNext}
                     />
                 </div>
-
             </form>
         </div>
     );

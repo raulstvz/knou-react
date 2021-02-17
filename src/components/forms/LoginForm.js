@@ -11,8 +11,8 @@ const LoginForm = () => {
   const history = useHistory();
 
   const body = {
-      email: email,
-      password: password,
+    email: email,
+    password: password,
   };
 
   console.log(body);
@@ -30,14 +30,14 @@ const LoginForm = () => {
       .then((response) => response.json())
       .then((json) => {
         localStorage.setItem("token", json.token);
-        localStorage.setItem("user", JSON.stringify(json.user)); 
+        localStorage.setItem("user", JSON.stringify(json.user));
         /* In case the user has its profile completed redirect to swipe page.
         Else, redirect the user to the create-account forms in order to complete it */
         const profileCompleted = json.user.signup_completed
-        if(profileCompleted){
-          history.replace("/profile"); 
-        }else{
-          history.replace("/create-account"); 
+        if (profileCompleted) {
+          history.replace("/profile");
+        } else {
+          history.replace("/create-account");
         }
         /* TODO set history.replace => "/userpage" ...
         in case the user is not on signup_step=4, then redirect to signup step */
@@ -78,6 +78,7 @@ const LoginForm = () => {
             onClick={handleLogin}
           />
         </div>
+        <p className="signupAdnsLogin_form"> Don't have an account? <span className="colorPurple" onClick={() => {history.push("/signup")}} > Sign up </span></p>
       </div>
     </form>
   );
