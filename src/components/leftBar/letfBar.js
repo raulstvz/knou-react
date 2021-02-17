@@ -1,4 +1,4 @@
-import "./LeftBar.css";
+import "./leftBar.css";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 import BlockIcon from "@material-ui/icons/Block";

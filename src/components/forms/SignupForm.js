@@ -9,21 +9,21 @@ const SignUpForm = () => {
 
   //formData : combo for the inputs
   const [formData, setFormData] = useState({
-    username: undefined,
+    firstname: undefined,
+    lastname: undefined,
     email: undefined,
     password: undefined,
-    avatar: undefined,
   });
 
   //Body
   const body = {
-    account: {
-      username: formData.username,
-      email: formData.email,
-      password: formData.password,
-      usercreation: new Date(),
-      premium: false,
-    }
+    firstname: formData.firstname,
+    lastname: formData.lastname,
+    email: formData.email,
+    password: formData.password,
+    created: new Date(),
+    premium: false,
+    signup_step: 0
   };
 
   console.log(body);
@@ -37,51 +37,78 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/users", options);
-    history.push("/profileform");
+    fetch("http://localhost:3001/api/users", options)
+      .then(async () => {
+        /* history.push("/create-account"); */
+        return await fetch("http://localhost:3001/api/auth/login", options)
+          .then((response) => response.json())
+          /* .then(json => console.log('token', json)) */
+          .then((json) => {
+            localStorage.setItem("token", json.token);
+            localStorage.setItem("user", JSON.stringify(json.user));
+            history.replace("/create-account");
+            /* TODO set history.replace => "/userpage" ...
+            in case the user is not on signup_step=4, then redirect to signup step */
+            window.location.reload(false);
+          });
+      })
+
+
   };
 
+  const goToLogIn = () => {
+    history.push("/login")
+  }
+
   return (
-    <div className="form">
-      <form className="form__container">
-        <div className="form_logo">
+    <form className="sideform__container">
+      <div className="sideform__subcontainer">
+        <div className="form__logo__button">
           <Logo />
+          <Button name="Login" style="button_white_small" onClick={goToLogIn} />
         </div>
-        <h4 className="form_title">Create a new account</h4>
-        <label className="form_label">Username</label>
+        <span className="form__span">START FOR FREE</span>
+        <h2 className="form__title">Create an account</h2>
         <input
           name="source"
-          className="form_input"
-          placeholder=" Username"
+          className="form__input"
+          placeholder="First Name"
           onChange={(e) =>
-            setFormData({ ...formData, username: e.target.value })
+            setFormData({ ...formData, firstname: e.target.value })
           }
         />
-        <label className="form_label">Email</label>
         <input
           name="source"
-          className="form_input"
+          className="form__input"
+          placeholder="Last Name"
+          onChange={(e) =>
+            setFormData({ ...formData, lastname: e.target.value })
+          }
+        />
+        <input
+          name="source"
+          className="form__input"
           type="email"
-          placeholder=" Email adress"
+          placeholder="Email"
           onChange={(e) =>
             setFormData({ ...formData, email: e.target.value })
           }
         />
-        <label className="form_label">Password</label>
-          <input
-            name="source"
-            className="form_input"
-            type="password"
-            placeholder=" Password"
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-          />
-        <div className="button_container">
-          <Button name="Create" onClick={handleCreate} />
+        <input
+          name="source"
+          className="form__input"
+          type="password"
+          placeholder="Password"
+          onChange={(e) =>
+            setFormData({ ...formData, password: e.target.value })
+          }
+        />
+        <div className="button__container">
+          <Button name="Get Started" style="button_dark_great" onClick={handleCreate} />
         </div>
-      </form>
-    </div>
+        <p className="signupAdnsLogin_form"> Already have an account? <span className="colorPurple" onClick={() => {history.push("/login")}} > Sign in </span></p>
+      </div>
+    </form >
   );
 };
 

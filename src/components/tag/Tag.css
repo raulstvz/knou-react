@@ -1,31 +1,65 @@
-.tag__container__unselected {
+.tag__container__default {
+    max-width: max-content;
     height: 25px;
-    font-family: Manrope;
-    font-size: 14px;
-    color: #8c30f5;
-    border: #8c30f5 0.5px solid;
-    background-color: white;
-    border-radius: 10px;
+    background-color: #EFF0F6;
+    border-radius: 20px;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 2.5px 10px;
-    margin: 2.5px;
+    align-content: space-between;
+    padding: 5px 10px;
+    margin: 5px;
     cursor: pointer;
 }
 
-.tag__container__selected {
-    height: 25px;
+.tag__container__default>img {
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.tag__input {
+    width: 240px;
+    color: #A0A3BD;
+    background-color: #EFF0F6;
+    border: #EFF0F6 1px solid;
     font-family: Manrope;
-    font-size: 14px;
-    color: white;
-    border: #551e94 0.5px solid;
-    background-color: #9741fa;
-    border-radius: 10px;
+    font-size: 18px;
+}
+
+.tag__container__created {
+    min-width: 0;
+    height: 25px;
+    max-width: max-content;
+    background-color: #DED3FF;
+    border-radius: 20px;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 2.5px 10px;
-    margin: 2.5px;
+    flex-wrap: nowrap;
+    padding: 5px 10px;
+    margin: 5px;
     cursor: pointer;
+}
+#deleteIcon{
+    display: none;
+}
+.tag__container__created:hover #deleteIcon {
+    display: block;
+}
+.tag__container__created:hover #tagIcon {
+    display: none;
+}
+
+.tag__container__created>img {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tag__container__created>p {
+    color: #2A00A2;
+    font-family: Manrope;
+    font-size: 18px;
+    padding-right: 15px;
 }

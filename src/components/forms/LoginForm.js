@@ -11,10 +11,8 @@ const LoginForm = () => {
   const history = useHistory();
 
   const body = {
-    account: {
-      email: email,
-      password: password,
-    }
+    email: email,
+    password: password,
   };
 
   console.log(body);
@@ -31,10 +29,18 @@ const LoginForm = () => {
     fetch("http://localhost:3001/api/auth/login", options)
       .then((response) => response.json())
       .then((json) => {
-        /* .then(json => console.log('token', json)); */
         localStorage.setItem("token", json.token);
-        localStorage.setItem("user", JSON.stringify(json.user)); // history.push(swippage)
-        history.replace("/user"); // I don't understand this synatxis
+        localStorage.setItem("user", JSON.stringify(json.user));
+        /* In case the user has its profile completed redirect to swipe page.
+        Else, redirect the user to the create-account forms in order to complete it */
+        const profileCompleted = json.user.signup_completed
+        if (profileCompleted) {
+          history.replace("/profile");
+        } else {
+          history.replace("/create-account");
+        }
+        /* TODO set history.replace => "/userpage" ...
+        in case the user is not on signup_step=4, then redirect to signup step */
         window.location.reload(false);
       });
   };
@@ -44,46 +50,37 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="form">
-      <form className="form__container">
-        <div className="form_logo">
+    <form className="sideform__container">
+      <div className="sideform__subcontainer">
+        <div className="form__logo__button">
           <Logo />
+          <Button name="Sign up" style="button_white_small" onClick={goToSignUp} />
         </div>
-        <h4 className="form_title">Log in to your account</h4>
-        <label className="form_label"> Email </label>
+        <span className="form__span">WELCOME BACK</span>
+        <h2>Login into your account</h2>
         <input
-          className="form_input"
+          className="form__input"
           type="text"
           onChange={(e) => setEmail(e.target.value)}
-          placeholder=" Email adress"
+          placeholder="Email adress"
         />
-        <label className="form_label"> Password </label>
         <input
-          className="form_input"
+          className="form__input"
           type="password"
           onChange={(e) => setPassword(e.target.value)}
-          placeholder=" Password"
+          placeholder="Password"
         />
-        <div className="button_container">
+        <div className="button__container">
           <Button
-            name="Login"
-            alt="Button to acces App"
+            name="Sign In"
+            alt="Button to Sign Up"
+            style="button_dark_great"
             onClick={handleLogin}
           />
         </div>
-        <div className="form_action">
-        <h4 className="form_title">Not a user yet?</h4>
-        <div className="button_container">
-          <Button
-            name="Sign Up"
-            alt="Button to Sign Up"
-            color="dark"
-            onClick={goToSignUp}
-          />
-        </div>
-        </div>
-      </form>
-    </div>
+        <p className="signupAdnsLogin_form"> Don't have an account? <span className="colorPurple" onClick={() => {history.push("/signup")}} > Sign up </span></p>
+      </div>
+    </form>
   );
 };
 
