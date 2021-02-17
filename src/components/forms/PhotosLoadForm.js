@@ -27,24 +27,17 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
         /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
 
         let form_data = new FormData(); // https://developer.mozilla.org/es/docs/Web/API/XMLHttpRequest/FormData
-
-        console.log(photoArray);
+        form_data.append('sigup_step', currentStep + 1);
+        form_data.append('updated', new Date());
+        form_data.append('signup_completed', true);
         Array.from(photoArray).forEach(photo => {
             form_data.append('photos', photo, photo.name);
         });
-        //form_data.append('photos', photoArray);
-        //form_data.append('sigup_step', currentStep + 1);
-        // document.getElementById("signup_step").value = currentStep + 1;
-        //form_data.append('updated', new Date());
-        //document.getElementById("updated").value = new Date();
-        //form_data.append('signup_completed', true);
-        console.log(form_data);
+        
+       
 
         const options = {
             method: "PUT",
-            headers: {
-                "Content-Type": "multipart/form-data;boundary='boundary'",
-            },
             body: form_data
         };
 
@@ -62,7 +55,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1)
     }
-
+    
     return (
         <div className="form">
             <Stepper steps={totalSteps} currentStep={currentStep} />
@@ -72,7 +65,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             <br /><br />
             <p>It's show time! Pick up to 8 pictures of you:</p>
             <div className="form__photos">
-                <PhotoLoader setPhotoArray={setPhotoArray} />
+                <PhotoLoader photoArray={photoArray} />
             </div>
             <form id="photo"
                 encType="multipart/form-data"
@@ -82,9 +75,6 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 }}
             >
                 <input type="file" name="photos" id="photos" onChange={handleImageChange} multiple />
-                <input type="text" hidden name="signup_step" id="signup_step"/>
-                <input type="text" hidden name="updated" id="updated"/>
-                <input type="text" hidden name="signup_completed" value="true"/>
             </form>
             <div className="button__container">
 

@@ -2,7 +2,7 @@ import { React, useEffect } from 'react';
 import cameraIcon from '../../assets/icons/camera.svg'
 import './PhotoLoader.css'
 
-const PhotoLoader = ({ setPhotoArray }) => {
+const PhotoLoader = ({ photoArray }) => {
 
     const photosUploaded = [
        /*  'https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
@@ -17,10 +17,10 @@ const PhotoLoader = ({ setPhotoArray }) => {
     }, [])
 
     const MAX_ALLOWED = 8;
-    const photosAllowed = MAX_ALLOWED - photosUploaded.length
+    const photosAllowed = MAX_ALLOWED - photoArray.length
 
     const content = []
-
+    const photo = `data:${photos.mimeType};base64,${photos.image}`;
     for (var i = 0; i < photosAllowed; i++) {
         content.push(
             <div className="photoloader__container">
@@ -30,7 +30,7 @@ const PhotoLoader = ({ setPhotoArray }) => {
     }
 
     return (
-        <>{photosUploaded.map((photo) => {
+        <>{photoArray.map((photo) => {
             return (
                 <img src={photo} alt="uploaded_image" className="photoloader__photouploaded"/>
             )
