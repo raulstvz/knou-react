@@ -106,6 +106,7 @@ const SignUpForm = () => {
         <div className="button__container">
           <Button name="Get Started" style="button_dark_great" onClick={handleCreate} />
         </div>
+        <p className="signupAdnsLogin_form"> Already have an account? <span className="colorPurple" onClick={() => {history.push("/login")}} > Sign in </span></p>
       </div>
     </form >
   );

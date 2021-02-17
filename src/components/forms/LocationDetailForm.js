@@ -31,7 +31,6 @@ const LocationDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId })
         }
     }, [])
 
-
     /* formData : combo for the inputs */
     const [formData, setFormData] = useState({
         location: [51.5, -0.1],
@@ -59,13 +58,9 @@ const LocationDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId })
         fetch("http://localhost:3001/api/users/" + userId, options)
         setCurrentStep(currentStep + 1)
     }
-
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1)
     }
-
-
-
     return (
         <div className="form">
             <Stepper steps={totalSteps} currentStep={currentStep} />
@@ -75,10 +70,11 @@ const LocationDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId })
                     e.preventDefault()
                 }}
             >
-                <h1>We can't wait to meet you.</h1>
-                <p>Please fill the detail below so that we get to knou you</p>
-                <br /><br />
-                <p>It seems that you are located at:</p>
+                <div className="h1_container">
+                <h2>We can't wait to meet you.</h2>
+                </div>
+                <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
+                <p>It seems that you are located in:</p>
                 <div className="map__container">
                     <Map
                         position={formData.location}
@@ -88,6 +84,9 @@ const LocationDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId })
                 </div>
                 <p>What is the location range you are interested to meet people in?</p>
                 <br /><br />
+                <div className="distance_container">
+                    <b>{formData.distance} kilometers</b>
+                </div>
                 <div className="form__slider">
                     <input type="range" min="1" max="50" value={formData.distance} step="1"
                         onChange={(e) =>
@@ -96,18 +95,18 @@ const LocationDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId })
                     />
                 </div>
                 <p>You are located at <b>{formData.location[0]} latitude, {formData.location[1]} longitude </b> and
-                are interested in meeting people up to <b>{formData.distance}</b> kilometers away</p>
+                are interested in meeting people up to <b>{formData.distance}</b> <span className="kilometers">kilometers</span> away</p>
             </form>
             <div className="button__container">
-                <Button 
-                        name="Back"
-                        style="button_white_small"
-                        onClick={handlePrevious}  />
+                <Button
+                    name="Back"
+                    style="button_white_small"
+                    onClick={handlePrevious} />
                 <Button
                     name="Next step"
                     style="button_dark_small"
-                    onClick={handleNext}/>        
-                
+                    onClick={handleNext} />
+
             </div>
             <Modal
                 visible={modalVisibility}

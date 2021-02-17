@@ -31,7 +31,6 @@ function App() {
           <Route exact path="/swipePage">
             <SwipePage />
           </Route>
-          
         </Switch>
       </Router>
     </div>

@@ -53,23 +53,23 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                     e.preventDefault()
                 }}
             >
-                <h1>We can't wait to meet you.</h1>
-                <p>Please fill the detail below so that we get to knou you</p>
-                <br /><br />
+                <div className="h1_container">
+                <h2>We can't wait to meet you.</h2>
+                </div>
+                <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
                 <p>It's show time! Pick up to 8 pictures of you:</p>
                 <div className="form__photos">
                     <PhotoLoader setPhotoArray={setPhotoArray} />
                 </div>
             </form>
             <div className="button__container">
-
                 <Button
                     name="Back"
                     style="button_white_small"
                     onClick={handlePrevious}
                 />
                 <Button
-                    name="Finish"
+                    name="Finish!"
                     style="button_dark_small"
                     onClick={handleFinish}
                 />
