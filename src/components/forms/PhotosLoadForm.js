@@ -40,7 +40,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 <Button
                     name="Finish"
                     style="button_dark_small"
-                    onClick={() => {}}
+                    onClick={() => {history.push("swipepage")}}
                 />
             </div>
         </div>

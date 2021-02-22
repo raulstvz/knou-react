@@ -3,6 +3,7 @@ import cameraIcon from '../../assets/icons/camera.svg'
 import './PhotoLoader.css'
 
 const PhotoLoader = ({userId}) => {
+    const [photoArray, setPhotoArray] = useState([]);
 
     const handleImageUpload = (e) => {
         /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
@@ -11,28 +12,30 @@ const PhotoLoader = ({userId}) => {
         form_data.append('updated', new Date());
         form_data.append('photo', e.target.files[0]);
 
-
-
         const options = {
             method: "PUT",
-            body: form_data
+            body: form_data,    
         };
 
-        debugger;
-
-        fetch("http://localhost:3001/api/users/" + userId + "/photos", options)
-            .then((res) => {
-                if (res.ok) {
-                    // fetch de les imatges del user
+        fetch("http://localhost:3001/api/users/" + userId + "/photos", options)  
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw Error(response.statusText);
+            }
+        })
+        .then((response) => setPhotoArray(response))
+        .catch(error => {
+            console.log("Error when retrieving images:", error);
+        })
+                     
+                    //fetch de les imatges del user
                     // .then(respobse => setPhotoArray([respose])) 
-                }
-                else {
-                    console.log("error")
-                }
-            })
+                   
     };
 
-    const [photoArray, setPhotoArray] = useState([]);
+   console.log(photoArray);
 
     const MAX_ALLOWED = 8;
     const photosAllowed = MAX_ALLOWED - photoArray.length
@@ -57,12 +60,13 @@ const PhotoLoader = ({userId}) => {
     }
 
     return (
-        <>{photoArray.map((photo) => {
+        <>{photoArray && photoArray.map((photo) => {
+            const src = `data:image/png;base64,${photo.image}`;
             return (
-                <img src={photo} alt="uploaded_image" className="photoloader__photouploaded" />
+                <img src={src} alt="uploaded_image" className="photoloader__photouploaded" />
             )
-        })}
-            {content}
+        })} 
+             {content}
         </>
     )
 }
