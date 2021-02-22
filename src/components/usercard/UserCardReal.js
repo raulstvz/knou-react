@@ -1,9 +1,11 @@
 import Button from "../button/Button";
 import "./UserCard.css";
 
-const UserCardReal = ({ possibleMatch }) => {
+const UserCardReal = ({ possibleMatch, giveLike }) => {
   const handleLike = () => {
     console.log(possibleMatch._id); // id de cada usuario clicado. Ahora a hacer un post con esta info y la del usuario logeado.
+    giveLike();
+
     //fetch a likes
   };
 
@@ -32,9 +34,8 @@ const UserCardReal = ({ possibleMatch }) => {
       <div className="likeAndDislikeButton_container">
         <Button
           style="dislikeButtonFromSwipPage"
-          name={
-            <img className="disLikeIcon" src={"like"} onClick={handleLike} />
-          }
+          name={"like"}
+          onClick={handleLike}
         />
         <Button
           style="likeButtonFromSwipPage"
