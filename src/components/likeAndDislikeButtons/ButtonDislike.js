@@ -1,16 +1,19 @@
 import React from "react";
 import "./ButtonDislike.css";
-//falta importar el dibujo
+import decline from "../../assets/swipePage/nonLikeVector.png";
 import { useEffect } from "react";
 
-const ButtonDislike = ({ possibleMatchId }) => {
+const ButtonDislike = ({ possibleMatchId, giveDislike }) => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
+
   const body = {
     sender: loggedUser._id,
     receiver: possibleMatchId,
-    // created: new Date(),
+    //created: new Date(),
   };
+
   const handleDislike = () => {
+    giveDislike();
     const options = {
       method: "POST",
       headers: {
@@ -22,7 +25,7 @@ const ButtonDislike = ({ possibleMatchId }) => {
   };
   return (
     <div className="dislikeButtonFromSwipPage" onClick={handleDislike}>
-      <img className="dislikeIcon"></img>
+      <img className="dislikeIcon" src={decline}></img>
     </div>
   );
 };

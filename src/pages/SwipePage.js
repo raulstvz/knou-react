@@ -9,6 +9,7 @@ import Swiper from "../components/usercard/Swiper";
 
 const SwipePage = () => {
   const history = useHistory();
+
   return (
     <div>
       <Header
@@ -23,8 +24,6 @@ const SwipePage = () => {
       />
 
       <div className="swipePage__container">
-        <h3>You're now logged in and your profile is completed</h3>
-        <img src={profileSample} alt="profile" />
         <Swiper />
       </div>
 

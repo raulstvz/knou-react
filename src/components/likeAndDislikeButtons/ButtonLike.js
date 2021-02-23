@@ -1,12 +1,11 @@
 import React from "react";
 import "./ButtonLike.css";
-//falta importar el dibujo
+import heart from "../../assets/swipePage/heartVectorToSwipPage.png";
 import { useEffect } from "react";
 
 const ButtonLike = ({ possibleMatchId, giveLike }) => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
-  console.log(loggedUser);
-  console.log(possibleMatchId);
+
   const body = {
     sender: loggedUser._id,
     receiver: possibleMatchId,
@@ -25,7 +24,7 @@ const ButtonLike = ({ possibleMatchId, giveLike }) => {
   };
   return (
     <div className="likeButtonFromSwipPage" onClick={handleLike}>
-      <img className="likeIcon"></img>
+      <img className="likeIcon" src={heart}></img>
     </div>
   );
 };

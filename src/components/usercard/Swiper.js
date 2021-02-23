@@ -20,9 +20,9 @@ const Swiper = () => {
   console.log(current);
 
   const body = {
-    gender: "female",
-    orientation: "bisexual", //habria que coger aqui del useContext o localstorage las preferencias del usuario logeado
-    age_range: [20, 30],
+    gender: user.gender, //
+    orientation: user.orientation, //habria que coger aqui del useContext o localstorage las preferencias del usuario logeado
+    age_range: user.age_range,
   };
 
   const options = {
@@ -57,7 +57,11 @@ const Swiper = () => {
             key={index}
           >
             {index === current && (
-              <UserCard possibleMatch={possibleMatch} giveLike={giveLike} />
+              <UserCard
+                possibleMatch={possibleMatch}
+                giveLike={giveLike}
+                giveDislike={giveDislike}
+              />
             )}
           </div>
         ))}

@@ -1,22 +1,8 @@
-import Button from "../button/Button";
 import "./UserCard.css";
 import LikeButton from "../likeAndDislikeButtons/ButtonLike";
 import DislikeButton from "../likeAndDislikeButtons/ButtonDislike";
 
-const UserCardReal = ({ possibleMatch, giveLike }) => {
-  const handleLike = () => {
-    console.log(possibleMatch._id); // id de cada usuario clicado. Ahora a hacer un post con esta info y la del usuario logeado.
-    giveLike();
-
-    //fetch a likes
-  };
-
-  const handleDislike = () => {
-    console.log(possibleMatch._id);
-
-    //fetch a dislieks
-  };
-
+const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   //implementar logica de Post con likes Y dislikes desde los bot0nes, Aqui sabemos la info de cada usuario.
   return (
     <div className="userCard__container">
@@ -32,10 +18,13 @@ const UserCardReal = ({ possibleMatch, giveLike }) => {
           {possibleMatch.description}Description here
         </p>
 
-        <p className="profileInfo__distance">distance tiene q ser calculado</p>
+        <p className="profileInfo__distance">17 Kilometers away</p>
       </div>
       <div className="likeAndDislikeButton_container">
-        <DislikeButton />
+        <DislikeButton
+          giveDislike={giveDislike}
+          possibleMatchId={possibleMatch._id}
+        />
         <LikeButton giveLike={giveLike} possibleMatchId={possibleMatch._id} />
       </div>
     </div>
