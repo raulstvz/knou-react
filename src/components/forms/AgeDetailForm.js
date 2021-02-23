@@ -94,49 +94,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
           Others
         </div>
         <br />
-        <p>How old are you?</p>
-        <input
-          name="source"
-          className="form__input"
-          placeholder="Your Age"
-          onChange={(e) =>
-            setFormData({ ...formData, userAge: parseInt(e.target.value) })
-          }
-          style={{ "max-width": "25%" }}
-        />
-        <p>What is the age range you are insterested in?</p>
-        <div className="form__slider">
-          <input
-            type="range"
-            min="18"
-            max="75"
-            value={formData.ageStart}
-            step="1"
-            onChange={(e) =>
-              setFormData({ ...formData, ageStart: parseInt(e.target.value) })
-            }
-          />
-        </div>
-        <div className="form__slider">
-          <input
-            type="range"
-            min="18"
-            max="75"
-            value={formData.ageEnd}
-            step="1"
-            onChange={(e) =>
-              setFormData({ ...formData, ageEnd: parseInt(e.target.value) })
-            }
-          />
-        </div>
-        <p style={{ "margin-bottom": "50px" }}>
-          You are <b>{formData.userAge} years old</b> and have interest in
-          meeting people{" "}
-          <b>
-            between {formData.ageStart} and {formData.ageEnd}
-          </b>{" "}
-          years.
-        </p>
         <div className="form_radio">
           {/* <label className="form_label">Your sexual orientation</label> */}
           <p>Choose your sexual orientation</p>
@@ -181,7 +138,52 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
           />
           Transexual
         </div>
-        <br />
+
+        <p>How old are you?</p>
+        <input
+          name="source"
+          className="form__input"
+          placeholder="Your Age"
+          onChange={(e) =>
+            setFormData({ ...formData, userAge: parseInt(e.target.value) })
+          }
+          style={{ "max-width": "25%" }}
+        />
+        <p>What is the age range you are insterested in?</p>
+        <div className="slider__container">
+          <div className="form_slider_age">
+            <div className="value">
+              <div className="buble">{formData.ageStart + " years"}</div>
+            </div>
+            <input
+              type="range"
+              min="18"
+              max="75"
+              value={formData.ageStart}
+              step="1"
+              onChange={(e) =>
+                setFormData({ ...formData, ageStart: parseInt(e.target.value) })
+              }
+            />
+          </div>
+
+          <div className="form_slider_age">
+            <div className="value">
+            <div className="buble">{formData.ageEnd + " years"}</div>
+            </div>
+            <input
+              type="range"
+              min="18"
+              max="75"
+              value={formData.ageEnd}
+              step="1"
+              onChange={(e) =>
+                setFormData({ ...formData, ageEnd: parseInt(e.target.value) })
+              }
+            />
+          </div>
+        </div>
+
         <div className="button__container">
           <Button
             name="Next step"
