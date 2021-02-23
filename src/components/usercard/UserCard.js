@@ -7,16 +7,14 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   return (
     <div className="userCard__container">
       <div className="profilePicture__container">
-        <img src={possibleMatch.photos} className="profilePicture" />
+        <img src={possibleMatch.photos[0]} className="profilePicture" />
       </div>
       <div className="profileInfo__container">
         <p className="profileInfo__nameAndAge">
           {possibleMatch.firstname},{possibleMatch.age}
         </p>
 
-        <p className="profileInfo__description">
-          {possibleMatch.description}Description here
-        </p>
+        <p className="profileInfo__description">{possibleMatch.description}</p>
 
         <p className="profileInfo__distance">17 Kilometers away</p>
       </div>
