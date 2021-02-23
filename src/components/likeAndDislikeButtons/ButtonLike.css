@@ -1,0 +1,16 @@
+.likeButtonFromSwipPage{
+    background: #8C30F5;
+    width: 77px;
+    height: 77px;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 35px;
+  }
+.likeIcon{
+    height: 24px;
+    width: 28px;
+    margin-top: 25px;
+}

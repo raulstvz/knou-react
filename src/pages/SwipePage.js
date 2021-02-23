@@ -5,7 +5,7 @@ import { useHistory } from "react-router";
 import profileSample from "../assets/swipePage/Frame 231.png";
 import "./SwipePage.css";
 import BoxMenu from "../components/boxmenu/BoxMenu";
-import UserCard from "../components/usercard/UserCard";
+import Swiper from "../components/usercard/Swiper";
 
 const SwipePage = () => {
   const history = useHistory();
@@ -25,7 +25,7 @@ const SwipePage = () => {
       <div className="swipePage__container">
         <h3>You're now logged in and your profile is completed</h3>
         <img src={profileSample} alt="profile" />
-        <UserCard />
+        <Swiper />
       </div>
 
       <Footer />
