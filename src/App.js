@@ -9,6 +9,7 @@ import SwipePage from './pages/SwipePage';
 import BoxMenu from './components/boxmenu/BoxMenu'
 
 
+
 function App() {
 
   return (
@@ -31,7 +32,6 @@ function App() {
           <Route exact path="/swipePage">
             <SwipePage />
           </Route>
-          
         </Switch>
       </Router>
     </div>

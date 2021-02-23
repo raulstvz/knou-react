@@ -37,7 +37,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             body: JSON.stringify(body),
         };
         fetch("http://localhost:3001/api/users/" + userId, options)
-        history.push("/profile")
+        history.push("/swipePage")
     };
 
     const handlePrevious = () => {
