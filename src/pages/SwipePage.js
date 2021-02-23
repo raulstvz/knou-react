@@ -24,7 +24,7 @@ const history = useHistory();
             <h3>You're now logged in and your profile is completed</h3>
             <img src={profileSample} alt="profile"/>
             </div>
-
+                
             <Footer />        
         </div>
     )

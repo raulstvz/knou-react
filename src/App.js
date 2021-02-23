@@ -6,8 +6,6 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import CreateAccountPage from './pages/CreateAccountPage';
 import SwipePage from './pages/SwipePage';
-import BoxMenu from './components/boxmenu/BoxMenu'
-
 
 function App() {
 
