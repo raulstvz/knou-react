@@ -13,6 +13,18 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
 
 
     /* Actions for the buttons in the forms */
+    const handleFinish = () => {
+        /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
+        const options = {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        };
+        fetch("http://localhost:3001/api/users/" + userId, options)
+        history.push("/swipePage")
+    };
 
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1)
@@ -20,7 +32,22 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
 
     return (
         <div className="form">
-            <Stepper steps={totalSteps} currentStep={currentStep} />
+            <Stepper steps={totalSteps} currentStep={currentStep} onClick={handlePrevious}/>
+            <form
+                className="form__container"
+                onSubmit={(e) => {
+                    e.preventDefault()
+                }}
+            >
+                <h1>We can't wait to meet you.</h1>
+                <p>Please fill the detail below so that we get to knou you</p>
+                <br /><br />
+                <p>It's show time! Pick up to 8 pictures of you:</p>
+                <div className="form__photos">
+                    <PhotoLoader setPhotoArray={setPhotoArray} />
+                </div>
+            </form>
+            <div className="button__container">
 
             <h1>We can't wait to meet you.</h1>
             <p>Please fill the detail below so that we get to knou you</p>
