@@ -6,32 +6,23 @@ import PhotoLoader from "../photoLoader/PhotoLoader";
 import Stepper from "../stepper/Stepper"
 
 const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
-
     const history = useHistory()
-
     /* Controls the photo insertion through the PhotoLoader component */
-
-    
     /* Actions for the buttons in the forms */
-
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1)
     }
-
     return (
         <div className="form">
-            <Stepper steps={totalSteps} currentStep={currentStep} onClick={handlePrevious}/>
-            <h1>We can't wait to meet you.</h1>
-            <p>Please fill the detail below so that we get to knou you</p>
+            <Stepper steps={totalSteps} currentStep={currentStep} onClick={handlePrevious} />
+            <h2>We can't wait to meet you.</h2>
+            <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
             <br /><br />
             <p>It's show time! Pick up to 8 pictures of you:</p>
-
             <div className="form__photos">
-                <PhotoLoader userId={userId}/>
+                <PhotoLoader userId={userId} />
             </div>
-        
             <div className="button__container">
-
                 <Button
                     name="Back"
                     style="button_white_small"
@@ -40,10 +31,9 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 <Button
                     name="Finish!"
                     style="button_dark_small"
-                    onClick={() => {history.push("swipepage")}}
+                    onClick={() => { history.push("swipepage") }}
                 />
-
-                </div>
+            </div>
         </div>
     )
 }

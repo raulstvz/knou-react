@@ -33,8 +33,6 @@
     width: 45%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     z-index: 2;
 }
 .h1_container{
@@ -149,8 +147,8 @@ font-size: 20px;
     display: flex;
     text-align: right;
     margin-top: 10%;
-    
-    
+    justify-content : flex-end;
+
 }
 
 .form__action {
@@ -230,7 +228,6 @@ font-size: 20px;
 .form__photos {
     width: 120%;
     margin-top: 10px;
-    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
