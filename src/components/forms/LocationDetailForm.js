@@ -67,7 +67,7 @@ const LocationDetailForm = ({
 
   return (
     <div className="form">
-      <Stepper steps={totalSteps} currentStep={currentStep} />
+      <Stepper steps={totalSteps} currentStep={currentStep} onClick={handleNext}/>
       <form
         className="form__container"
         onSubmit={(e) => {
