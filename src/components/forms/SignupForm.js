@@ -23,7 +23,7 @@ const SignUpForm = () => {
     password: formData.password,
     created: new Date(),
     premium: false,
-    signup_step: 0
+    signup_step: 0,
   };
 
   console.log(body);
@@ -37,28 +37,25 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/users", options)
-      .then(async () => {
-        /* history.push("/create-account"); */
-        return await fetch("http://localhost:3001/api/auth/login", options)
-          .then((response) => response.json())
-          /* .then(json => console.log('token', json)) */
-          .then((json) => {
-            localStorage.setItem("token", json.token);
-            localStorage.setItem("user", JSON.stringify(json.user));
-            history.replace("/create-account");
-            /* TODO set history.replace => "/userpage" ...
+    fetch("http://localhost:3001/api/users", options).then(async () => {
+      /* history.push("/create-account"); */
+      return await fetch("http://localhost:3001/api/auth/login", options)
+        .then((response) => response.json())
+        /* .then(json => console.log('token', json)) */
+        .then((json) => {
+          localStorage.setItem("token", json.token);
+          localStorage.setItem("user", JSON.stringify(json.user));
+          history.replace("/create-account");
+          /* TODO set history.replace => "/userpage" ...
             in case the user is not on signup_step=4, then redirect to signup step */
-            window.location.reload(false);
-          });
-      })
-
-
+          window.location.reload(false);
+        });
+    });
   };
 
   const goToLogIn = () => {
-    history.push("/login")
-  }
+    history.push("/login");
+  };
 
   return (
     <form className="sideform__container">
@@ -90,9 +87,7 @@ const SignUpForm = () => {
           className="form__input"
           type="email"
           placeholder="Email"
-          onChange={(e) =>
-            setFormData({ ...formData, email: e.target.value })
-          }
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
         <input
           name="source"
@@ -104,11 +99,27 @@ const SignUpForm = () => {
           }
         />
         <div className="button__container">
-          <Button name="Get Started" style="button_dark_great" onClick={handleCreate} />
+          <Button
+            name="Get Started"
+            style="button_dark_great"
+            onClick={handleCreate}
+          />
         </div>
-        <p className="signupAdnsLogin_form"> Already have an account? <span className="colorPurple" onClick={() => {history.push("/login")}} > Sign in </span></p>
+        <p className="signupAdnsLogin_form">
+          {" "}
+          Already have an account?{" "}
+          <span
+            className="colorPurple"
+            onClick={() => {
+              history.push("/login");
+            }}
+          >
+            {" "}
+            Sign in{" "}
+          </span>
+        </p>
       </div>
-    </form >
+    </form>
   );
 };
 

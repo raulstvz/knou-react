@@ -1,0 +1,39 @@
+.userCard__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.profilePicture__container {
+  width: 400px;
+  height: 300;
+}
+
+.profilePicture {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 7%;
+}
+
+.likeAndDislikeButton_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.profileInfo__nameAndAge {
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.profileInfo__description {
+  margin-left: 10px;
+  font-size: medium;
+  color: rgba(85, 84, 84, 0.557);
+}
+
+.profileInfo__distance {
+  margin-left: 10px;
+  font-size: small;
+  color: rgba(85, 84, 84, 0.557);
+}
