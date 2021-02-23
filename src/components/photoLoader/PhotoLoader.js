@@ -61,7 +61,7 @@ const PhotoLoader = ({userId}) => {
 
     return (
         <>{photoArray && photoArray.map((photo) => {
-            const src = `data:image/png;base64,${photo.image}`;
+            const src = `data:${photo.mim};base64,${photo.image}`;
             return (
                 <img src={src} alt="uploaded_image" className="photoloader__photouploaded" />
             )
