@@ -17,6 +17,8 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     const body = {
         age: formData.userAge,
         age_range: [formData.ageStart, formData.ageEnd],
+        gender: formData.gender,
+        orientation: formData.orientation,
         signup_step: currentStep + 1,
         signup_completed: false,
         updated: new Date(),
@@ -100,6 +102,26 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                 </div>
                 <p style={{ "margin-bottom": "50px" }}>You are <b>{formData.userAge} years old</b> and have interest
                 in meeting people <b>between {formData.ageStart} and {formData.ageEnd}</b> years.</p>
+
+                <div className="form_radio">
+                    {/* <label className="form_label">Chose your gender </label> */}
+                    <p>Choose your gender</p>
+                    <input
+                        type="radio" id="male" name="gender" value="male"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Male
+                    <input type="radio" id="female" name="gender" value="others"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Female
+
+                    <input type="radio" id="others" name="gender" value="others"
+                        onChange={(e) =>
+                            setFormData({ ...formData, gender: e.target.value })
+                        } />Others
+                </div>
+
                 <div className="form_radio">
                     {/* <label className="form_label">Your sexual orientation</label> */}
                     <p>Choose your sexual orientation</p>
@@ -121,14 +143,20 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                             setFormData({ ...formData, gender: e.target.value })
                         } />Transexual
                 </div>
-                <br />
+
+
                 <div className="button__container">
                     <Button
                         name="Next step"
                         style="button_dark_small"
                         onClick={handleNext}
                     />
-                </div>
+                    {currentStep > 1 && <Button
+                        name="Back"
+                        style="button_dark_small"
+                        onClick={handlePrevious} />
+                    }</div>
+
             </form>
         </div>
     );
