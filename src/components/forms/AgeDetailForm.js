@@ -6,16 +6,19 @@ import Stepper from "../stepper/Stepper";
 const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
   const [formData, setFormData] = useState({
     userAge: 30,
+
     ageStart: 25,
     ageEnd: 35,
     gender: undefined,
     orientation: undefined,
+
   });
 
   /* Data to be passed as body in the fetch */
   const body = {
     age: formData.userAge,
     age_range: [formData.ageStart, formData.ageEnd],
+
     signup_step: currentStep + 1,
     signup_completed: false,
     updated: new Date(),
@@ -190,5 +193,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     </div>
   );
 };
+
 
 export default AgeDetailForm;

@@ -8,6 +8,7 @@ import BoxMenu from "../components/boxmenu/BoxMenu";
 import Swiper from "../components/usercard/Swiper";
 
 const SwipePage = () => {
+
   const history = useHistory();
 
   return (
@@ -31,5 +32,6 @@ const SwipePage = () => {
     </div>
   );
 };
+
 
 export default SwipePage;
