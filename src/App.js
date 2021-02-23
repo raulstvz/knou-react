@@ -5,7 +5,7 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import CreateAccountPage from './pages/CreateAccountPage';
-import SwipePage from './pages/SwipePage';
+import SwipePage from './pages/SwipePage';mkm
 
 function App() {
 
