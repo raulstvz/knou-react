@@ -8,7 +8,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   const [photo, setPhoto] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/users/6036375e294ea806472146f8/photos`) //${possibleMatch._id}
+    fetch(`http://localhost:3001/api/users/${possibleMatch._id}/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
@@ -16,8 +16,6 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
       })
       .then((json) => setPhoto(json));
   }, []);
-
-  console.log(photo);
 
   const photoBuffer = photo.map((e) => {
     const src = `data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
