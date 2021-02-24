@@ -9,9 +9,27 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
     const history = useHistory()
     /* Controls the photo insertion through the PhotoLoader component */
     /* Actions for the buttons in the forms */
+    const body = {
+        signup_step: currentStep + 1,
+        signup_completed: true,
+        updated: new Date(),
+    }
+    const handleFinsih = () => {
+        const options = {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+          };
+          fetch("http://localhost:3001/api/users/" + userId, options);
+          setCurrentStep(currentStep + 1);
+          history.push("login");
+          alert("Congratulations, your data has been saved correctly, now log in to find your ideal match")
+    }
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1)
-    }
+    };
     return (
         <div className="form">
             <Stepper steps={totalSteps} currentStep={currentStep} onClick={handlePrevious} />
@@ -31,7 +49,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 <Button
                     name="Finish!"
                     style="button_dark_small"
-                    onClick={() => { history.push("swipepage") }}
+                    onClick={() => handleFinsih() }
                 />
             </div>
         </div>
