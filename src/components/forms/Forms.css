@@ -239,3 +239,69 @@ font-size: 20px;
     z-index: 1;
 
 }
+/*icons sections*/
+.form_radio input {
+    -webkit-appearance:none;
+}
+.iconGender{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+/*hetero icon*/
+.iconHeteroM, .iconHeteroF{
+    position: absolute;
+}
+.iconHeteroM{
+    position: relative;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHeteroF{
+    position: relative;
+    z-index: 2;
+    left:-28px;
+    top:-12px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+/*homo icon*/
+.iconHomoFa, .iconHomoFb{
+    position: absolute;
+}
+.iconHomoFa{
+    position: relative;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHomoFb{
+    position: relative;
+    z-index: 2;
+    left:-32px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHomoMa, .iconHomoMb{
+    position: absolute;
+}
+.iconHomoMa{
+    position: relative;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHomoMb{
+    position: relative;
+    z-index: 2;
+    left:-32px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
