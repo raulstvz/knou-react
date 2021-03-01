@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
+import {useForm} from "react-hook-form";
 
 const SignUpForm = () => {
   const history = useHistory();
