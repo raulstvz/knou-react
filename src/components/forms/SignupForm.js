@@ -46,7 +46,7 @@ const SignUpForm = () => {
 
 
     };
-    if(!validateEmail(email) && password.length < 5) {
+  /*   if(!validateEmail(email) && password.length < 5) {
       setErrorStyle({
         'email': 'errorVisible',
         'password': 'errorVisible',
@@ -61,7 +61,7 @@ const SignUpForm = () => {
         'email': 'errorVisible',
         'password': 'errorInvisible',
       })
-    } else {
+    } else { */
       fetch("http://localhost:3001/api/users", options).then(async () => {
         /* history.push("/create-account"); */
         return await fetch("http://localhost:3001/api/auth/login", options)
@@ -76,7 +76,7 @@ const SignUpForm = () => {
             window.location.reload(false);
           });
       });
-    }
+    
   };
 
   const goToLogIn = () => {
