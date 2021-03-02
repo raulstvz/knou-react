@@ -23,7 +23,6 @@ const Swiper = () => {
     gender: user.gender, //
     orientation: user.orientation, //habria que coger aqui del useContext o localstorage las preferencias del usuario logeado
     age_range: user.age_range,
-    
   };
 
   const options = {

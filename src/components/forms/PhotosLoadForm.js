@@ -18,14 +18,14 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
         const options = {
             method: "PUT",
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(body),
-          };
-          fetch("http://localhost:3001/api/users/" + userId, options);
-          setCurrentStep(currentStep + 1);
-          history.push("login");
-          alert("Congratulations, your data has been saved correctly, now log in to find your ideal match")
+        };
+        fetch("http://localhost:3001/api/users/" + userId, options);
+        setCurrentStep(currentStep + 1);
+        history.push("login");
+        alert("Congratulations, your data has been saved correctly, now log in to find your ideal match")
     }
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1)
@@ -49,7 +49,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 <Button
                     name="Finish!"
                     style="button_dark_small"
-                    onClick={() => handleFinsih() }
+                    onClick={() => handleFinsih()}
                 />
             </div>
         </div>
