@@ -239,3 +239,13 @@ font-size: 20px;
     z-index: 1;
 
 }
+
+/* validationDAta */
+
+.errorInvisible {
+    display:none;
+  }
+  
+  .errorVisible {
+    color:red;
+  }
