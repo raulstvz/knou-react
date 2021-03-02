@@ -35,8 +35,11 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/users/" + userId, options);
-    setCurrentStep(currentStep + 1);
+    fetch("http://localhost:3001/api/users/" + userId, options)
+    .then((response) => {if(response.status === 200){
+      setCurrentStep(currentStep + 1)} }
+     )
+     
   };
 
   const handlePrevious = () => {
