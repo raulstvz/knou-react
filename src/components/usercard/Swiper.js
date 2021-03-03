@@ -23,7 +23,6 @@ const Swiper = () => {
     gender: user.gender, //
     orientation: user.orientation, //habria que coger aqui del useContext o localstorage las preferencias del usuario logeado
     age_range: user.age_range,
-    
   };
 
   const options = {
@@ -40,6 +39,8 @@ const Swiper = () => {
       options
     )
       .then((promise) => {
+        console.log(promise);
+
         if (promise.status === 200) {
           return promise.json();
         }
