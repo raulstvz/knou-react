@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
-import { validateEmail } from "../../utils/validateEmail"
+import validateEmail from "../../utils/validateEmail"
 
 
 const SignUpForm = () => {
@@ -26,8 +26,8 @@ const SignUpForm = () => {
   const body = {
     firstname: formData.firstname,
     lastname: formData.lastname,
-    email: formData.email,
-    password: formData.password,
+    email: email,
+    password: password,
     created: new Date(),
     premium: false,
     signup_step: 0,
@@ -37,7 +37,7 @@ const SignUpForm = () => {
 
   //Fetch function
   const handleCreate = () => {
-    const options = { 
+    const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const SignUpForm = () => {
 
 
     };
-  /*   if(!validateEmail(email) && password.length < 5) {
+    if (!validateEmail(email) && password.length < 5) {
       setErrorStyle({
         'email': 'errorVisible',
         'password': 'errorVisible',
@@ -61,7 +61,7 @@ const SignUpForm = () => {
         'email': 'errorVisible',
         'password': 'errorInvisible',
       })
-    } else { */
+    } else {
       fetch("http://localhost:3001/api/users", options).then(async () => {
         /* history.push("/create-account"); */
         return await fetch("http://localhost:3001/api/auth/login", options)
@@ -76,8 +76,9 @@ const SignUpForm = () => {
             window.location.reload(false);
           });
       });
-    
-  };
+
+    };
+  }
 
   const goToLogIn = () => {
     history.push("/login");
@@ -120,7 +121,7 @@ const SignUpForm = () => {
           type="password"
           placeholder="Password"
           onChange={(e) =>
-            setPassword({ password: e.target.value })
+            setPassword( e.target.value)
           }
         />
         <span className={errorStyle.password}>Password must be 5 characters long</span>

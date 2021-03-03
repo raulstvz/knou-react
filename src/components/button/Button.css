@@ -101,3 +101,15 @@
   margin: 0px 25px;
   color: #000000;
 }
+
+.button_disable{
+  width: fit-content;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0px 10px;
+  display: flex;
+  align-items: center;
+  background-color: #4d484d;
+  color: #020202;
+  
+}

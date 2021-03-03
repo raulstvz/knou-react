@@ -13,6 +13,10 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     orientation: undefined,
 
   });
+  const [errorAge, setErrorAge] = useState(false);
+  const validatingAge = (age) => {
+    return age >= 18   /* && age.match(/[0-9]/g) */;
+  }
 
   /* Data to be passed as body in the fetch */
   const body = {
@@ -42,6 +46,17 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
   };
+  const handleAge = (age) => {
+    if (age.target.value.length > 0) {
+      if (validatingAge(age.target.value)) {
+        setFormData({ ...formData, userAge: parseInt(age.target.value) });
+        setErrorAge(false);
+      } else {
+        setErrorAge(true);
+      }
+    }
+  }
+
 
   return (
     <div className="form">
@@ -144,11 +159,14 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
           name="source"
           className="form__input"
           placeholder="Your Age"
-          onChange={(e) =>
-            setFormData({ ...formData, userAge: parseInt(e.target.value) })
-          }
+          onChange={(e) => {
+            console.log(e.target.value);
+            return handleAge(e);
+          }}
           style={{ "max-width": "25%" }}
         />
+
+        {errorAge && <div>Error</div>}
         <p>What is the age range you are insterested in?</p>
         <div className="slider__container">
           <div className="form_slider_age">
@@ -169,7 +187,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
 
           <div className="form_slider_age">
             <div className="value">
-            <div className="buble">{formData.ageEnd + " years"}</div>
+              <div className="buble">{formData.ageEnd + " years"}</div>
             </div>
             <input
               type="range"
@@ -187,8 +205,8 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
         <div className="button__container">
           <Button
             name="Next step"
-            style="button_dark_small"
-            onClick={handleNext}
+            style={!errorAge ? "button_dark_small" : "button_disable"}
+            onClick={!errorAge && handleNext}
           />
         </div>
       </form>
