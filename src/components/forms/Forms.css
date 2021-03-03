@@ -38,7 +38,7 @@
 .h1_container{
     z-index: 1;
     width: 150%;
-font-size: 20px;
+    font-size: 20px;
 }
 .form__container {
     padding: 25px;
@@ -149,7 +149,6 @@ font-size: 20px;
     text-align: right;
     margin-top: 10%;
     justify-content : flex-end;
-
 }
 
 .form__action {
@@ -180,7 +179,7 @@ font-size: 20px;
     justify-content: center;
    
 }
-  .form_slider_age {
+.form_slider_age {
     width: 50%;
   }
 
@@ -245,7 +244,7 @@ font-size: 20px;
 
 span.errorInvisible{
     display:none;
-  }
+}
   
 span.errorVisible{
     color:red;
@@ -253,7 +252,7 @@ span.errorVisible{
     top: -25px;
     left: 3px;
     z-index: 2;
-  }
+}
 
 input.errorInvisible{
     display: block;
@@ -284,4 +283,12 @@ input.errorVisible{
     font-weight: 400;
     z-index: 1;
 }
-  
+.youMustBeText{
+    color:red;
+    position: relative;
+    top: -25px;
+    left: 3px;
+    z-index: 2;
+}
+
+

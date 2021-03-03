@@ -163,10 +163,10 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
             console.log(e.target.value);
             return handleAge(e);
           }}
-          style={{ "max-width": "25%" }}
+          style={{ "max-width": "25%" , "display":"block"}}
         />
 
-        {errorAge && <div>Error</div>}
+        {errorAge && <span className="youMustBeText">You must be older than 18 to continue</span>}
         <p>What is the age range you are insterested in?</p>
         <div className="slider__container">
           <div className="form_slider_age">
@@ -184,7 +184,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
               }
             />
           </div>
-
           <div className="form_slider_age">
             <div className="value">
               <div className="buble">{formData.ageEnd + " years"}</div>
