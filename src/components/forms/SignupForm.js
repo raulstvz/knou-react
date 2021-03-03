@@ -109,7 +109,9 @@ const SignUpForm = () => {
             setFormData({ ...formData, lastname: e.target.value })
           }
         />
-        <input className="form__input" placeholder="Email"
+        <input
+          className={errorStyle.email}
+          placeholder="Email"
           type="text"
           name="email"
           onChange={(e) => setEmail(e.target.value)}
@@ -117,12 +119,10 @@ const SignUpForm = () => {
         <span className={errorStyle.email}>Invalid email</span>
         <input
           name="source"
-          className="form__input"
+          className={errorStyle.password}
           type="password"
           placeholder="Password"
-          onChange={(e) =>
-            setPassword( e.target.value)
-          }
+          onChange={(e) => setPassword(e.target.value)}
         />
         <span className={errorStyle.password}>Password must be 5 characters long</span>
         <div className="button__container">

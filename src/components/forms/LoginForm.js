@@ -78,7 +78,7 @@ const LoginForm = () => {
             onClick={handleLogin}
           />
         </div>
-        <p className="signupAdnsLogin_form"> Don't have an account? <span className="colorPurple" onClick={() => {history.push("/signup")}} > Sign up </span></p>
+        <p className="signupAdnsLogin_form"> Don't have an account? <span className="colorPurple" onClick={() => { history.push("/signup") }} > Sign up </span></p>
       </div>
     </form>
   );
