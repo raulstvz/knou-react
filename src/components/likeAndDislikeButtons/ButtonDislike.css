@@ -1,0 +1,15 @@
+.dislikeButtonFromSwipPage{
+    background: #DED3FF;
+    width: 46px;
+    height: 46px;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+.dislikeIcon{
+    height: 12px;
+    width: 12px;
+    margin-top: 16px;
+}

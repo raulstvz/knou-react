@@ -6,29 +6,15 @@ import PhotoLoader from "../photoLoader/PhotoLoader";
 import Stepper from "../stepper/Stepper"
 
 const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
-
     const history = useHistory()
-
     /* Controls the photo insertion through the PhotoLoader component */
-    const [photoArray, setPhotoArray] = useState([]);
-    const [formData, setFormData] = useState({
-        photos: ["photo1", "photo2", "photo3", "photo4"]
-    })
-    /* useEffect(() => {
-        setFormData({ ...formData, photos: photoArray })
-    }, [photoArray]) */
-
-    /* Data to be passed as body in the fetch */
-    const body = {
-        photos: formData.photos,
-        signup_step: currentStep + 1,
-        updated: new Date(),
-        signup_completed: true
-    };
-
     /* Actions for the buttons in the forms */
-    const handleFinish = () => {
-        /* TODO: DEFINE PUT/POST ACTION AGAINST MONGODB */
+    const body = {
+        signup_step: currentStep + 1,
+        signup_completed: true,
+        updated: new Date(),
+    }
+    const handleFinsih = () => {
         const options = {
             method: "PUT",
             headers: {
@@ -36,32 +22,24 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             },
             body: JSON.stringify(body),
         };
-        fetch("http://localhost:3001/api/users/" + userId, options)
-        history.push("/profile")
-    };
-
+        fetch("http://localhost:3001/api/users/" + userId, options);
+        setCurrentStep(currentStep + 1);
+        history.push("login");
+        alert("Congratulations, your data has been saved correctly, now log in to find your ideal match")
+    }
     const handlePrevious = () => {
         setCurrentStep(currentStep - 1)
-    }
-
+    };
     return (
         <div className="form">
-            <Stepper steps={totalSteps} currentStep={currentStep} />
-            <form
-                className="form__container"
-                onSubmit={(e) => {
-                    e.preventDefault()
-                }}
-            >
-                <div className="h1_container">
-                <h2>We can't wait to meet you.</h2>
-                </div>
-                <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
-                <p>It's show time! Pick up to 8 pictures of you:</p>
-                <div className="form__photos">
-                    <PhotoLoader setPhotoArray={setPhotoArray} />
-                </div>
-            </form>
+            <Stepper steps={totalSteps} currentStep={currentStep} onClick={handlePrevious} />
+            <h2>We can't wait to meet you.</h2>
+            <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
+            <br /><br />
+            <p>It's show time! Pick up to 8 pictures of you:</p>
+            <div className="form__photos">
+                <PhotoLoader userId={userId} />
+            </div>
             <div className="button__container">
                 <Button
                     name="Back"
@@ -71,7 +49,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
                 <Button
                     name="Finish!"
                     style="button_dark_small"
-                    onClick={handleFinish}
+                    onClick={() => handleFinsih()}
                 />
             </div>
         </div>

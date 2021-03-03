@@ -70,6 +70,8 @@
   width: 72px;
   height: 72px;
   opacity: 0.5;
+  position: relative;
+  animation: paleturquoiseCircle 4s linear 2s infinite alternate backwards running;
 }
 
 .woman_container {
@@ -93,6 +95,16 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
+  animation: paleturquoiseCircle 4s linear 2s infinite alternate backwards running;
+}
+.orangeCircle_container  {
+  position: relative;
+  animation: orangeCircle 4s linear 2s infinite alternate backwards running;
+}
+.purpleCircle_container{
+  position: relative;
+  animation: purpleCircle 4s linear 2s infinite alternate backwards running;
 }
 
 /*----PROFILE SAMPLE SECTION----*/
@@ -292,4 +304,75 @@
   line-height: 24px;
   font-feature-settings: "liga" off;
   color: #18191f;
+}
+
+/*animations*/
+
+@keyframes paleturquoiseCircle {
+  0%{
+      left: 0px;
+      top:0px
+  }
+  25%{
+      left: 100px;
+      top:0px
+  }
+  50%{
+      left: 100px;
+      top:100px
+  }
+  75%{
+      left: 0px;
+      top:100px
+  }
+  100%{
+      left: 0px;
+      top:0px
+  }
+}
+
+@keyframes purpleCircle {
+  0%{
+      right: 0px;
+      top:0px
+  }
+  25%{
+      right: 100px;
+      top:0px
+  }
+  50%{
+      right: 100px;
+      top:-100px
+  }
+  75%{
+      right: 0px;
+      top:-100px
+  }
+  100%{
+      right: 0px;
+      top:0px
+  }
+}
+
+@keyframes orangeCircle {
+  0%{
+      left: 0px;
+      top:0px
+  }
+  25%{
+      left: 300px;
+      top:0px
+  }
+  50%{
+      left: 300px;
+      top:250px
+  }
+  75%{
+      left: 0px;
+      top:250px
+  }
+  100%{
+      left: 0px;
+      top:0px
+  }
 }

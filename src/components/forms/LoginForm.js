@@ -35,7 +35,7 @@ const LoginForm = () => {
         Else, redirect the user to the create-account forms in order to complete it */
         const profileCompleted = json.user.signup_completed
         if (profileCompleted) {
-          history.replace("/profile");
+          history.replace("/swipepage");
         } else {
           history.replace("/create-account");
         }

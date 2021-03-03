@@ -2,64 +2,70 @@ import { React, useState, useEffect } from "react";
 import "./Forms.css";
 import Button from "../button/Button";
 import Tag from "../tag/Tag";
-import Stepper from "../stepper/Stepper"
+import Stepper from "../stepper/Stepper";
 
-const UserDescriptionForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
+const UserDescriptionForm = ({
+  totalSteps,
+  currentStep,
+  setCurrentStep,
+  userId,
+}) => {
+  /* Controls the tag array insertion */
+  const [tagArray, setTagArray] = useState([]);
+  const [placeholder, setPlaceHolder] = useState("");
 
-    /* Controls the tag array insertion */
-    const [tagArray, setTagArray] = useState([])
-    const [placeholder, setPlaceHolder] = useState("")
-
-    const handleKeyPress = (e) => {
-        if (e.key === 'Enter' && e.target.value !== "") {
-            setTagArray([...tagArray, e.target.value]);
-            setPlaceHolder("")
-            e.target.value = placeholder
-        }
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && e.target.value !== "") {
+      setTagArray([...tagArray, e.target.value]);
+      setPlaceHolder("");
+      e.target.value = placeholder;
     }
-    const handleOnClick = (e) => {
-        let tagName = e.target.nextSibling.textContent;
-        setTagArray(tagArray.filter((tag) => tag !== tagName));
+  };
+  const handleOnClick = (e) => {
+    let tagName = e.target.nextSibling.textContent;
+    setTagArray(tagArray.filter((tag) => tag !== tagName));
+  };
+  /* formData : combo for the inputs */
+  const [formData, setFormData] = useState({
+    description: undefined,
+    hobbies: undefined,
+  });
+
+  useEffect(() => {
+    setFormData({ ...formData, hobbies: tagArray });
+  }, [tagArray]);
+
+  /* Data to be passed as body in the fetch */
+  const body = {
+    description: formData.description,
+    hobbies: formData.hobbies,
+    signup_step: currentStep + 1,
+    signup_completed: false,
+    updated: new Date(),
+  };
+
+  /* Actions for the buttons in the forms */
+  const handleNext = () => {
+    const options = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     };
-    /* formData : combo for the inputs */
-    const [formData, setFormData] = useState({
-        description: undefined,
-        hobbies: undefined,
-    })
+    fetch("http://localhost:3001/api/users/" + userId, options);
+    setCurrentStep(currentStep + 1);
+  };
 
-    useEffect(() => {
-        setFormData({ ...formData, hobbies: tagArray })
-    }, [tagArray]);
+  const handlePrevious = () => {
+    setCurrentStep(currentStep - 1);
+  };
 
-    /* Data to be passed as body in the fetch */
-    const body = {
-        description: formData.description,
-        hobbies: formData.hobbies,
-        signup_step: currentStep + 1,
-        signup_completed: false,
-        updated: new Date(),
-    };
 
-    /* Actions for the buttons in the forms */
-    const handleNext = () => {
-        const options = {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body),
-        };
-        fetch("http://localhost:3001/api/users/" + userId, options)
-        setCurrentStep(currentStep + 1)
-    }
-
-    const handlePrevious = () => {
-        setCurrentStep(currentStep - 1)
-    }
 
     return (
         <div className="form" >
-            <Stepper steps={totalSteps} currentStep={currentStep} />
+            <Stepper steps={totalSteps} currentStep={currentStep} onClick={handleNext}/>
             <form
                 className="form__container"
                 onSubmit={(e) => {
