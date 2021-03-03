@@ -1,9 +1,14 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./Forms.css";
 import Button from "../button/Button";
 import Stepper from "../stepper/Stepper";
+import femaleIcon from "../../assets/gender icons/femaleIcon.svg"
+import maleIcon from "../../assets/gender icons/maleIcon.svg"
+import maleFemaleIcon from "../../assets/gender icons/maleFemaleIcon.svg"
+import orientaSexMaleFemaleIcon from "../../assets/gender icons/orientaSexMaleFemaleIcon.svg"
 
 const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
+  
   const [formData, setFormData] = useState({
     userAge: 30,
 
@@ -43,6 +48,8 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     setCurrentStep(currentStep - 1);
   };
 
+  
+
   return (
     <div className="form">
       <Stepper steps={totalSteps} currentStep={currentStep} />
@@ -59,64 +66,42 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
           Please fill the detail below so that we get to{" "}
           <span className="colorPurple">knou</span> you
         </p>
-        <div className="form_radio">
-          {/* <label className="form_label">Chose your gender </label> */}
-          <p>Choose your gender</p>
-          <input
-            type="radio"
-            id="male"
-            name="gender"
-            value="male"
-            onChange={(e) =>
-              setFormData({ ...formData, gender: e.target.value })
-            }
-          />
-          Male
-          <input
-            type="radio"
-            id="female"
-            name="gender"
-            value="female"
-            onChange={(e) =>
-              setFormData({ ...formData, gender: e.target.value })
-            }
-          />
-          Female
-          <input
-            type="radio"
-            id="others"
-            name="gender"
-            value="others"
-            onChange={(e) =>
-              setFormData({ ...formData, gender: e.target.value })
-            }
-          />
-          Others
-        </div>
-        <br />
-        <div className="form_radio">
-          {/* <label className="form_label">Your sexual orientation</label> */}
-          <p>Choose your sexual orientation</p>
-          <input
-            type="radio"
-            id="heterosexual"
-            name="orientation"
-            value="heterosexual"
-            onChange={(e) =>
-              setFormData({ ...formData, orientation: e.target.value })
-            }
-          />
-          Heterosexual
-          <input
-            type="radio"
-            id="homosexual"
-            name="orientation"
-            value="homosexual"
-            onChange={(e) =>
-              setFormData({ ...formData, orientation: e.target.value })
-            }
-          />
-          Homosexual
+        <div className="form__radio">
+        <p>Choose your gender</p>
+          <div className="genderSection">
+            
+            <div  className="genderEspecificSection" >
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  
+                  onChange={(e) =>
+                    setFormData({ ...formData, gender: e.target.value })
+                  }
+                />
+            <label for="male" ><img src={maleIcon} alt="male simbol" className="iconGender"/>Male</label>
+            </div>
+            <div className="genderEspecificSection" >  
+                  
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                onChange={(e) =>
+                  setFormData({ ...formData, gender: e.target.value })
+                }
+              />
+              <label for="female"><img src={femaleIcon} alt="female simbol" className="iconGender"/>Female</label>
+              </div>
+
+          
+            </div>
+            <p>Choose your sexual orientation</p>
+          <div className="orientationSection">
+            <div className="orientationOption">
           <input
             type="radio"
             id="bisexual"
@@ -126,18 +111,44 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
               setFormData({ ...formData, orientation: e.target.value })
             }
           />
-          Bisexual
+            <label for="bisexual">Bisexual<img src={orientaSexMaleFemaleIcon} alt="male-female simbol" className="iconGender"/></label>
+
+            </div>
+            
+            <div className="orientationOption">          
           <input
             type="radio"
-            id="transexual"
+            id="heterosexual"
             name="orientation"
-            value="transexual"
+            value="heterosexual"
+           
             onChange={(e) =>
-              setFormData({ ...formData, gender: e.target.value })
+              setFormData({ ...formData, orientation: e.target.value })
             }
           />
-          Transexual
-        </div>
+          <label for="heterosexual">Heterosexual<img src={femaleIcon} alt="female simbol" className="iconHeteroM"/><img src={maleIcon} alt="male simbol" className="iconHeteroF"/></label>
+
+          </div>
+          
+          <div className="orientationOption">
+          <input
+            type="radio"
+            id="homosexual"
+            name="orientation"
+            value="homosexual"
+          
+            onChange={(e) =>
+              setFormData({ ...formData, orientation: e.target.value })
+            }
+          />
+          <label for="homosexual">Homosexual<img src={femaleIcon} alt="female simbol" className="iconHomoFa"/>
+        <img src={femaleIcon} alt="female simbol" className="iconHomoFb"/>
+        <img src={maleIcon} alt="male simbol" className="iconHomoMa"/>
+        <img src={maleIcon} alt="male simbol" className="iconHomoMb"/></label>
+          </div>
+          
+            </div>
+          </div>
 
         <p>How old are you?</p>
         <input

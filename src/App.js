@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from './pages/SignupPage';
 import CreateAccountPage from './pages/CreateAccountPage';
 import SwipePage from './pages/SwipePage';
+import AgeDetailForm from "./components/forms/AgeDetailForm";
 
 function App() {
 
@@ -28,6 +29,10 @@ function App() {
           </Route>
           <Route exact path="/swipePage">
             <SwipePage />
+          </Route>
+          {/* Siempre dejar este al último */}
+          <Route exact path="*">
+            <LandingPage />
           </Route>
         </Switch>
       </Router>
