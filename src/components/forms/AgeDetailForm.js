@@ -14,6 +14,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
 
   });
   const [errorAge, setErrorAge] = useState(false);
+  
   const validatingAge = (age) => {
     return age >= 18   /* && age.match(/[0-9]/g) */;
   }
