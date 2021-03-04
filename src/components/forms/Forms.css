@@ -133,11 +133,11 @@ font-size: 20px;
 }
 
 .form__radio {
-    width: 50%;
+    width: 100%;
     display: flex;
-    flex-direction: colum;
-    align-content: flex-start;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -238,4 +238,97 @@ font-size: 20px;
     column-gap: 38px;
     z-index: 1;
 
+}
+/*icons sections*/
+.form__radio input {
+    -webkit-appearance:none;
+    
+} 
+.form__radio input[type="radio"]:checked + label {
+    background-color:#ded3ff;
+    color: #8c30f5;
+
+}
+label {
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    padding: 15px 15px 15px 15px;
+    border-radius: 150px;
+}
+
+.iconGender{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+/*hetero icon*/
+.iconHeteroM, .iconHeteroF{
+    position: absolute;
+}
+.iconHeteroM{
+    position: relative;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHeteroF{
+    position: relative;
+    z-index: 2;
+    left:-28px;
+    top:-12px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+/*homo icon*/
+.iconHomoFa, .iconHomoFb{
+    position: absolute;
+}
+.iconHomoFa{
+    position: relative;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHomoFb{
+    position: relative;
+    z-index: 2;
+    left:-32px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHomoMa, .iconHomoMb{
+    position: absolute;
+}
+.iconHomoMa{
+    position: relative;
+    z-index: 1;
+    left:-40px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.iconHomoMb{
+    position: relative;
+    z-index: 2;
+    left:-72px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.genderSection{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.genderEspecificSection{
+    width: 33,33%;
+}
+.orientationOption{
+    width: 33%;
 }
