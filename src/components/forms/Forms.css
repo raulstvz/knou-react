@@ -38,7 +38,7 @@
 .h1_container{
     z-index: 1;
     width: 150%;
-font-size: 20px;
+    font-size: 20px;
 }
 .form__container {
     padding: 25px;
@@ -107,6 +107,7 @@ font-size: 20px;
     font-family: Manrope;
     font-size: 18px;
     font-weight: 400;
+    z-index: 1;
 }
 
 .form__text {
@@ -148,7 +149,6 @@ font-size: 20px;
     text-align: right;
     margin-top: 10%;
     justify-content : flex-end;
-
 }
 
 .form__action {
@@ -179,7 +179,7 @@ font-size: 20px;
     justify-content: center;
    
 }
-  .form_slider_age {
+.form_slider_age {
     width: 50%;
   }
 

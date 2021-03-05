@@ -3,6 +3,8 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
+import validateEmail from "../../utils/validateEmail"
+
 
 const SignUpForm = () => {
   const history = useHistory();
@@ -11,16 +13,21 @@ const SignUpForm = () => {
   const [formData, setFormData] = useState({
     firstname: undefined,
     lastname: undefined,
-    email: undefined,
-    password: undefined,
+
   });
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorStyle, setErrorStyle] = useState({
+    'email': 'errorInvisible',
+    'password': 'errorInvisible',
+  });
   //Body
   const body = {
     firstname: formData.firstname,
     lastname: formData.lastname,
-    email: formData.email,
-    password: formData.password,
+    email: email,
+    password: password,
     created: new Date(),
     premium: false,
     signup_step: 0,
@@ -36,22 +43,42 @@ const SignUpForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
+
+
     };
-    fetch("http://localhost:3001/api/users", options).then(async () => {
-      /* history.push("/create-account"); */
-      return await fetch("http://localhost:3001/api/auth/login", options)
-        .then((response) => response.json())
-        /* .then(json => console.log('token', json)) */
-        .then((json) => {
-          localStorage.setItem("token", json.token);
-          localStorage.setItem("user", JSON.stringify(json.user));
-          history.replace("/create-account");
-          /* TODO set history.replace => "/userpage" ...
-            in case the user is not on signup_step=4, then redirect to signup step */
-          window.location.reload(false);
-        });
-    });
-  };
+    if (!validateEmail(email) && password.length < 5) {
+      setErrorStyle({
+        'email': 'errorVisible',
+        'password': 'errorVisible',
+      })
+    } else if (password.length < 5) {
+      setErrorStyle({
+        'email': 'errorInvisible',
+        'password': 'errorVisible',
+      })
+    } else if (!validateEmail(email)) {
+      setErrorStyle({
+        'email': 'errorVisible',
+        'password': 'errorInvisible',
+      })
+    } else {
+      fetch("http://localhost:3001/api/users", options).then(async () => {
+        /* history.push("/create-account"); */
+        return await fetch("http://localhost:3001/api/auth/login", options)
+          .then((response) => response.json())
+          /* .then(json => console.log('token', json)) */
+          .then((json) => {
+            localStorage.setItem("token", json.token);
+            localStorage.setItem("user", JSON.stringify(json.user));
+            history.replace("/create-account");
+            /* TODO set history.replace => "/userpage" ...
+              in case the user is not on signup_step=4, then redirect to signup step */
+            window.location.reload(false);
+          });
+      });
+
+    };
+  }
 
   const goToLogIn = () => {
     history.push("/login");
@@ -83,21 +110,21 @@ const SignUpForm = () => {
           }
         />
         <input
-          name="source"
-          className="form__input"
-          type="email"
+          className={errorStyle.email}
           placeholder="Email"
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          type="text"
+          name="email"
+          onChange={(e) => setEmail(e.target.value)}
         />
+        <span className={errorStyle.email}>Invalid email</span>
         <input
           name="source"
-          className="form__input"
+          className={errorStyle.password}
           type="password"
           placeholder="Password"
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
+          onChange={(e) => setPassword(e.target.value)}
         />
+        <span className={errorStyle.password}>Password must be 5 characters long</span>
         <div className="button__container">
           <Button
             name="Get Started"
