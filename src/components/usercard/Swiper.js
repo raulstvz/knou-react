@@ -23,7 +23,6 @@ const Swiper = () => {
     gender: user.gender, //
     orientation: user.orientation, //habria que coger aqui del useContext o localstorage las preferencias del usuario logeado
     age_range: user.age_range,
-    
   };
 
   const options = {
@@ -51,7 +50,7 @@ const Swiper = () => {
   //los button tienen que , pasar el usuario y mandr a la db el like odislike .
   return (
     <>
-      <div className="swiper__container">
+      <div className="">
         {possibleMatches.map((possibleMatch, index) => (
           <div
             className={index === current ? "slide active" : "slide"}
