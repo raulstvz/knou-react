@@ -144,10 +144,8 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
               setFormData({ ...formData, orientation: e.target.value })
             }
           />
-          <label for="homosexual">Homosexual<img src={femaleIcon} alt="female simbol" className="iconHomoFa"/>
-        <img src={femaleIcon} alt="female simbol" className="iconHomoFb"/>
-        <img src={maleIcon} alt="male simbol" className="iconHomoMa"/>
-        <img src={maleIcon} alt="male simbol" className="iconHomoMb"/></label>
+          <label for="homosexual"><img src={femaleIcon} alt="female simbol" className="iconHomoFa"/>
+        <img src={femaleIcon} alt="female simbol" className="iconHomoFb"/>Homosexual<img src={maleIcon} alt="male simbol" className="iconHomoMa"/><img src={maleIcon} alt="male simbol" className="iconHomoMb"/></label>
           </div>
           
             </div>
