@@ -8,7 +8,7 @@ import CreateAccountPage from "./pages/CreateAccountPage";
 import SwipePage from "./pages/SwipePage";
 import ChatPage from "./pages/ChatPage";
 import ChatBoxPage from "./pages/ChatBoxPage";
-import ChatInfoContext, { chat, setChatInfo } from "./providers/chatInfo";
+import ChatContext from "./providers/chatInfo";
 
 function App() {
   return (
@@ -30,14 +30,14 @@ function App() {
           <Route exact path="/swipePage">
             <SwipePage />
           </Route>
-          <ChatInfoContext.Provider value={chat}>
-            <Route exact path="/chatsPage">
+          <ChatContext>
+            <Route exact path="/chatPage">
               <ChatPage />
             </Route>
             <Route exact path="/chatBoxPage">
               <ChatBoxPage />
             </Route>
-          </ChatInfoContext.Provider>
+          </ChatContext>
         </Switch>
       </Router>
     </div>

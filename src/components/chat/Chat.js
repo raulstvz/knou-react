@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import "./Chat.css";
-import { setChatInfo, chat } from "../../providers/chatInfo";
+import { ChatContext } from "../../providers/chatInfo";
 import { useHistory } from "react-router";
 
 const Chat = ({ match }) => {
+  const { setChat } = useContext(ChatContext);
   const [photo, setPhoto] = useState([]);
   const [lastMessage, setLastMessage] = useState({});
   const history = useHistory();
+  const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
+
   useEffect(() => {
-    fetch(`http://localhost:3001/api/users/60365812c95551081adfc414/photos`)
+    fetch(`http://localhost:3001/api/photo/60365812c95551081adfc414/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
@@ -16,9 +19,7 @@ const Chat = ({ match }) => {
       })
       .then((json) => setPhoto(json));
 
-    fetch(
-      `http://localhost:3001/api/messages/603e712694321e0509ab1fce/lastmessage`
-    ) //aqui iria el match_.id
+    fetch(`http://localhost:3001/api/messages/${match._id}/lastmessage`) //aqui iria el match_.id
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
@@ -35,12 +36,9 @@ const Chat = ({ match }) => {
   });
 
   const handleOnclick = () => {
-    setChatInfo({ id: match._id });
-    console.log(chat);
-    //este chat ID lo usaremos para fetchear los chats, abjao hay que popular userTwo para poder agarrar su nombre.
-    history.push("/chatboxpage"); // y despues guardar en localstorage el item clicado y hacer historypush a /ChatBox, desde ahi un fetch para saber
-    //el ID del chat y asi despues otro fetch en ese component para traernos todos los mensajes que estan ligados a ese chat.
-    // habria que hacer un fetch a las fotos de los usuarios tambien en este componente
+    setChat(match._id);
+    ///hay que hacer set Photo aqui tambien para evitar hacer mas llamadas al back con la imagen de la otra persona. que ya tenemos
+    history.push("/chatboxpage");
   };
 
   return (
@@ -49,7 +47,11 @@ const Chat = ({ match }) => {
         <img src={photoBuffer} className="profilePicture__chat" />
       </div>
       <div className="text__container">
-        <p className="userName">{match.userTwo.firstname}</p>
+        <p className="userName">
+          {match.userOne._id === user._id
+            ? match.userTwo.firstname
+            : match.userOne.firstname}
+        </p>
         <p className="lastMessage">{lastMessage[0]?.content} </p>
       </div>
       <div className="time__container">

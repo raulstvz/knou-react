@@ -19,24 +19,9 @@ const Swiper = () => {
   };
   console.log(current);
 
-  const body = {
-    gender: user.gender, //
-    orientation: user.orientation, //habria que coger aqui del useContext o localstorage las preferencias del usuario logeado
-    age_range: user.age_range,
-  };
-
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  };
-
   useEffect(() => {
     fetch(
-      `http://localhost:3001/api/users/${user._id}/test`, //id del usuario logeado y cambiar la ruta/test
-      options
+      `http://localhost:3001/api/users/${user._id}/candidates` //id del usuario logeado y cambiar la ruta/test
     )
       .then((promise) => {
         if (promise.status === 200) {
