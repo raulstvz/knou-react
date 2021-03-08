@@ -1,0 +1,36 @@
+
+.chatBox__container{
+    width: 80%;
+    margin-top: 30px;
+
+    background-color:#8c30f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 100px;
+}
+.form__input {
+    width: 80%;
+    height: 60px;
+    border-radius: 20px;
+    border: #EFF0F6 1px solid;
+    background-color: #EFF0F6;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px 0px;
+    color: #6b6b6b;
+    font-family: Manrope;
+    font-size: 18px;
+    font-weight: 400;
+}
+.message{
+    scroll-behavior: auto;
+    background-color: #DED3FF;
+    width: 7%;
+    border-radius:  150px;
+    margin-top:10px;
+    margin-bottom: 3px;
+    font-family: Manrope;
+    font-style: oblique;
+}

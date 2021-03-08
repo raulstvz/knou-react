@@ -1,5 +1,7 @@
 import { ChatContext } from "../../providers/chatInfo";
 import React, { useContext, useEffect, useState } from "react";
+import "./Chatbox.css"
+
 
 const ChatBox = () => {
   const { chat } = useContext(ChatContext); //es match
@@ -48,8 +50,9 @@ const ChatBox = () => {
   //de la persona logeada(fetch a imagenes) y sino se  usara la imagen que vendra del contexto
   return (
     <>
-      {conversation.map((message) => (
-        <div>
+    <div className="chatBox__container">
+    {conversation.map((message) => (
+        <div className="message">
           {message.sender.firstname}:{message.content}
         </div>
       ))}
@@ -61,6 +64,8 @@ const ChatBox = () => {
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={(e) => handleMessage(e)}
       />
+    </div>
+     
     </>
   );
 };

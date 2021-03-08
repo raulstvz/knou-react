@@ -1,16 +1,14 @@
-.profilePicture__chat {
-  object-fit: contain;
-  width: 100%;
-}
-
 .chat__container {
   display: flex;
   width: 80%;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid rgb(233, 231, 231);
+  /* border-bottom: 1px solid rgb(233, 231, 231); */
 }
-
+.profilePicture__chat {
+  object-fit: contain;
+  width: 100%;
+}
 .profilePicture__chatcontainer {
   display: flex;
 }
@@ -26,10 +24,20 @@
 }
 
 .userName {
+  font-family: Manrope;
+  text-transform: capitalize;
   font-weight: bold;
   font-size: 1.2em;
+  color:#8c30f5;
 }
 
 .text__container {
   flex: 1;
+}
+.lastMessage{
+  font-family: Manrope;
+  font-size: 0.9em;
+}
+.time__container{
+  font-style: oblique;
 }
