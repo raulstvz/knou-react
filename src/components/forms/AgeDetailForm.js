@@ -169,6 +169,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
 
         <p>How old are you?</p>
         <input
+          type="number"
           name="source"
           className="form__input"
           placeholder="Your Age"
