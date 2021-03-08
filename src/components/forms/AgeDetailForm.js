@@ -179,7 +179,15 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
           style={{ "max-width": "25%" , "display":"block"}}
         />
 
-        {errorAge && <span className="youMustBeText">You must be older than 18 to continue</span>}
+        {
+          switch(errorAge){
+          case null : errorAge &&<span className="youMustBeText">You need type your age.</span>
+          break;
+          case stringify : errorAge &&<span className="youMustBeText">You need type your age.</span>
+          break;
+          default :  errorAge && <span className="youMustBeText">You must be older than 18 to continue</span> 
+        }
+         }
         <p>What is the age range you are insterested in?</p>
         <div className="slider__container">
           <div className="form_slider_age">
