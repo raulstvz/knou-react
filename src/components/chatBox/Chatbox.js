@@ -51,11 +51,14 @@ const ChatBox = () => {
   return (
     <>
     <div className="chatBox__container">
-    {conversation.map((message) => (
-        <div className="message">
-          {message.sender.firstname}:{message.content}
+      <div className="message_container">
+      {conversation.map((message) => (
+        <div className="messageBox">
+          {message.sender.firstname}: {message.content}
         </div>
       ))}
+      </div>
+   
       <input
         name="message"
         className="form__input"
