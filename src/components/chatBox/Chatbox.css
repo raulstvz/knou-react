@@ -23,19 +23,26 @@
     font-size: 18px;
     font-weight: 400;
 }
+.messageBox_container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
 
 .message_container{
     height: 250px;
-    width: 80%;
+    width: 90%;
     overflow: scroll;
-    background: white;
+    background-color: #EFF0F6;
     margin-top: 15px;
     border-radius: 20px;
 }
 
 .messageBox{
     background-color: #DED3FF;
-    width: 40%;
+    width: 50%;
     border-radius: 10px;
     margin-left: 30px;
     margin-top:10px;
@@ -46,4 +53,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.userName_message{
+    color: #8c30f5;
+    font-weight: bold;
+    font-style: normal;
+    text-transform: capitalize;
+    margin-right: 10px;
+}
+.timer_message{
+    font-style: oblique;
+    font-size: 10px;
+    margin-left: 10px;
 }

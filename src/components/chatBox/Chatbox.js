@@ -44,6 +44,8 @@ const ChatBox = () => {
     setUpdate(false);
   }, [update]);
 
+  
+
   console.log(conversation);
 
   //aqui habria que hacer un ternario de si message.sender.id es el de la persona logeada, se usara la iamgen
@@ -53,12 +55,15 @@ const ChatBox = () => {
     <div className="chatBox__container">
       <div className="message_container">
       {conversation.map((message) => (
+        <div className="messageBox_container">
         <div className="messageBox">
-          {message.sender.firstname}: {message.content}
+          <span className="userName_message">{message.sender.firstname}: </span> {message.content}
+        </div>
+        <span className="timer_message">{message.date}</span>
         </div>
       ))}
+      
       </div>
-   
       <input
         name="message"
         className="form__input"

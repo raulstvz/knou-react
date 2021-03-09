@@ -1,8 +1,13 @@
 .chat__container {
+  margin-top: 10px;
   display: flex;
-  width: 80%;
+  width: 100%;
+  padding: 10px;
   align-items: center;
   justify-content: space-around;
+  background-color: #DED3FF;
+  border-radius: 20px;
+  cursor: pointer;
   /* border-bottom: 1px solid rgb(233, 231, 231); */
 }
 .profilePicture__chat {
@@ -40,4 +45,5 @@
 }
 .time__container{
   font-style: oblique;
+  margin-right: 30px;
 }
