@@ -51,16 +51,12 @@ const LoginForm = () => {
         .then((json) => {
           localStorage.setItem("token", json.token);
           localStorage.setItem("user", JSON.stringify(json.user));
-          /* In case the user has its profile completed redirect to swipe page.
-          Else, redirect the user to the create-account forms in order to complete it */
           const profileCompleted = json.user.signup_completed
           if (profileCompleted) {
             history.replace("/swipepage");
           } else {
             history.replace("/create-account");
           }
-          /* TODO set history.replace => "/userpage" ...
-          in case the user is not on signup_step=4, then redirect to signup step */
           window.location.reload(false);
         });
     }
@@ -92,9 +88,9 @@ const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-         <span className={errorStyle.password}>Invalid Password</span>
+        <span className={errorStyle.password}>Invalid Password</span>
         <div className="button__container">
-          <Button
+          <Button 
             name="Sign In"
             alt="Button to Sign Up"
             style="button_dark_great"

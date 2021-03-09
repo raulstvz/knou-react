@@ -13,7 +13,7 @@ const LocationDetailForm = ({
 }) => {
   /* const [geolocationEnabled, setGeolocationEnabled] = useState(false) */
 
-  const [modalVisibility, setModalVisibility] = useState(true);
+  const [modalVisibility, setModalVisibility] = useState(false);
   const toggleModal = (modalVisibility) => {
     setModalVisibility(!modalVisibility);
   };
