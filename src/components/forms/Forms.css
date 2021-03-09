@@ -367,7 +367,9 @@ input.errorVisible{
     width: 100%;
     height: 30px;
     border-radius: 20px;
+
     border:red 2px solid;
+
     background-color: #EFF0F6;
     margin-bottom: 30px;
     padding: 20px 0px;
@@ -424,3 +426,4 @@ textarea.errorVisible{
     margin-right: 2.5%;
     
 }
+
