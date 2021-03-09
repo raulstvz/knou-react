@@ -385,8 +385,7 @@ input.errorVisible{
     z-index: 2;
 }
 
-textarea.errorInvisible
-{
+textarea.errorInvisible {
         width: 100%;
         border-radius: 10px;
         border: #EFF0F6 1px solid;
@@ -411,4 +410,17 @@ textarea.errorVisible{
     font-size: 18px;
     font-weight: 400;
 
+}
+#textAreaError{
+    margin-top: 2.5%;
+}
+#orientationError{
+    margin-top: 2.5%;
+    color: red
+}
+#genderError{
+    margin-top: 2.5%;
+    color : red;
+    margin-right: 2.5%;
+    
 }

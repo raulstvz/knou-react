@@ -57,13 +57,13 @@ const UserDescriptionForm = ({
       body: JSON.stringify(body),
     };
 
-    if (description.length < 15) {
+    if (description.length <= 17) {
       setErrorStyle({ 'description': 'errorVisible' })
     }
-    else
+    else{
       fetch("http://localhost:3001/api/users/" + userId, options);
     setCurrentStep(currentStep + 1);
-  };
+  }};
 
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
@@ -91,11 +91,12 @@ const UserDescriptionForm = ({
           className={errorStyle.description}
           placeholder="Your description..."
           rows="10"
-          onChange={(e) =>
+          onChange={(e) =>{
             setDescription(e.target.value)
-          }
+          console.log(description)}}
+        
         />
-        <span className={errorStyle.password}>You should tell more about yourself (15 characters)</span>
+        <span id = "textAreaError" className={errorStyle.description}>You should tell more about yourself (15 characters)</span>
         <p>You can add up to 5 interests that we will use to find the best person for you</p>
         <div className="form__tags">
           <Tag
