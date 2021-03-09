@@ -88,7 +88,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
         <div className="form__radio">
           <p>Choose your gender</p>
           <div className="genderSection">
-
             <div className="genderEspecificSection" >
               <input
                 type="radio"
@@ -103,7 +102,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
               <label for="male" ><img src={maleIcon} alt="male simbol" className="iconGender" />Male</label>
             </div>
             <div className="genderEspecificSection" >
-
               <input
                 type="radio"
                 id="female"
@@ -114,11 +112,10 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                 }
               />
               <label for="female"><img src={femaleIcon} alt="female simbol" className="iconGender" />Female</label>
-              {/* <span  id= "genderError" className={errorStyle.gender}>Please selected your gender</span> */}
             </div>
-
-
           </div>
+          {<span id="genderError" className={errorStyle.gender}>Please selected your gender</span>}
+<br></br>
           <p>Choose your sexual orientation</p>
           <div className="orientationSection">
             <div className="orientationOption">
@@ -163,12 +160,11 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
               />
               <label for="homosexual"><img src={femaleIcon} alt="female simbol" className="iconHomoFa" />
                 <img src={femaleIcon} alt="female simbol" className="iconHomoFb" />Homosexual<img src={maleIcon} alt="male simbol" className="iconHomoMa" /><img src={maleIcon} alt="male simbol" className="iconHomoMb" /></label>
-                <span id="orientationError" className={errorStyle.orientation}>Please selected your sexual orientation</span> 
             </div>
-
+            <br></br>
+            <span id="orientationError" className={errorStyle.orientation}>Please selected your sexual orientation</span>
           </div>
         </div>
-
         <p>How old are you?</p>
         <input
           type="number"
