@@ -3,13 +3,17 @@ import { useState } from "react";
 import Logo from "../logo/Logo";
 import { useHistory } from "react-router-dom"
 import Button from "../button/Button";
+import validateEmail from "../../utils/validateEmail"
 
 const LoginForm = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const history = useHistory();
-
+  const [errorStyle, setErrorStyle] = useState({
+    'email': 'errorInvisible',
+    'password': 'errorInvisible',
+  });
   const body = {
     email: email,
     password: password,
@@ -25,24 +29,37 @@ const LoginForm = () => {
       },
       body: JSON.stringify(body),
     };
+    if (!validateEmail(email) && password.length < 5) {
+      setErrorStyle({
+        'email': 'errorVisible',
+        'password': 'errorVisible',
+      })
+    } else if (password.length < 5) {
+      setErrorStyle({
+        'email': 'errorInvisible',
+        'password': 'errorVisible',
+      })
+    } else if (!validateEmail(email)) {
+      setErrorStyle({
+        'email': 'errorVisible',
+        'password': 'errorInvisible',
+      })
+    } else {
 
-    fetch("http://localhost:3001/api/auth/login", options)
-      .then((response) => response.json())
-      .then((json) => {
-        localStorage.setItem("token", json.token);
-        localStorage.setItem("user", JSON.stringify(json.user));
-        /* In case the user has its profile completed redirect to swipe page.
-        Else, redirect the user to the create-account forms in order to complete it */
-        const profileCompleted = json.user.signup_completed
-        if (profileCompleted) {
-          history.replace("/swipepage");
-        } else {
-          history.replace("/create-account");
-        }
-        /* TODO set history.replace => "/userpage" ...
-        in case the user is not on signup_step=4, then redirect to signup step */
-        window.location.reload(false);
-      });
+      fetch("http://localhost:3001/api/auth/login", options)
+        .then((response) => response.json())
+        .then((json) => {
+          localStorage.setItem("token", json.token);
+          localStorage.setItem("user", JSON.stringify(json.user));
+          const profileCompleted = json.user.signup_completed
+          if (profileCompleted) {
+            history.replace("/swipepage");
+          } else {
+            history.replace("/create-account");
+          }
+          window.location.reload(false);
+        });
+    }
   };
 
   const goToSignUp = () => {
@@ -59,19 +76,21 @@ const LoginForm = () => {
         <span className="form__span">WELCOME BACK</span>
         <h2>Login into your account</h2>
         <input
-          className="form__input"
+          className={errorStyle.email}
           type="text"
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email adress"
         />
+         <span className={errorStyle.email}>Invalid email</span>
         <input
-          className="form__input"
+          className={errorStyle.password}
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
+        <span className={errorStyle.password}>Invalid Password</span>
         <div className="button__container">
-          <Button
+          <Button 
             name="Sign In"
             alt="Button to Sign Up"
             style="button_dark_great"

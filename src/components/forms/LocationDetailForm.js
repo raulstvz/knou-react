@@ -13,7 +13,7 @@ const LocationDetailForm = ({
 }) => {
   /* const [geolocationEnabled, setGeolocationEnabled] = useState(false) */
 
-  const [modalVisibility, setModalVisibility] = useState(true);
+  const [modalVisibility, setModalVisibility] = useState(false);
   const toggleModal = (modalVisibility) => {
     setModalVisibility(!modalVisibility);
   };
@@ -21,7 +21,7 @@ const LocationDetailForm = ({
   useEffect(() => {
     if (!"geolocation" in window) {
       console.log("Geolocation Not Available");
-      setModalVisibility(true);
+      setModalVisibility(false);
     } else {
       console.log("Geolocation Available");
       navigator.geolocation.getCurrentPosition(function (position) {
