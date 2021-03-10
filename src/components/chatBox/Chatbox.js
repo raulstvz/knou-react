@@ -1,5 +1,7 @@
 import { ChatContext } from "../../providers/chatInfo";
 import React, { useContext, useEffect, useState } from "react";
+import "./Chatbox.css"
+
 
 const ChatBox = () => {
   const { chat } = useContext(ChatContext); //es match
@@ -42,25 +44,36 @@ const ChatBox = () => {
     setUpdate(false);
   }, [update]);
 
+  
+
   console.log(conversation);
 
   //aqui habria que hacer un ternario de si message.sender.id es el de la persona logeada, se usara la iamgen
   //de la persona logeada(fetch a imagenes) y sino se  usara la imagen que vendra del contexto
   return (
     <>
+    <div className="chatBox__container">
+      <div className="message_container">
       {conversation.map((message) => (
-        <div>
-          {message.sender.firstname}:{message.content}
+        <div className="messageBox_container">
+        <div className="messageBox">
+          <span className="userName_message">{message.sender.firstname}: </span> {message.content}
+        </div>
+        <span className="timer_message">{message.date}</span>
         </div>
       ))}
+      
+      </div>
       <input
         name="message"
-        className="form__input"
+        className="messageForm_input"
         placeholder="write your message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={(e) => handleMessage(e)}
       />
+    </div>
+     
     </>
   );
 };

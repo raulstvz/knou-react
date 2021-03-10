@@ -10,6 +10,7 @@ const ChatPage = () => {
   const history = useHistory();
   return (
     <>
+    <div className="chatPage__container">
       <Header
         icons={<BoxMenu />}
         button={
@@ -20,8 +21,11 @@ const ChatPage = () => {
           />
         } //falta crear la función de goToSignOut
       />
-      <Chats />
+      <div className="chat_section"><Chats/></div>
+      
       <Footer />
+    </div>
+      
     </>
   );
 };

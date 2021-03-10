@@ -11,6 +11,7 @@ const Chat = ({ match }) => {
   const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
   const userPhoto =
     match.userOne._id === user._id ? match.userTwo._id : match.userOne._id;
+
   useEffect(() => {
     fetch(`http://localhost:3001/api/photo/${userPhoto}/photos`)
       .then((promise) => {
@@ -45,7 +46,11 @@ const Chat = ({ match }) => {
   return (
     <div className="chat__container" onClick={handleOnclick}>
       <div className="profilePicture__chatcontainer">
-        <img src={photoBuffer} className="profilePicture__chat" />
+        <img
+          src={photoBuffer}
+          className="profilePicture__chat"
+          alt="knou foto"
+        />
       </div>
       <div className="text__container">
         <p className="userName">
