@@ -8,7 +8,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   const [photo, setPhoto] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/users/${possibleMatch._id}/photos`)
+    fetch(`http://localhost:3001/api/photo/${possibleMatch._id}/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
