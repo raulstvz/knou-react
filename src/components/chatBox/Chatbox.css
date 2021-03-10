@@ -9,7 +9,7 @@
     align-items: center;
     border-radius: 30px;
 }
-.form__input {
+.messageForm_input{
     width: 50%;
     height: 30px;
     border-radius: 20px;

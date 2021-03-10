@@ -66,7 +66,7 @@ const ChatBox = () => {
       </div>
       <input
         name="message"
-        className="form__input"
+        className="messageForm_input"
         placeholder="write your message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
