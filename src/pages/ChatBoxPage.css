@@ -1,7 +1,4 @@
-.chats__container {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 90%;
+.chatBoxPage__container {
   display: flex;
   flex-direction: column;
   justify-content: center;

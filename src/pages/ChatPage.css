@@ -1,0 +1,21 @@
+.chatPage__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat_section{
+    margin-top:80px;
+    width: 80%;
+    height: 730px;
+    background-color: #8c30f5;   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+    border-radius:30px;
+    margin-left: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
