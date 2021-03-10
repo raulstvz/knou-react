@@ -1,0 +1,16 @@
+.newMatch__container {
+  position: absolute;
+  margin-bottom: 0;
+  background-color: #8c30f5;
+  padding: 20px;
+  border-radius: 7%;
+}
+.newMatch__photo_container {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+.image__newMatch {
+  width: 100%;
+  height: 100%;
+}
