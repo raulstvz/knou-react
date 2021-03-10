@@ -19,13 +19,15 @@ const NewMatch = () => {
       .then((json) => setMatchInfo(json));
   }, []);
 
-  fetch(`http://localhost:3001/api/photo/${matchInfo._id}/photos`)
-    .then((promise) => {
-      if (promise.status === 200) {
-        return promise.json();
-      }
-    })
-    .then((json) => setPhoto(json));
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/photo/${matchInfo._id}/photos`)
+      .then((promise) => {
+        if (promise.status === 200) {
+          return promise.json();
+        }
+      })
+      .then((json) => setPhoto(json));
+  }, [matchInfo]);
 
   const photoBuffer = photo.map((e) => {
     const src = `data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
