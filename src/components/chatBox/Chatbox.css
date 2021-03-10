@@ -35,6 +35,7 @@
     height: 250px;
     width: 90%;
     overflow: scroll;
+    overflow-x: hidden;
     background-color: #EFF0F6;
     margin-top: 15px;
     border-radius: 20px;
@@ -49,7 +50,6 @@
     margin-bottom: 3px;
     font-family: Manrope;
     font-style: oblique;
-    overflow: scroll;
     display: flex;
     justify-content: center;
     align-items: center;
