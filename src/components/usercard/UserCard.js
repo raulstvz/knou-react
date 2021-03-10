@@ -33,7 +33,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
       </div>
       <div className="profileInfo__container">
         <p className="profileInfo__nameAndAge">
-          {possibleMatch.firstname},{possibleMatch.age}
+          {possibleMatch.firstname}, {possibleMatch.age}
         </p>
 
         <p className="profileInfo__description">{possibleMatch.description}</p>
