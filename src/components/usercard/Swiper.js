@@ -6,8 +6,10 @@ import NewMatch from "../newMatch/NewMatch";
 const Swiper = () => {
   const [possibleMatches, setPossibleMatches] = useState([]);
   const [current, setCurrent] = useState(0);
+
   const length = possibleMatches.length;
   const { newMatch } = useContext(MatchContext);
+
 
   const user = JSON.parse(localStorage.getItem("user"));
   console.log(newMatch);
@@ -35,8 +37,10 @@ const Swiper = () => {
   //los button tienen que , pasar el usuario y mandr a la db el like odislike .
   return (
     <>
+
       {newMatch && <NewMatch />}
       <div className="swiper__container">
+
         {possibleMatches.map((possibleMatch, index) => (
           <div
             className={index === current ? "slide active" : "slide"}

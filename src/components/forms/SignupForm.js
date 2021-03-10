@@ -3,24 +3,28 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
+import validateEmail from "../../utils/validateEmail"
+
 
 const SignUpForm = () => {
   const history = useHistory();
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorStyle, setErrorStyle] = useState({
 
-  //formData : combo for the inputs
-  const [formData, setFormData] = useState({
-    firstname: undefined,
-    lastname: undefined,
-    email: undefined,
-    password: undefined,
+    'firstname': 'errorInvisible',
+    'lastname': 'errorInvisible',
+    'email': 'errorInvisible',
+    'password': 'errorInvisible',
   });
-
   //Body
   const body = {
-    firstname: formData.firstname,
-    lastname: formData.lastname,
-    email: formData.email,
-    password: formData.password,
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+    password: password,
     created: new Date(),
     premium: false,
     signup_step: 0,
@@ -36,22 +40,59 @@ const SignUpForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
+
+
     };
-    fetch("http://localhost:3001/api/users", options).then(async () => {
-      /* history.push("/create-account"); */
-      return await fetch("http://localhost:3001/api/auth/login", options)
-        .then((response) => response.json())
-        /* .then(json => console.log('token', json)) */
-        .then((json) => {
-          localStorage.setItem("token", json.token);
-          localStorage.setItem("user", JSON.stringify(json.user));
-          history.replace("/create-account");
-          /* TODO set history.replace => "/userpage" ...
-            in case the user is not on signup_step=4, then redirect to signup step */
-          window.location.reload(false);
-        });
-    });
-  };
+    if (!validateEmail(email) && password.length < 5 && firstname.length === 0 && lastname.length === 0) {
+      setErrorStyle({
+
+        'email': 'errorVisible',
+        'password': 'errorVisible',
+        'firstname': 'errorVisible',
+        'lastname': 'errorVisible'
+      })
+    } else if (password.length < 5) {
+      setErrorStyle({
+        'firstname': 'errorInvisible',
+        'lastname': 'errorInvisible',
+        'email': 'errorInvisible',
+        'password': 'errorVisible',
+      })
+    } else if (!validateEmail(email)) {
+      setErrorStyle({
+        'email': 'errorVisible',
+        'password': 'errorInvisible',
+      })
+    } else if (firstname.length === 0) {
+      setErrorStyle({
+        'firstname': 'errorInvisible',
+        'lastname': 'errorInvisible',
+        'email': 'errorInvisible',
+        'password': 'errorVisible',
+      })
+    }
+    else if (lastname.length === 0) {
+      setErrorStyle({
+        'firstname': 'errorInvisible',
+        'lastname': 'errorVisible',
+        'email': 'errorInvisible',
+        'password': 'errorInvisible',
+      })
+    }
+    else {
+      fetch("http://localhost:3001/api/users", options).then(async () => {
+        return await fetch("http://localhost:3001/api/auth/login", options)
+          .then((response) => response.json())
+          .then((json) => {
+            localStorage.setItem("token", json.token);
+            localStorage.setItem("user", JSON.stringify(json.user));
+            history.replace("/create-account");
+            window.location.reload(false);
+          });
+      });
+
+    };
+  }
 
   const goToLogIn = () => {
     history.push("/login");
@@ -68,36 +109,43 @@ const SignUpForm = () => {
         <h2 className="form__title">Create an account</h2>
         <input
           name="source"
-          className="form__input"
+          className={errorStyle.firstname}
           placeholder="First Name"
+          required
           onChange={(e) =>
-            setFormData({ ...formData, firstname: e.target.value })
+            setFirstname(e.target.value)
+
           }
         />
+        <span className={errorStyle.firstname}>You must be write something...</span>
         <input
           name="source"
-          className="form__input"
+          className={errorStyle.lastname}
           placeholder="Last Name"
+          required
           onChange={(e) =>
-            setFormData({ ...formData, lastname: e.target.value })
+            setLastname(e.target.value)
           }
         />
+        <span className={errorStyle.lastname}>You must be to write something...</span>
         <input
-          name="source"
-          className="form__input"
-          type="email"
+          className={errorStyle.email}
           placeholder="Email"
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          type="text"
+          name="email"
+          reqiored
+          onChange={(e) => setEmail(e.target.value)}
         />
+        <span className={errorStyle.email}>Invalid email</span>
         <input
           name="source"
-          className="form__input"
+          className={errorStyle.password}
           type="password"
           placeholder="Password"
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
+          required
+          onChange={(e) => setPassword(e.target.value)}
         />
+        <span className={errorStyle.password}>Password must be 5 characters long</span>
         <div className="button__container">
           <Button
             name="Get Started"
