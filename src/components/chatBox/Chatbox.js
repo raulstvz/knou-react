@@ -53,7 +53,7 @@ const ChatBox = () => {
   return (
     <>
     <div className="chatBox__container">
-      <div className="message_container">
+      <div className="message_container_box">
       {conversation.map((message) => (
         <div className="messageBox_container">
         <div className="messageBox">

@@ -1,16 +1,35 @@
 .newMatch__container {
-  position: absolute;
-  margin-bottom: 0;
-  background-color: #8c30f5;
-  padding: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ded3ff;
+  padding-top: 30px;
   border-radius: 7%;
+  border: 1px solid #8c30f5 ;
 }
+.newMatch__text_container {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.newMatch_text_message {
+  font-weight: bold;
+  font-style: oblique;
+  color: #8c30f5;
+}
+
 .newMatch__photo_container {
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
+  width: 70%;
+  cursor: pointer;
+  margin-bottom: 60px;
 }
 .image__newMatch {
   width: 100%;
   height: 100%;
+  border-radius: 7%;
+
 }
