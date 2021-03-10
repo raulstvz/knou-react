@@ -10,22 +10,22 @@ const NewMatch = () => {
   const { setNewMatch } = useContext(MatchContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/users/${newMatch}/`) //falta el userid dinamico
+    fetch(`http://localhost:3001/api/users/${newMatch}/`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
         }
       })
       .then((json) => setMatchInfo(json));
-
-    fetch(`http://localhost:3001/api/photo/60365812c95551081adfc414/photos`)
-      .then((promise) => {
-        if (promise.status === 200) {
-          return promise.json();
-        }
-      })
-      .then((json) => setPhoto(json));
   }, []);
+
+  fetch(`http://localhost:3001/api/photo/${matchInfo._id}/photos`)
+    .then((promise) => {
+      if (promise.status === 200) {
+        return promise.json();
+      }
+    })
+    .then((json) => setPhoto(json));
 
   const photoBuffer = photo.map((e) => {
     const src = `data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
@@ -34,7 +34,7 @@ const NewMatch = () => {
     return src;
   });
 
-  console.log();
+  console.log(matchInfo._id);
   return (
     <div
       className="newMatch__container"
