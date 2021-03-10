@@ -9,6 +9,8 @@ import SwipePage from "./pages/SwipePage";
 import ChatPage from "./pages/ChatPage";
 import ChatBoxPage from "./pages/ChatBoxPage";
 import ChatContext from "./providers/chatInfo";
+import MatchContext from "./providers/match";
+//</MatchContext>     <MatchContext>
 
 function App() {
   return (
@@ -27,17 +29,20 @@ function App() {
           <Route exact path="/create-account">
             <CreateAccountPage />
           </Route>
-          <Route exact path="/swipePage">
-            <SwipePage />
-          </Route>
-          <ChatContext>
-            <Route exact path="/chatPage">
-              <ChatPage />
+          <MatchContext>
+            <Route exact path="/swipePage">
+              <SwipePage />
             </Route>
-            <Route exact path="/chatBoxPage">
-              <ChatBoxPage />
-            </Route>
-          </ChatContext>
+
+            <ChatContext>
+              <Route exact path="/chatPage">
+                <ChatPage />
+              </Route>
+              <Route exact path="/chatBoxPage">
+                <ChatBoxPage />
+              </Route>
+            </ChatContext>
+          </MatchContext>
         </Switch>
       </Router>
     </div>

@@ -1,18 +1,18 @@
 import UserCard from "./UserCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { MatchContext } from "../../providers/match";
+import NewMatch from "../newMatch/NewMatch";
 
 const Swiper = () => {
   const [possibleMatches, setPossibleMatches] = useState([]);
   const [current, setCurrent] = useState(0);
   const length = possibleMatches.length;
+  const { newMatch } = useContext(MatchContext);
 
-  const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
-  console.log(user._id);
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(newMatch);
   const giveLike = () => {
-    //en vez d 0 deberia ser null y despues poner una condicion de que si current es null muestra: te has quedado sin usuarios para matchear.
-    //despues en el back habria que prevenir de alguna manera que usuarios que ya les has dado like te dejen de aparecr por un tiempo.
-    setCurrent(current === length - 1 ? null : current + 1); //funciones de postt a Like ,Dislike
+    setCurrent(current === length - 1 ? null : current + 1);
   };
   const giveDislike = () => {
     setCurrent(current === length - 1 ? null : current + 1);
@@ -35,6 +35,7 @@ const Swiper = () => {
   //los button tienen que , pasar el usuario y mandr a la db el like odislike .
   return (
     <>
+      {newMatch && <NewMatch />}
       <div className="swiper__container">
         {possibleMatches.map((possibleMatch, index) => (
           <div

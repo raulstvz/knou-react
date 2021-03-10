@@ -9,9 +9,10 @@ const Chat = ({ match }) => {
   const [lastMessage, setLastMessage] = useState({});
   const history = useHistory();
   const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
-
+  const userPhoto =
+    match.userOne._id === user._id ? match.userTwo._id : match.userOne._id;
   useEffect(() => {
-    fetch(`http://localhost:3001/api/photo/60365812c95551081adfc414/photos`)
+    fetch(`http://localhost:3001/api/photo/${userPhoto}/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
