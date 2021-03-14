@@ -38,7 +38,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             <br /><br />
             <p>It's show time! Pick up to 8 pictures of you:</p>
             <div className="form__photos">
-                <PhotoLoader userId={userId} />
+                    <PhotoLoader userId={userId} />
             </div>
             <div className="button__container">
                 <Button
