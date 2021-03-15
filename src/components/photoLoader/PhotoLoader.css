@@ -42,14 +42,20 @@
 }
 
 .deleteIcon2{
-    height: 50px;
-    width: 50px;
+    height: 100%;
+    width: 100%;
     top: 40%;
-    background-color: red;
+    background-color: #DED3FF;
     border-radius: 50%;
     opacity: 50%;
-    display: none;
     z-index: 3;
     cursor: pointer;
-
+}
+.deleteButton{
+    height: 40px;
+    width: 40px;
+    position: relative;
+    bottom: 170px;
+    left: 109px;
+    z-index: 20;
 }

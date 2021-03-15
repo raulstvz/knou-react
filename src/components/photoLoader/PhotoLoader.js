@@ -66,14 +66,16 @@ const PhotoLoader = ({ userId, currentStep }) => {
           const src = `data:${photo.mim};base64,${photo.image}`;
           return (
             <div className="photoloader__photouploaded__container">
-              <img 
-              src={deleteIcon} 
-              alt="delete_icon" 
-              className="deleteIcon2" />
               <img
                 src={src}
                 alt="uploaded_image"
                 className="photoloader__photouploaded" />
+              <div className="deleteButton">
+                <img
+                  src={deleteIcon}
+                  alt="delete_icon"
+                  className="deleteIcon2" />
+              </div>
             </div>
           );
         })}
