@@ -1,6 +1,6 @@
 .colorPurple{
     color: #8c30f5;
-    cursor:pointer;
+    cursor: pointer;
 }
 .signupAdnsLogin_form{
     font-family: Manrope;
@@ -183,7 +183,7 @@
     width: 50%;
   }
 
-  .buble {
+.buble {
     font-family: Poppins;
     font-style: normal;
     font-weight: 600;
@@ -387,16 +387,16 @@ input.errorVisible{
 }
 
 textarea.errorInvisible {
-        width: 100%;
-        border-radius: 10px;
-        border: #EFF0F6 1px solid;
-        background-color: #EFF0F6;
-        margin-bottom: 20px;
-        padding: 20px;
-        color: #6b6b6b;
-        font-family: Manrope;
-        font-size: 18px;
-        font-weight: 400;
+    width: 100%;
+    border-radius: 10px;
+    border: #EFF0F6 1px solid;
+    background-color: #EFF0F6;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #6b6b6b;
+    font-family: Manrope;
+    font-size: 18px;
+    font-weight: 400;
     }
 
 textarea.errorVisible{
@@ -423,6 +423,5 @@ textarea.errorVisible{
     margin-top: 2.5%;
     color : red;
     margin-right: 2.5%;
-    
 }
 

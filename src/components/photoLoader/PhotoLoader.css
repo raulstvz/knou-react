@@ -55,9 +55,9 @@
     z-index: 20;
 }
 input#photos-input{
-    display:none
+    display: none;
 }
-.labelPhotos-input#photos-input{
+.labelPhotos-input#labelPhotos-input{
     opacity: 50%;
     padding: 12px 12px 12px 12px !important;
     border-radius: 5px !important;
@@ -68,7 +68,7 @@ input#photos-input{
     background-color:#8c30f5d8 !important;
     color: white !important;
 }
-.labelPhotos-input#photos-input:hover{
+.labelPhotos-input#labelPhotos-input:hover{
     opacity: 100%;
     background-color:#8c30f5 !important;
 }
@@ -76,7 +76,5 @@ input#photos-input{
     padding: 25px;
     width: 100%;
     display: flex;
-    flex-direction: row ;
     justify-content: center;
-    align-items: flex-start;
 }

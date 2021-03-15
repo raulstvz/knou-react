@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import cameraIcon from "../../assets/icons/camera.svg";
 import "./PhotoLoader.css";
 import deleteIcon from "../../assets/icons/delete.svg"
-import uploadIcon from "../../assets/icons/upload.svg"
 
 
 const PhotoLoader = ({ userId, currentStep }) => {
@@ -51,10 +50,9 @@ const PhotoLoader = ({ userId, currentStep }) => {
           }}
         >
           <label
-            id="photos-input"
+            id="labelPhotos-input"
             className="labelPhotos-input"
             for="photos-input">
-            <i src={uploadIcon}></i>
             Click here to upload an image </label>
           <input
             type="file"
