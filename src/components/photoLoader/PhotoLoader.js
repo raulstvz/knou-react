@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import cameraIcon from "../../assets/icons/camera.svg";
 import "./PhotoLoader.css";
 import deleteIcon from "../../assets/icons/delete.svg"
+import uploadIcon from "../../assets/icons/upload.svg"
 
 
 const PhotoLoader = ({ userId, currentStep }) => {
@@ -44,15 +45,21 @@ const PhotoLoader = ({ userId, currentStep }) => {
         <form
           id="photo"
           encType="multipart/form-data"
-          className="form__container"
+          className="form__container_of_photoloader"
           onSubmit={(e) => {
             e.preventDefault();
           }}
         >
+          <label
+            id="photos-input"
+            className="labelPhotos-input"
+            for="photos-input">
+            <i src={uploadIcon}></i>
+            Click here to upload an image </label>
           <input
             type="file"
             name="photos"
-            id="photos"
+            id="photos-input"
             onChange={handleImageUpload}
           />
         </form>
