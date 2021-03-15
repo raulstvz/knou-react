@@ -40,9 +40,16 @@
     height: 100%;
     width: 100%;
     top: 40%;
-    background-color: #DED3FF;
+    background-color: white;
     border-radius: 50%;
-    opacity: 50%;
+    opacity: 40%;
+    z-index: 3;
+    cursor: pointer;
+}
+.deleteIcon2:hover{
+
+    background-color: white;
+    opacity: 70%;
     z-index: 3;
     cursor: pointer;
 }
