@@ -10,7 +10,6 @@
     justify-content: center;
     margin-bottom: 38px;
 }
-
 .photoloader__photouploaded {
     width: 100%;
     height: 100%;
@@ -35,7 +34,6 @@
     float: left;
     display: block;
 }
-
 .deleteIcon2{
     height: 100%;
     width: 100%;
@@ -47,7 +45,6 @@
     cursor: pointer;
 }
 .deleteIcon2:hover{
-
     background-color: white;
     opacity: 70%;
     z-index: 3;
