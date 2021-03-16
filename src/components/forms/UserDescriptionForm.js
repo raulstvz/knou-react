@@ -46,8 +46,6 @@ const UserDescriptionForm = ({
     signup_completed: false,
     updated: new Date(),
   };
-
-
   const handleNext = () => {
     const options = {
       method: "PUT",
@@ -56,7 +54,6 @@ const UserDescriptionForm = ({
       },
       body: JSON.stringify(body),
     };
-
     if (description.length <= 17) {
       setErrorStyle({ 'description': 'errorVisible' })
     }
@@ -68,9 +65,6 @@ const UserDescriptionForm = ({
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
   };
-
-
-
   return (
     <div className="form" >
       <Stepper steps={totalSteps} currentStep={currentStep} onClick={handleNext} />

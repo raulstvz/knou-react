@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import cameraIcon from "../../assets/icons/camera.svg";
 import "./PhotoLoader.css";
+import deleteIcon from "../../assets/icons/delete.svg";
 const PhotoLoader = ({ userId, currentStep }) => {
   const [photoArray, setPhotoArray] = useState([]);
   const handleImageUpload = (e) => {
@@ -28,7 +29,12 @@ const PhotoLoader = ({ userId, currentStep }) => {
       });
 
   };
-  console.log(photoArray);
+  /*const handleDeleteImage = () => {
+    const options = {
+      method: "DELETE",
+    }
+    fetch("http://localhost:3001/api/photo/" + userId + "/photos", options)
+  }*/
   const MAX_ALLOWED = 8;
   const photosAllowed = MAX_ALLOWED - photoArray.length;
   const content = [];
@@ -61,11 +67,19 @@ const PhotoLoader = ({ userId, currentStep }) => {
         photoArray.map((photo) => {
           const src = `data:${photo.mim};base64,${photo.image}`;
           return (
-            <img
-              src={src}
-              alt="uploaded_image"
-              className="photoloader__photouploaded"
-            />
+            <div className="photoloader__photouploaded__container">
+              <img
+                src={src}
+                alt="uploaded_image"
+                className="photoloader__photouploaded" />
+              <div className="deleteButton">
+                <img
+                  id="photo_aleady_uploaded"
+                  src={deleteIcon}
+                  alt="delete_icon"
+                  className="deleteIcon2" />
+              </div>
+            </div>
           );
         })}
       {content}
