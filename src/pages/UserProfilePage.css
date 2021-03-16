@@ -1,0 +1,27 @@
+.userProfile__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.currentInfo_container{
+    width: 80%;
+    background-color:#DED3FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 30px;
+}
+.nonTouchableInfo_container{
+    background-color: yellow;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.touchableInfo_container{
+    background-color: green;
+    width: 100%;
+}
