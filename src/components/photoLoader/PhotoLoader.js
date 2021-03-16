@@ -30,12 +30,13 @@ const PhotoLoader = ({ userId, currentStep }) => {
     //fetch de les imatges del user
     // .then(respobse => setPhotoArray([respose]))
   };
-  /*const handleDeleteImage = () => {
-    const options = {
+  const handleDeleteImage = () => {
+    const optionsToDelete = {
       method: "DELETE",
     }
-    fetch("http://localhost:3001/api/photo/" + userId + "/photos", options)
-  }*/
+    fetch("http://localhost:3001/api/photo/" + userId + "/photos", optionsToDelete)
+    /* .then((res) => setPhotoArray(res)) */
+  }
   const MAX_ALLOWED = 8;
   const photosAllowed = MAX_ALLOWED - photoArray.length;
   const content = [];
@@ -78,7 +79,7 @@ const PhotoLoader = ({ userId, currentStep }) => {
                 src={src}
                 alt="uploaded_image"
                 className="photoloader__photouploaded" />
-              <div className="deleteButton">
+              <div className="deleteButton" onClick= {handleDeleteImage}>
                 <img
                   id="photo_aleady_uploaded"
                   src={deleteIcon}
