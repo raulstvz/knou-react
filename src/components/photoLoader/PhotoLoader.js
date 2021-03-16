@@ -26,14 +26,13 @@ const PhotoLoader = ({ userId, currentStep }) => {
       .catch((error) => {
         console.log("Error when retrieving images:", error);
       });
-    //fetch de les imatges del user
-    // .then(respobse => setPhotoArray([respose]))
+
   };
   console.log(photoArray);
   const MAX_ALLOWED = 8;
   const photosAllowed = MAX_ALLOWED - photoArray.length;
   const content = [];
-  // const photo = `data:${photo.mimeType};base64,${photo.image}`;
+  
   for (var i = 0; i < photosAllowed; i++) {
     content.push(
       <div className="photoloader__container">
