@@ -35,7 +35,7 @@ const PhotoLoader = ({ userId, currentStep }) => {
       method: "DELETE",
     }
     fetch("http://localhost:3001/api/photo/" + userId + "/photos", optionsToDelete)
-    /* .then((res) => setPhotoArray(res)) */
+     .then((res) => photoArray(res)) 
   }
   const MAX_ALLOWED = 8;
   const photosAllowed = MAX_ALLOWED - photoArray.length;
@@ -62,7 +62,7 @@ const PhotoLoader = ({ userId, currentStep }) => {
             type="file"
             name="photos"
             id="photos-input"
-            onChange={handleImageUpload}
+            onChange={handleImageUpload && handleDeleteImage}
           />
         </form>
       </div>
