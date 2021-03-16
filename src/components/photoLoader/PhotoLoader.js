@@ -1,9 +1,6 @@
 import { React, useState } from "react";
 import cameraIcon from "../../assets/icons/camera.svg";
 import "./PhotoLoader.css";
-import deleteIcon from "../../assets/icons/delete.svg"
-
-
 const PhotoLoader = ({ userId, currentStep }) => {
   const [photoArray, setPhotoArray] = useState([]);
   const handleImageUpload = (e) => {
@@ -40,24 +37,19 @@ const PhotoLoader = ({ userId, currentStep }) => {
   for (var i = 0; i < photosAllowed; i++) {
     content.push(
       <div className="photoloader__container">
-        <img src={cameraIcon} alt="camera_icon" className="cameraIcon" />
+        <img src={cameraIcon} alt="camera_icon" />
         <form
           id="photo"
           encType="multipart/form-data"
-          className="form__container_of_photoloader"
+          className="form__container"
           onSubmit={(e) => {
             e.preventDefault();
           }}
         >
-          <label
-            id="labelPhotos-input"
-            className="labelPhotos-input"
-            for="photos-input">
-            Click here to upload an image </label>
           <input
             type="file"
             name="photos"
-            id="photos-input"
+            id="photos"
             onChange={handleImageUpload}
           />
         </form>
@@ -70,18 +62,11 @@ const PhotoLoader = ({ userId, currentStep }) => {
         photoArray.map((photo) => {
           const src = `data:${photo.mim};base64,${photo.image}`;
           return (
-            <div className="photoloader__photouploaded__container">
-              <img
-                src={src}
-                alt="uploaded_image"
-                className="photoloader__photouploaded" />
-              <div className="deleteButton">
-                <img
-                  src={deleteIcon}
-                  alt="delete_icon"
-                  className="deleteIcon2" />
-              </div>
-            </div>
+            <img
+              src={src}
+              alt="uploaded_image"
+              className="photoloader__photouploaded"
+            />
           );
         })}
       {content}
