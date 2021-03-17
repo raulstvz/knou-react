@@ -60,7 +60,8 @@
 
 .tag__container__fromPosibleMatch>span{
     max-width: max-content;
-    background-color: #EFF0F6;
+    color: white;
+    background-color: #8c30f5;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
