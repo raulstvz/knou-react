@@ -1,12 +1,16 @@
 import Carousel from 'react-elastic-carousel';
+import CarouselCard from "./CarouselCard";
 
-const CustomCarousel = () =>{
-  return(
-<div>Fuck Kovid</div>
+const CustomCarousel = ({ possibleMatch, photo }) => {
+  return (
+    <Carousel>
+      <CarouselCard possibleMatch={possibleMatch}
+        photo={photo} />
+    </Carousel>
   )
-} 
+}
 
-export default CustomCarousel ; 
+export default CustomCarousel;
 
 
 
