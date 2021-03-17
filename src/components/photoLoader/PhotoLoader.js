@@ -23,22 +23,34 @@ const PhotoLoader = ({ userId, currentStep }) => {
           throw Error(response.statusText);
         }
       })
-      .then((response) => setPhotoArray(response))
+      .then((response) => {
+        setPhotoArray(response)
+        console.log(response)
+      })
       .catch((error) => {
         console.log("Error when retrieving images:", error);
       });
     //fetch de les imatges del user
     // .then(respobse => setPhotoArray([respose]))
   };
-  /*const handleDeleteImage = () => {
-    const options = {
+  const handleDeleteImage = (photo_id) => {
+    const optionsToDelete = {
       method: "DELETE",
     }
-    fetch("http://localhost:3001/api/photo/" + userId + "/photos", options)
-  }*/
+    fetch("http://localhost:3001/api/photo/" + userId + "/photos/" + photo_id, optionsToDelete)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw Error(response.statusText);
+        }
+      })
+      .then((res) => setPhotoArray(res))
+  }
   const MAX_ALLOWED = 8;
   const photosAllowed = MAX_ALLOWED - photoArray.length;
   const content = [];
+  console.log(photoArray)
   // const photo = `data:${photo.mimeType};base64,${photo.image}`;
   for (var i = 0; i < photosAllowed; i++) {
     content.push(
@@ -78,7 +90,7 @@ const PhotoLoader = ({ userId, currentStep }) => {
                 src={src}
                 alt="uploaded_image"
                 className="photoloader__photouploaded" />
-              <div className="deleteButton">
+              <div className="deleteButton" onClick={() => handleDeleteImage(photo.id)}>
                 <img
                   id="photo_aleady_uploaded"
                   src={deleteIcon}
