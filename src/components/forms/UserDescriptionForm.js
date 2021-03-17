@@ -47,7 +47,6 @@ const UserDescriptionForm = ({
     updated: new Date(),
   };
 
-
   const handleNext = () => {
     const options = {
       method: "PUT",
@@ -68,9 +67,6 @@ const UserDescriptionForm = ({
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
   };
-
-
-
   return (
     <div className="form" >
       <Stepper steps={totalSteps} currentStep={currentStep} onClick={handleNext} />

@@ -57,17 +57,27 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
         />
         <LikeButton giveLike={giveLike} possibleMatchId={possibleMatch._id} />
       </div>
-      <Modal handleClose={handleModalClose} visible={modalVisible} >
-        <CustomCarousel photos={photo} />
-        
-        <span>{possibleMatch.firstname}</span>
-        <span>{possibleMatch.lastname}</span>
-        <span>{possibleMatch.age} years old</span>
-        <span className="tag__container__default" >{possibleMatch.hobbies}</span>
-/        <span>{possibleMatch.description}</span>
-        
-        
-
+      <Modal
+        handleClose={handleModalClose}
+        visible={modalVisible}
+        children={
+          <div>
+            <p>
+              {possibleMatch.firstname}
+              {" "}
+              {possibleMatch.lastname}
+            </p>
+            <p>{possibleMatch.age} years old </p>
+            <div className="tag__container__fromPosibleMatch">
+              {possibleMatch.hobbies.map((hobby) => (
+                <span>{hobby}</span>
+              ))}
+            </div>
+            <p>
+              {possibleMatch.description}
+            </p>
+          </div>
+        }>
       </Modal>
     </div>
   );

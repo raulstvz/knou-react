@@ -21,10 +21,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor:pointer;
 }
 
 .profilePicture {
-
   width: 300px;
   height: 300px;
   min-width:300px;
@@ -56,4 +56,14 @@
   margin-left: 10px;
   font-size: small;
   color: rgba(85, 84, 84, 0.557);
+}
+
+.tag__container__fromPosibleMatch>span{
+    max-width: max-content;
+    background-color: #EFF0F6;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    margin-bottom: 8px;
 }

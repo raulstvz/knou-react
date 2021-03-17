@@ -37,10 +37,8 @@ const Swiper = () => {
   //los button tienen que , pasar el usuario y mandr a la db el like odislike .
   return (
     <>
-
       {newMatch && <NewMatch />}
       <div className="swiper__container">
-
         {possibleMatches.map((possibleMatch, index) => (
           <div
             className={index === current ? "slide active" : "slide"}
