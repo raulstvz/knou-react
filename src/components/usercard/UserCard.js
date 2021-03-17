@@ -58,7 +58,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
         <LikeButton giveLike={giveLike} possibleMatchId={possibleMatch._id} />
       </div>
       <Modal handleClose={handleModalClose} visible={modalVisible} >
-        <CustomCarousel photos={photo} />
+        <CustomCarousel></CustomCarousel>
         
         <span>{possibleMatch.firstname}</span>
         <span>{possibleMatch.lastname}</span>
