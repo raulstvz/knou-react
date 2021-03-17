@@ -50,7 +50,6 @@ const PhotoLoader = ({ userId, currentStep }) => {
   const MAX_ALLOWED = 8;
   const photosAllowed = MAX_ALLOWED - photoArray.length;
   const content = [];
-
   console.log(photoArray)
   // const photo = `data:${photo.mimeType};base64,${photo.image}`;
   for (var i = 0; i < photosAllowed; i++) {
