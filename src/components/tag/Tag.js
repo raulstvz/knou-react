@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import tagIcon from '../../assets/icons/tag.svg'
 import deleteIcon from "../../assets/icons/delete.svg"
 import './Tag.css';
@@ -9,7 +9,7 @@ const Tag = ({ tagArray, onKeyPress, onClick }) => {
             {tagArray.map((tag) => {
                 return (
                     <div className="tag__container__created">
-                        <img id="deleteIcon" src={deleteIcon} alt="delete_icon" onClick={onClick}/>
+                        <img id="deleteIcon" src={deleteIcon} alt="delete_icon" onClick={onClick} />
                         <p>{tag}</p>
                         <img id="tagIcon" src={tagIcon} alt="tag_icon" />
                     </div>

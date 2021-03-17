@@ -4,15 +4,14 @@ import DislikeButton from "../likeAndDislikeButtons/ButtonDislike";
 import { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 import CustomCarousel from "../customCarousel/CustomCarousel";
+import Tag from "../tag/Tag";
 
 const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
-  //implementar logica de Post con likes Y dislikes desde los bot0nes, Aqui sabemos la info de cada usuario.
+
   const [photo, setPhoto] = useState([]);
-  const [modalVisible,setModalVisible] = useState();
-
-
+  const [modalVisible, setModalVisible] = useState();
   const handleModalClose = () => setModalVisible(false);
-   
+  const tagArray = [];
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/users/${possibleMatch._id}`)
@@ -59,8 +58,16 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
         <LikeButton giveLike={giveLike} possibleMatchId={possibleMatch._id} />
       </div>
       <Modal handleClose={handleModalClose} visible={modalVisible} >
-      tus putos muetod
-        <CustomCarousel photos={photo}/>
+        <CustomCarousel photos={photo} />
+        
+        <span>{possibleMatch.firstname}</span>
+        <span>{possibleMatch.lastname}</span>
+        <span>{possibleMatch.age} years old</span>
+        <span className="tag__container__default" >{possibleMatch.hobbies}</span>
+/        <span>{possibleMatch.description}</span>
+        
+        
+
       </Modal>
     </div>
   );

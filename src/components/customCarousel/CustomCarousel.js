@@ -1,4 +1,40 @@
-import React from 'react';
+import Carousel from 'react-elastic-carousel';
+
+const CustomCarousel = () =>{
+  return(
+<div>Fuck Kovid</div>
+  )
+} 
+
+export default CustomCarousel ; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import React from 'react';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -38,4 +74,4 @@ const CustomCarousel = ({photos}) => {
 
 
 
-export default  CustomCarousel;
+export default  CustomCarousel; */
