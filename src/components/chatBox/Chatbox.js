@@ -61,6 +61,34 @@ const ChatBox = () => {
 
   console.log(chat);
 
+  const timeSince = (timeStamp) => {
+    timeStamp = new Date(timeStamp);
+    var now = new Date(),
+      secondsPast = (now.getTime() - timeStamp) / 1000;
+    if (secondsPast < 60) {
+      return parseInt(secondsPast) + "s ago";
+    }
+    if (secondsPast < 3600) {
+      return parseInt(secondsPast / 60) + "m ago";
+    }
+    if (secondsPast <= 86400) {
+      return parseInt(secondsPast / 3600) + "h ago";
+    }
+    if (secondsPast > 86400) {
+      let day = timeStamp.getDate();
+      let month = timeStamp
+        .toDateString()
+        .match(/ [a-zA-Z]*/)[0]
+        .replace(" ", "");
+      let year =
+        timeStamp.getFullYear() === now.getFullYear()
+          ? ""
+          : " " + timeStamp.getFullYear();
+      console.log(year);
+      return day + " " + month + year;
+    }
+  };
+
   useEffect(() => {
     fetch(`http://localhost:3001/api/messages/${chat}/chat`)
       .then((promise) => {
@@ -90,7 +118,7 @@ const ChatBox = () => {
                   </span>
                   {message.content}
                 </div>
-                <span className="timer_message">{message.date}</span>
+                <span className="timer_message">{timeSince(message.date)}</span>
               </div>
             ) : (
               <div className="messageBox_container">
@@ -100,7 +128,7 @@ const ChatBox = () => {
                   </span>
                   {message.content}
                 </div>
-                <span className="timer_message">{message.date}</span>
+                <span className="timer_message">{timeSince(message.date)}</span>
               </div>
             )
           )}
