@@ -3,21 +3,19 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
-import validateEmail from "../../utils/validateEmail"
-
+import validateEmail from "../../utils/validateEmail";
 
 const SignUpForm = () => {
   const history = useHistory();
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorStyle, setErrorStyle] = useState({
-
-    'firstname': 'errorInvisible',
-    'lastname': 'errorInvisible',
-    'email': 'errorInvisible',
-    'password': 'errorInvisible',
+    firstname: "errorInvisible",
+    lastname: "errorInvisible",
+    email: "errorInvisible",
+    password: "errorInvisible",
   });
   //Body
   const body = {
@@ -40,46 +38,46 @@ const SignUpForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-
-
     };
-    if (!validateEmail(email) && password.length < 5 && firstname.length === 0 && lastname.length === 0) {
+    if (
+      !validateEmail(email) &&
+      password.length < 5 &&
+      firstname.length === 0 &&
+      lastname.length === 0
+    ) {
       setErrorStyle({
-
-        'email': 'errorVisible',
-        'password': 'errorVisible',
-        'firstname': 'errorVisible',
-        'lastname': 'errorVisible'
-      })
+        email: "errorVisible",
+        password: "errorVisible",
+        firstname: "errorVisible",
+        lastname: "errorVisible",
+      });
     } else if (password.length < 5) {
       setErrorStyle({
-        'firstname': 'errorInvisible',
-        'lastname': 'errorInvisible',
-        'email': 'errorInvisible',
-        'password': 'errorVisible',
-      })
+        firstname: "errorInvisible",
+        lastname: "errorInvisible",
+        email: "errorInvisible",
+        password: "errorVisible",
+      });
     } else if (!validateEmail(email)) {
       setErrorStyle({
-        'email': 'errorVisible',
-        'password': 'errorInvisible',
-      })
+        email: "errorVisible",
+        password: "errorInvisible",
+      });
     } else if (firstname.length === 0) {
       setErrorStyle({
-        'firstname': 'errorInvisible',
-        'lastname': 'errorInvisible',
-        'email': 'errorInvisible',
-        'password': 'errorVisible',
-      })
-    }
-    else if (lastname.length === 0) {
+        firstname: "errorInvisible",
+        lastname: "errorInvisible",
+        email: "errorInvisible",
+        password: "errorVisible",
+      });
+    } else if (lastname.length === 0) {
       setErrorStyle({
-        'firstname': 'errorInvisible',
-        'lastname': 'errorVisible',
-        'email': 'errorInvisible',
-        'password': 'errorInvisible',
-      })
-    }
-    else {
+        firstname: "errorInvisible",
+        lastname: "errorVisible",
+        email: "errorInvisible",
+        password: "errorInvisible",
+      });
+    } else {
       fetch("http://localhost:3001/api/users", options).then(async () => {
         return await fetch("http://localhost:3001/api/auth/login", options)
           .then((response) => response.json())
@@ -90,9 +88,8 @@ const SignUpForm = () => {
             window.location.reload(false);
           });
       });
-
-    };
-  }
+    }
+  };
 
   const goToLogIn = () => {
     history.push("/login");
@@ -112,22 +109,21 @@ const SignUpForm = () => {
           className={errorStyle.firstname}
           placeholder="First Name"
           required
-          onChange={(e) =>
-            setFirstname(e.target.value)
-
-          }
+          onChange={(e) => setFirstname(e.target.value)}
         />
-        <span className={errorStyle.firstname}>You must be write something...</span>
+        <span className={errorStyle.firstname}>
+          You must be write something...
+        </span>
         <input
           name="source"
           className={errorStyle.lastname}
           placeholder="Last Name"
           required
-          onChange={(e) =>
-            setLastname(e.target.value)
-          }
+          onChange={(e) => setLastname(e.target.value)}
         />
-        <span className={errorStyle.lastname}>You must be to write something...</span>
+        <span className={errorStyle.lastname}>
+          You must be to write something...
+        </span>
         <input
           className={errorStyle.email}
           placeholder="Email"
@@ -145,7 +141,9 @@ const SignUpForm = () => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <span className={errorStyle.password}>Password must be 5 characters long</span>
+        <span className={errorStyle.password}>
+          Password must be 5 characters long
+        </span>
         <div className="button__container">
           <Button
             name="Get Started"

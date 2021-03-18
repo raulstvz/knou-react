@@ -44,16 +44,15 @@ const NewMatch = () => {
         setNewMatch("");
       }}
     >
-       <div className="newMatch__text_container">
+      <div className="newMatch__text_container">
         <p className="newMatch_text_message">
           You matched with {matchInfo.firstname}! Go to messages and start a
           conversation!
         </p>
       </div>
       <div className="newMatch__photo_container">
-        <img src={photoBuffer} className="image__newMatch" />
+        <img src={photoBuffer[0]} className="image__newMatch" />
       </div>
-     
     </div>
   );
 };
