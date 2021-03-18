@@ -29,7 +29,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   return (
     <div className="userCard__container">
       <div className="profilePicture__container">
-        <img src={photoBuffer} className="profilePicture" />
+        <img src={photoBuffer[0]} className="profilePicture" />
       </div>
       <div className="profileInfo__container">
         <p className="profileInfo__nameAndAge">
