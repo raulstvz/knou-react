@@ -1,17 +1,29 @@
 import Carousel from 'react-elastic-carousel';
 import CarouselCard from "./CarouselCard";
 
-const CustomCarousel = ({  possibleMatch }) => {
+const CustomCarousel = ({ photoBuffer }) => {
+  console.log(photoBuffer)
   return (
     <Carousel>
-      <CarouselCard possibleMatch={possibleMatch} />
+      <>
+        {photoBuffer.map((photo) => {
+
+          <img
+
+            src={photo}
+            className="profilePicture"
+
+          />
+        })}
+      </>
+
+
 
     </Carousel>
   )
 }
 
 export default CustomCarousel;
-
 
 
 

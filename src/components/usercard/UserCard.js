@@ -33,7 +33,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   return (
     <div className="userCard__container">
       <div className="profilePicture__container">
-        <img src={photoBuffer[0]} className="profilePicture" onClick={() => setModalVisible(true)}/>
+        <img src={photoBuffer[0]} className="profilePicture" onClick={() => setModalVisible(true)} />
       </div>
       <div className="profileInfo__container">
         <p className="profileInfo__nameAndAge">
@@ -51,30 +51,30 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
         />
         <LikeButton giveLike={giveLike} possibleMatchId={possibleMatch._id} />
         <Modal
-        handleClose={handleModalClose}
-        visible={modalVisible}
-        children={
-          <div>
-         <CustomCarousel possibleMatch={possibleMatch._id}>
-            
-          </CustomCarousel> 
-            <p>
-              {possibleMatch.firstname}
-              {" "}
-              {possibleMatch.lastname}
-            </p>
-            <p>{possibleMatch.age} years old </p>
-            <div className="tag__container__fromPosibleMatch">
-              {possibleMatch.hobbies.map((hobby) => (
-                <span>{hobby}</span>
-              ))}
+          handleClose={handleModalClose}
+          visible={modalVisible}
+          children={
+            <div>
+               <CustomCarousel photoBuffer={photoBuffer}/ >
+
+             
+              <p>
+                {possibleMatch.firstname}
+                {" "}
+                {possibleMatch.lastname}
+              </p>
+              <p>{possibleMatch.age} years old </p>
+              <div className="tag__container__fromPosibleMatch">
+                {possibleMatch.hobbies.map((hobby) => (
+                  <span>{hobby}</span>
+                ))}
+              </div>
+              <p>
+                {possibleMatch.description}
+              </p>
             </div>
-            <p>
-              {possibleMatch.description}
-            </p>
-          </div>
-        }>
-      </Modal>
+          }>
+        </Modal>
 
 
 
