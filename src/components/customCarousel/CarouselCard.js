@@ -1,17 +1,29 @@
-const CarouselCard = ({ photo }) => {
+import { useState, useEffect } from "react"
+const CarouselCard = ({ possibleMatch }) => {
+  const [photo, setPhoto] = useState([]);
 
-    const photoBuffer = photo && photo.map((e) => {
-        const src = `data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
-            "base64"
-        )}`;
-        return src;
-    });
+  useEffect(() => {
+    fetch(`http://localhost:3001/api/photo/${possibleMatch._id}/photos`)
+      .then((promise) => {
+        if (promise.status === 200) {
+          return promise.json();
+        }
+      })
+      .then((json) => setPhoto(json));
+  }, []);
 
-    return (
-        <div className="card__container">
-            <img src={photoBuffer} alt="Pictures of Profile"></img>
-        </div>
-    )
+  const photoBuffer = photo.map((e) => {
+    const src = `data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
+      "base64"
+    )}`;
+    return src;
+  });
+
+  return (
+    <div className="profilePicture__container">
+      <img src={photoBuffer[0]} className="profilePicture" />
+    </div>
+  )
 };
 
 

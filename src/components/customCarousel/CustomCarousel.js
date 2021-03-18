@@ -1,11 +1,11 @@
 import Carousel from 'react-elastic-carousel';
 import CarouselCard from "./CarouselCard";
 
-const CustomCarousel = ({ possibleMatch, photo }) => {
+const CustomCarousel = ({  possibleMatch }) => {
   return (
     <Carousel>
-      <CarouselCard possibleMatch={possibleMatch}
-        photo={photo} />
+      <CarouselCard possibleMatch={possibleMatch} />
+
     </Carousel>
   )
 }

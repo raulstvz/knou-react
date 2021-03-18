@@ -55,9 +55,9 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
         visible={modalVisible}
         children={
           <div>
-          <CustomCarousel>
+         <CustomCarousel possibleMatch={possibleMatch._id}>
             
-          </CustomCarousel>
+          </CustomCarousel> 
             <p>
               {possibleMatch.firstname}
               {" "}
