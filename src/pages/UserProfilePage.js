@@ -5,6 +5,7 @@ import BoxMenu from "../components/boxmenu/BoxMenu";
 import { useHistory } from "react-router";
 import React, { useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
+import Tag from "../components/tag/Tag";
 
 const UserProfilePage = () => {
   const [age, setAge] = useState('');
@@ -18,17 +19,21 @@ const UserProfilePage = () => {
   });
 const history = useHistory();
 const [profile, setProfile] = useState([]);
-const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
-console.log(user.lastname); // prueba si pilla o no
+const [description, setDescription] = useState('')
+const [placeholder, setPlaceHolder] = useState("");
+const [tagArray, setTagArray] = useState([]);
+const [formData, setFormData] = useState({
+  hobbies: undefined,
+  ageStart: 25,
+  ageEnd: 35,});
+const user = JSON.parse(localStorage.getItem("user")); 
+console.log(user.lastname); // prueba si funciona
 
 const body = {
-  age: age,
-  // age_range: [formData.ageStart, formData.ageEnd],
-  // signup_step: currentStep + 1,
-  // signup_completed: false,
-  // updated: new Date(),
-  // gender: formData.gender,
-  // orientation: formData.orientation,
+  age_range: [formData.ageStart, formData.ageEnd],
+  description: description,
+  hobbies: formData.hobbies,
+  updated: new Date(),
 };
 
 const updateInfo = () => {
@@ -39,38 +44,37 @@ const updateInfo = () => {
     },
     body: JSON.stringify(body),
   };
-
-  if (age <= 17) {
-    setErrorStyle({
-      'age': 'errorVisible'
-    })
-  // } else if (formData.gender === undefined && formData.orientation === undefined) {
-    setErrorStyle({
-      // 'gender': 'errorVisible',
-      // 'orientation': 'errorVisible'
-    })
-
-  } else {
-    fetch(`http://localhost:3001/api/user/${user._id}`)
+    fetch(`http://localhost:3001/api/users/${user._id}`,options)
       .then((response) => {
         if (response.status === 200) {
-          // setCurrentStep(currentStep + 1)
         }
       }
       )
 
-  }
 };
 
-useEffect(() => {
-  fetch(`http://localhost:3001/api/profile${user._id}`)
-    .then((promise) => {
-      if (promise.status === 200) {
-        return promise.json();
-      }
-    })
-    .then((json) => setProfile(json));
-}, []);
+const handleKeyPress = (e) => {
+  if (e.key === "Enter" && e.target.value !== "") {
+    setTagArray([...tagArray, e.target.value]);
+    setPlaceHolder("");
+    e.target.value = placeholder;
+  }
+};
+const handleOnClick = (e) => {
+  let tagName = e.target.nextSibling.textContent;
+  setTagArray(tagArray.filter((tag) => tag !== tagName));
+};
+
+
+// useEffect(() => {
+//   fetch(`http://localhost:3001/api/profile${user._id}`)
+//     .then((promise) => {
+//       if (promise.status === 200) {
+//         return promise.json();
+//       }
+//     })
+//     .then((json) => setProfile(json));
+// }, []);
 
 
 
@@ -84,47 +88,101 @@ return (
             onClick={() => history.push("/")}
             style="button_white_small"
         />
-        } //falta crear la función de goToSignOut
-
+        }
     />
+    <h2 className="title_editProfile">Edit your profile</h2>
     <div className="currentInfo_container">
         <div className="nonTouchableInfo_container">
-            <p>Your name is {user.firstname}</p>
-            <p>Your lastname is {user.lastname}</p>
-            <p>your personal email is {user.email}</p>
+            <div className="nonTouchableInfo_section">
+              <p>Your full name is {user.firstname}  {user.lastname}</p>
+              <p>your email is <br></br>{user.email}</p>
+              <p>Your age is {user.age}</p>
+              <p>Your gender is {user.gender}</p>
+              <p>Your sex orientation is <br></br>{user.orientation}</p>
+            </div>
+            <div><img src={user.photos[1]}/>Aquí va la foto,aunque no se renderiza</div>
         </div>
         <div className="touchableInfo_container">
-          <div className="currentTouchableInfo_container">
-              <p>Your age is {user.age}</p>
-              <p>{user.age_range[0]}</p>
-              <p>{user.age_range[1]}</p>
-              <p>Your gender is {user.gender}</p>
-              <p>Your sex orientation is {user.orientation}</p>
-              <p>hobbies are {user.hobbies[2]}</p>
-              <p>Description {user.description}</p>
-              <p>modify photos</p>
+          <div className="touchableInfo_section">
+              <p>Your age range interest is:</p>
+                <div className="currentTouchableAgeRange_container">
+                  <p>{user.age_range[0]}</p>
+                  <p>{user.age_range[1]}</p>
+                </div>
+              <p>hobbies are:
+              <br></br>{user.hobbies[0]}
+              <br></br>{user.hobbies[1]}
+              <br></br>{user.hobbies[2]}
+              <br></br>{user.hobbies[3]}
+              <br></br>{user.hobbies[4]}</p>
+              <p>Description <br></br>{user.description}</p>
           </div>
           <div className="newTouchableInfo_container">
-          <input
-          type="number"
-          name="source"
-          placeholder="Your Age"
-          onChange={(e) =>
-            setAge(e.target.value)
-
-          }
-          style={{ "max-width": "25%", "display": "block" }}
-        />
+            <div>new section goes here
+              
+            <div className="slider__container">
+          <div className="form_slider_age">
+            <div className="value">
+              <div className="buble">{formData.ageStart + " years"}</div>
+            </div>
+            <input
+              type="range"
+              min="18"
+              max="75"
+              value={formData.ageStart}
+              step="1"
+              onChange={(e) =>
+                setFormData({ ...formData, ageStart: parseInt(e.target.value) })
+              }
+            />
           </div>
+          <div className="form_slider_age">
+            <div className="value">
+              <div className="buble">{formData.ageEnd + " years"}</div>
+            </div>
+            <input
+              type="range"
+              min="18"
+              max="75"
+              value={formData.ageEnd}
+              step="1"
+              onChange={(e) =>
+                setFormData({ ...formData, ageEnd: parseInt(e.target.value) })
+              }
+            />
+          </div>
+        </div>
+
+        <div >
+          <Tag
+            tagArray={tagArray}
+            onKeyPress={handleKeyPress}
+            placeholder={placeholder}
+            onClick={handleOnClick} 
+            />
+        </div>
+
+        <textarea
+          className={errorStyle.description}
+          placeholder="Your description..."
+          rows="10"
+          onChange={(e) =>{
+            setDescription(e.target.value)
+          console.log(description)}}
+        />
+
+
+
+            </div>
+          </div>   
+        </div>
+        <div className="button_update">
           <Button
             name="Update Info"
             style="button_dark_small"
             onClick={updateInfo}
-          />
-        </div>
+          /></div>
     </div>
-
-
     <Footer />
     </div>
 );
