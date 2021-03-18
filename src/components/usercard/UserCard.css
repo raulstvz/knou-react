@@ -57,3 +57,13 @@
   font-size: small;
   color: rgba(85, 84, 84, 0.557);
 }
+.tag__container__fromPosibleMatch>span{
+  max-width: max-content;
+  color: white;
+  background-color: #8c30f5;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  margin-bottom: 8px;
+}
