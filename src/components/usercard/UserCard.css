@@ -58,28 +58,22 @@
   color: rgba(85, 84, 84, 0.557);
 }
 .tag__container__fromPosibleMatch>span{
-  /* max-width: max-content;
-  color: white;
-  background-color: #8c30f5;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  padding: 5px 10px;
-  margin-bottom: 8px; */
-  min-width: 0;
-  height: 25px;
   max-width: max-content;
-  background-color: #DED3FF;
+  max-height: max-content;
+  color: #8c30f5;
+  background-color: #f1e4ff;
   border-radius: 20px;
-  flex: 1 1 auto;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
   padding: 5px 10px;
-  margin: 5px;
-  
+  margin-bottom: 8px;
+  margin-left: 5px;
 }
-.photo_carousel{
-
+.tag__container__fromPosibleMatch{
+  display: flex;
+  flex-direction: row;
+}
+.tagIconFromModal{
+  padding-left: 5px;
+  padding-right: 5px;
 }

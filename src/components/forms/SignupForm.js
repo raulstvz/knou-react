@@ -13,7 +13,6 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorStyle, setErrorStyle] = useState({
-
     'firstname': 'errorInvisible',
     'lastname': 'errorInvisible',
     'email': 'errorInvisible',
@@ -29,9 +28,7 @@ const SignUpForm = () => {
     premium: false,
     signup_step: 0,
   };
-
   console.log(body);
-
   //Fetch function
   const handleCreate = () => {
     const options = {
@@ -40,12 +37,9 @@ const SignUpForm = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
-
-
     };
     if (!validateEmail(email) && password.length < 5 && firstname.length === 0 && lastname.length === 0) {
       setErrorStyle({
-
         'email': 'errorVisible',
         'password': 'errorVisible',
         'firstname': 'errorVisible',
@@ -60,12 +54,14 @@ const SignUpForm = () => {
       })
     } else if (!validateEmail(email)) {
       setErrorStyle({
+        'firstname': 'errorInvisible',
+        'lastname': 'errorInvisible',
         'email': 'errorVisible',
         'password': 'errorInvisible',
       })
     } else if (firstname.length === 0) {
       setErrorStyle({
-        'firstname': 'errorInvisible',
+        'firstname': 'errorVisible',
         'lastname': 'errorInvisible',
         'email': 'errorInvisible',
         'password': 'errorVisible',
@@ -97,7 +93,6 @@ const SignUpForm = () => {
   const goToLogIn = () => {
     history.push("/login");
   };
-
   return (
     <form className="sideform__container">
       <div className="sideform__subcontainer">
@@ -109,23 +104,18 @@ const SignUpForm = () => {
         <h2 className="form__title">Create an account</h2>
         <input
           name="source"
+          type="text"
           className={errorStyle.firstname}
           placeholder="First Name"
-          required
-          onChange={(e) =>
-            setFirstname(e.target.value)
-
-          }
+          onChange={(e) => setFirstname(e.target.value)}
         />
         <span className={errorStyle.firstname}>You must be write something...</span>
         <input
           name="source"
+          type="text"
           className={errorStyle.lastname}
           placeholder="Last Name"
-          required
-          onChange={(e) =>
-            setLastname(e.target.value)
-          }
+          onChange={(e) => setLastname(e.target.value)}
         />
         <span className={errorStyle.lastname}>You must be to write something...</span>
         <input
@@ -133,7 +123,6 @@ const SignUpForm = () => {
           placeholder="Email"
           type="text"
           name="email"
-          reqiored
           onChange={(e) => setEmail(e.target.value)}
         />
         <span className={errorStyle.email}>Invalid email</span>
@@ -142,7 +131,6 @@ const SignUpForm = () => {
           className={errorStyle.password}
           type="password"
           placeholder="Password"
-          required
           onChange={(e) => setPassword(e.target.value)}
         />
         <span className={errorStyle.password}>Password must be 5 characters long</span>
