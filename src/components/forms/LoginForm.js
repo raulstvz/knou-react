@@ -4,6 +4,7 @@ import Logo from "../logo/Logo";
 import { useHistory } from "react-router-dom"
 import Button from "../button/Button";
 import validateEmail from "../../utils/validateEmail"
+import { API_ROOT } from '../../hostSettings';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -46,7 +47,7 @@ const LoginForm = () => {
       })
     } else {
 
-      fetch("http://localhost:3001/api/auth/login", options)
+      fetch("{ API_ROOT }/api/auth/login", options)
         .then((response) => response.json())
         .then((json) => {
           localStorage.setItem("token", json.token);
