@@ -68,3 +68,7 @@
 .otherUser {
   justify-content: flex-end;
 }
+
+.dummy {
+  margin-bottom: 40px;
+}

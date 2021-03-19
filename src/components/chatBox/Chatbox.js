@@ -59,8 +59,6 @@ const ChatBox = () => {
     }
   };
 
-  console.log(chat);
-
   const timeSince = (timeStamp) => {
     timeStamp = new Date(timeStamp);
     var now = new Date(),
@@ -84,7 +82,7 @@ const ChatBox = () => {
         timeStamp.getFullYear() === now.getFullYear()
           ? ""
           : " " + timeStamp.getFullYear();
-      console.log(year);
+
       return day + " " + month + year;
     }
   };
@@ -100,8 +98,6 @@ const ChatBox = () => {
     dummy.current.scrollIntoView({ behavior: "smooth" });
     setUpdate(false);
   }, [update]);
-
-  console.log(conversation);
 
   //aqui habria que hacer un ternario de si message.sender.id es el de la persona logeada, se usara la iamgen
   //de la persona logeada(fetch a imagenes) y sino se  usara la imagen que vendra del contexto
@@ -132,7 +128,7 @@ const ChatBox = () => {
               </div>
             )
           )}
-          <div ref={dummy}></div>
+          <div className="dummy" ref={dummy}></div>
         </div>
         <input
           name="message"
