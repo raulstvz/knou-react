@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 import React, { useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
 import Tag from "../components/tag/Tag";
+import tagIcon from '../assets/icons/tag.svg'
 
 const UserProfilePage = () => {
   const [age, setAge] = useState('');
@@ -109,19 +110,41 @@ return (
                   <p>{user.age_range[0]}</p>
                   <p>{user.age_range[1]}</p>
                 </div>
-              <p>hobbies are:
-              <br></br>{user.hobbies[0]}
-              <br></br>{user.hobbies[1]}
-              <br></br>{user.hobbies[2]}
-              <br></br>{user.hobbies[3]}
-              <br></br>{user.hobbies[4]}</p>
+              
+              <p>Your hobbies are:
+              <div className="tag_profile_container">
+              <div className="tag__container__created">
+                        <p>{user.hobbies[0]}</p>
+                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                </div>
+                <div className="tag__container__created">
+                        <p>{user.hobbies[1]}</p>
+                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                </div>
+                <div className="tag__container__created">
+                        <p>{user.hobbies[2]}</p>
+                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                </div>
+                <div className="tag__container__created">
+                        <p>{user.hobbies[3]}</p>
+                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                </div>
+                <div className="tag__container__created">
+                        <p>{user.hobbies[4]}</p>
+                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                </div>
+              </div>
+              </p>
               <p>Description <br></br>{user.description}</p>
-          </div>
+            </div>
+
+
           <div className="newTouchableInfo_container">
-            <div>new section goes here
+            <div >
+              <p className="newInfoTitle">Update your new profile!</p>
               
             <div className="slider__container">
-          <div className="form_slider_age">
+              <div className="form_slider_age">
             <div className="value">
               <div className="buble">{formData.ageStart + " years"}</div>
             </div>
@@ -163,8 +186,8 @@ return (
         </div>
 
         <textarea
-          className={errorStyle.description}
-          placeholder="Your description..."
+          className="textarea_container"
+          placeholder="Your new description..."
           rows="10"
           onChange={(e) =>{
             setDescription(e.target.value)
