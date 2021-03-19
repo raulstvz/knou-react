@@ -1,36 +1,38 @@
 import Carousel from 'react-elastic-carousel';
 import CarouselCard from "./CarouselCard";
 
-const CustomCarousel = ({ photoBuffer }) => {
-  console.log(photoBuffer)
+const CustomCarousel = ({ allPhotos }) => {
+  console.log(allPhotos)
+
   return (
     <Carousel>
-      <>
-        {photoBuffer.map((photo) => {
 
-          <img
-
-            src={photo}
-            className="profilePicture"
-
-          />
-        })}
-      </>
-
-
+{allPhotos}
 
     </Carousel>
   )
 }
 
 export default CustomCarousel;
+/* 
+  const allPhotos = photo.map((e) => {
+    return (
+     <img
+      src={`data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
+       "base64"
+      )}`}
+      className="x"
+      alt="hola"
+     />
+    );
+   }); */
+
+{/* <CarouselCard photoBuffer={photoBuffer}/> */ }
 
 
+ 
 
-
-
-
-
+ 
 
 
 

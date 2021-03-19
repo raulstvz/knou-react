@@ -22,11 +22,22 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   }, []);
 
   const photoBuffer = photo.map((e) => {
-    const src = `data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
+    const src = `data:${e.mimeType};base64,${Buffer.from(e.photo.data).toString(
       "base64"
     )}`;
     return src;
   });
+  const allPhotos = photo.map((e) => {
+    return (
+     <img
+      src={`data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
+       "base64"
+      )}`}
+      className="profilePicture"
+      alt="Photo Carousel"
+     />
+    );
+   }); 
 
   console.log(photoBuffer);
 
@@ -55,7 +66,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
           visible={modalVisible}
           children={
             <div>
-               <CustomCarousel photoBuffer={photoBuffer}/ >
+               <CustomCarousel allPhotos={allPhotos}/ >
 
              
               <p>
