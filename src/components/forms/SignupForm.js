@@ -3,21 +3,20 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
-import validateEmail from "../../utils/validateEmail"
+import validateEmail from "../../utils/validateEmail";
 import { API_ROOT } from "../../utils/hostSettings";
-
 
 const SignUpForm = () => {
   const history = useHistory();
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errorStyle, setErrorStyle] = useState({
-    'firstname': 'errorInvisible',
-    'lastname': 'errorInvisible',
-    'email': 'errorInvisible',
-    'password': 'errorInvisible',
+    firstname: "errorInvisible",
+    lastname: "errorInvisible",
+    email: "errorInvisible",
+    password: "errorInvisible",
   });
   //Body
   const body = {
@@ -40,21 +39,15 @@ const SignUpForm = () => {
       body: JSON.stringify(body),
     };
     const validation = {
-      'firstname': firstname.length > 0 ? 'errorInvisible' : 'errorVisible',
-      'lastname': lastname.length > 0 ? 'errorInvisible' : "errorVisible",
-      'email': validateEmail(email) ? 'errorInvisible' : "errorVisible",
-      'password': password.length > 5 ? 'errorInvisible' : "errorVisible"
-    }
-
-    else {
-      fetch(`${API_ROOT}/api/users`, options).then(async () => {
-        return await fetch(`${API_ROOT}/api/auth/login`, options)
-
+      firstname: firstname.length > 0 ? "errorInvisible" : "errorVisible",
+      lastname: lastname.length > 0 ? "errorInvisible" : "errorVisible",
+      email: validateEmail(email) ? "errorInvisible" : "errorVisible",
+      password: password.length > 5 ? "errorInvisible" : "errorVisible",
+    };
     setErrorStyle(validation);
-    if (!Object.values(validation).find(value => value === 'errorVisible')) {
+    if (!Object.values(validation).find((value) => value === "errorVisible")) {
       fetch(`${API_ROOT}/api/users`, options).then(async () => {
-        return await fetch(`${API_ROOT}/api/auth/login`, options)
-
+        return await fetch(`${API_ROOT}/api/users/api/auth/login`, options)
           .then((response) => response.json())
           .then((json) => {
             localStorage.setItem("token", json.token);
@@ -64,7 +57,7 @@ const SignUpForm = () => {
           });
       });
     }
-  }
+  };
 
   const goToLogIn = () => {
     history.push("/login");
@@ -85,7 +78,9 @@ const SignUpForm = () => {
           placeholder="First Name"
           onChange={(e) => setFirstname(e.target.value)}
         />
-        <span className={errorStyle.firstname}>You must be write something...</span>
+        <span className={errorStyle.firstname}>
+          You must be write something...
+        </span>
         <input
           name="source"
           type="text"
@@ -93,7 +88,9 @@ const SignUpForm = () => {
           placeholder="Last Name"
           onChange={(e) => setLastname(e.target.value)}
         />
-        <span className={errorStyle.lastname}>You must be to write something...</span>
+        <span className={errorStyle.lastname}>
+          You must be to write something...
+        </span>
         <input
           className={errorStyle.email}
           placeholder="Email"
@@ -109,7 +106,9 @@ const SignUpForm = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <span className={errorStyle.password}>Password must be 5 characters long</span>
+        <span className={errorStyle.password}>
+          Password must be 5 characters long
+        </span>
         <div className="button__container">
           <Button
             name="Get Started"
