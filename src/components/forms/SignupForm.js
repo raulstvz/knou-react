@@ -4,7 +4,9 @@ import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
 import validateEmail from "../../utils/validateEmail";
+
 import { API_ROOT } from "../../utils/hostSettings";
+
 
 const SignUpForm = () => {
   const history = useHistory();
@@ -18,6 +20,7 @@ const SignUpForm = () => {
     email: "errorInvisible",
     password: "errorInvisible",
   });
+
   //Body
   const body = {
     firstname: firstname,
@@ -38,6 +41,7 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
+
     const validation = {
       firstname: firstname.length > 0 ? "errorInvisible" : "errorVisible",
       lastname: lastname.length > 0 ? "errorInvisible" : "errorVisible",

@@ -2,6 +2,7 @@ import { ChatContext } from "../../providers/chatInfo";
 import React, { useContext, useEffect, useState, useRef } from "react";
 import "./Chatbox.css";
 import io from "socket.io-client";
+
 import { API_ROOT } from "../../utils/hostSettings";
 
 const ChatBox = () => {
@@ -11,7 +12,9 @@ const ChatBox = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [update, setUpdate] = useState(false);
   const dummy = useRef();
+
   const socket = io(`${API_ROOT}`);
+
   console.log("updated");
 
   const body = {
@@ -48,6 +51,7 @@ const ChatBox = () => {
       };
 
       socket.emit("sendMessage", message, user.firstname, chat);
+
 
       fetch(`${API_ROOT}/api/messages/`, options);
 

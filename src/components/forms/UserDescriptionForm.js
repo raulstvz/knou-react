@@ -13,11 +13,11 @@ const UserDescriptionForm = ({
 }) => {
   const [tagArray, setTagArray] = useState([]);
   const [placeholder, setPlaceHolder] = useState("");
-  const [description, setDescription] = useState('')
+  const [description, setDescription] = useState("");
   const [errorStyle, setErrorStyle] = useState({
-    'description' : 'errorInvisible',
-    'hobbies' : 'errorInvisible'
-  })
+    description: "errorInvisible",
+    hobbies: "errorInvisible",
+  });
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter" && e.target.value !== "") {
@@ -39,6 +39,10 @@ const UserDescriptionForm = ({
     setFormData({ ...formData, hobbies: tagArray });
   }, [tagArray]);
 
+  useEffect(() => {
+    setErrorStyle({ description: "errorVisible" });
+  }, [description]);
+
   /* Data to be passed as body in the fetch */
   const body = {
     description: description,
@@ -47,6 +51,8 @@ const UserDescriptionForm = ({
     signup_completed: false,
     updated: new Date(),
   };
+
+
   const handleNext = () => {
     const options = {
       method: "PUT",
@@ -56,6 +62,7 @@ const UserDescriptionForm = ({
       body: JSON.stringify(body),
     };
     if (description.length <= 17) {
+
       setErrorStyle({ 'description': 'errorVisible' })
     }
     else{
@@ -63,44 +70,66 @@ const UserDescriptionForm = ({
     setCurrentStep(currentStep + 1);
   }};
 
+
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
   };
+
   return (
-    <div className="form" >
-      <Stepper steps={totalSteps} currentStep={currentStep} onClick={handleNext} />
+    <div className="form">
+      <Stepper
+        steps={totalSteps}
+        currentStep={currentStep}
+        onClick={handleNext}
+      />
       <form
         className="form__container"
         onSubmit={(e) => {
-          e.preventDefault()
+          e.preventDefault();
         }}
       >
         <div className="h1_container">
           <h2>We can't wait to meet you.</h2>
         </div>
-        <p>Please fill the detail below so that we get to <span className="colorPurple">knou</span> you</p>
-        <br /><br />
-        <p>Share a few words about you (psst! be creative, that's the key 😉 ):</p>
-        <br /><br />
+        <p>
+          Please fill the detail below so that we get to{" "}
+          <span className="colorPurple">knou</span> you
+        </p>
+        <br />
+        <br />
+        <p>
+          Share a few words about you (psst! be creative, that's the key 😉 ):
+        </p>
+        <br />
+        <br />
         <textarea
           className={errorStyle.description}
           placeholder="Your description..."
           rows="10"
-          onChange={(e) =>{
-            setDescription(e.target.value)
-          console.log(description)}}
-        
+          onChange={(e) => {
+            setDescription(e.target.value);
+            console.log(description);
+          }}
         />
-        <span id = "textAreaError" className={errorStyle.description}>You should tell more about yourself (15 characters)</span>
-        <p>You can add up to 5 interests that we will use to find the best person for you</p>
+        <span id="textAreaError" className={errorStyle.description}>
+          You should tell more about yourself (15 characters)
+        </span>
+        <p>
+          You can add up to 5 interests that we will use to find the best person
+          for you
+        </p>
         <div className="form__tags">
           <Tag
             tagArray={tagArray}
             onKeyPress={handleKeyPress}
             placeholder={placeholder}
-            onClick={handleOnClick} />
+            onClick={handleOnClick}
+          />
         </div>
-        <p>Great! We have almost everything we need! Now, get pretty! It's picture time!</p>
+        <p>
+          Great! We have almost everything we need! Now, get pretty! It's
+          picture time!
+        </p>
       </form>
       <div className="button__container">
         <Button
@@ -111,9 +140,10 @@ const UserDescriptionForm = ({
         <Button
           name="Next step"
           style="button_dark_small"
-          onClick={handleNext} />
+          onClick={handleNext}
+        />
       </div>
-    </div >
-  )
-}
-export default UserDescriptionForm
+    </div>
+  );
+};
+export default UserDescriptionForm;

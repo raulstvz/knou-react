@@ -5,6 +5,9 @@ import { API_ROOT } from "../../utils/hostSettings";
 
 const Chats = () => {
   const [matches, setMatches] = useState([]);
+
+  const [photos, setPhotos] = useState([]);
+
   const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
   console.log(user._id);
 
@@ -17,8 +20,6 @@ const Chats = () => {
       })
       .then((json) => setMatches(json));
   }, []);
-
-  console.log(matches);
 
   return (
     <div className="chats__container">
