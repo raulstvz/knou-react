@@ -12,7 +12,7 @@
     width: 90%;
     background-color:#DED3FF;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     border-radius: 30px;
@@ -129,4 +129,19 @@
     font-family: Manrope;
     font-size: 18px;
     font-weight: 400;
+}
+.buble_profile{
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99px;
+    height: 40px;
+    background-color: #8c30f5;
+    color: #ded3ff;
+    border-radius: 40px;
 }
