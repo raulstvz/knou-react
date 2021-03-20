@@ -6,6 +6,7 @@ import femaleIcon from "../../assets/gender icons/femaleIcon.svg"
 import maleIcon from "../../assets/gender icons/maleIcon.svg"
 import maleFemaleIcon from "../../assets/gender icons/maleFemaleIcon.svg"
 import orientaSexMaleFemaleIcon from "../../assets/gender icons/orientaSexMaleFemaleIcon.svg"
+import { API_ROOT } from "../../utils/hostSettings";
 
 const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
   const [formData, setFormData] = useState({
@@ -37,6 +38,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
       },
       body: JSON.stringify(body),
     };
+
     const validation = {
       'age': age >= 18 ? 'errorInvisible' : "errorVisible",
       'gender': formData.gender === undefined ? "errorVisible" : 'errorInvisible',
@@ -44,7 +46,8 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     }
     setErrorStyle(validation);
     if (!Object.values(validation).find(value => value === 'errorVisible')) {
-      fetch("http://localhost:3001/api/users/" + userId, options)
+      fetch(`${API_ROOT}/api/users/` + userId, options)
+
         .then((response) => {
           if (response.status === 200) {
             setCurrentStep(currentStep + 1)

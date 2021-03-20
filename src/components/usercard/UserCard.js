@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 import CustomCarousel from "../customCarousel/CustomCarousel";
 import CarouselCard from "../customCarousel/CarouselCard";
+import { API_ROOT } from "../../utils/hostSettings";
 import tagIcon from "../../assets/icons/tag.svg";
+
 const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
 
   const [photo, setPhoto] = useState([]);
@@ -13,7 +15,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   const handleModalClose = () => setModalVisible(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/photo/${possibleMatch._id}/photos`)
+    fetch(`${API_ROOT}/api/photo/${possibleMatch._id}/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();

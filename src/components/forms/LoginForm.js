@@ -4,6 +4,7 @@ import Logo from "../logo/Logo";
 import { useHistory } from "react-router-dom"
 import Button from "../button/Button";
 import validateEmail from "../../utils/validateEmail"
+import { API_ROOT } from "../../utils/hostSettings";
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -26,13 +27,15 @@ const LoginForm = () => {
       },
       body: JSON.stringify(body),
     };
+
     const validation = {
       'email': validateEmail(email) ? 'errorInvisible' : "errorVisible",
       'password': password.length > 5 ? 'errorInvisible' : "errorVisible"
     }
     setErrorStyle(validation);
     if (!Object.values(validation).find(value => value === 'errorVisible')) {
-      fetch("http://localhost:3001/api/auth/login", options)
+      fetch(`${API_ROOT}api/auth/login`, options)
+
         .then((response) => response.json())
         .then((json) => {
           localStorage.setItem("token", json.token);

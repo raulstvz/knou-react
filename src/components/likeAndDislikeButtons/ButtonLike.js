@@ -3,6 +3,7 @@ import "./ButtonLike.css";
 import heart from "../../assets/swipePage/heartVectorToSwipPage.png";
 import { useEffect, useState, useContext } from "react";
 import { MatchContext } from "../../providers/match";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const ButtonLike = ({ possibleMatchId, giveLike }) => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
@@ -25,7 +26,7 @@ const ButtonLike = ({ possibleMatchId, giveLike }) => {
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/like", options).then((promise) => {
+    fetch(`${API_ROOT}/api/like`, options).then((promise) => {
       console.log(promise);
       if (promise.status === 201) {
         setNewMatch(possibleMatchId);
