@@ -1,7 +1,7 @@
 import { ChatContext } from "../../providers/chatInfo";
 import React, { useContext, useEffect, useState } from "react";
 import "./Chatbox.css"
-
+import { API_ROOT } from "../../utils/hostSettings";
 
 const ChatBox = () => {
   const { chat } = useContext(ChatContext); //es match
@@ -25,7 +25,7 @@ const ChatBox = () => {
         body: JSON.stringify(body),
       };
 
-      fetch(`http://localhost:3001/api/messages/`, options);
+      fetch(`${API_ROOT}api/messages/`, options);
       setUpdate(true);
       setMessage("");
     }
@@ -34,7 +34,7 @@ const ChatBox = () => {
   console.log(chat);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/messages/${chat}/chat`)
+    fetch(`${API_ROOT}api/messages/${chat}/chat`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();

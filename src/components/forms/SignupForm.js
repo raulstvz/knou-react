@@ -4,6 +4,7 @@ import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
 import validateEmail from "../../utils/validateEmail"
+import { API_ROOT } from "../../utils/hostSettings";
 
 
 const SignUpForm = () => {
@@ -80,7 +81,7 @@ const SignUpForm = () => {
       })
     }
     else {
-      fetch("http://localhost:3001/api/users", options).then(async () => {
+      fetch(`${API_ROOT}/api/users`, options).then(async () => {
         return await fetch("http://localhost:3001/api/auth/login", options)
           .then((response) => response.json())
           .then((json) => {
