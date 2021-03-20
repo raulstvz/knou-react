@@ -38,44 +38,14 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
-    if (!validateEmail(email) && password.length < 5 && firstname.length === 0 && lastname.length === 0) {
-      setErrorStyle({
-        'email': 'errorVisible',
-        'password': 'errorVisible',
-        'firstname': 'errorVisible',
-        'lastname': 'errorVisible'
-      })
-    } else if (password.length < 5) {
-      setErrorStyle({
-        'firstname': 'errorInvisible',
-        'lastname': 'errorInvisible',
-        'email': 'errorInvisible',
-        'password': 'errorVisible',
-      })
-    } else if (!validateEmail(email)) {
-      setErrorStyle({
-        'firstname': 'errorInvisible',
-        'lastname': 'errorInvisible',
-        'email': 'errorVisible',
-        'password': 'errorInvisible',
-      })
-    } else if (firstname.length === 0) {
-      setErrorStyle({
-        'firstname': 'errorVisible',
-        'lastname': 'errorInvisible',
-        'email': 'errorInvisible',
-        'password': 'errorVisible',
-      })
+    const validation = {
+      'firstname': firstname.length > 0 ? 'errorInvisible' : 'errorVisible',
+      'lastname': lastname.length > 0 ? 'errorInvisible' : "errorVisible",
+      'email': validateEmail(email) ? 'errorInvisible' : "errorVisible",
+      'password': password.length > 5 ? 'errorInvisible' : "errorVisible"
     }
-    else if (lastname.length === 0) {
-      setErrorStyle({
-        'firstname': 'errorInvisible',
-        'lastname': 'errorVisible',
-        'email': 'errorInvisible',
-        'password': 'errorInvisible',
-      })
-    }
-    else {
+    setErrorStyle(validation);
+    if (!Object.values(validation).find(value => value === 'errorVisible')) {
       fetch("http://localhost:3001/api/users", options).then(async () => {
         return await fetch("http://localhost:3001/api/auth/login", options)
           .then((response) => response.json())
@@ -86,8 +56,7 @@ const SignUpForm = () => {
             window.location.reload(false);
           });
       });
-
-    };
+    }
   }
 
   const goToLogIn = () => {
