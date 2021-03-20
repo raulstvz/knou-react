@@ -1,16 +1,15 @@
 import { useEffect, useState, useContext } from "react";
 import { MatchContext } from "../../providers/match";
-
 import "./newMatch.css";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const NewMatch = () => {
   const [matchInfo, setMatchInfo] = useState({});
   const [photo, setPhoto] = useState([]);
   const { newMatch } = useContext(MatchContext);
   const { setNewMatch } = useContext(MatchContext);
-
   useEffect(() => {
-    fetch(`http://localhost:3001/api/users/${newMatch}/`)
+    fetch(`${API_ROOT}/api/users/${newMatch}/`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
@@ -18,9 +17,8 @@ const NewMatch = () => {
       })
       .then((json) => setMatchInfo(json));
   }, []);
-
   useEffect(() => {
-    fetch(`http://localhost:3001/api/photo/${matchInfo._id}/photos`)
+    fetch(`${API_ROOT}/api/photo/${matchInfo._id}/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
@@ -28,14 +26,12 @@ const NewMatch = () => {
       })
       .then((json) => setPhoto(json));
   }, [matchInfo]);
-
   const photoBuffer = photo.map((e) => {
     const src = `data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
       "base64"
     )}`;
     return src;
   });
-
   console.log(matchInfo._id);
   return (
     <div
@@ -56,5 +52,4 @@ const NewMatch = () => {
     </div>
   );
 };
-
 export default NewMatch;

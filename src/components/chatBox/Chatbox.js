@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import "./Chatbox.css";
 import io from "socket.io-client";
 
+import { API_ROOT } from "../../utils/hostSettings";
+
 const ChatBox = () => {
   const { chat } = useContext(ChatContext);
   const [conversation, setConversation] = useState([]);
@@ -10,7 +12,9 @@ const ChatBox = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [update, setUpdate] = useState(false);
   const dummy = useRef();
-  const socket = io("http://localhost:3001");
+
+  const socket = io(`${API_ROOT}`);
+
   console.log("updated");
 
   const body = {
@@ -48,7 +52,8 @@ const ChatBox = () => {
 
       socket.emit("sendMessage", message, user.firstname, chat);
 
-      fetch(`http://localhost:3001/api/messages/`, options);
+
+      fetch(`${API_ROOT}/api/messages/`, options);
 
       setUpdate(true);
       setMessage("");
@@ -84,7 +89,7 @@ const ChatBox = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/messages/${chat}/chat`)
+    fetch(`${API_ROOT}/api/messages/${chat}/chat`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();

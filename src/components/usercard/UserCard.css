@@ -57,3 +57,23 @@
   font-size: small;
   color: rgba(85, 84, 84, 0.557);
 }
+.tag__container__fromPosibleMatch>span{
+  max-width: max-content;
+  max-height: max-content;
+  color: #8c30f5;
+  background-color: #f1e4ff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 10px;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}
+.tag__container__fromPosibleMatch{
+  display: flex;
+  flex-direction: row;
+}
+.tagIconFromModal{
+  padding-left: 5px;
+  padding-right: 5px;
+}

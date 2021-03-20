@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import "./Chat.css";
 import { ChatContext } from "../../providers/chatInfo";
 import { useHistory } from "react-router";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const Chat = ({ match }) => {
   const { setChat } = useContext(ChatContext);
@@ -13,7 +14,7 @@ const Chat = ({ match }) => {
     match.userOne._id === user._id ? match.userTwo._id : match.userOne._id;
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/photo/${userPhoto}/photos`)
+    fetch(`${API_ROOT}/api/photo/${userPhoto}/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
@@ -21,7 +22,7 @@ const Chat = ({ match }) => {
       })
       .then((json) => setPhoto(json));
 
-    fetch(`http://localhost:3001/api/messages/${match._id}/lastmessage`) //aqui iria el match_.id
+    fetch(`${API_ROOT}/api/messages/${match._id}/lastmessage`) //aqui iria el match_.id
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();

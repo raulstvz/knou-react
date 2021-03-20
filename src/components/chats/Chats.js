@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Chats.css";
 import Chat from "../chat/Chat";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const Chats = () => {
   const [matches, setMatches] = useState([]);
@@ -11,7 +12,7 @@ const Chats = () => {
   console.log(user._id);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/match/${user._id}/matches`) //falta el userid dinamico
+    fetch(`${API_ROOT}/api/match/${user._id}/matches`) //falta el userid dinamico
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();

@@ -5,6 +5,9 @@ import Logo from "../logo/Logo";
 import Button from "../button/Button";
 import validateEmail from "../../utils/validateEmail";
 
+import { API_ROOT } from "../../utils/hostSettings";
+
+
 const SignUpForm = () => {
   const history = useHistory();
   const [firstname, setFirstname] = useState("");
@@ -28,9 +31,7 @@ const SignUpForm = () => {
     premium: false,
     signup_step: 0,
   };
-
   console.log(body);
-
   //Fetch function
   const handleCreate = () => {
     const options = {
@@ -40,47 +41,17 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
-    if (
-      !validateEmail(email) &&
-      password.length < 5 &&
-      firstname.length === 0 &&
-      lastname.length === 0
-    ) {
-      setErrorStyle({
-        email: "errorVisible",
-        password: "errorVisible",
-        firstname: "errorVisible",
-        lastname: "errorVisible",
-      });
-    } else if (password.length < 5) {
-      setErrorStyle({
-        firstname: "errorInvisible",
-        lastname: "errorInvisible",
-        email: "errorInvisible",
-        password: "errorVisible",
-      });
-    } else if (!validateEmail(email)) {
-      setErrorStyle({
-        email: "errorVisible",
-        password: "errorInvisible",
-      });
-    } else if (firstname.length === 0) {
-      setErrorStyle({
-        firstname: "errorInvisible",
-        lastname: "errorInvisible",
-        email: "errorInvisible",
-        password: "errorVisible",
-      });
-    } else if (lastname.length === 0) {
-      setErrorStyle({
-        firstname: "errorInvisible",
-        lastname: "errorVisible",
-        email: "errorInvisible",
-        password: "errorInvisible",
-      });
-    } else {
-      fetch("http://localhost:3001/api/users", options).then(async () => {
-        return await fetch("http://localhost:3001/api/auth/login", options)
+
+    const validation = {
+      firstname: firstname.length > 0 ? "errorInvisible" : "errorVisible",
+      lastname: lastname.length > 0 ? "errorInvisible" : "errorVisible",
+      email: validateEmail(email) ? "errorInvisible" : "errorVisible",
+      password: password.length > 5 ? "errorInvisible" : "errorVisible",
+    };
+    setErrorStyle(validation);
+    if (!Object.values(validation).find((value) => value === "errorVisible")) {
+      fetch(`${API_ROOT}/api/users`, options).then(async () => {
+        return await fetch(`${API_ROOT}/api/users/api/auth/login`, options)
           .then((response) => response.json())
           .then((json) => {
             localStorage.setItem("token", json.token);
@@ -95,7 +66,6 @@ const SignUpForm = () => {
   const goToLogIn = () => {
     history.push("/login");
   };
-
   return (
     <form className="sideform__container">
       <div className="sideform__subcontainer">
@@ -107,9 +77,9 @@ const SignUpForm = () => {
         <h2 className="form__title">Create an account</h2>
         <input
           name="source"
+          type="text"
           className={errorStyle.firstname}
           placeholder="First Name"
-          required
           onChange={(e) => setFirstname(e.target.value)}
         />
         <span className={errorStyle.firstname}>
@@ -117,9 +87,9 @@ const SignUpForm = () => {
         </span>
         <input
           name="source"
+          type="text"
           className={errorStyle.lastname}
           placeholder="Last Name"
-          required
           onChange={(e) => setLastname(e.target.value)}
         />
         <span className={errorStyle.lastname}>
@@ -130,7 +100,6 @@ const SignUpForm = () => {
           placeholder="Email"
           type="text"
           name="email"
-          reqiored
           onChange={(e) => setEmail(e.target.value)}
         />
         <span className={errorStyle.email}>Invalid email</span>
@@ -139,7 +108,6 @@ const SignUpForm = () => {
           className={errorStyle.password}
           type="password"
           placeholder="Password"
-          required
           onChange={(e) => setPassword(e.target.value)}
         />
         <span className={errorStyle.password}>
