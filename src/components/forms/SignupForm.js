@@ -3,31 +3,32 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
+import validateEmail from "../../utils/validateEmail"
+
 
 const SignUpForm = () => {
   const history = useHistory();
-
-  //formData : combo for the inputs
-  const [formData, setFormData] = useState({
-    firstname: undefined,
-    lastname: undefined,
-    email: undefined,
-    password: undefined,
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorStyle, setErrorStyle] = useState({
+    'firstname': 'errorInvisible',
+    'lastname': 'errorInvisible',
+    'email': 'errorInvisible',
+    'password': 'errorInvisible',
   });
-
   //Body
   const body = {
-    firstname: formData.firstname,
-    lastname: formData.lastname,
-    email: formData.email,
-    password: formData.password,
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+    password: password,
     created: new Date(),
     premium: false,
     signup_step: 0,
   };
-
   console.log(body);
-
   //Fetch function
   const handleCreate = () => {
     const options = {
@@ -37,26 +38,30 @@ const SignUpForm = () => {
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/users", options).then(async () => {
-      /* history.push("/create-account"); */
-      return await fetch("http://localhost:3001/api/auth/login", options)
-        .then((response) => response.json())
-        /* .then(json => console.log('token', json)) */
-        .then((json) => {
-          localStorage.setItem("token", json.token);
-          localStorage.setItem("user", JSON.stringify(json.user));
-          history.replace("/create-account");
-          /* TODO set history.replace => "/userpage" ...
-            in case the user is not on signup_step=4, then redirect to signup step */
-          window.location.reload(false);
-        });
-    });
-  };
+    const validation = {
+      'firstname': firstname.length > 0 ? 'errorInvisible' : 'errorVisible',
+      'lastname': lastname.length > 0 ? 'errorInvisible' : "errorVisible",
+      'email': validateEmail(email) ? 'errorInvisible' : "errorVisible",
+      'password': password.length > 5 ? 'errorInvisible' : "errorVisible"
+    }
+    setErrorStyle(validation);
+    if (!Object.values(validation).find(value => value === 'errorVisible')) {
+      fetch("http://localhost:3001/api/users", options).then(async () => {
+        return await fetch("http://localhost:3001/api/auth/login", options)
+          .then((response) => response.json())
+          .then((json) => {
+            localStorage.setItem("token", json.token);
+            localStorage.setItem("user", JSON.stringify(json.user));
+            history.replace("/create-account");
+            window.location.reload(false);
+          });
+      });
+    }
+  }
 
   const goToLogIn = () => {
     history.push("/login");
   };
-
   return (
     <form className="sideform__container">
       <div className="sideform__subcontainer">
@@ -68,36 +73,36 @@ const SignUpForm = () => {
         <h2 className="form__title">Create an account</h2>
         <input
           name="source"
-          className="form__input"
+          type="text"
+          className={errorStyle.firstname}
           placeholder="First Name"
-          onChange={(e) =>
-            setFormData({ ...formData, firstname: e.target.value })
-          }
+          onChange={(e) => setFirstname(e.target.value)}
         />
+        <span className={errorStyle.firstname}>You must be write something...</span>
         <input
           name="source"
-          className="form__input"
+          type="text"
+          className={errorStyle.lastname}
           placeholder="Last Name"
-          onChange={(e) =>
-            setFormData({ ...formData, lastname: e.target.value })
-          }
+          onChange={(e) => setLastname(e.target.value)}
         />
+        <span className={errorStyle.lastname}>You must be to write something...</span>
         <input
-          name="source"
-          className="form__input"
-          type="email"
+          className={errorStyle.email}
           placeholder="Email"
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          type="text"
+          name="email"
+          onChange={(e) => setEmail(e.target.value)}
         />
+        <span className={errorStyle.email}>Invalid email</span>
         <input
           name="source"
-          className="form__input"
+          className={errorStyle.password}
           type="password"
           placeholder="Password"
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
+          onChange={(e) => setPassword(e.target.value)}
         />
+        <span className={errorStyle.password}>Password must be 5 characters long</span>
         <div className="button__container">
           <Button
             name="Get Started"

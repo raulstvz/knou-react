@@ -1,16 +1,21 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LandingPage from './pages/LandingPage';
+import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
-import SignupPage from './pages/SignupPage';
-import CreateAccountPage from './pages/CreateAccountPage';
-import SwipePage from './pages/SwipePage';
+
+import SignupPage from "./pages/SignupPage";
+import CreateAccountPage from "./pages/CreateAccountPage";
+import SwipePage from "./pages/SwipePage";
+import ChatPage from "./pages/ChatPage";
+import ChatBoxPage from "./pages/ChatBoxPage";
+import ChatContext from "./providers/chatInfo";
+import MatchContext from "./providers/match";
+//</MatchContext>     <MatchContext>
+
 
 function App() {
-
   return (
-
     <div className="App__container">
       <Router>
         <Switch>
@@ -26,9 +31,28 @@ function App() {
           <Route exact path="/create-account">
             <CreateAccountPage />
           </Route>
-          <Route exact path="/swipePage">
-            <SwipePage />
+
+          <MatchContext>
+            <Route exact path="/swipePage">
+              <SwipePage />
+            </Route>
+
+            <ChatContext>
+              <Route exact path="/chatPage">
+                <ChatPage />
+              </Route>
+              <Route exact path="/chatBoxPage">
+                <ChatBoxPage />
+              </Route>
+            </ChatContext>
+          </MatchContext>
+
+        
+          {/* Siempre dejar este al último */}
+          <Route exact path="*">
+            <LandingPage />
           </Route>
+
         </Switch>
       </Router>
     </div>

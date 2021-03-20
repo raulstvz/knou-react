@@ -7,12 +7,12 @@
     background: rgba(0, 0, 0, 0.6);
     z-index: 100;
 }
-
 .modal__main {
     position: fixed;
     display: flex;
     flex-direction: column;
     align-content: center;
+    justify-content: center;
     align-items: center;
     background: white;
     width: 45%;
@@ -21,17 +21,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 25px;
-    padding-bottom: 50px;
+    padding-bottom: 50px ;
+    padding-top: 50px;
 }
-
 .display-block {
     display: block;
 }
-
 .display-none {
     display: none;
 }
-
 .modal__content {
     padding: 50px 150px;
     display: flex;

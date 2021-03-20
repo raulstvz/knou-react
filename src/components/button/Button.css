@@ -9,6 +9,16 @@
   color: #f1e4ff;
   cursor: pointer
 }
+.button_disable{
+  width: 23%;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #52525236;
+}
 
 .button_dark_small>p {
   margin: 0px 25px;
