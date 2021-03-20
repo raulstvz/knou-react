@@ -4,6 +4,7 @@ import "./Forms.css";
 import Button from "../button/Button";
 import PhotoLoader from "../photoLoader/PhotoLoader";
 import Stepper from "../stepper/Stepper"
+import { API_ROOT } from "../../utils/hostSettings";
 
 const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     const history = useHistory()
@@ -22,7 +23,7 @@ const PhotosLoadForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => 
             },
             body: JSON.stringify(body),
         };
-        fetch("http://localhost:3001/api/users/" + userId, options);
+        fetch(`${API_ROOT}/api/users/` + userId, options);
         setCurrentStep(currentStep + 1);
         history.push("login");
         alert("Congratulations, your data has been saved correctly, now log in to find your ideal match")

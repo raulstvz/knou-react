@@ -3,6 +3,7 @@ import "./Forms.css";
 import Button from "../button/Button";
 import Tag from "../tag/Tag";
 import Stepper from "../stepper/Stepper";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const UserDescriptionForm = ({
   totalSteps,
@@ -58,7 +59,7 @@ const UserDescriptionForm = ({
       setErrorStyle({ 'description': 'errorVisible' })
     }
     else{
-      fetch("http://localhost:3001/api/users/" + userId, options);
+      fetch(`${API_ROOT}/api/users/` + userId, options);
     setCurrentStep(currentStep + 1);
   }};
 

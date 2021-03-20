@@ -82,7 +82,7 @@ const SignUpForm = () => {
     }
     else {
       fetch(`${API_ROOT}/api/users`, options).then(async () => {
-        return await fetch("http://localhost:3001/api/auth/login", options)
+        return await fetch(`${API_ROOT}/api/auth/login`, options)
           .then((response) => response.json())
           .then((json) => {
             localStorage.setItem("token", json.token);

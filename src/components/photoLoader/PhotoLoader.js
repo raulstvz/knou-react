@@ -2,6 +2,8 @@ import { React, useState } from "react";
 import cameraIcon from "../../assets/icons/camera.svg";
 import "./PhotoLoader.css";
 import deleteIcon from "../../assets/icons/delete.svg"
+import { API_ROOT } from "../../utils/hostSettings";
+
 const PhotoLoader = ({ userId, currentStep }) => {
   const [photoArray, setPhotoArray] = useState([]);
   const handleImageUpload = (e) => {
@@ -15,7 +17,7 @@ const PhotoLoader = ({ userId, currentStep }) => {
       method: "PUT",
       body: form_data,
     };
-    fetch("http://localhost:3001/api/photo/" + userId + "/photos", options)
+    fetch(`${API_ROOT}/api/photo/` + userId + "/photos", options)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -37,7 +39,7 @@ const PhotoLoader = ({ userId, currentStep }) => {
     const optionsToDelete = {
       method: "DELETE",
     }
-    fetch("http://localhost:3001/api/photo/" + userId + "/photos/" + photo_id, optionsToDelete)
+    fetch(`${API_ROOT}/api/photo/` + userId + "/photos/" + photo_id, optionsToDelete)
       .then((response) => {
         if (response.ok) {
           return response.json();
