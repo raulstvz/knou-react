@@ -8,7 +8,6 @@ import validateEmail from "../../utils/validateEmail"
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const history = useHistory();
   const [errorStyle, setErrorStyle] = useState({
     'email': 'errorInvisible',
@@ -18,9 +17,7 @@ const LoginForm = () => {
     email: email,
     password: password,
   };
-
   console.log(body);
-
   const handleLogin = () => {
     const options = {
       method: "POST",
@@ -29,23 +26,12 @@ const LoginForm = () => {
       },
       body: JSON.stringify(body),
     };
-    if (!validateEmail(email) && password.length < 5) {
-      setErrorStyle({
-        'email': 'errorVisible',
-        'password': 'errorVisible',
-      })
-    } else if (password.length < 5) {
-      setErrorStyle({
-        'email': 'errorInvisible',
-        'password': 'errorVisible',
-      })
-    } else if (!validateEmail(email)) {
-      setErrorStyle({
-        'email': 'errorVisible',
-        'password': 'errorInvisible',
-      })
-    } else {
-
+    const validation = {
+      'email': validateEmail(email) ? 'errorInvisible' : "errorVisible",
+      'password': password.length > 5 ? 'errorInvisible' : "errorVisible"
+    }
+    setErrorStyle(validation);
+    if (!Object.values(validation).find(value => value === 'errorVisible')) {
       fetch("http://localhost:3001/api/auth/login", options)
         .then((response) => response.json())
         .then((json) => {
@@ -61,11 +47,9 @@ const LoginForm = () => {
         });
     }
   };
-
   const goToSignUp = () => {
     history.push("/signup")
   }
-
   return (
     <form className="sideform__container">
       <div className="sideform__subcontainer">
@@ -81,7 +65,7 @@ const LoginForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email adress"
         />
-         <span className={errorStyle.email}>Invalid email</span>
+        <span className={errorStyle.email}>Invalid email</span>
         <input
           className={errorStyle.password}
           type="password"
@@ -90,14 +74,17 @@ const LoginForm = () => {
         />
         <span className={errorStyle.password}>Invalid Password</span>
         <div className="button__container">
-          <Button 
+          <Button
             name="Sign In"
             alt="Button to Sign Up"
             style="button_dark_great"
             onClick={handleLogin}
           />
         </div>
-        <p className="signupAdnsLogin_form"> Don't have an account? <span className="colorPurple" onClick={() => { history.push("/signup") }} > Sign up </span></p>
+        <p className="signupAdnsLogin_form"> Don't have an account?
+        <span
+            className="colorPurple"
+            onClick={() => { history.push("/signup") }} > Sign up </span></p>
       </div>
     </form>
   );
