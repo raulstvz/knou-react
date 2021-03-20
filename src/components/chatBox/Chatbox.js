@@ -1,19 +1,44 @@
 import { ChatContext } from "../../providers/chatInfo";
-import React, { useContext, useEffect, useState } from "react";
-import "./Chatbox.css"
+import React, { useContext, useEffect, useState, useRef } from "react";
+import "./Chatbox.css";
+import io from "socket.io-client";
+
 import { API_ROOT } from "../../utils/hostSettings";
 
 const ChatBox = () => {
-  const { chat } = useContext(ChatContext); //es match
+  const { chat } = useContext(ChatContext);
   const [conversation, setConversation] = useState([]);
   const [message, setMessage] = useState("");
-  const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
+  const user = JSON.parse(localStorage.getItem("user"));
   const [update, setUpdate] = useState(false);
+  const dummy = useRef();
+
+  const socket = io(`${API_ROOT}`);
+
+  console.log("updated");
+
   const body = {
     content: message,
     chat: chat,
     sender: user._id,
   };
+
+  useEffect(() => {
+    socket.emit("join", user.firstname, chat, (error) => {
+      // scrollToBottom();
+      if (error) {
+        console.log(error);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    socket.on("message", (message) => {
+      console.log(message);
+
+      setUpdate(true);
+    });
+  }, []);
 
   const handleMessage = (event) => {
     if (event.keyCode === 13) {
@@ -25,55 +50,94 @@ const ChatBox = () => {
         body: JSON.stringify(body),
       };
 
-      fetch(`${API_ROOT}api/messages/`, options);
+      socket.emit("sendMessage", message, user.firstname, chat);
+
+
+      fetch(`${API_ROOT}/api/messages/`, options);
+
       setUpdate(true);
       setMessage("");
     }
   };
 
-  console.log(chat);
+  const timeSince = (timeStamp) => {
+    timeStamp = new Date(timeStamp);
+    var now = new Date(),
+      secondsPast = (now.getTime() - timeStamp) / 1000;
+    if (secondsPast < 60) {
+      return parseInt(secondsPast) + "s ago";
+    }
+    if (secondsPast < 3600) {
+      return parseInt(secondsPast / 60) + "m ago";
+    }
+    if (secondsPast <= 86400) {
+      return parseInt(secondsPast / 3600) + "h ago";
+    }
+    if (secondsPast > 86400) {
+      let day = timeStamp.getDate();
+      let month = timeStamp
+        .toDateString()
+        .match(/ [a-zA-Z]*/)[0]
+        .replace(" ", "");
+      let year =
+        timeStamp.getFullYear() === now.getFullYear()
+          ? ""
+          : " " + timeStamp.getFullYear();
+
+      return day + " " + month + year;
+    }
+  };
 
   useEffect(() => {
-    fetch(`${API_ROOT}api/messages/${chat}/chat`)
+    fetch(`${API_ROOT}/api/messages/${chat}/chat`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
         }
       })
       .then((json) => setConversation(json));
+    dummy.current.scrollIntoView({ behavior: "smooth" });
     setUpdate(false);
   }, [update]);
 
-  
-
-  console.log(conversation);
-
-  //aqui habria que hacer un ternario de si message.sender.id es el de la persona logeada, se usara la iamgen
-  //de la persona logeada(fetch a imagenes) y sino se  usara la imagen que vendra del contexto
   return (
     <>
-    <div className="chatBox__container">
-      <div className="message_container_box">
-      {conversation.map((message) => (
-        <div className="messageBox_container">
-        <div className="messageBox">
-          <span className="userName_message">{message.sender.firstname}: </span> {message.content}
+      <div className="chatBox__container">
+        <div className="message_container_box">
+          {conversation.map((message) =>
+            user.firstname === message.sender.firstname ? (
+              <div className="messageBox_container otherUser">
+                <div className="messageBox">
+                  <span className="userName_message">
+                    {message.sender.firstname}:
+                  </span>
+                  {message.content}
+                </div>
+                <span className="timer_message">{timeSince(message.date)}</span>
+              </div>
+            ) : (
+              <div className="messageBox_container">
+                <div className="messageBox">
+                  <span className="userName_message">
+                    {message.sender.firstname}:
+                  </span>
+                  {message.content}
+                </div>
+                <span className="timer_message">{timeSince(message.date)}</span>
+              </div>
+            )
+          )}
+          <div className="dummy" ref={dummy}></div>
         </div>
-        <span className="timer_message">{message.date}</span>
-        </div>
-      ))}
-      
+        <input
+          name="message"
+          className="messageForm_input"
+          placeholder="write your message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          onKeyDown={(e) => handleMessage(e)}
+        />
       </div>
-      <input
-        name="message"
-        className="messageForm_input"
-        placeholder="write your message"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        onKeyDown={(e) => handleMessage(e)}
-      />
-    </div>
-     
     </>
   );
 };

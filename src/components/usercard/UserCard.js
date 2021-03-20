@@ -42,13 +42,14 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
     );
    }); 
 
-  console.log(photoBuffer);
-
   return (
     <div className="userCard__container">
       <div className="profilePicture__container">
+
         <img src={photoBuffer[0]} className="profilePicture" onClick={() => setModalVisible(true)} />
+
       </div>
+
       <div className="profileInfo__container">
         <p className="profileInfo__nameAndAge">
           {possibleMatch.firstname}, {possibleMatch.age}
