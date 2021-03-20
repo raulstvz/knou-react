@@ -1,17 +1,18 @@
-import "./ChatPage.css";
-import Chats from "../components/chats/Chats";
+import ChatBox from "../components/chatBox/Chatbox";
 import Header from "../components/header/Header";
 import Button from "../components/button/Button";
-import Footer from "../components/footer/Footer";
 import BoxMenu from "../components/boxmenu/BoxMenu";
+import Footer from "../components/footer/Footer";
 import { useHistory } from "react-router";
+import "./ChatBoxPage.css"
 
-const ChatPage = () => {
+
+const ChatBoxPage = () => {
+
   const history = useHistory();
   return (
-    <>
-    <div className="chatPage__container">
-      <Header
+  <div className="chatBoxPage__container">
+     <Header
         icons={<BoxMenu />}
         button={
           <Button
@@ -21,13 +22,9 @@ const ChatPage = () => {
           />
         } //falta crear la función de goToSignOut
       />
-      <div className="chat_section"><Chats/></div>
-      
-      <Footer />
+    <ChatBox />
+    <Footer />
     </div>
-      
-    </>
-  );
-};
+  )};
 
-export default ChatPage;
+export default ChatBoxPage;

@@ -4,6 +4,7 @@ import Button from "../button/Button";
 import Map from "../map/Map";
 import Modal from "../modal/Modal";
 import Stepper from "../stepper/Stepper";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const LocationDetailForm = ({
   totalSteps,
@@ -13,7 +14,7 @@ const LocationDetailForm = ({
 }) => {
   /* const [geolocationEnabled, setGeolocationEnabled] = useState(false) */
 
-  const [modalVisibility, setModalVisibility] = useState(true);
+  const [modalVisibility, setModalVisibility] = useState(false);
   const toggleModal = (modalVisibility) => {
     setModalVisibility(!modalVisibility);
   };
@@ -21,7 +22,7 @@ const LocationDetailForm = ({
   useEffect(() => {
     if (!"geolocation" in window) {
       console.log("Geolocation Not Available");
-      setModalVisibility(true);
+      setModalVisibility(false);
     } else {
       console.log("Geolocation Available");
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -57,7 +58,7 @@ const LocationDetailForm = ({
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/users/" + userId, options);
+    fetch(`${API_ROOT}/api/users/` + userId, options);
     setCurrentStep(currentStep + 1);
   };
 

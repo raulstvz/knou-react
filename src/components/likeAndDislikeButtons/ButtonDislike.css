@@ -1,5 +1,6 @@
 .dislikeButtonFromSwipPage{
     background: #DED3FF;
+    /* background: #8C30F5; */
     width: 46px;
     height: 46px;
     border-radius: 100%;
@@ -12,4 +13,5 @@
     height: 12px;
     width: 12px;
     margin-top: 16px;
+
 }
