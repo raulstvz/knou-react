@@ -74,7 +74,7 @@ const Chat = ({ match }) => {
     <div className="chat__container" onClick={handleOnclick}>
       <div className="profilePicture__chatcontainer">
         <img
-          src={photoBuffer}
+          src={photoBuffer[0]}
           className="profilePicture__chat"
           alt="knou foto"
         />

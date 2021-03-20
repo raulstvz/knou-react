@@ -17,6 +17,7 @@ const SignUpForm = () => {
     email: "errorInvisible",
     password: "errorInvisible",
   });
+
   //Body
   const body = {
     firstname: firstname,

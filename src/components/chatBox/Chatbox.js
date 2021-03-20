@@ -4,18 +4,14 @@ import "./Chatbox.css";
 import io from "socket.io-client";
 
 const ChatBox = () => {
-  const { chat } = useContext(ChatContext); //es match
+  const { chat } = useContext(ChatContext);
   const [conversation, setConversation] = useState([]);
   const [message, setMessage] = useState("");
-  const user = JSON.parse(localStorage.getItem("user")); //tenemos el usuario desde el local.
+  const user = JSON.parse(localStorage.getItem("user"));
   const [update, setUpdate] = useState(false);
   const dummy = useRef();
-
-  // const scrollToBottom = () => {
-  //   messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-  // };
-
   const socket = io("http://localhost:3001");
+  console.log("updated");
 
   const body = {
     content: message,
@@ -53,7 +49,7 @@ const ChatBox = () => {
       socket.emit("sendMessage", message, user.firstname, chat);
 
       fetch(`http://localhost:3001/api/messages/`, options);
-      // scrollToBottom();
+
       setUpdate(true);
       setMessage("");
     }
@@ -99,8 +95,6 @@ const ChatBox = () => {
     setUpdate(false);
   }, [update]);
 
-  //aqui habria que hacer un ternario de si message.sender.id es el de la persona logeada, se usara la iamgen
-  //de la persona logeada(fetch a imagenes) y sino se  usara la imagen que vendra del contexto
   return (
     <>
       <div className="chatBox__container">
