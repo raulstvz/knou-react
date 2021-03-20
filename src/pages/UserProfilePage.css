@@ -1,0 +1,205 @@
+
+.userProfile__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.title_editProfile{
+    color:#8c30f5;
+}
+ .currentInfo_container{
+    width: 90%;
+    background-color:#DED3FF;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: space-around;
+    border-radius: 30px;
+    margin-top: 15px;
+}
+.nonTouchableInfo_section{
+    width: 25%;
+}
+
+.currentTouchableAgeRange_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.unchangeable_section{ 
+    width:100%;
+    padding: 10px;
+    color:#DED3FF;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #8c30f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+.age_section{
+    width:100%;
+    padding: 10px;
+    background-color: #8c30f5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+.ageRange_title{
+    color:#DED3FF;
+    font-size: 15px;
+    font-weight: bold;
+}
+.ageRange_container>p{
+    width: 200%;
+    background-color: #DED3FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 15px;
+}
+.hobbies_section{
+    width: 100%;
+    padding: 10px;
+    background-color: #8c30f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.hobbies_section>p{
+ color:#DED3FF;
+ font-size:15px;
+ font-weight: bold;
+}
+.tag_profile_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center ;
+    align-items: center;
+}
+
+.description_section{
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
+    background-color: yellow;
+}
+/*
+.touchableInfo_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Manrope;
+}
+.touchableInfo_section>p{ 
+    width: 100%;
+    padding: 10px;
+    color:#DED3FF;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #8c30f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.currentTouchableAgeRange_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.currentTouchableAgeRange_container>p{
+    width: 20%;
+    padding: 10px;
+    color:#DED3FF;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #8c30f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-top: -10px;
+}
+
+.newTouchableInfo_container{
+    width: 45%;
+    margin-top: -250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+.newInfoTitle{
+    width: 100%;
+    color: #8c30f5;
+    font-size: 30px;
+    display:flex;
+    justify-content: center;
+    align-items: center;    
+}
+.button_update{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.tag_profile_container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+.textarea_container{
+    width: 80%;
+    border-radius: 10px;
+    border: #EFF0F6 1px solid;
+    background-color: #EFF0F6;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #6b6b6b;
+    font-family: Manrope;
+    font-size: 18px;
+    font-weight: 400;
+}
+.buble_profile{
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99px;
+    height: 40px;
+    background-color: #8c30f5;
+    color: #ded3ff;
+    border-radius: 40px;
+} */
