@@ -9,13 +9,11 @@ import orientaSexMaleFemaleIcon from "../../assets/gender icons/orientaSexMaleFe
 import { API_ROOT } from "../../utils/hostSettings";
 
 const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
-
   const [formData, setFormData] = useState({
     ageStart: 25,
     ageEnd: 35,
     gender: undefined,
     orientation: undefined,
-
   });
   const [age, setAge] = useState('');
   const [errorStyle, setErrorStyle] = useState({
@@ -23,7 +21,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     'gender': 'errorInvisible',
     'orientation': 'errorInvisible'
   });
-
   const body = {
     age: age,
     age_range: [formData.ageStart, formData.ageEnd],
@@ -33,8 +30,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
     gender: formData.gender,
     orientation: formData.orientation,
   };
-
-
   const handleNext = () => {
     const options = {
       method: "PUT",
@@ -44,32 +39,24 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
       body: JSON.stringify(body),
     };
 
-    if (age <= 17) {
-      setErrorStyle({
-        'age': 'errorVisible'
-      })
-    } else if (formData.gender === undefined && formData.orientation === undefined) {
-      setErrorStyle({
-        'gender': 'errorVisible',
-        'orientation': 'errorVisible'
-      })
-
-    } else {
+    const validation = {
+      'age': age >= 18 ? 'errorInvisible' : "errorVisible",
+      'gender': formData.gender === undefined ? "errorVisible" : 'errorInvisible',
+      'orientation': formData.orientation === undefined ? "errorVisible" : 'errorInvisible'
+    }
+    setErrorStyle(validation);
+    if (!Object.values(validation).find(value => value === 'errorVisible')) {
       fetch(`${API_ROOT}/api/users/` + userId, options)
+
         .then((response) => {
           if (response.status === 200) {
             setCurrentStep(currentStep + 1)
           }
-        }
-        )
-
-    }
+        })}
   };
-
   const handlePrevious = () => {
     setCurrentStep(currentStep - 1);
   };
-
   return (
     <div className="form">
       <Stepper steps={totalSteps} currentStep={currentStep} />
@@ -139,22 +126,18 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
                 id="heterosexual"
                 name="orientation"
                 value="heterosexual"
-
                 onChange={(e) =>
                   setFormData({ ...formData, orientation: e.target.value })
                 }
               />
               <label for="heterosexual">Heterosexual<img src={femaleIcon} alt="female simbol" className="iconHeteroM" /><img src={maleIcon} alt="male simbol" className="iconHeteroF" /></label>
-
             </div>
-
             <div className="orientationOption">
               <input
                 type="radio"
                 id="homosexual"
                 name="orientation"
                 value="homosexual"
-
                 onChange={(e) =>
                   setFormData({ ...formData, orientation: e.target.value })
                 }
@@ -174,13 +157,10 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
           placeholder="Your Age"
           onChange={(e) =>
             setAge(e.target.value)
-
           }
           style={{ "max-width": "25%", "display": "block" }}
         />
-
         <span className={errorStyle.age}>You must be over 18 years of age to use this application</span>
-
         <p>What is the age range you are insterested in?</p>
         <div className="slider__container">
           <div className="form_slider_age">
@@ -194,8 +174,7 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
               value={formData.ageStart}
               step="1"
               onChange={(e) =>
-                setFormData({ ...formData, ageStart: parseInt(e.target.value) })
-              }
+                setFormData({ ...formData, ageStart: parseInt(e.target.value) })}
             />
           </div>
           <div className="form_slider_age">
@@ -214,7 +193,6 @@ const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
             />
           </div>
         </div>
-
         <div className="button__container">
           <Button
             name="Next step"

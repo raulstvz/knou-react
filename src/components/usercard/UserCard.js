@@ -6,6 +6,7 @@ import Modal from "../modal/Modal";
 import CustomCarousel from "../customCarousel/CustomCarousel";
 import CarouselCard from "../customCarousel/CarouselCard";
 import { API_ROOT } from "../../utils/hostSettings";
+import tagIcon from "../../assets/icons/tag.svg";
 
 const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
 
@@ -79,7 +80,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
               <p>{possibleMatch.age} years old </p>
               <div className="tag__container__fromPosibleMatch">
                 {possibleMatch.hobbies.map((hobby) => (
-                  <span>{hobby}</span>
+                  <span><img src={tagIcon} className="tagIconFromModal"></img>{hobby}</span>
                 ))}
               </div>
               <p>
@@ -88,9 +89,6 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
             </div>
           }>
         </Modal>
-
-
-
       </div>
     </div>
   );
