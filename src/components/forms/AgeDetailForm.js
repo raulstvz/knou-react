@@ -8,7 +8,6 @@ import maleFemaleIcon from "../../assets/gender icons/maleFemaleIcon.svg"
 import orientaSexMaleFemaleIcon from "../../assets/gender icons/orientaSexMaleFemaleIcon.svg"
 
 const AgeDetailForm = ({ totalSteps, currentStep, setCurrentStep, userId }) => {
-
   const [formData, setFormData] = useState({
     ageStart: 25,
     ageEnd: 35,
