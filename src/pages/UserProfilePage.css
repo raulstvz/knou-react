@@ -8,26 +8,29 @@
 .title_editProfile{
     color:#8c30f5;
 }
-.currentInfo_container{
+ .currentInfo_container{
     width: 90%;
     background-color:#DED3FF;
     display: flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: space-around;
     border-radius: 30px;
     margin-top: 15px;
 }
-.nonTouchableInfo_container{
+.nonTouchableInfo_section{
+    width: 25%;
+}
+
+.currentTouchableAgeRange_container{
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    font-family: Manrope;
 }
-.nonTouchableInfo_section > p{
-    width: 100%;
+.unchangeable_section{ 
+    width:100%;
     padding: 10px;
     color:#DED3FF;
     font-size: 15px;
@@ -38,7 +41,63 @@
     align-items: center;
     border-radius: 30px;
 }
+.age_section{
+    width:100%;
+    padding: 10px;
+    background-color: #8c30f5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+.ageRange_title{
+    color:#DED3FF;
+    font-size: 15px;
+    font-weight: bold;
+}
+.ageRange_container>p{
+    width: 200%;
+    background-color: #DED3FF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 15px;
+}
+.hobbies_section{
+    width: 100%;
+    padding: 10px;
+    background-color: #8c30f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
 
+.hobbies_section>p{
+ color:#DED3FF;
+ font-size:15px;
+ font-weight: bold;
+}
+.tag_profile_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center ;
+    align-items: center;
+}
+
+.description_section{
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
+    background-color: yellow;
+}
+/*
 .touchableInfo_container{
     width: 100%;
     display: flex;
@@ -62,7 +121,6 @@
 
 .currentTouchableAgeRange_container{
     width: 100%;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -144,4 +202,4 @@
     background-color: #8c30f5;
     color: #ded3ff;
     border-radius: 40px;
-}
+} */

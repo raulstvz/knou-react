@@ -128,59 +128,60 @@ return (
         />
       <h2 className="title_editProfile">Edit your profile</h2>
         <div className="currentInfo_container">
-            
-            <div className="nonTouchableInfo_container">
-                <div className="nonTouchableInfo_section">
-                  <p>Your full name is {profile.firstname}  {profile.lastname}</p>
-                  <p>your email is <br></br>{profile.email}</p>
-                  <p>Your age is {profile.age}</p>
-                  <p>Your gender is {profile.gender}</p>
-                  <p>Your sex orientation is <br></br>{profile.orientation}</p>
-                </div>
+            <div className="nonTouchableInfo_section">
+               <p className="unchangeable_section">Your full name is {profile.firstname}  {profile.lastname}</p>
+               <p className="unchangeable_section">your email is <br></br>{profile.email}</p>
+               <p className="unchangeable_section">Your age is {profile.age}</p>
+               <p className="unchangeable_section">Your gender is {profile.gender}</p>
+               <p className="unchangeable_section">Your sex orientation is <br></br>{profile.orientation}</p>
+               <div className="age_section">
+                   <p className="ageRange_title">Your age range interest is:</p>
+                   <div className="ageRange_container">
+                       <p>{profile.age_range[0]}</p>
+                       <p>{profile.age_range[1]}</p>
+                   </div>
+              </div>
+              <div className="hobbies_section">
+                          <p>Your hobbies are:</p>
+                          <div className="tag_profile_container">
+                              <div className="tag__container__created">
+                                    <p>{profile.hobbies[0]}</p>
+                                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                              </div>
+                                <div className="tag__container__created">
+                                        <p>{profile.hobbies[1]}</p>
+                                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                                </div>
+                                <div className="tag__container__created">
+                                        <p>{user.hobbies[2]}</p>
+                                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                                </div>
+                                <div className="tag__container__created">
+                                        <p>{user.hobbies[3]}</p>
+                                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                                </div>
+                                <div className="tag__container__created">
+                                        <p>{user.hobbies[4]}</p>
+                                        <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                                </div>
+                            </div>
+                        </div>
+                        <div  className="description_section"><p>Description <br></br>{user.description}</p></div>
 
+        </div>
+                        {/*  */}
+                    
+            <div className="touchableInfo_container">
+              <div className="touchableInfo_section">
                 <div className="profilePicture__container">
                   <img src={photoBuffer[0]} className="profilePicture"  onClick={()=>setModalVisible(true)} />
                 </div>
                 <Modal handleClose={handleModalClose}
-          visible={modalVisible}
-          children={<div>hola</div>}>
-</Modal>
-            </div>
-            <div className="touchableInfo_container">
-              <div className="touchableInfo_section">
-                  <p>Your age range interest is:</p>
-                    <div className="currentTouchableAgeRange_container">
-                      <p>{profile.age_range[0]}</p>
-                      <p>{profile.age_range[1]}</p>
-                    </div>
-                  
-                  <p>Your hobbies are:
-                  <div className="tag_profile_container">
-                  <div className="tag__container__created">
-                            <p>{profile.hobbies[0]}</p>
-                            <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                    </div>
-                    <div className="tag__container__created">
-                            <p>{profile.hobbies[1]}</p>
-                            <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                    </div>
-                    <div className="tag__container__created">
-                            <p>{user.hobbies[2]}</p>
-                            <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                    </div>
-                    <div className="tag__container__created">
-                            <p>{user.hobbies[3]}</p>
-                            <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                    </div>
-                    <div className="tag__container__created">
-                            <p>{user.hobbies[4]}</p>
-                            <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                    </div>
-                  </div>
-                  </p>
-                  <p>Description <br></br>{user.description}</p>
+                    visible={modalVisible}
+                    children={<div>hola</div>}>
+                </Modal>
                 </div>
-              <div className="newTouchableInfo_container">
+                <div className="newTouchableInfo_container">
                 <div >
                   <p className="newInfoTitle">Update your new profile!</p>
                   
@@ -235,19 +236,21 @@ return (
               console.log(description)}}
             />
                 <p>your last update was {user.updated}</p>
-                </div>
-              </div>   
-            </div>
-            <div className="button_update">
+                <div className="button_update">
               <Button
                 name="Update Info"
                 style="button_dark_small"
                 onClick={updateInfo}
               /></div>
+
+                </div>
+
+              </div>   
+            </div>
         </div> 
 
 
-
+      
 
         <Footer />
     </div>
