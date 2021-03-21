@@ -189,8 +189,8 @@ const UserProfilePage = () => {
 
             <div className="touchableInfo_container">
               <div className="touchableInfo_section">
-                <div className="profilePicture__container">
-                  <img src={photoBuffer[0]} className="profilePicture" onClick={() => setModalVisible(true)} />
+                <div className="profilePicture__container2">
+                  <img src={photoBuffer[0]} className="profilePicture2" onClick={() => setModalVisible(true)} />
                 </div>
 
 
