@@ -141,24 +141,9 @@ const UserProfilePage = () => {
                 <p>Your <b>hobbies</b> are:</p>
                 <div className="tag_profile_container">
                   <div className="tag__container__created">
-                    <p>{profile.hobbies[0]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{profile.hobbies[1]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{user.hobbies[2]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{user.hobbies[3]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{user.hobbies[4]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                  {profile.hobbies.map((hobby) => (
+                  <span><img src={tagIcon} className="tagIconFromModal"></img>{hobby}</span>
+                ))}
                   </div>
                 </div>
               </div>
