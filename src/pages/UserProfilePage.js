@@ -199,7 +199,7 @@ const UserProfilePage = () => {
                   visible={modalVisible}
                   children={
 
-                    <div className="Profile_picture_form">
+                    <div >
                       
                     </div>
                   }>
