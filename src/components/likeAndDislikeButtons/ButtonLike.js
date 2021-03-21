@@ -5,11 +5,10 @@ import { useEffect, useState, useContext } from "react";
 import { MatchContext } from "../../providers/match";
 import { API_ROOT } from "../../utils/hostSettings";
 
-const ButtonLike = ({ possibleMatchId, giveLike }) => {
-  const loggedUser = JSON.parse(localStorage.getItem("user"));
+const ButtonLike = ({ possibleMatchId, giveLike, likeVisible, setLikevisible }) => {
  
-
-
+ 
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
   const { setNewMatch } = useContext(MatchContext); //es match
   const { newMatch } = useContext(MatchContext);
 
@@ -20,6 +19,8 @@ const ButtonLike = ({ possibleMatchId, giveLike }) => {
   };
 
   const handleLike = () => {
+    setLikevisible(likeVisible)
+
     giveLike();
     const options = {
       method: "POST",

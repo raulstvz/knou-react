@@ -78,12 +78,18 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
       <div className="likeAndDislikeButton_container" >
         <div className="dislikeContainer" onClick={() => setDislikeVisible(!dislikeVisible)}>
           <DislikeButton
+            setDislikeVisible={setDislikeVisible}
             giveDislike={giveDislike}
             possibleMatchId={possibleMatch._id}
+            dislikeVisible={dislikeVisible}
           />
         </div>
         <div className="likeContainer" onClick={() => setLikeVisible(!likeVisible)}>
-          <LikeButton giveLike={giveLike} possibleMatchId={possibleMatch._id} />
+          <LikeButton
+            setLikeVisible={setLikeVisible}
+            likevisible={likeVisible}
+            giveLike={giveLike}
+            possibleMatchId={possibleMatch._id} />
         </div>
         <Modal
           handleClose={handleModalClose}
@@ -91,8 +97,6 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
           children={
             <div className="modal__container">
               <CustomCarousel allPhotos={allPhotos} />
-
-
               <p>
                 {possibleMatch.firstname}
                 {" "}
