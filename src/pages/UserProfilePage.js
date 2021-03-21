@@ -128,7 +128,7 @@ const UserProfilePage = () => {
             <div className="nonTouchableInfo_section">
               <p className="unchangeable_section">Your <b>full name</b> is <b>{profile.firstname}  {profile.lastname}</b></p>
               <p className="unchangeable_section">Your <b>email</b> is<b> {profile.email}</b></p>
-              <p className="unchangeable_section">Your <b>age</b>age is <b>{profile.age}</b></p>
+              <p className="unchangeable_section">Your <b>age</b> is <b>{profile.age}</b></p>
               <p className="unchangeable_section">Your <b>gender</b> is <b>{profile.gender}</b></p>
               <p className="unchangeable_section">Your <b>sex orientation</b> is <b>{profile.orientation}</b></p>
               <div className="age_section">
