@@ -111,7 +111,7 @@ const UserProfilePage = () => {
 
   return (
     <>
-      {profile && (
+     {profile &&
         <div className="userProfile__container">
           <Header
             icons={<BoxMenu />}
@@ -126,28 +126,19 @@ const UserProfilePage = () => {
           <h2 className="title_editProfile">Edit your profile</h2>
           <div className="currentInfo_container">
             <div className="nonTouchableInfo_section">
-              <p className="unchangeable_section">
-                Your full name is {profile.firstname} {profile.lastname}
-              </p>
-              <p className="unchangeable_section">
-                your email is {profile.email}
-              </p>
-              <p className="unchangeable_section">Your age is {profile.age}</p>
-              <p className="unchangeable_section">
-                Your gender is {profile.gender}
-              </p>
-              <p className="unchangeable_section">
-                Your sex orientation is {profile.orientation}
-              </p>
+              <p className="unchangeable_section">Your <b>full name</b> is <b>{profile.firstname}  {profile.lastname}</b></p>
+              <p className="unchangeable_section">Your <b>email</b> is<b> {profile.email}</b></p>
+              <p className="unchangeable_section">Your <b>age</b>age is <b>{profile.age}</b></p>
+              <p className="unchangeable_section">Your <b>gender</b> is <b>{profile.gender}</b></p>
+              <p className="unchangeable_section">Your <b>sex orientation</b> is <b>{profile.orientation}</b></p>
               <div className="age_section">
-                <p className="ageRange_title">Your age range interest is:</p>
+                <p className="ageRange_title">Your <b>age range interest</b> is:</p>
                 <div className="ageRange_container">
-                  <p>{profile.age_range[0]}</p>
-                  <p>{profile.age_range[1]}</p>
+                  <span>{profile.age_range[0]}</span>to<span>{profile.age_range[1]}</span>
                 </div>
               </div>
               <div className="hobbies_section">
-                <p>Your hobbies are:</p>
+                <p>Your <b>hobbies</b> are:</p>
                 <div className="tag_profile_container">
                   <div className="tag__container__created">
                     <p>{profile.hobbies[0]}</p>
@@ -171,35 +162,30 @@ const UserProfilePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="description_section">
-                <p>Description:</p>
-                <p>{user.description}</p>
-              </div>
+              <div className="description_section"><span>Description</span><br></br><p> {user.description}</p></div>
             </div>
-
+            {/*  */}
             <div className="touchableInfo_container">
               <div className="touchableInfo_section">
-                <div className="editProfilePicture__container">
-                  <img
-                    src={photoBuffer[0]}
-                    className="editProfilePicture"
-                    onClick={() => setModalVisible(true)}
-                  />
+                <div className="profilePicture__container2">
+                  <img src={photoBuffer[0]} className="profilePicture2" onClick={() => setModalVisible(true)} />
                 </div>
-                <Modal
-                  handleClose={handleModalClose}
+                <Modal handleClose={handleModalClose}
                   visible={modalVisible}
-                  children={<div>hola</div>}
-                ></Modal>
+                  children={
+                    <div >
+                      
+                    </div>
+                  }>
+                </Modal>
               </div>
               <div className="newTouchableInfo_container">
-                <div className="newAgeRange_container">
+                <div >
+                  <p className="newInfoTitle">Update your new profile!</p>
                   <div className="slider__container">
                     <div className="form_slider_age">
                       <div className="value">
-                        <div className="buble_profile">
-                          {formData.ageStart + " years"}
-                        </div>
+                        <div className="buble_profile">{formData.ageStart + " years"}</div>
                       </div>
                       <input
                         type="range"
@@ -208,18 +194,13 @@ const UserProfilePage = () => {
                         value={formData.ageStart}
                         step="1"
                         onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            ageStart: parseInt(e.target.value),
-                          })
+                          setFormData({ ...formData, ageStart: parseInt(e.target.value) })
                         }
                       />
                     </div>
                     <div className="form_slider_age">
                       <div className="value">
-                        <div className="buble_profile">
-                          {formData.ageEnd + " years"}
-                        </div>
+                        <div className="buble_profile">{formData.ageEnd + " years"}</div>
                       </div>
                       <input
                         type="range"
@@ -228,55 +209,42 @@ const UserProfilePage = () => {
                         value={formData.ageEnd}
                         step="1"
                         onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            ageEnd: parseInt(e.target.value),
-                          })
+                          setFormData({ ...formData, ageEnd: parseInt(e.target.value) })
                         }
                       />
                     </div>
                   </div>
-                </div>
-                <div className="newTag_container">
-                  <Tag
-                    tagArray={tagArray}
-                    onKeyPress={handleKeyPress}
-                    placeholder={placeholder}
-                    onClick={handleOnClick}
+                  <div >
+                    <Tag
+                      tagArray={tagArray}
+                      onKeyPress={handleKeyPress}
+                      placeholder={placeholder}
+                      onClick={handleOnClick}
+                    />
+                  </div>
+                  <textarea
+                    className="textarea_container"
+                    placeholder="Your new description..."
+                    rows="7"
+                    onChange={(e) => {
+                      setDescription(e.target.value)
+                      console.log(description)
+                    }}
                   />
+                  {/* <p>your last update was {user.updated}</p> */}
+                  <div className="button_update">
+                    <Button
+                      name="Update Info"
+                      style="button_dark_great"
+                      onClick={updateInfo}
+                    /></div>
                 </div>
-
-                <textarea
-                  className="textarea_container"
-                  placeholder="Your new description..."
-                  rows="8"
-                  onChange={(e) => {
-                    setDescription(e.target.value);
-                    console.log(description);
-                  }}
-                />
-
-              
               </div>
             </div>
-
-          
           </div>
-          <div className="updateInfo_container">
-              <p>your last update was {user.updated}</p>
-                <div className="button_update">
-                  <Button
-                    name="Update Info"
-                    style="button_dark_small"
-                    onClick={updateInfo}
-                  />
-                </div>
-
-          </div>
-
           <Footer />
         </div>
-      )}
+      }
     </>
   );
 };

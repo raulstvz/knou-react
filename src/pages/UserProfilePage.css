@@ -1,4 +1,144 @@
-.userProfile__container {
+.userProfile__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.title_editProfile{
+  color:#8c30f5;
+}
+.currentInfo_container{
+  width: 65%;
+  background-color:#fff;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  align-items: space-around;
+  border-radius: 30px;
+}
+.nonTouchableInfo_section{
+  width: 35%;
+}
+.currentTouchableAgeRange_container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.unchangeable_section{
+  padding: 10px;
+  color: #000;
+  font-size: 20px;
+  /* font-weight: bold; */
+  background-color: #fff;
+  justify-content: center;
+  border-radius: 30px;
+  line-height: 25px;
+}
+.age_section{
+  width:100%;
+  padding: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+.ageRange_container{
+  color: #8C30F5;
+  font-size: 20px;
+  font-weight: bold;
+}
+.ageRange_title b{
+  color:#8c30f5;
+}
+.ageRange_title{
+  color:#000;
+  font-size: 20px;
+}
+.ageRange_container>span{
+  width: 200%;
+  background-color: #DED3FF;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-left: 15px;
+  padding: 15px;
+}
+.hobbies_section{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+.hobbies_section>p{
+color: #000;
+font-size:20px;
+}
+.hobbies_section b{
+  color: #8C30F5;
+}
+.tag_profile_container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.description_section{
+  margin-top: 50px;
+  width: 100%;
+  padding: 10px;
+}
+.description_section span {
+  color: #8C30F5;
+  font-size: 20px;
+  font-weight: bold;
+}
+.description_section p {
+  color: #000;
+  font-size: 15px;
+}
+.unchangeable_section b {
+  color: #9260F5;
+}
+.newInfoTitle {
+  color:  #8C30F5;
+  font-size: 20px;
+  font-weight: bold;
+}
+textarea.textarea_container {
+  margin-top: 30px;
+  padding: 10px;
+  width: 100%;
+  background-color: #EFF0F6;
+  border: #EFF0F6 1px solid;
+  font-family: Manrope;
+  font-size: 18px;
+}
+.button_update{
+  margin-top: 20px;
+}
+
+.profilePicture__container2{
+  cursor:pointer;
+}
+/* .Profile_picture_form{
+  width: 800px;
+  height: 800px;
+
+} */
+
+
+
+
+
+/* .userProfile__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -202,4 +342,4 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
-}
+} */
