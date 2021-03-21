@@ -68,8 +68,9 @@ const LandingPage = () => {
             </div>
             <div className="secondText">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                odio in et, lectus sit lorem id integer.
+              All it matters is to have time to share your profile,
+              to find your match profile and send messages, the rest comes easy...
+
               </p>
             </div>
             <div className="button_landingPage">
@@ -159,11 +160,9 @@ const LandingPage = () => {
               <div className="message">
                 <img src={signal} className="signal" />
                 <p className="comment">
-                  Fue genial....etc....account of the system, and expound the
-                  actual teachings of the great explorer of the truth, the
-                  master-builder of human happiness. No one rejects, dislikes,
-                  or avoids pleasure itself, because it is pleasure, but because
-                  those who do not know.
+                  Tengo que admitir que al principio estaba bastante desconfiada respecto a
+                  este nuevo concepto de socializar, pero realmente he encontrado grandes amistades.
+                  Además tuve alguna que otra cita interesante. 
                 </p>
               </div>
             )}
@@ -174,11 +173,9 @@ const LandingPage = () => {
               <div className="message">
                 <img src={signal} className="signal" />
                 <p className="comment">
-                  Conocí a una persona...etc..account of the system, and expound
-                  the actual teachings of the great explorer of the truth, the
-                  master-builder of human happiness. No one rejects, dislikes,
-                  or avoids pleasure itself, because it is pleasure, but because
-                  those who do not know.
+                Eu conheci uma pessoa, ela tinha as mesmas ambições que eu, acontece que sem pensar
+                  Acabamos tendo encontros esporádicos, aí veio uma viagem e garanto que gostei
+                  deste webApp.
                 </p>
               </div>
             )}
@@ -207,10 +204,9 @@ const LandingPage = () => {
                 <img src={signal} className="signal" />
                 <p className="comment">
                   Perhaps I wouldn't have met anyone without this webApp,
-                  thanks...expound the actual teachings of the great explorer of
-                  the truth, the master-builder of human happiness. No one
-                  rejects, dislikes, or avoids pleasure itself, because it is
-                  pleasure, but because those who do not know.
+                  I mean, nowadays it is quite complicated to approch someone without
+                  having something already in common. Luckily, this webApp allows you
+                  to have exactly that chance. 
                 </p>
               </div>
             )}
@@ -220,11 +216,9 @@ const LandingPage = () => {
               <div className="message">
                 <img src={signal} className="signal" />
                 <p className="comment">
-                  Hola, realmente me convenció esta webApp....expound the actual
-                  teachings of the great explorer of the truth, the
-                  master-builder of human happiness. No one rejects, dislikes,
-                  or avoids pleasure itself, because it is pleasure, but because
-                  those who do not know.
+                Ils m'ont encouragé à essayer cette webApp, mon âge ne se prête vraiment pas à
+                cette façon d'interagir avec les gens, mais je dois admettre que
+                vous donne la possibilité de rencontrer des personnes partageant les mêmes idées sur la vie.
                 </p>
               </div>
             )}

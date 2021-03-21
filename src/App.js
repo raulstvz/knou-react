@@ -11,6 +11,7 @@ import ChatPage from "./pages/ChatPage";
 import ChatBoxPage from "./pages/ChatBoxPage";
 import ChatContext from "./providers/chatInfo";
 import MatchContext from "./providers/match";
+import UserProfilePage from "./pages/UserProfilePage";
 //</MatchContext>     <MatchContext>
 
 
@@ -31,11 +32,15 @@ function App() {
           <Route exact path="/create-account">
             <CreateAccountPage />
           </Route>
+          
 
           <MatchContext>
             <Route exact path="/swipePage">
               <SwipePage />
             </Route>
+            <Route exact path="/userProfile">
+            <UserProfilePage/>
+          </Route>
 
             <ChatContext>
               <Route exact path="/chatPage">

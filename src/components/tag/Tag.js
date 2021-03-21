@@ -3,7 +3,7 @@ import tagIcon from '../../assets/icons/tag.svg'
 import deleteIcon from "../../assets/icons/delete.svg"
 import './Tag.css';
 
-const Tag = ({ tagArray, onKeyPress, onClick }) => {
+const Tag = ({ tagArray, onKeyPress, onClick}) => {
     return (
         <>
             {tagArray.map((tag) => {
