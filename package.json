@@ -24,7 +24,6 @@
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
     "yarn.lock": "^0.0.1-security"
-
   },
   "scripts": {
     "start": "react-scripts start",
