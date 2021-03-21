@@ -2,6 +2,7 @@ import React from "react";
 import "./ButtonDislike.css";
 import decline from "../../assets/swipePage/nonLikeVector.png";
 import { useEffect } from "react";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const ButtonDislike = ({ possibleMatchId, giveDislike }) => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
@@ -21,7 +22,7 @@ const ButtonDislike = ({ possibleMatchId, giveDislike }) => {
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/dislike", options);
+    fetch(`${API_ROOT}/api/dislike`, options);
   };
   return (
     <div className="dislikeButtonFromSwipPage" onClick={handleDislike}>

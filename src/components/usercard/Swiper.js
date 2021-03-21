@@ -2,7 +2,7 @@ import UserCard from "./UserCard";
 import { useEffect, useState, useContext } from "react";
 import { MatchContext } from "../../providers/match";
 import NewMatch from "../newMatch/NewMatch";
-
+import { API_ROOT } from "../../utils/hostSettings";
 const Swiper = () => {
   const [possibleMatches, setPossibleMatches] = useState([]);
   const [current, setCurrent] = useState(0);
@@ -22,8 +22,7 @@ const Swiper = () => {
   console.log(current);
 
   useEffect(() => {
-    fetch(
-      `http://localhost:3001/api/users/${user._id}/candidates` //id del usuario logeado y cambiar la ruta/test
+    fetch( `${API_ROOT}/api/users/${user._id}/candidates` //id del usuario logeado y cambiar la ruta/test
     )
       .then((promise) => {
         if (promise.status === 200) {

@@ -4,6 +4,7 @@ import Button from "../button/Button";
 import Map from "../map/Map";
 import Modal from "../modal/Modal";
 import Stepper from "../stepper/Stepper";
+import { API_ROOT } from "../../utils/hostSettings";
 
 const LocationDetailForm = ({
   totalSteps,
@@ -57,7 +58,7 @@ const LocationDetailForm = ({
       },
       body: JSON.stringify(body),
     };
-    fetch("http://localhost:3001/api/users/" + userId, options);
+    fetch(`${API_ROOT}/api/users/` + userId, options);
     setCurrentStep(currentStep + 1);
   };
 
