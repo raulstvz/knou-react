@@ -111,7 +111,7 @@ const UserProfilePage = () => {
 
   return (
     <>
-     {profile &&
+      {profile &&
         <div className="userProfile__container">
           <Header
             icons={<BoxMenu />}
@@ -140,10 +140,10 @@ const UserProfilePage = () => {
               <div className="hobbies_section">
                 <p>Your <b>hobbies</b> are:</p>
                 <div className="tag_profile_container">
-                  <div className="tag__container__created">
-                  {profile.hobbies.map((hobby) => (
-                  <span><img src={tagIcon} className="tagIconFromModal"></img>{hobby}</span>
-                ))}
+                  <div className="tag__container__createdFromProfilePage">
+                    {profile.hobbies.map((hobby) => (
+                      <span><img src={tagIcon} className="tagIconFromModal"></img>{hobby}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -152,14 +152,14 @@ const UserProfilePage = () => {
             {/*  */}
             <div className="touchableInfo_container">
               <div className="touchableInfo_section">
-                <div className="profilePicture__container2">
-                  <img src={photoBuffer[0]} className="profilePicture2" onClick={() => setModalVisible(true)} />
+                <div className="profilePicture__fromProfilePage">
+                  <img src={photoBuffer[0]} className="profilePictureFromProfilePage" onClick={() => setModalVisible(true)} />
                 </div>
                 <Modal handleClose={handleModalClose}
                   visible={modalVisible}
                   children={
                     <div >
-                      
+
                     </div>
                   }>
                 </Modal>
