@@ -47,7 +47,7 @@ const SignUpForm = () => {
     }
     setErrorStyle(validation);
     if (!Object.values(validation).find(value => value === 'errorVisible')) {
-      fetch(`${API_ROOT}/api/users", options`).then(async () => {
+      fetch(`${API_ROOT}/api/users`, options).then(async () => {
         return await fetch(`${API_ROOT}/api/auth/login`, options)
           .then((response) => response.json())
           .then((json) => {
