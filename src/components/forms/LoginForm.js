@@ -1,18 +1,18 @@
 import "./Forms.css";
 import { useState } from "react";
 import Logo from "../logo/Logo";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import Button from "../button/Button";
-import validateEmail from "../../utils/validateEmail"
+import validateEmail from "../../utils/validateEmail";
 import { API_ROOT } from "../../utils/hostSettings";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const history = useHistory();
   const [errorStyle, setErrorStyle] = useState({
-    'email': 'errorInvisible',
-    'password': 'errorInvisible',
+    email: "errorInvisible",
+    password: "errorInvisible",
   });
   const body = {
     email: email,
@@ -29,10 +29,11 @@ const LoginForm = () => {
     };
 
     const validation = {
-      'email': validateEmail(email) ? 'errorInvisible' : "errorVisible",
-      'password': password.length > 5 ? 'errorInvisible' : "errorVisible"
-    }
+      email: validateEmail(email) ? "errorInvisible" : "errorVisible",
+      password: password.length >= 5 ? "errorInvisible" : "errorVisible",
+    };
     setErrorStyle(validation);
+
     if (!Object.values(validation).find(value => value === 'errorVisible')) {
       fetch(`${API_ROOT}/api/auth/login`, options)
 
@@ -40,7 +41,7 @@ const LoginForm = () => {
         .then((json) => {
           localStorage.setItem("token", json.token);
           localStorage.setItem("user", JSON.stringify(json.user));
-          const profileCompleted = json.user.signup_completed
+          const profileCompleted = json.user.signup_completed;
           if (profileCompleted) {
             history.replace("/swipepage");
           } else {
@@ -51,14 +52,18 @@ const LoginForm = () => {
     }
   };
   const goToSignUp = () => {
-    history.push("/signup")
-  }
+    history.push("/signup");
+  };
   return (
     <form className="sideform__container">
       <div className="sideform__subcontainer">
         <div className="form__logo__button">
           <Logo />
-          <Button name="Sign up" style="button_white_small" onClick={goToSignUp} />
+          <Button
+            name="Sign up"
+            style="button_white_small"
+            onClick={goToSignUp}
+          />
         </div>
         <span className="form__span">WELCOME BACK</span>
         <h2>Login into your account</h2>
@@ -84,10 +89,19 @@ const LoginForm = () => {
             onClick={handleLogin}
           />
         </div>
-        <p className="signupAdnsLogin_form"> Don't have an account?
-        <span
+        <p className="signupAdnsLogin_form">
+          {" "}
+          Don't have an account?
+          <span
             className="colorPurple"
-            onClick={() => { history.push("/signup") }} > Sign up </span></p>
+            onClick={() => {
+              history.push("/signup");
+            }}
+          >
+            {" "}
+            Sign up{" "}
+          </span>
+        </p>
       </div>
     </form>
   );

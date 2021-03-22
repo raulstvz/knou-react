@@ -32,7 +32,7 @@ const BoxMenu = () => {
       </div>
       <div
         className="profile_container"
-        onClick={() => history.push("/profile")}
+        onClick={() => history.push("/userProfile")}
       >
         <img className="icon_container" src={profile} />
         <span className="text">Profile</span>
