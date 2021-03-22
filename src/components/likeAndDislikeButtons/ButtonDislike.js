@@ -4,7 +4,7 @@ import decline from "../../assets/swipePage/nonLikeVector.png";
 import { useEffect } from "react";
 import { API_ROOT } from "../../utils/hostSettings";
 
-const ButtonDislike = ({ possibleMatchId, giveDislike,setLikeVisible,likeVisible }) => {
+const ButtonDislike = ({ possibleMatchId, giveDislike,setDislikeVisible,dislikeVisible}) => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
 
   const body = {
@@ -14,7 +14,7 @@ const ButtonDislike = ({ possibleMatchId, giveDislike,setLikeVisible,likeVisible
   };
 
   const handleDislike = () => {
-    likeVisible();
+    setDislikeVisible(!dislikeVisible);
     giveDislike();
     const options = {
       method: "POST",

@@ -76,7 +76,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
         <p className="profileInfo__distance">17 Kilometers away</p>
       </div>
       <div className="likeAndDislikeButton_container" >
-        <div className="dislikeContainer" onClick={() => setDislikeVisible(!dislikeVisible)}>
+        <div className="dislikeContainer" >
           <DislikeButton
             setDislikeVisible={setDislikeVisible}
             giveDislike={giveDislike}
@@ -84,38 +84,38 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
             dislikeVisible={dislikeVisible}
           />
         </div>
-        <div className="likeContainer" onClick={() => setLikeVisible(!likeVisible)}>
-          <LikeButton
-            setLikeVisible={setLikeVisible}
-            likevisible={likeVisible}
-            giveLike={giveLike}
-            possibleMatchId={possibleMatch._id} />
-        </div>
-        <Modal
-          handleClose={handleModalClose}
-          visible={modalVisible}
-          children={
-            <div className="modal__container">
-              <CustomCarousel allPhotos={allPhotos} />
-              <p>
-                {possibleMatch.firstname}
-                {" "}
-                {possibleMatch.lastname}
-              </p>
-              <p>{possibleMatch.age} years old </p>
-              <div className="tag__container__fromPosibleMatch">
-                {possibleMatch.hobbies.map((hobby) => (
-                  <span><img src={tagIcon} className="tagIconFromModal"></img>{hobby}</span>
-                ))}
-              </div>
-              <p className="descriptionModal">
-                {possibleMatch.description}
-              </p>
-            </div>
-          }>
-        </Modal>
+        <div className="likeContainer" >
+        <LikeButton
+          setLikeVisible={setLikeVisible}
+          likeVisible={likeVisible}
+          giveLike={giveLike}
+          possibleMatchId={possibleMatch._id} />
       </div>
+      <Modal
+        handleClose={handleModalClose}
+        visible={modalVisible}
+        children={
+          <div className="modal__container">
+            <CustomCarousel allPhotos={allPhotos} />
+            <p>
+              {possibleMatch.firstname}
+              {" "}
+              {possibleMatch.lastname}
+            </p>
+            <p>{possibleMatch.age} years old </p>
+            <div className="tag__container__fromPosibleMatch">
+              {possibleMatch.hobbies.map((hobby) => (
+                <span><img src={tagIcon} className="tagIconFromModal"></img>{hobby}</span>
+              ))}
+            </div>
+            <p className="descriptionModal">
+              {possibleMatch.description}
+            </p>
+          </div>
+        }>
+      </Modal>
     </div>
+    </div >
   );
 };
 
