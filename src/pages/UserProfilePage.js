@@ -8,7 +8,7 @@ import Footer from "../components/footer/Footer";
 import Tag from "../components/tag/Tag";
 import tagIcon from "../assets/icons/tag.svg";
 import CustomCarousel from "../components/customCarousel/CustomCarousel"
-
+import {API_ROOT} from "../utils/hostSettings"
 
 const UserProfilePage = () => {
   const [age, setAge] = useState("");
@@ -53,7 +53,7 @@ const UserProfilePage = () => {
       },
       body: JSON.stringify(body),
     };
-    fetch(`http://localhost:3001/api/users/${user._id}`, options)
+    fetch(`${API_ROOT}/api/users/${user._id}`, options)
       .then((response) => {
         if (response.status === 200) {
           return response.json();
@@ -83,7 +83,7 @@ const UserProfilePage = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/users/${user._id}`)
+    fetch(`${API_ROOT}/api/users/${user._id}`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
@@ -94,7 +94,7 @@ const UserProfilePage = () => {
 
   //fetch de photos.
   useEffect(() => {
-    fetch(`http://localhost:3001/api/photo/${user._id}/photos`)
+    fetch(`${API_ROOT}/api/photo/${user._id}/photos`)
       .then((promise) => {
         if (promise.status === 200) {
           return promise.json();
