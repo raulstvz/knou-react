@@ -3,9 +3,7 @@ import { useHistory } from "react-router";
 import "./Forms.css";
 import Logo from "../logo/Logo";
 import Button from "../button/Button";
-
 import validateEmail from "../../utils/validateEmail";
-
 import { API_ROOT } from "../../utils/hostSettings";
 
 
