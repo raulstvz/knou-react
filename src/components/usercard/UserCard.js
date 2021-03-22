@@ -50,9 +50,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
   return (
     <div className="userCard__container" >
       <div className="profilePicture__container">
-
         <img src={photoBuffer[0]} className="profilePicture" onClick={() => setModalVisible(true)} />
-
       </div>
       {likeVisible &&
 
@@ -70,9 +68,7 @@ const UserCardReal = ({ possibleMatch, giveLike, giveDislike }) => {
         <p className="profileInfo__nameAndAge">
           {possibleMatch.firstname}, {possibleMatch.age}
         </p>
-
         <p className="profileInfo__description">{possibleMatch.description}</p>
-
         <p className="profileInfo__distance">17 Kilometers away</p>
       </div>
       <div className="likeAndDislikeButton_container" >

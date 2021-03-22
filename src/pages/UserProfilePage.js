@@ -7,7 +7,8 @@ import React, { useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
 import Tag from "../components/tag/Tag";
 import tagIcon from "../assets/icons/tag.svg";
-import Modal from "../components/modal/Modal";
+import CustomCarousel from "../components/customCarousel/CustomCarousel"
+
 
 const UserProfilePage = () => {
   const [age, setAge] = useState("");
@@ -108,6 +109,17 @@ const UserProfilePage = () => {
     )}`;
     return src;
   });
+  const allPhotos = photo.map((e) => {
+    return (
+      <img
+        src={`data:${e.mimetype};base64,${Buffer.from(e.photo.data).toString(
+          "base64"
+        )}`}
+        className="profilePicture"
+        alt="Photo Carousel"
+      />
+    );
+  });
 
   return (
     <>
@@ -151,23 +163,10 @@ const UserProfilePage = () => {
             </div>
             {/*  */}
             <div className="touchableInfo_container">
-              <div className="touchableInfo_section">
-                <div className="profilePicture__fromProfilePage">
-                  <img src={photoBuffer[0]} className="profilePictureFromProfilePage" onClick={() => setModalVisible(true)} />
-                </div>
-
-
-                <Modal handleClose={handleModalClose}
-                  visible={modalVisible}
-                  children={
-
-                    <div >
-                      
-                    </div>
-                  }>
-                </Modal>
-
-
+              <div>
+                <CustomCarousel
+                  allPhotos={allPhotos}
+                />
               </div>
               <div className="newTouchableInfo_container">
                 <div >
