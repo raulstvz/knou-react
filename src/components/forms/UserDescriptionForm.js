@@ -40,7 +40,7 @@ const UserDescriptionForm = ({
   }, [tagArray]);
 
   useEffect(() => {
-    setErrorStyle({ description: "errorVisible" });
+    setErrorStyle({ description: "errorInvisible" });
   }, [description]);
 
   /* Data to be passed as body in the fetch */
@@ -61,7 +61,7 @@ const UserDescriptionForm = ({
       },
       body: JSON.stringify(body),
     };
-    if (description.length <= 17) {
+    if (description.length <= 14 || description.length >= 250) {
 
       setErrorStyle({ 'description': 'errorVisible' })
     }
@@ -112,7 +112,7 @@ const UserDescriptionForm = ({
           }}
         />
         <span id="textAreaError" className={errorStyle.description}>
-          You should tell more about yourself (15 characters)
+          You should tell more about yourself (15-300 characters)
         </span>
         <p>
           You can add up to 5 interests that we will use to find the best person

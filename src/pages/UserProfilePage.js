@@ -6,17 +6,16 @@ import { useHistory } from "react-router";
 import React, { useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
 import Tag from "../components/tag/Tag";
-import tagIcon from '../assets/icons/tag.svg'
-import Modal from "../components/modal/Modal"
-import PhotoLoader from "../components/photoLoader/PhotoLoader";
+import tagIcon from "../assets/icons/tag.svg";
+import Modal from "../components/modal/Modal";
 
 const UserProfilePage = () => {
-  const [age, setAge] = useState('');
+  const [age, setAge] = useState("");
 
   const [errorStyle, setErrorStyle] = useState({
-    'age': 'errorInvisible',
-    'description': 'errorInvisible',
-    'hobbies': 'errorInvisible'
+    age: "errorInvisible",
+    description: "errorInvisible",
+    hobbies: "errorInvisible",
   });
 
   const history = useHistory();
@@ -24,8 +23,8 @@ const UserProfilePage = () => {
   const [modalVisible, setModalVisible] = useState();
   const handleModalClose = () => setModalVisible(false);
   const [profile, setProfile] = useState();
-  console.log(profile)
-  const [description, setDescription] = useState('')
+  console.log(profile);
+  const [description, setDescription] = useState("");
   const [placeholder, setPlaceHolder] = useState("");
   const [tagArray, setTagArray] = useState([]);
   const [refresh, setRefresh] = useState(false);
@@ -33,7 +32,7 @@ const UserProfilePage = () => {
   const [formData, setFormData] = useState({
     hobbies: undefined,
     ageStart: 25,
-    ageEnd: 35
+    ageEnd: 35,
   });
   const user = JSON.parse(localStorage.getItem("user"));
   console.log(user.lastname); // prueba si funciona
@@ -58,11 +57,10 @@ const UserProfilePage = () => {
         if (response.status === 200) {
           return response.json();
         }
-      }
-      )
+      })
       .then((json) => {
-        localStorage.setItem("user", JSON.stringify(json))
-        setProfile(json)
+        localStorage.setItem("user", JSON.stringify(json));
+        setProfile(json);
       });
   };
 
@@ -83,7 +81,6 @@ const UserProfilePage = () => {
     setTagArray(tagArray.filter((tag) => tag !== tagName));
   };
 
-
   useEffect(() => {
     fetch(`http://localhost:3001/api/users/${user._id}`)
       .then((promise) => {
@@ -93,7 +90,6 @@ const UserProfilePage = () => {
       })
       .then((json) => setProfile(json));
   }, []);
-
 
   //fetch de photos.
   useEffect(() => {
@@ -112,23 +108,7 @@ const UserProfilePage = () => {
     )}`;
     return src;
   });
-  const UpdatePhotos = () => {
-    
-      fetch(`http://localhost:3001/api/photo/${user._id}/photos`)
-        .then((promise) => {
-          if (promise.status === 200) {
-            return promise.json();
-          }
-        })
-        .then((json) => setPhoto(json));
-          const photoBuffer = photo.map((e) => {
-    const src = `data:${e.mimeType};base64,${Buffer.from(e.photo.data).toString(
-      "base64"
-    )}`;
-    return src;
-  });
-    
-  }
+
   return (
     <>
       {profile &&
@@ -148,7 +128,7 @@ const UserProfilePage = () => {
             <div className="nonTouchableInfo_section">
               <p className="unchangeable_section">Your <b>full name</b> is <b>{profile.firstname}  {profile.lastname}</b></p>
               <p className="unchangeable_section">Your <b>email</b> is<b> {profile.email}</b></p>
-              <p className="unchangeable_section">Your <b>age</b>age is <b>{profile.age}</b></p>
+              <p className="unchangeable_section">Your <b>age</b> is <b>{profile.age}</b></p>
               <p className="unchangeable_section">Your <b>gender</b> is <b>{profile.gender}</b></p>
               <p className="unchangeable_section">Your <b>sex orientation</b> is <b>{profile.orientation}</b></p>
               <div className="age_section">
@@ -160,37 +140,20 @@ const UserProfilePage = () => {
               <div className="hobbies_section">
                 <p>Your <b>hobbies</b> are:</p>
                 <div className="tag_profile_container">
-                  <div className="tag__container__created">
-                    <p>{profile.hobbies[0]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{profile.hobbies[1]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{user.hobbies[2]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{user.hobbies[3]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
-                  </div>
-                  <div className="tag__container__created">
-                    <p>{user.hobbies[4]}</p>
-                    <img id="tagIcon" src={tagIcon} alt="tag_icon" />
+                  <div className="tag__container__createdFromProfilePage">
+                    {profile.hobbies.map((hobby) => (
+                      <span><img src={tagIcon} className="tagIconFromModal"></img>{hobby}</span>
+                    ))}
                   </div>
                 </div>
               </div>
               <div className="description_section"><span>Description</span><br></br><p> {user.description}</p></div>
-
             </div>
             {/*  */}
-
             <div className="touchableInfo_container">
               <div className="touchableInfo_section">
-                <div className="profilePicture__container2">
-                  <img src={photoBuffer[0]} className="profilePicture2" onClick={() => setModalVisible(true)} />
+                <div className="profilePicture__fromProfilePage">
+                  <img src={photoBuffer[0]} className="profilePictureFromProfilePage" onClick={() => setModalVisible(true)} />
                 </div>
 
 
@@ -209,7 +172,6 @@ const UserProfilePage = () => {
               <div className="newTouchableInfo_container">
                 <div >
                   <p className="newInfoTitle">Update your new profile!</p>
-
                   <div className="slider__container">
                     <div className="form_slider_age">
                       <div className="value">
@@ -242,7 +204,6 @@ const UserProfilePage = () => {
                       />
                     </div>
                   </div>
-
                   <div >
                     <Tag
                       tagArray={tagArray}
@@ -251,7 +212,6 @@ const UserProfilePage = () => {
                       onClick={handleOnClick}
                     />
                   </div>
-
                   <textarea
                     className="textarea_container"
                     placeholder="Your new description..."
@@ -268,16 +228,10 @@ const UserProfilePage = () => {
                       style="button_dark_great"
                       onClick={updateInfo}
                     /></div>
-
                 </div>
-
               </div>
             </div>
           </div>
-
-
-
-
           <Footer />
         </div>
       }
