@@ -32,6 +32,16 @@
   border-radius: 7%;
 }
 
+.profilePicture__container2 {
+  width: 70%;
+}
+
+.profilePicture2 {
+
+  width: 170px;
+  border-radius: 7%;
+}
+
 .likeAndDislikeButton_container {
   display: flex;
   justify-content: center;
@@ -76,4 +86,49 @@
 .tagIconFromModal{
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.descriptionModal{
+  overflow-wrap: anywhere;
+  width: 100%;
+}
+
+
+.modal__container{
+  width: 85%;
+}
+
+.likeImageInvisible{
+  width: 225px;
+  position: absolute;
+  top: 219px;
+  display: none;
+}
+.likeImageVisible{
+  width: 225px;
+  position: absolute;
+  top: 219px;
+  display: block;
+}
+.likeImageVisible img{
+  width: 100%;
+  height: auto;
+}
+
+.dislikeImageInvisible{
+  position: absolute;
+  top: 219px;
+  display: none;
+}
+.dislikeImageVisible{
+  position: absolute;
+  top: 219px;
+  display: block;
+}
+.dislikeImageVisible img {
+  width: 260px;
+}
+
+.active{
+  display: block !important;
 }

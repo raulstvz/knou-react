@@ -14,15 +14,17 @@ const Swiper = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   console.log(newMatch);
   const giveLike = () => {
-    setCurrent(current === length - 1 ? null : current + 1);
+    setTimeout(() => { setCurrent(current === length - 1 ? null : current + 1); }, 350);
+
   };
   const giveDislike = () => {
-    setCurrent(current === length - 1 ? null : current + 1);
+    setTimeout(() => { setCurrent(current === length - 1 ? null : current + 1); }, 350);
+
   };
   console.log(current);
 
   useEffect(() => {
-    fetch( `${API_ROOT}/api/users/${user._id}/candidates` //id del usuario logeado y cambiar la ruta/test
+    fetch(`${API_ROOT}/api/users/${user._id}/candidates` //id del usuario logeado y cambiar la ruta/test
     )
       .then((promise) => {
         if (promise.status === 200) {

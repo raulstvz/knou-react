@@ -14,7 +14,7 @@ const LocationDetailForm = ({
 }) => {
   /* const [geolocationEnabled, setGeolocationEnabled] = useState(false) */
 
-  const [modalVisibility, setModalVisibility] = useState(false);
+  const [modalVisibility, setModalVisibility] = useState(true);
   const toggleModal = (modalVisibility) => {
     setModalVisibility(!modalVisibility);
   };
@@ -129,7 +129,7 @@ const LocationDetailForm = ({
       <Modal
         visible={modalVisibility}
         handleClose={toggleModal}
-        content={
+        children={
           <div className="modal__content">
             <h1>Location Disabled</h1>
             <h4>

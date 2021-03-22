@@ -155,14 +155,19 @@ const UserProfilePage = () => {
                 <div className="profilePicture__fromProfilePage">
                   <img src={photoBuffer[0]} className="profilePictureFromProfilePage" onClick={() => setModalVisible(true)} />
                 </div>
+
+
                 <Modal handleClose={handleModalClose}
                   visible={modalVisible}
                   children={
-                    <div >
 
+                    <div >
+                      
                     </div>
                   }>
                 </Modal>
+
+
               </div>
               <div className="newTouchableInfo_container">
                 <div >
