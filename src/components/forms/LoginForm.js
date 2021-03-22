@@ -33,8 +33,10 @@ const LoginForm = () => {
       password: password.length >= 5 ? "errorInvisible" : "errorVisible",
     };
     setErrorStyle(validation);
-    if (!Object.values(validation).find((value) => value === "errorVisible")) {
+
+    if (!Object.values(validation).find(value => value === 'errorVisible')) {
       fetch(`${API_ROOT}/api/auth/login`, options)
+
         .then((response) => response.json())
         .then((json) => {
           localStorage.setItem("token", json.token);

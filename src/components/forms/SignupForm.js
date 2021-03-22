@@ -42,18 +42,17 @@ const SignUpForm = () => {
       body: JSON.stringify(body),
     };
 
-
     const validation = {
-      firstname: firstname.length > 0 ? "errorInvisible" : "errorVisible",
-      lastname: lastname.length > 0 ? "errorInvisible" : "errorVisible",
-      email: validateEmail(email) ? "errorInvisible" : "errorVisible",
-      password: password.length > 5 ? "errorInvisible" : "errorVisible",
-    };
+      'firstname': firstname.length > 0 ? 'errorInvisible' : 'errorVisible',
+      'lastname': lastname.length > 0 ? 'errorInvisible' : "errorVisible",
+      'email': validateEmail(email) ? 'errorInvisible' : "errorVisible",
+      'password': password.length > 5 ? 'errorInvisible' : "errorVisible"
+    }
     setErrorStyle(validation);
-    if (!Object.values(validation).find((value) => value === "errorVisible")) {
-      fetch(`${API_ROOT}/api/users`, options).then(async () => {
-        return await fetch(`${API_ROOT}/api/auth/login`, options)
+    if (!Object.values(validation).find(value => value === 'errorVisible')) {
+      fetch(`${API_ROOT}/api/users", options`).then(async () => {
 
+        return await fetch(`${API_ROOT}/api/auth/login`, options)
           .then((response) => response.json())
           .then((json) => {
             localStorage.setItem("token", json.token);
@@ -63,7 +62,9 @@ const SignUpForm = () => {
           });
       });
     }
+
   };
+
 
   const goToLogIn = () => {
     history.push("/login");
@@ -139,5 +140,9 @@ const SignUpForm = () => {
     </form>
   );
 };
-
 export default SignUpForm;
+
+
+
+
+
